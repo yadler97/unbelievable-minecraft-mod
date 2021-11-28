@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "facing=down,powered=false": {
+      "model": "unbelievablemod:block/generator",
+      "x": 90
+    },
+    "facing=up,powered=false": {
+      "model": "unbelievablemod:block/generator",
+      "x": -90
+    },
+    "facing=north,powered=false": {
+      "model": "unbelievablemod:block/generator"
+    },
+    "facing=south,powered=false": {
+      "model": "unbelievablemod:block/generator",
+      "y": 180
+    },
+    "facing=west,powered=false": {
+      "model": "unbelievablemod:block/generator",
+      "y": 270
+    },
+    "facing=east,powered=false": {
+      "model": "unbelievablemod:block/generator",
+      "y": 90
+    },
+    "facing=down,powered=true": {
+      "model": "unbelievablemod:block/generator_powered",
+      "x": 90
+    },
+    "facing=up,powered=true": {
+      "model": "unbelievablemod:block/generator_powered",
+      "x": -90
+    },
+    "facing=north,powered=true": {
+      "model": "unbelievablemod:block/generator_powered"
+    },
+    "facing=south,powered=true": {
+      "model": "unbelievablemod:block/generator_powered",
+      "y": 180
+    },
+    "facing=west,powered=true": {
+      "model": "unbelievablemod:block/generator_powered",
+      "y": 270
+    },
+    "facing=east,powered=true": {
+      "model": "unbelievablemod:block/generator_powered",
+      "y": 90
+    }
+  }
+}

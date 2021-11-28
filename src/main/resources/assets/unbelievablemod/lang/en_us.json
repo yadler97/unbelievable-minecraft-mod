@@ -8,6 +8,12 @@
 
   "item.unbelievablemod.fried_egg": "Fried Egg",
 
+  "block.unbelievablemod.generator": "Power Generator",
+  "block.unbelievablemod.sapphire_block": "Block of Sapphire",
+
   "message.sapphire_distance.tooltip": "Mine with extra distance %s",
-  "message.sapphire_distance.change": "Changed extra distance to %s"
+  "message.sapphire_distance.change": "Changed extra distance to %s",
+
+  "message.generator.tooltip": "The power generator",
+  "screen.unbelievablemod.generator": "Generator Screen"
 }

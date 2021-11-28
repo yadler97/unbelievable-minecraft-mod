@@ -1,5 +1,6 @@
 package com.yannick.unbelievablemod;
 
+import com.yannick.setup.ClientSetup;
 import com.yannick.setup.Registration;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -14,13 +15,14 @@ import org.apache.logging.log4j.Logger;
 public class UnbelievableMod {
     public static final String MODID = "unbelievablemod";
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
 
     public UnbelievableMod() {
         Registration.init();
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::setup);
+        bus.addListener(ClientSetup::setup);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

@@ -4,8 +4,10 @@ import com.yannick.setup.Registration;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Items;
+import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
@@ -68,6 +70,26 @@ public class Recipes extends RecipeProvider {
                 .requires(Items.INK_SAC)
                 .unlockedBy("paper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.PAPER))
                 .save(consumer);
+
+
+        ShapedRecipeBuilder.shaped(Registration.GENERATOR.get())
+                .pattern("iii")
+                .pattern("iCi")
+                .pattern("ccc")
+                .define('i', Tags.Items.INGOTS_IRON)
+                .define('C', Tags.Items.STORAGE_BLOCKS_COAL)
+                .define('c', ItemTags.COALS)
+                .unlockedBy("coals", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COAL))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.SAPPHIRE_BLOCK.get())
+                .pattern("sss")
+                .pattern("sss")
+                .pattern("sss")
+                .define('s', Registration.SAPPHIRE.get())
+                .unlockedBy("sapphire", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.SAPPHIRE.get()))
+                .save(consumer);
+
 
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.EGG), Registration.FRIED_EGG.get(), 0.35F, 200).unlockedBy("egg", has(Items.EGG)).save(consumer);
     }
