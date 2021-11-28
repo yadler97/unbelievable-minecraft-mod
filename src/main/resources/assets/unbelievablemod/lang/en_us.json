@@ -1,0 +1,13 @@
+{
+  "item.unbelievablemod.sapphire": "Sapphire",
+  "item.unbelievablemod.sapphire_pickaxe": "Sapphire Pickaxe",
+  "item.unbelievablemod.sapphire_axe": "Sapphire Axe",
+  "item.unbelievablemod.sapphire_shovel": "Sapphire Shovel",
+  "item.unbelievablemod.sapphire_hoe": "Sapphire Hoe",
+  "item.unbelievablemod.sapphire_sword": "Sapphire Sword",
+
+  "item.unbelievablemod.fried_egg": "Fried Egg",
+
+  "message.sapphire_distance.tooltip": "Mine with extra distance %s",
+  "message.sapphire_distance.change": "Changed extra distance to %s"
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "unbelievablemod:sapphire_hoe"
+    ]
+  },
+  "criteria": {
+    "sapphire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unbelievablemod:sapphire"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "unbelievablemod:sapphire_hoe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sapphire",
+      "has_the_recipe"
+    ]
+  ]
+}
