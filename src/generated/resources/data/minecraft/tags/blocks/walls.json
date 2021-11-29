@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unbelievablemod:generator",
-    "unbelievablemod:sapphire_block",
     "unbelievablemod:quartz_wall"
   ]
 }

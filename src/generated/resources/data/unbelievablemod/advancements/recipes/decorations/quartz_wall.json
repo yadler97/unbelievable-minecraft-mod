@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "unbelievablemod:quartz_wall"
+    ]
+  },
+  "criteria": {
+    "quartz_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:quartz_block"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "unbelievablemod:quartz_wall"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "quartz_block",
+      "has_the_recipe"
+    ]
+  ]
+}

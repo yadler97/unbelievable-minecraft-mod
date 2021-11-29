@@ -41,6 +41,7 @@ public class LootTables extends LootTableProvider {
         Map<ResourceLocation, LootTable> tables = new HashMap<>();
         tables.put(Registration.GENERATOR.get().getLootTable(), createStandardTable("generator", Registration.GENERATOR.get()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(Registration.SAPPHIRE_BLOCK.get().getLootTable(), createStandardTable("sapphire_block", Registration.SAPPHIRE_BLOCK.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(Registration.QUARTZ_WALL.get().getLootTable(), createStandardTable("quartz_wall", Registration.QUARTZ_WALL.get()).setParamSet(LootContextParamSets.BLOCK).build());
         writeTables(cache, tables);
     }
 

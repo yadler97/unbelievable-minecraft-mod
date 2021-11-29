@@ -7,6 +7,7 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
@@ -88,6 +89,14 @@ public class Recipes extends RecipeProvider {
                 .pattern("sss")
                 .define('s', Registration.SAPPHIRE.get())
                 .unlockedBy("sapphire", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.SAPPHIRE.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.QUARTZ_WALL.get())
+                .pattern("   ")
+                .pattern("qqq")
+                .pattern("qqq")
+                .define('q', Blocks.QUARTZ_BLOCK)
+                .unlockedBy("quartz_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.QUARTZ_BLOCK))
                 .save(consumer);
 
 

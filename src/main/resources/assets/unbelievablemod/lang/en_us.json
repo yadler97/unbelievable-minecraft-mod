@@ -10,6 +10,7 @@
 
   "block.unbelievablemod.generator": "Power Generator",
   "block.unbelievablemod.sapphire_block": "Block of Sapphire",
+  "block.unbelievablemod.quartz_wall": "Quartz Wall",
 
   "message.sapphire_distance.tooltip": "Mine with extra distance %s",
   "message.sapphire_distance.change": "Changed extra distance to %s",

@@ -59,5 +59,6 @@ public class Items extends ItemModelProvider {
 
         withExistingParent(Registration.GENERATOR_ITEM.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/generator"));
         withExistingParent(Registration.SAPPHIRE_BLOCK_ITEM.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/sapphire_block"));
+        withExistingParent(Registration.QUARTZ_WALL_ITEM.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/quartz_wall_inventory"));
     }
 }
