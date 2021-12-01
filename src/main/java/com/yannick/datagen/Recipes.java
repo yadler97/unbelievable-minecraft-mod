@@ -1,9 +1,11 @@
 package com.yannick.datagen;
 
 import com.yannick.setup.Registration;
+import com.yannick.unbelievablemod.UnbelievableMod;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Items;
@@ -100,6 +102,13 @@ public class Recipes extends RecipeProvider {
                 .save(consumer);
 
 
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.EGG), Registration.FRIED_EGG.get(), 0.35F, 200).unlockedBy("egg", has(Items.EGG)).save(consumer);
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.EGG), Registration.FRIED_EGG.get(), 0.35F, 200)
+                .unlockedBy("egg", has(Items.EGG))
+                .save(consumer);
+
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.QUARTZ_BLOCK), Registration.QUARTZ_WALL.get())
+                .unlockedBy("quartz_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.QUARTZ_BLOCK))
+                .save(consumer, new ResourceLocation(UnbelievableMod.MODID, "quartz_wall_stonecutting"));
     }
 }
