@@ -17,5 +17,7 @@
   "message.sapphire_distance.change": "Changed extra distance to %s",
 
   "message.generator.tooltip": "The power generator",
-  "screen.unbelievablemod.generator": "Generator Screen"
+  "screen.unbelievablemod.generator": "Generator Screen",
+
+  "itemGroup.unbelievablemodtab": "Unbelievable Mod"
 }
