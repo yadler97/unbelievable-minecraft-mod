@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "unbelievablemod:generator",
-    "unbelievablemod:sapphire_block"
+    "unbelievablemod:sapphire_block",
+    "unbelievablemod:sapphire_ore"
   ]
 }

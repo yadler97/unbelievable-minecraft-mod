@@ -18,10 +18,12 @@ public class Tags extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(Registration.GENERATOR.get())
                 .add(Registration.SAPPHIRE_BLOCK.get())
+                .add(Registration.SAPPHIRE_ORE.get())
                 .add(Registration.QUARTZ_WALL.get());
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(Registration.GENERATOR.get())
-                .add(Registration.SAPPHIRE_BLOCK.get());
+                .add(Registration.SAPPHIRE_BLOCK.get())
+                .add(Registration.SAPPHIRE_ORE.get());
         tag(BlockTags.WALLS)
                 .add(Registration.QUARTZ_WALL.get());
     }
