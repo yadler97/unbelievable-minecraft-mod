@@ -14,50 +14,23 @@ public class Items extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        singleTexture(
-                Registration.SAPPHIRE.get().getRegistryName().getPath(),
-                new ResourceLocation("item/generated"),
-                "layer0",
-                new ResourceLocation(UnbelievableMod.MODID, "item/sapphire"));
 
-        singleTexture(
-                Registration.SAPPHIRE_PICKAXE.get().getRegistryName().getPath(),
-                new ResourceLocation("item/handheld"),
-                "layer0",
-                new ResourceLocation(UnbelievableMod.MODID, "item/sapphire_pickaxe"));
-
-        singleTexture(
-                Registration.SAPPHIRE_AXE.get().getRegistryName().getPath(),
-                new ResourceLocation("item/handheld"),
-                "layer0",
-                new ResourceLocation(UnbelievableMod.MODID, "item/sapphire_axe"));
-
-        singleTexture(
-                Registration.SAPPHIRE_SHOVEL.get().getRegistryName().getPath(),
-                new ResourceLocation("item/handheld"),
-                "layer0",
-                new ResourceLocation(UnbelievableMod.MODID, "item/sapphire_shovel"));
-
-        singleTexture(
-                Registration.SAPPHIRE_HOE.get().getRegistryName().getPath(),
-                new ResourceLocation("item/handheld"),
-                "layer0",
-                new ResourceLocation(UnbelievableMod.MODID, "item/sapphire_hoe"));
-
-        singleTexture(
-                Registration.SAPPHIRE_SWORD.get().getRegistryName().getPath(),
-                new ResourceLocation("item/handheld"),
-                "layer0",
-                new ResourceLocation(UnbelievableMod.MODID, "item/sapphire_sword"));
-
-        singleTexture(
-                Registration.FRIED_EGG.get().getRegistryName().getPath(),
-                new ResourceLocation("item/generated"),
-                "layer0",
-                new ResourceLocation(UnbelievableMod.MODID, "item/fried_egg"));
+        // Items
+        singleTexture(Registration.RUBY.get().getRegistryName().getPath(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/ruby"));
+        singleTexture(Registration.SAPPHIRE.get().getRegistryName().getPath(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/sapphire"));
+        singleTexture(Registration.SAPPHIRE_PICKAXE.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/sapphire_pickaxe"));
+        singleTexture(Registration.SAPPHIRE_AXE.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/sapphire_axe"));
+        singleTexture(Registration.SAPPHIRE_SHOVEL.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/sapphire_shovel"));
+        singleTexture(Registration.SAPPHIRE_HOE.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/sapphire_hoe"));
+        singleTexture(Registration.SAPPHIRE_SWORD.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/sapphire_sword"));
+        singleTexture(Registration.FRIED_EGG.get().getRegistryName().getPath(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/fried_egg"));
 
 
+        // BlockItems
         withExistingParent(Registration.GENERATOR.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/generator"));
+        withExistingParent(Registration.RUBY_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/ruby_block"));
+        withExistingParent(Registration.RUBY_ORE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/ruby_ore"));
+        withExistingParent(Registration.DEEPSLATE_RUBY_ORE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/deepslate_ruby_ore"));
         withExistingParent(Registration.SAPPHIRE_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/sapphire_block"));
         withExistingParent(Registration.SAPPHIRE_ORE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/sapphire_ore"));
         withExistingParent(Registration.DEEPSLATE_SAPPHIRE_ORE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/deepslate_sapphire_ore"));

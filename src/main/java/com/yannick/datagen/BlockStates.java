@@ -25,6 +25,9 @@ public class BlockStates extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         registerGeneratorBlock();
+        simpleBlock(Registration.RUBY_BLOCK.get(), models().cubeAll("ruby_block", new ResourceLocation(UnbelievableMod.MODID, "block/ruby_block")));
+        simpleBlock(Registration.RUBY_ORE.get(), models().cubeAll("ruby_ore", new ResourceLocation(UnbelievableMod.MODID, "block/ruby_ore")));
+        simpleBlock(Registration.DEEPSLATE_RUBY_ORE.get(), models().cubeAll("deepslate_ruby_ore", new ResourceLocation(UnbelievableMod.MODID, "block/deepslate_ruby_ore")));
         simpleBlock(Registration.SAPPHIRE_BLOCK.get(), models().cubeAll("sapphire_block", new ResourceLocation(UnbelievableMod.MODID, "block/sapphire_block")));
         simpleBlock(Registration.SAPPHIRE_ORE.get(), models().cubeAll("sapphire_ore", new ResourceLocation(UnbelievableMod.MODID, "block/sapphire_ore")));
         simpleBlock(Registration.DEEPSLATE_SAPPHIRE_ORE.get(), models().cubeAll("deepslate_sapphire_ore", new ResourceLocation(UnbelievableMod.MODID, "block/deepslate_sapphire_ore")));

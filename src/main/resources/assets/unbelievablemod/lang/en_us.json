@@ -1,4 +1,5 @@
 {
+  "item.unbelievablemod.ruby": "Ruby",
   "item.unbelievablemod.sapphire": "Sapphire",
   "item.unbelievablemod.sapphire_pickaxe": "Sapphire Pickaxe",
   "item.unbelievablemod.sapphire_axe": "Sapphire Axe",
@@ -9,6 +10,9 @@
   "item.unbelievablemod.fried_egg": "Fried Egg",
 
   "block.unbelievablemod.generator": "Power Generator",
+  "block.unbelievablemod.ruby_block": "Block of Ruby",
+  "block.unbelievablemod.ruby_ore": "Ruby Ore",
+  "block.unbelievablemod.deepslate_ruby_ore": "Deepslate Ruby Ore",
   "block.unbelievablemod.sapphire_block": "Block of Sapphire",
   "block.unbelievablemod.sapphire_ore": "Sapphire Ore",
   "block.unbelievablemod.deepslate_sapphire_ore": "Deepslate Sapphire Ore",

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "rrr",
+    "rrr",
+    "rrr"
+  ],
+  "key": {
+    "r": {
+      "item": "unbelievablemod:ruby"
+    }
+  },
+  "result": {
+    "item": "unbelievablemod:ruby_block"
+  }
+}

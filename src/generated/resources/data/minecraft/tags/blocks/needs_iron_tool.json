@@ -2,6 +2,9 @@
   "replace": false,
   "values": [
     "unbelievablemod:generator",
+    "unbelievablemod:ruby_block",
+    "unbelievablemod:ruby_ore",
+    "unbelievablemod:deepslate_ruby_ore",
     "unbelievablemod:sapphire_block",
     "unbelievablemod:sapphire_ore",
     "unbelievablemod:deepslate_sapphire_ore"

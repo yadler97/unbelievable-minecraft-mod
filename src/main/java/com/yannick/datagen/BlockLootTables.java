@@ -19,6 +19,14 @@ import net.minecraftforge.fmllegacy.RegistryObject;
 public class BlockLootTables extends BlockLoot {
     @Override
     protected void addTables() {
+        this.add(Registration.RUBY_ORE.get(), (block) -> {
+            return createOreDrop(Registration.RUBY_ORE.get(), Registration.RUBY.get());
+        });
+        this.add(Registration.DEEPSLATE_RUBY_ORE.get(), (block) -> {
+            return createOreDrop(Registration.DEEPSLATE_RUBY_ORE.get(), Registration.RUBY.get());
+        });
+        this.dropSelf(Registration.RUBY_BLOCK.get());
+
         this.add(Registration.SAPPHIRE_ORE.get(), (block) -> {
             return createOreDrop(Registration.SAPPHIRE_ORE.get(), Registration.SAPPHIRE.get());
         });
@@ -26,6 +34,7 @@ public class BlockLootTables extends BlockLoot {
             return createOreDrop(Registration.DEEPSLATE_SAPPHIRE_ORE.get(), Registration.SAPPHIRE.get());
         });
         this.dropSelf(Registration.SAPPHIRE_BLOCK.get());
+
         this.dropSelf(Registration.QUARTZ_WALL.get());
 
         this.add(Registration.GENERATOR.get(), (block) -> {

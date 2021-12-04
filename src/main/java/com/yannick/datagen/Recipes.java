@@ -124,6 +124,19 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("coals", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COAL))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.RUBY_BLOCK.get())
+                .pattern("rrr")
+                .pattern("rrr")
+                .pattern("rrr")
+                .define('r', Registration.RUBY.get())
+                .unlockedBy("ruby", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.RUBY.get()))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(Registration.RUBY.get(), 9)
+                .requires(Registration.RUBY_BLOCK.get())
+                .unlockedBy("ruby_block", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.RUBY_BLOCK.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(Registration.SAPPHIRE_BLOCK.get())
                 .pattern("sss")
                 .pattern("sss")
