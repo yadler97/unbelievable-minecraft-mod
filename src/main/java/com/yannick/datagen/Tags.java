@@ -19,11 +19,13 @@ public class Tags extends BlockTagsProvider {
                 .add(Registration.GENERATOR.get())
                 .add(Registration.SAPPHIRE_BLOCK.get())
                 .add(Registration.SAPPHIRE_ORE.get())
+                .add(Registration.DEEPSLATE_SAPPHIRE_ORE.get())
                 .add(Registration.QUARTZ_WALL.get());
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(Registration.GENERATOR.get())
                 .add(Registration.SAPPHIRE_BLOCK.get())
-                .add(Registration.SAPPHIRE_ORE.get());
+                .add(Registration.SAPPHIRE_ORE.get())
+                .add(Registration.DEEPSLATE_SAPPHIRE_ORE.get());
         tag(BlockTags.WALLS)
                 .add(Registration.QUARTZ_WALL.get());
     }

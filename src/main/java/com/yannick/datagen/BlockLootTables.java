@@ -22,6 +22,9 @@ public class BlockLootTables extends BlockLoot {
         this.add(Registration.SAPPHIRE_ORE.get(), (block) -> {
             return createOreDrop(Registration.SAPPHIRE_ORE.get(), Registration.SAPPHIRE.get());
         });
+        this.add(Registration.DEEPSLATE_SAPPHIRE_ORE.get(), (block) -> {
+            return createOreDrop(Registration.DEEPSLATE_SAPPHIRE_ORE.get(), Registration.SAPPHIRE.get());
+        });
         this.dropSelf(Registration.SAPPHIRE_BLOCK.get());
         this.dropSelf(Registration.QUARTZ_WALL.get());
 

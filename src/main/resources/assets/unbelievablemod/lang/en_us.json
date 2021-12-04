@@ -11,6 +11,7 @@
   "block.unbelievablemod.generator": "Power Generator",
   "block.unbelievablemod.sapphire_block": "Block of Sapphire",
   "block.unbelievablemod.sapphire_ore": "Sapphire Ore",
+  "block.unbelievablemod.deepslate_sapphire_ore": "Deepslate Sapphire Ore",
   "block.unbelievablemod.quartz_wall": "Quartz Wall",
 
   "message.sapphire_distance.tooltip": "Mine with extra distance %s",

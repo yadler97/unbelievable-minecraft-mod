@@ -93,6 +93,11 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("sapphire", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.SAPPHIRE.get()))
                 .save(consumer);
 
+        ShapelessRecipeBuilder.shapeless(Registration.SAPPHIRE.get(), 9)
+                .requires(Registration.SAPPHIRE_BLOCK.get())
+                .unlockedBy("sapphire_block", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.SAPPHIRE_BLOCK.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(Registration.QUARTZ_WALL.get())
                 .pattern("   ")
                 .pattern("qqq")

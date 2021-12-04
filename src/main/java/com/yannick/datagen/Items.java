@@ -6,8 +6,6 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fmllegacy.RegistryObject;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class Items extends ItemModelProvider {
     public Items(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -62,6 +60,7 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.GENERATOR.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/generator"));
         withExistingParent(Registration.SAPPHIRE_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/sapphire_block"));
         withExistingParent(Registration.SAPPHIRE_ORE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/sapphire_ore"));
+        withExistingParent(Registration.DEEPSLATE_SAPPHIRE_ORE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/deepslate_sapphire_ore"));
         withExistingParent(Registration.QUARTZ_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/quartz_wall_inventory"));
     }
 }

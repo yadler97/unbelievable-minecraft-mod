@@ -1,21 +1,16 @@
 package com.yannick.world;
 
-import com.electronwill.nightconfig.core.Config;
 import com.yannick.setup.Registration;
 import com.yannick.unbelievablemod.UnbelievableMod;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
-import net.minecraft.data.worldgen.Features;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.OreFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.placement.NopePlacementDecorator;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -33,11 +28,17 @@ public class OreGeneration {
     public static void registerOres() {
         ConfiguredFeature<?, ?> sapphire_ore = Feature.ORE.configured(new OreConfiguration(List.of(
                 OreConfiguration.target(OreConfiguration.Predicates.STONE_ORE_REPLACEABLES,
-                        Registration.SAPPHIRE_ORE.get().defaultBlockState())), 8))
+                        Registration.SAPPHIRE_ORE.get().defaultBlockState())), 4))
                 .rangeUniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(20))
-                .squared().count(2);
+                .squared().count(1);
+        ConfiguredFeature<?, ?> deepslate_sapphire_ore = Feature.ORE.configured(new OreConfiguration(List.of(
+                        OreConfiguration.target(OreConfiguration.Predicates.DEEPSLATE_ORE_REPLACEABLES,
+                                Registration.DEEPSLATE_SAPPHIRE_ORE.get().defaultBlockState())), 12))
+                .rangeUniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(20))
+                .squared().count(3);
 
         OVERWORLD_ORES.add(register("sapphire_ore", sapphire_ore));
+        OVERWORLD_ORES.add(register("deepslate_sapphire_ore", deepslate_sapphire_ore));
     }
 
     private static <Config extends FeatureConfiguration> ConfiguredFeature<Config, ?> register(String name, ConfiguredFeature<Config, ?> configuredFeature) {
