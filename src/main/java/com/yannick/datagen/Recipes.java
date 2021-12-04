@@ -22,6 +22,8 @@ public class Recipes extends RecipeProvider {
 
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+
+        // Crafting Items
         ShapedRecipeBuilder.shaped(Registration.SAPPHIRE_PICKAXE.get())
                 .pattern("xxx")
                 .pattern(" s ")
@@ -67,6 +69,7 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("sapphire", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.SAPPHIRE.get()))
                 .save(consumer);
 
+        // Existing Items
         ShapelessRecipeBuilder.shapeless(Items.NAME_TAG)
                 .requires(Items.PAPER)
                 .requires(Items.STRING)
@@ -74,7 +77,43 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("paper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.PAPER))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Items.SADDLE)
+                .pattern("LLL")
+                .pattern(" s ")
+                .pattern(" i ")
+                .define('L', Items.LEATHER)
+                .define('s', Items.STRING)
+                .define('i', Tags.Items.INGOTS_IRON)
+                .unlockedBy("iron", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
+                .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Items.IRON_HORSE_ARMOR)
+                .pattern("i i")
+                .pattern("iii")
+                .pattern("i i")
+                .define('i', Tags.Items.INGOTS_IRON)
+                .unlockedBy("iron", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Items.GOLDEN_HORSE_ARMOR)
+                .pattern("g g")
+                .pattern("ggg")
+                .pattern("g g")
+                .define('g', Tags.Items.INGOTS_GOLD)
+                .unlockedBy("gold", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLD_INGOT))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Items.DIAMOND_HORSE_ARMOR)
+                .pattern("d d")
+                .pattern("ddd")
+                .pattern("d d")
+                .define('d', Items.DIAMOND)
+                .unlockedBy("diamond", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
+                .save(consumer);
+
+
+
+        // Crafting Blocks
         ShapedRecipeBuilder.shaped(Registration.GENERATOR.get())
                 .pattern("iii")
                 .pattern("iCi")
@@ -107,13 +146,30 @@ public class Recipes extends RecipeProvider {
                 .save(consumer);
 
 
+
+        // Smelting/Cooking
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.EGG), Registration.FRIED_EGG.get(), 0.35F, 200)
                 .unlockedBy("egg", has(Items.EGG))
+                .save(consumer, Registration.FRIED_EGG.getId());
+
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(Items.EGG), Registration.FRIED_EGG.get(), 0.35F, 100)
+                .unlockedBy("egg", has(Items.EGG))
+                .save(consumer, Registration.FRIED_EGG.getId() + "_from_smoking");
+
+        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(Items.EGG), Registration.FRIED_EGG.get(), 0.35F, 600)
+                .unlockedBy("egg", has(Items.EGG))
+                .save(consumer, Registration.FRIED_EGG.getId() + "_from_campfire_cooking");
+
+        // Existing Items
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.ROTTEN_FLESH), Items.LEATHER, 0.05F, 200)
+                .unlockedBy("rotten_flesh", has(Items.ROTTEN_FLESH))
                 .save(consumer);
 
 
+
+        // Stonecutting
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.QUARTZ_BLOCK), Registration.QUARTZ_WALL.get())
                 .unlockedBy("quartz_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.QUARTZ_BLOCK))
-                .save(consumer, new ResourceLocation(UnbelievableMod.MODID, "quartz_wall_stonecutting"));
+                .save(consumer, Registration.QUARTZ_WALL.getId() + "_stonecutting");
     }
 }
