@@ -22,23 +22,38 @@ import java.util.function.Supplier;
 public class OreGeneration {
 
     public static final List<ConfiguredFeature<?, ?>> OVERWORLD_ORES = new ArrayList<>();
+    public static final List<ConfiguredFeature<?, ?>> JUNGLE_DESERT_ORES = new ArrayList<>();
     public static final List<ConfiguredFeature<?, ?>> NETHER_ORES = new ArrayList<>();
     public static final List<ConfiguredFeature<?, ?>> END_ORES = new ArrayList<>();
 
     public static void registerOres() {
         ConfiguredFeature<?, ?> sapphire_ore = Feature.ORE.configured(new OreConfiguration(List.of(
                 OreConfiguration.target(OreConfiguration.Predicates.STONE_ORE_REPLACEABLES,
-                        Registration.SAPPHIRE_ORE.get().defaultBlockState())), 4))
+                        Registration.SAPPHIRE_ORE.get().defaultBlockState())), 1))
                 .rangeUniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(20))
-                .squared().count(1);
+                .squared().count(2);
         ConfiguredFeature<?, ?> deepslate_sapphire_ore = Feature.ORE.configured(new OreConfiguration(List.of(
                         OreConfiguration.target(OreConfiguration.Predicates.DEEPSLATE_ORE_REPLACEABLES,
-                                Registration.DEEPSLATE_SAPPHIRE_ORE.get().defaultBlockState())), 12))
+                                Registration.DEEPSLATE_SAPPHIRE_ORE.get().defaultBlockState())), 3))
                 .rangeUniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(20))
+                .squared().count(4);
+
+        ConfiguredFeature<?, ?> sapphire_ore_jungle_desert = Feature.ORE.configured(new OreConfiguration(List.of(
+                        OreConfiguration.target(OreConfiguration.Predicates.STONE_ORE_REPLACEABLES,
+                                Registration.SAPPHIRE_ORE.get().defaultBlockState())), 4))
+                .rangeUniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(40))
                 .squared().count(3);
+        ConfiguredFeature<?, ?> deepslate_sapphire_ore_jungle_desert = Feature.ORE.configured(new OreConfiguration(List.of(
+                        OreConfiguration.target(OreConfiguration.Predicates.DEEPSLATE_ORE_REPLACEABLES,
+                                Registration.DEEPSLATE_SAPPHIRE_ORE.get().defaultBlockState())), 12))
+                .rangeUniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(40))
+                .squared().count(6);
+
 
         OVERWORLD_ORES.add(register("sapphire_ore", sapphire_ore));
         OVERWORLD_ORES.add(register("deepslate_sapphire_ore", deepslate_sapphire_ore));
+        JUNGLE_DESERT_ORES.add(register("sapphire_ore_jungle_desert", sapphire_ore_jungle_desert));
+        JUNGLE_DESERT_ORES.add(register("deepslate_sapphire_ore_jungle_desert", deepslate_sapphire_ore_jungle_desert));
     }
 
     private static <Config extends FeatureConfiguration> ConfiguredFeature<Config, ?> register(String name, ConfiguredFeature<Config, ?> configuredFeature) {
@@ -54,6 +69,7 @@ public class OreGeneration {
             switch (event.getCategory()) {
                 case NETHER -> OreGeneration.NETHER_ORES.forEach(ore -> features.add(() -> ore));
                 case THEEND -> OreGeneration.END_ORES.forEach(ore -> features.add(() -> ore));
+                case JUNGLE, DESERT -> OreGeneration.JUNGLE_DESERT_ORES.forEach(ore -> features.add(() -> ore));
                 default -> OreGeneration.OVERWORLD_ORES.forEach(ore -> features.add(() -> ore));
             }
         }
