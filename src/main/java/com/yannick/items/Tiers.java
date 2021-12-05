@@ -2,6 +2,7 @@ package com.yannick.items;
 
 import com.yannick.setup.Registration;
 import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -10,7 +11,11 @@ import java.util.function.Supplier;
 public enum Tiers implements Tier {
     SAPPHIRE(3, 1000, 4.0F, 3.5F, 10, () -> {
         return Ingredient.of(Registration.SAPPHIRE.get());
+    }),
+    COPPER(0, 100, 4.0F, 3.5F, 10, () -> {
+        return Ingredient.of(Items.COPPER_INGOT);
     });
+
 
     private final int level;
     private final int uses;

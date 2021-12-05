@@ -26,9 +26,9 @@ import net.minecraftforge.common.ForgeMod;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class Sapphire_Axe extends AxeItem {
+public class SapphireAxe extends AxeItem {
 
-    public Sapphire_Axe(Item.Properties properties) {
+    public SapphireAxe(Item.Properties properties) {
         super(Tiers.SAPPHIRE, 5.0F, -3.0F, properties);
     }
 

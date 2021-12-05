@@ -69,6 +69,14 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("sapphire", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.SAPPHIRE.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.COPPER_WRENCH.get())
+                .pattern(" c ")
+                .pattern(" cc")
+                .pattern("c  ")
+                .define('c', Items.COPPER_INGOT)
+                .unlockedBy("copper_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
+                .save(consumer);
+
         // Existing Items
         ShapelessRecipeBuilder.shapeless(Items.NAME_TAG)
                 .requires(Items.PAPER)

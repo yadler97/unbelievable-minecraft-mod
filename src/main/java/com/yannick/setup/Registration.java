@@ -45,11 +45,11 @@ public class Registration {
     public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire",
             () -> new Item(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> SAPPHIRE_PICKAXE = ITEMS.register("sapphire_pickaxe",
-            () -> new Sapphire_Pickaxe(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new SapphirePickaxe(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> SAPPHIRE_AXE = ITEMS.register("sapphire_axe",
-            () -> new Sapphire_Axe(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new SapphireAxe(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> SAPPHIRE_SHOVEL = ITEMS.register("sapphire_shovel",
-            () -> new Sapphire_Shovel(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new SapphireShovel(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> SAPPHIRE_HOE = ITEMS.register("sapphire_hoe",
             () -> new HoeItem(Tiers.SAPPHIRE, -3, 0.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> SAPPHIRE_SWORD = ITEMS.register("sapphire_sword",
@@ -57,6 +57,9 @@ public class Registration {
 
     public static final RegistryObject<Item> FRIED_EGG = ITEMS.register("fried_egg",
             () -> new Item(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB).food(Foods.FRIED_EGG)));
+
+    public static final RegistryObject<Item> COPPER_WRENCH = ITEMS.register("copper_wrench",
+            () -> new Wrench(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
 
 
     // Blocks
