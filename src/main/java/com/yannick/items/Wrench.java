@@ -2,6 +2,7 @@ package com.yannick.items;
 
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.tags.BlockTags;
@@ -19,13 +20,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.block.state.properties.*;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 public class Wrench extends TieredItem implements Vanishable {
     public Wrench(Item.Properties properties) {
@@ -58,13 +59,23 @@ public class Wrench extends TieredItem implements Vanishable {
         if (block.getTags().contains(BlockTags.BEDS.getName()) || block.getTags().contains(BlockTags.BUTTONS.getName()) ||
                 block.getTags().contains(BlockTags.FENCE_GATES.getName()) || block.getTags().contains(BlockTags.WALL_SIGNS.getName()) ||
                 block == Blocks.LEVER || block == Blocks.TRIPWIRE_HOOK || block == Blocks.LADDER || block == Blocks.BELL || block == Blocks.WALL_TORCH ||
-                block == Blocks.SOUL_WALL_TORCH || block == Blocks.REDSTONE_WALL_TORCH) {
+                block == Blocks.SOUL_WALL_TORCH || block == Blocks.REDSTONE_WALL_TORCH || block == Blocks.PISTON_HEAD || block == Blocks.MOVING_PISTON) {
             return false;
+        }
+        if (block == Blocks.STICKY_PISTON || block == Blocks.PISTON) {
+            if (Objects.equals(blockState.getValues().get(BlockStateProperties.EXTENDED), true)) {
+                return false;
+            }
+        }
+        if (block == Blocks.CHEST || block == Blocks.TRAPPED_CHEST) {
+            if (!(Objects.equals(blockState.getValues().get(BlockStateProperties.CHEST_TYPE), ChestType.SINGLE))) {
+                return false;
+            }
         }
         StateDefinition<Block, BlockState> stateDefinition = block.getStateDefinition();
         Collection<Property<?>> collection = new ArrayList<>(Collections.emptyList());
         stateDefinition.getProperties().forEach(p -> {
-            if (p instanceof DirectionProperty) {
+            if (p instanceof DirectionProperty || (p instanceof EnumProperty && p.getName().equals("axis"))) {
                 collection.add(p);
             }
         });
