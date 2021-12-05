@@ -2,9 +2,10 @@ package com.yannick.items;
 
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -44,17 +45,20 @@ public class Wrench extends TieredItem implements Vanishable {
     public InteractionResult useOn(UseOnContext context) {
         Player player = context.getPlayer();
         Level level = context.getLevel();
-        if (!level.isClientSide && player != null) {
-            BlockPos blockpos = context.getClickedPos();
-            if (!this.handleInteraction(player, level.getBlockState(blockpos), level, blockpos, true, context.getItemInHand())) {
-                return InteractionResult.FAIL;
+        BlockPos blockPos = context.getClickedPos();
+        if (checkIfActionIsEligible(level.getBlockState(blockPos))) {
+            if (!level.isClientSide && player != null) {
+                handleInteraction(player, level.getBlockState(blockPos), level, blockPos, true, context.getItemInHand());
+            } else if (player != null) {
+                level.playSound(player, blockPos, SoundEvents.ARMOR_STAND_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
             }
+            return InteractionResult.sidedSuccess(level.isClientSide);
         }
 
-        return InteractionResult.sidedSuccess(level.isClientSide);
+        return InteractionResult.FAIL;
     }
 
-    private boolean handleInteraction(Player player, BlockState blockState, LevelAccessor levelAccessor, BlockPos blockPos, boolean isRightClick, ItemStack itemStack) {
+    private boolean checkIfActionIsEligible(BlockState blockState) {
         Block block = blockState.getBlock();
         if (block.getTags().contains(BlockTags.BEDS.getName()) || block.getTags().contains(BlockTags.BUTTONS.getName()) ||
                 block.getTags().contains(BlockTags.FENCE_GATES.getName()) || block.getTags().contains(BlockTags.WALL_SIGNS.getName()) ||
@@ -73,35 +77,42 @@ public class Wrench extends TieredItem implements Vanishable {
             }
         }
         StateDefinition<Block, BlockState> stateDefinition = block.getStateDefinition();
+        Collection<Property<?>> collection = getAllowedProperties(stateDefinition);
+        return !collection.isEmpty();
+    }
+
+    private void handleInteraction(Player player, BlockState blockState, LevelAccessor levelAccessor, BlockPos blockPos, boolean isRightClick, ItemStack itemStack) {
+        Block block = blockState.getBlock();
+        StateDefinition<Block, BlockState> stateDefinition = block.getStateDefinition();
+        Collection<Property<?>> collection = getAllowedProperties(stateDefinition);
+        String s = Registry.BLOCK.getKey(block).toString();
+
+        CompoundTag compoundtag = itemStack.getOrCreateTagElement("WrenchProperty");
+        String s1 = compoundtag.getString(s);
+        Property<?> property = stateDefinition.getProperty(s1);
+        if (isRightClick) {
+            if (property == null) {
+                property = collection.iterator().next();
+            }
+
+            BlockState blockstate = cycleState(blockState, property, player.isSecondaryUseActive());
+            levelAccessor.setBlock(blockPos, blockstate, 18);
+            itemStack.hurtAndBreak(1, player, e -> e.broadcastBreakEvent(player.swingingArm));
+        } else {
+            property = getRelative(collection, property, player.isSecondaryUseActive());
+            String s2 = property.getName();
+            compoundtag.putString(s, s2);
+        }
+    }
+
+    private Collection<Property<?>> getAllowedProperties(StateDefinition<Block, BlockState> stateDefinition) {
         Collection<Property<?>> collection = new ArrayList<>(Collections.emptyList());
         stateDefinition.getProperties().forEach(p -> {
             if (p instanceof DirectionProperty || (p instanceof EnumProperty && p.getName().equals("axis"))) {
                 collection.add(p);
             }
         });
-        String s = Registry.BLOCK.getKey(block).toString();
-        if (collection.isEmpty()) {
-            return false;
-        } else {
-            CompoundTag compoundtag = itemStack.getOrCreateTagElement("WrenchProperty");
-            String s1 = compoundtag.getString(s);
-            Property<?> property = stateDefinition.getProperty(s1);
-            if (isRightClick) {
-                if (property == null) {
-                    property = collection.iterator().next();
-                }
-
-                BlockState blockstate = cycleState(blockState, property, player.isSecondaryUseActive());
-                levelAccessor.setBlock(blockPos, blockstate, 18);
-                itemStack.hurtAndBreak(1, player, e -> e.broadcastBreakEvent(player.swingingArm));
-            } else {
-                property = getRelative(collection, property, player.isSecondaryUseActive());
-                String s2 = property.getName();
-                compoundtag.putString(s, s2);
-            }
-
-            return true;
-        }
+        return collection;
     }
 
     private static <T extends Comparable<T>> BlockState cycleState(BlockState blockState, Property<T> property, boolean isSecondaryUseActive) {
