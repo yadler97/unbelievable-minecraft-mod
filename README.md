@@ -2,6 +2,8 @@
 
 A truly unbelievable Minecraft Mod which adds various things like new ores, tools, food and building blocks.
 
+This mod requires Forge. To install the mod, just move the built jar into the mods folder of your Minecraft installation.
+
 ## Items
 
 ### List
