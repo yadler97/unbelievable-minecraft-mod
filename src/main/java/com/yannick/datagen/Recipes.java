@@ -1,11 +1,9 @@
 package com.yannick.datagen;
 
 import com.yannick.setup.Registration;
-import com.yannick.unbelievablemod.UnbelievableMod;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Items;
@@ -156,6 +154,13 @@ public class Recipes extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(Registration.SAPPHIRE.get(), 9)
                 .requires(Registration.SAPPHIRE_BLOCK.get())
                 .unlockedBy("sapphire_block", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.SAPPHIRE_BLOCK.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.BAMBOO_BLOCK.get())
+                .pattern("bb")
+                .pattern("bb")
+                .define('b', Items.BAMBOO)
+                .unlockedBy("bamboo", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BAMBOO))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(Registration.QUARTZ_WALL.get())

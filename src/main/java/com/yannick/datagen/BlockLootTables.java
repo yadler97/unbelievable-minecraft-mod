@@ -35,6 +35,8 @@ public class BlockLootTables extends BlockLoot {
         });
         this.dropSelf(Registration.SAPPHIRE_BLOCK.get());
 
+        this.dropSelf(Registration.BAMBOO_BLOCK.get());
+
         this.dropSelf(Registration.QUARTZ_WALL.get());
 
         this.add(Registration.GENERATOR.get(), (block) -> {

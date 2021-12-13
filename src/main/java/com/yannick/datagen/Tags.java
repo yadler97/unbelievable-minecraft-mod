@@ -24,6 +24,8 @@ public class Tags extends BlockTagsProvider {
                 .add(Registration.SAPPHIRE_ORE.get())
                 .add(Registration.DEEPSLATE_SAPPHIRE_ORE.get())
                 .add(Registration.QUARTZ_WALL.get());
+        tag(BlockTags.MINEABLE_WITH_AXE)
+                .add(Registration.BAMBOO_BLOCK.get());
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(Registration.GENERATOR.get())
                 .add(Registration.RUBY_BLOCK.get())
