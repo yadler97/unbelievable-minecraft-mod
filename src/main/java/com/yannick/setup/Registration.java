@@ -1,9 +1,6 @@
 package com.yannick.setup;
 
-import com.yannick.blocks.FlammableBlock;
-import com.yannick.blocks.GeneratorBE;
-import com.yannick.blocks.GeneratorBlock;
-import com.yannick.blocks.GeneratorContainer;
+import com.yannick.blocks.*;
 import com.yannick.items.Tiers;
 import com.yannick.unbelievablemod.UnbelievableMod;
 import com.yannick.items.*;
@@ -17,7 +14,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
-import net.minecraftforge.common.extensions.IForgeBlock;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -81,6 +77,10 @@ public class Registration {
 
     public static final RegistryObject<FlammableBlock> BAMBOO_BLOCK = registerBlock("bamboo_block",
             () -> new FlammableBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PLANT).strength(1.5F, 2.0F).sound(SoundType.WOOD), 5 , 20));
+    public static final RegistryObject<FlammableSlabBlock> BAMBOO_BLOCK_SLAB = registerBlock("bamboo_block_slab",
+            () -> new FlammableSlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PLANT).strength(1.5F, 2.0F).sound(SoundType.WOOD), 5 , 20));
+    public static final RegistryObject<FlammableStairBlock> BAMBOO_BLOCK_STAIRS = registerBlock("bamboo_block_stairs",
+            () -> new FlammableStairBlock(() -> BAMBOO_BLOCK.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PLANT).strength(1.5F, 2.0F).sound(SoundType.WOOD), 5 , 20));
 
     public static final RegistryObject<WallBlock> QUARTZ_WALL = registerBlock("quartz_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)));

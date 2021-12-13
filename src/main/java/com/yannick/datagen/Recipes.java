@@ -163,7 +163,21 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("bamboo", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BAMBOO))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(Registration.QUARTZ_WALL.get())
+        ShapedRecipeBuilder.shaped(Registration.BAMBOO_BLOCK_SLAB.get(), 6)
+                .pattern("bbb")
+                .define('b', Registration.BAMBOO_BLOCK.get())
+                .unlockedBy("bamboo_block", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.BAMBOO_BLOCK.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.BAMBOO_BLOCK_STAIRS.get(), 4)
+                .pattern("b  ")
+                .pattern("bb ")
+                .pattern("bbb")
+                .define('b', Registration.BAMBOO_BLOCK.get())
+                .unlockedBy("bamboo_block", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.BAMBOO_BLOCK.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.QUARTZ_WALL.get(), 6)
                 .pattern("   ")
                 .pattern("qqq")
                 .pattern("qqq")

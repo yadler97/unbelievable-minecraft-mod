@@ -44,9 +44,9 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 ### Details
 
 #### Sapphire Ore
-- generates from the button of the world to level 20
+- generates from the button of the world to level 40 in deserts and savannas and to level 20 in other biomes
 - can be found in abundance in deserts and savannas and very rarely in other biomes
 
 #### Ruby Ore
-- generates from the button of the world to level 20
+- generates from the button of the world to level 40 in jungles and to level 20 in other biomes
 - can be found in abundance in jungles and very rarely in other biomes

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "unbelievablemod:block/bamboo_block_slab_top"
+    },
+    "type=bottom": {
+      "model": "unbelievablemod:block/bamboo_block_slab"
+    },
+    "type=double": {
+      "model": "unbelievablemod:block/bamboo_block"
+    }
+  }
+}

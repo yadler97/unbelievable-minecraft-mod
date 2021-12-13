@@ -32,6 +32,8 @@ public class BlockStates extends BlockStateProvider {
         simpleBlock(Registration.SAPPHIRE_ORE.get(), models().cubeAll("sapphire_ore", new ResourceLocation(UnbelievableMod.MODID, "block/sapphire_ore")));
         simpleBlock(Registration.DEEPSLATE_SAPPHIRE_ORE.get(), models().cubeAll("deepslate_sapphire_ore", new ResourceLocation(UnbelievableMod.MODID, "block/deepslate_sapphire_ore")));
         simpleBlock(Registration.BAMBOO_BLOCK.get(), models().cubeAll("bamboo_block", new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block")));
+        slabBlock(Registration.BAMBOO_BLOCK_SLAB.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
+        stairsBlock(Registration.BAMBOO_BLOCK_STAIRS.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
         wallBlock(Registration.QUARTZ_WALL.get(), new ResourceLocation("minecraft", "block/quartz_block_side"));
         models().wallInventory("quartz_wall_inventory", new ResourceLocation("minecraft", "block/quartz_block_side"));
     }
