@@ -1,11 +1,18 @@
 {
   "item.unbelievablemod.ruby": "Ruby",
+
   "item.unbelievablemod.sapphire": "Sapphire",
   "item.unbelievablemod.sapphire_pickaxe": "Sapphire Pickaxe",
   "item.unbelievablemod.sapphire_axe": "Sapphire Axe",
   "item.unbelievablemod.sapphire_shovel": "Sapphire Shovel",
   "item.unbelievablemod.sapphire_hoe": "Sapphire Hoe",
   "item.unbelievablemod.sapphire_sword": "Sapphire Sword",
+
+  "item.unbelievablemod.rosegold_pickaxe": "Rosegold Pickaxe",
+  "item.unbelievablemod.rosegold_axe": "Rosegold Axe",
+  "item.unbelievablemod.rosegold_shovel": "Rosegold Shovel",
+  "item.unbelievablemod.rosegold_hoe": "Rosegold Hoe",
+  "item.unbelievablemod.rosegold_sword": "Rosegold Sword",
 
   "item.unbelievablemod.copper_wrench": "Copper Wrench",
 

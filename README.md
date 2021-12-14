@@ -14,6 +14,11 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - Sapphire Shovel
 - Sapphire Hoe
 - Sapphire Sword
+- Rosegold Pickaxe
+- Rosegold Axe
+- Rosegold Shovel
+- Rosegold Hoe
+- Rosegold Sword
 - Fried Egg
 - Copper Wrench
 
@@ -23,6 +28,10 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - slightly slower and break earlier than diamond tools, but mine four blocks in a row.
 - able to mine all blocks that diamond tools can mine
 - crafted with sticks and sapphires like other tools
+
+#### Rosegold Tools
+- created by combining a golden tool and a copper ingot in a smithing table
+- has twice the durability of gold tools (64 instead of 32)
 
 #### Copper Wrench
 - allows rotating placed blocks
@@ -39,6 +48,9 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - Sapphire Ore
 - Deepslate Sapphire Ore
 - Block of Sapphire
+- Bamboo Block
+- Bamboo Slab
+- Bamboo Stairs
 - Quartz Wall
 
 ### Details

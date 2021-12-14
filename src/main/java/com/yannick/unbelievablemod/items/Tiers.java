@@ -14,6 +14,9 @@ public enum Tiers implements Tier {
     }),
     COPPER(0, 100, 4.0F, 3.5F, 10, () -> {
         return Ingredient.of(Items.COPPER_INGOT);
+    }),
+    ROSEGOLD(0, 64, 12.0F, 0.0F, 22, () -> {
+        return Ingredient.of(Items.COPPER_INGOT);
     });
 
 

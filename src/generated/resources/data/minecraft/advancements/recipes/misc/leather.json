@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "rotten_flesh": {
+    "has_rotten_flesh": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "rotten_flesh",
+      "has_rotten_flesh",
       "has_the_recipe"
     ]
   ]

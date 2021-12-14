@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "bamboo": {
+    "has_bamboo": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "bamboo",
+      "has_bamboo",
       "has_the_recipe"
     ]
   ]

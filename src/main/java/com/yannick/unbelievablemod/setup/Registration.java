@@ -40,6 +40,7 @@ public class Registration {
     // Items
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",
             () -> new Item(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+
     public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire",
             () -> new Item(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> SAPPHIRE_PICKAXE = ITEMS.register("sapphire_pickaxe",
@@ -52,6 +53,17 @@ public class Registration {
             () -> new HoeItem(com.yannick.unbelievablemod.items.Tiers.SAPPHIRE, -3, 0.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> SAPPHIRE_SWORD = ITEMS.register("sapphire_sword",
             () -> new SwordItem(Tiers.SAPPHIRE, 3, -2.4F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+
+    public static final RegistryObject<Item> ROSEGOLD_PICKAXE = ITEMS.register("rosegold_pickaxe",
+            () -> new PickaxeItem(Tiers.ROSEGOLD, 1, -2.8F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+    public static final RegistryObject<Item> ROSEGOLD_AXE = ITEMS.register("rosegold_axe",
+            () -> new AxeItem(Tiers.ROSEGOLD, 6.0F, -3.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+    public static final RegistryObject<Item> ROSEGOLD_SHOVEL = ITEMS.register("rosegold_shovel",
+            () -> new ShovelItem(Tiers.ROSEGOLD, 1.5F, -3.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+    public static final RegistryObject<Item> ROSEGOLD_HOE = ITEMS.register("rosegold_hoe",
+            () -> new HoeItem(Tiers.ROSEGOLD, 0, -3.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+    public static final RegistryObject<Item> ROSEGOLD_SWORD = ITEMS.register("rosegold_sword",
+            () -> new SwordItem(Tiers.ROSEGOLD, 3, -2.4F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
 
     public static final RegistryObject<Item> FRIED_EGG = ITEMS.register("fried_egg",
             () -> new Item(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB).food(Foods.FRIED_EGG)));

@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "unbelievablemod:fried_egg_from_smoking"
+      "unbelievablemod:rosegold_hoe_smithing"
     ]
   },
   "criteria": {
-    "has_egg": {
+    "has_copper_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:egg"
+              "minecraft:copper_ingot"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "unbelievablemod:fried_egg_from_smoking"
+        "recipe": "unbelievablemod:rosegold_hoe_smithing"
       }
     }
   },
   "requirements": [
     [
-      "has_egg",
+      "has_copper_ingot",
       "has_the_recipe"
     ]
   ]

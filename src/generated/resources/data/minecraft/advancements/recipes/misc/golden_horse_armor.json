@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "gold": {
+    "has_gold": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "gold",
+      "has_gold",
       "has_the_recipe"
     ]
   ]
