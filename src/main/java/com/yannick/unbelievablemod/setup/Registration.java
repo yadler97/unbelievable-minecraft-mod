@@ -1,9 +1,9 @@
-package com.yannick.setup;
+package com.yannick.unbelievablemod.setup;
 
-import com.yannick.blocks.*;
-import com.yannick.items.Tiers;
+import com.yannick.unbelievablemod.blocks.*;
+import com.yannick.unbelievablemod.items.*;
 import com.yannick.unbelievablemod.UnbelievableMod;
-import com.yannick.items.*;
+import com.yannick.unbelievablemod.items.Tiers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.inventory.MenuType;
@@ -49,7 +49,7 @@ public class Registration {
     public static final RegistryObject<Item> SAPPHIRE_SHOVEL = ITEMS.register("sapphire_shovel",
             () -> new SapphireShovel(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> SAPPHIRE_HOE = ITEMS.register("sapphire_hoe",
-            () -> new HoeItem(Tiers.SAPPHIRE, -3, 0.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new HoeItem(com.yannick.unbelievablemod.items.Tiers.SAPPHIRE, -3, 0.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> SAPPHIRE_SWORD = ITEMS.register("sapphire_sword",
             () -> new SwordItem(Tiers.SAPPHIRE, 3, -2.4F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
 

@@ -1,4 +1,4 @@
-package com.yannick.items;
+package com.yannick.unbelievablemod.items;
 
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;

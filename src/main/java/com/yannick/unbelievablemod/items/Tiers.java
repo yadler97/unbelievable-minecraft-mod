@@ -1,6 +1,6 @@
-package com.yannick.items;
+package com.yannick.unbelievablemod.items;
 
-import com.yannick.setup.Registration;
+import com.yannick.unbelievablemod.setup.Registration;
 import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;

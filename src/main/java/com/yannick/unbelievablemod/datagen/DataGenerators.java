@@ -1,4 +1,4 @@
-package com.yannick.datagen;
+package com.yannick.unbelievablemod.datagen;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

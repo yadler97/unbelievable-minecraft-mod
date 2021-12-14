@@ -1,6 +1,6 @@
-package com.yannick.datagen;
+package com.yannick.unbelievablemod.datagen;
 
-import com.yannick.setup.Registration;
+import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.UnbelievableMod;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;

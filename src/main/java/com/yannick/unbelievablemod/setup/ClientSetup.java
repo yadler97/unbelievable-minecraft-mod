@@ -1,7 +1,7 @@
-package com.yannick.setup;
+package com.yannick.unbelievablemod.setup;
 
-import com.yannick.blocks.GeneratorScreen;
-import com.yannick.world.OreGeneration;
+import com.yannick.unbelievablemod.blocks.GeneratorScreen;
+import com.yannick.unbelievablemod.world.OreGeneration;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;

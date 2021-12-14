@@ -1,4 +1,4 @@
-package com.yannick.blocks;
+package com.yannick.unbelievablemod.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;

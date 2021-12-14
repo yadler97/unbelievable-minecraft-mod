@@ -1,4 +1,4 @@
-package com.yannick.setup;
+package com.yannick.unbelievablemod.setup;
 
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;

@@ -1,4 +1,4 @@
-package com.yannick.blocks;
+package com.yannick.unbelievablemod.blocks;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;

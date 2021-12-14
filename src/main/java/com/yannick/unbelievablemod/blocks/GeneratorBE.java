@@ -1,7 +1,7 @@
-package com.yannick.blocks;
+package com.yannick.unbelievablemod.blocks;
 
-import com.yannick.setup.Registration;
-import com.yannick.tools.CustomEnergyStorage;
+import com.yannick.unbelievablemod.setup.Registration;
+import com.yannick.unbelievablemod.tools.CustomEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

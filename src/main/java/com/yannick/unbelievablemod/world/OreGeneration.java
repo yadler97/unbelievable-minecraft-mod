@@ -1,6 +1,6 @@
-package com.yannick.world;
+package com.yannick.unbelievablemod.world;
 
-import com.yannick.setup.Registration;
+import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.UnbelievableMod;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;

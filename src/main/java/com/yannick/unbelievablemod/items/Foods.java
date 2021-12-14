@@ -1,4 +1,4 @@
-package com.yannick.items;
+package com.yannick.unbelievablemod.items;
 
 import net.minecraft.world.food.FoodProperties;
 

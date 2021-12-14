@@ -1,4 +1,4 @@
-package com.yannick.datagen;
+package com.yannick.unbelievablemod.datagen;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;

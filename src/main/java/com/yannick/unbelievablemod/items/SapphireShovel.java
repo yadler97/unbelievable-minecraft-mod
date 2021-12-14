@@ -1,4 +1,4 @@
-package com.yannick.items;
+package com.yannick.unbelievablemod.items;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
@@ -11,7 +11,9 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,10 +25,10 @@ import net.minecraftforge.common.ForgeMod;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class SapphirePickaxe extends PickaxeItem {
+public class SapphireShovel extends ShovelItem {
 
-    public SapphirePickaxe(Properties properties) {
-        super(Tiers.SAPPHIRE, 1, -2.8F, properties);
+    public SapphireShovel(Properties properties) {
+        super(Tiers.SAPPHIRE, 1.5F, -3.0F, properties);
     }
 
     @Override
