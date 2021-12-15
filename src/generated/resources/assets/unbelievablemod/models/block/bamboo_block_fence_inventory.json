@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_inventory",
+  "textures": {
+    "texture": "unbelievablemod:block/bamboo_block"
+  }
+}

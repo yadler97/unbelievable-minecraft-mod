@@ -3,6 +3,8 @@
   "values": [
     "unbelievablemod:bamboo_block",
     "unbelievablemod:bamboo_block_slab",
-    "unbelievablemod:bamboo_block_stairs"
+    "unbelievablemod:bamboo_block_stairs",
+    "unbelievablemod:bamboo_block_fence",
+    "unbelievablemod:bamboo_block_fence_gate"
   ]
 }

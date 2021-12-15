@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bBb",
+    "bBb"
+  ],
+  "key": {
+    "b": {
+      "item": "minecraft:bamboo"
+    },
+    "B": {
+      "item": "unbelievablemod:bamboo_block"
+    }
+  },
+  "result": {
+    "item": "unbelievablemod:bamboo_block_fence_gate"
+  }
+}

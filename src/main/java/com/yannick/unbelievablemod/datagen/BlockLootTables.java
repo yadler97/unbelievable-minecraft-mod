@@ -27,6 +27,7 @@ public class BlockLootTables extends BlockLoot {
         });
         this.dropSelf(Registration.RUBY_BLOCK.get());
 
+
         this.add(Registration.SAPPHIRE_ORE.get(), (block) -> {
             return createOreDrop(Registration.SAPPHIRE_ORE.get(), Registration.SAPPHIRE.get());
         });
@@ -35,13 +36,14 @@ public class BlockLootTables extends BlockLoot {
         });
         this.dropSelf(Registration.SAPPHIRE_BLOCK.get());
 
-        this.dropSelf(Registration.BAMBOO_BLOCK.get());
 
+        this.dropSelf(Registration.BAMBOO_BLOCK.get());
         this.add(Registration.BAMBOO_BLOCK_SLAB.get(), (block) -> {
             return createSlabItemTable(Registration.BAMBOO_BLOCK_SLAB.get());
         });
-
         this.dropSelf(Registration.BAMBOO_BLOCK_STAIRS.get());
+        this.dropSelf(Registration.BAMBOO_BLOCK_FENCE.get());
+        this.dropSelf(Registration.BAMBOO_BLOCK_FENCE_GATE.get());
 
         this.dropSelf(Registration.QUARTZ_WALL.get());
 

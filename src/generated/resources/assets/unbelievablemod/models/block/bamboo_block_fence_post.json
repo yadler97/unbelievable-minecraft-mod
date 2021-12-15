@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "unbelievablemod:block/bamboo_block"
+  }
+}

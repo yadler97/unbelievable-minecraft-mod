@@ -27,7 +27,9 @@ public class Tags extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(Registration.BAMBOO_BLOCK.get())
                 .add(Registration.BAMBOO_BLOCK_SLAB.get())
-                .add(Registration.BAMBOO_BLOCK_STAIRS.get());
+                .add(Registration.BAMBOO_BLOCK_STAIRS.get())
+                .add(Registration.BAMBOO_BLOCK_FENCE.get())
+                .add(Registration.BAMBOO_BLOCK_FENCE_GATE.get());
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(Registration.GENERATOR.get())
                 .add(Registration.RUBY_BLOCK.get())
@@ -46,6 +48,12 @@ public class Tags extends BlockTagsProvider {
                 .add(Registration.BAMBOO_BLOCK_STAIRS.get());
         tag(BlockTags.WOODEN_STAIRS)
                 .add(Registration.BAMBOO_BLOCK_STAIRS.get());
+        tag(BlockTags.FENCES)
+                .add(Registration.BAMBOO_BLOCK_FENCE.get());
+        tag(BlockTags.WOODEN_FENCES)
+                .add(Registration.BAMBOO_BLOCK_FENCE.get());
+        tag(BlockTags.FENCE_GATES)
+                .add(Registration.BAMBOO_BLOCK_FENCE_GATE.get());
     }
 
     @Override
