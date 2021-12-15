@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bb",
+    "bb",
+    "bb"
+  ],
+  "key": {
+    "b": {
+      "item": "unbelievablemod:bamboo_block"
+    }
+  },
+  "result": {
+    "item": "unbelievablemod:bamboo_door_item",
+    "count": 3
+  }
+}

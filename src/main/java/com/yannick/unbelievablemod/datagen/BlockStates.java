@@ -40,6 +40,8 @@ public class BlockStates extends BlockStateProvider {
         fenceBlock(Registration.BAMBOO_BLOCK_FENCE.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
         models().fenceInventory("bamboo_block_fence_inventory", new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
         fenceGateBlock(Registration.BAMBOO_BLOCK_FENCE_GATE.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
+        doorBlock(Registration.BAMBOO_DOOR.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_door_bottom"), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_door_top"));
+        trapdoorBlock(Registration.BAMBOO_TRAPDOOR.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_trapdoor"), true);
 
         wallBlock(Registration.QUARTZ_WALL.get(), new ResourceLocation("minecraft", "block/quartz_block_side"));
         models().wallInventory("quartz_wall_inventory", new ResourceLocation("minecraft", "block/quartz_block_side"));

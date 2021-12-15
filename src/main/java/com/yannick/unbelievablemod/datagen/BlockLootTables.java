@@ -44,6 +44,11 @@ public class BlockLootTables extends BlockLoot {
         this.dropSelf(Registration.BAMBOO_BLOCK_STAIRS.get());
         this.dropSelf(Registration.BAMBOO_BLOCK_FENCE.get());
         this.dropSelf(Registration.BAMBOO_BLOCK_FENCE_GATE.get());
+        this.add(Registration.BAMBOO_DOOR.get(), (block -> {
+            return createDoorTable(Registration.BAMBOO_DOOR.get());
+        }));
+        this.dropSelf(Registration.BAMBOO_TRAPDOOR.get());
+
 
         this.dropSelf(Registration.QUARTZ_WALL.get());
 

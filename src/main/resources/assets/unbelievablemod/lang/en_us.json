@@ -18,6 +18,8 @@
 
   "item.unbelievablemod.fried_egg": "Fried Egg",
 
+
+
   "block.unbelievablemod.generator": "Power Generator",
   "block.unbelievablemod.ruby_block": "Block of Ruby",
   "block.unbelievablemod.ruby_ore": "Ruby Ore",
@@ -31,8 +33,12 @@
   "block.unbelievablemod.bamboo_block_stairs": "Bamboo Stairs",
   "block.unbelievablemod.bamboo_block_fence": "Bamboo Fence",
   "block.unbelievablemod.bamboo_block_fence_gate": "Bamboo Fence Gate",
+  "block.unbelievablemod.bamboo_door": "Bamboo Door",
+  "block.unbelievablemod.bamboo_trapdoor": "Bamboo Trapdoor",
 
   "block.unbelievablemod.quartz_wall": "Quartz Wall",
+
+
 
   "message.sapphire_distance.tooltip": "Mine with extra distance %s",
   "message.sapphire_distance.change": "Changed extra distance to %s",

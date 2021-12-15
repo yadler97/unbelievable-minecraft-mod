@@ -6,12 +6,15 @@ import com.yannick.unbelievablemod.UnbelievableMod;
 import com.yannick.unbelievablemod.items.Tiers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.common.extensions.IForgeContainerType;
@@ -71,6 +74,9 @@ public class Registration {
     public static final RegistryObject<Item> COPPER_WRENCH = ITEMS.register("copper_wrench",
             () -> new Wrench(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
 
+    public static final RegistryObject<Item> BAMBOO_DOOR_ITEM = ITEMS.register("bamboo_door_item",
+            () -> new DoubleHighBlockItem(Registration.BAMBOO_DOOR.get(), (new Item.Properties()).tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+
 
     // Blocks
     public static final RegistryObject<Block> RUBY_BLOCK = registerBlock("ruby_block",
@@ -97,6 +103,10 @@ public class Registration {
             () -> new FlammableFenceBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PLANT).strength(1.5F, 2.0F).sound(SoundType.WOOD), 5 , 20), true);
     public static final RegistryObject<FlammableFenceGateBlock> BAMBOO_BLOCK_FENCE_GATE = registerBlock("bamboo_block_fence_gate",
             () -> new FlammableFenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PLANT).strength(1.5F, 2.0F).sound(SoundType.WOOD), 5 , 20), true);
+    public static final RegistryObject<DoorBlock> BAMBOO_DOOR = BLOCKS.register("bamboo_door",
+            () -> new DoorBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PLANT).strength(1.5F, 2.0F).sound(SoundType.WOOD).noOcclusion()));
+    public static final RegistryObject<TrapDoorBlock> BAMBOO_TRAPDOOR = registerBlock("bamboo_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PLANT).strength(1.5F, 2.0F).sound(SoundType.WOOD).noOcclusion().isValidSpawn(Registration::never)), true);
 
     public static final RegistryObject<WallBlock> QUARTZ_WALL = registerBlock("quartz_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)), false);
@@ -126,5 +136,9 @@ public class Registration {
                     new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
         }
 
+    }
+
+    private static Boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, EntityType<?> entityType) {
+        return false;
     }
 }

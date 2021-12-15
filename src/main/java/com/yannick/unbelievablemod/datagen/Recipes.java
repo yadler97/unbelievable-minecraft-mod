@@ -7,7 +7,6 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.SimpleRecipeSerializer;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
@@ -192,6 +191,21 @@ public class Recipes extends RecipeProvider {
                 .pattern("bBb")
                 .define('b', Items.BAMBOO)
                 .define('B', Registration.BAMBOO_BLOCK.get())
+                .unlockedBy("has_bamboo_block", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.BAMBOO_BLOCK.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.BAMBOO_DOOR.get(), 3)
+                .pattern("bb")
+                .pattern("bb")
+                .pattern("bb")
+                .define('b', Registration.BAMBOO_BLOCK.get())
+                .unlockedBy("has_bamboo_block", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.BAMBOO_BLOCK.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.BAMBOO_TRAPDOOR.get(), 2)
+                .pattern("bbb")
+                .pattern("bbb")
+                .define('b', Registration.BAMBOO_BLOCK.get())
                 .unlockedBy("has_bamboo_block", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.BAMBOO_BLOCK.get()))
                 .save(consumer);
 

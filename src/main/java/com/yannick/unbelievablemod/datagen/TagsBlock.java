@@ -29,7 +29,9 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.BAMBOO_BLOCK_SLAB.get())
                 .add(Registration.BAMBOO_BLOCK_STAIRS.get())
                 .add(Registration.BAMBOO_BLOCK_FENCE.get())
-                .add(Registration.BAMBOO_BLOCK_FENCE_GATE.get());
+                .add(Registration.BAMBOO_BLOCK_FENCE_GATE.get())
+                .add(Registration.BAMBOO_DOOR.get())
+                .add(Registration.BAMBOO_TRAPDOOR.get());
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(Registration.GENERATOR.get())
                 .add(Registration.RUBY_BLOCK.get())
@@ -54,6 +56,14 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.BAMBOO_BLOCK_FENCE.get());
         tag(BlockTags.FENCE_GATES)
                 .add(Registration.BAMBOO_BLOCK_FENCE_GATE.get());
+        tag(BlockTags.DOORS)
+                .add(Registration.BAMBOO_DOOR.get());
+        tag(BlockTags.WOODEN_DOORS)
+                .add(Registration.BAMBOO_DOOR.get());
+        tag(BlockTags.TRAPDOORS)
+                .add(Registration.BAMBOO_TRAPDOOR.get());
+        tag(BlockTags.WOODEN_TRAPDOORS)
+                .add(Registration.BAMBOO_TRAPDOOR.get());
         tag(BlockTags.BEACON_BASE_BLOCKS)
                 .add(Registration.RUBY_BLOCK.get())
                 .add(Registration.SAPPHIRE_BLOCK.get());
