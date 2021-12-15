@@ -7,9 +7,9 @@ import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-public class Tags extends BlockTagsProvider {
+public class TagsBlock extends BlockTagsProvider {
 
-    public Tags(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+    public TagsBlock(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, UnbelievableMod.MODID, existingFileHelper);
     }
 
@@ -54,6 +54,9 @@ public class Tags extends BlockTagsProvider {
                 .add(Registration.BAMBOO_BLOCK_FENCE.get());
         tag(BlockTags.FENCE_GATES)
                 .add(Registration.BAMBOO_BLOCK_FENCE_GATE.get());
+        tag(BlockTags.BEACON_BASE_BLOCKS)
+                .add(Registration.RUBY_BLOCK.get())
+                .add(Registration.SAPPHIRE_BLOCK.get());
     }
 
     @Override
