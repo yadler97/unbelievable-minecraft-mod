@@ -75,7 +75,7 @@ public class Registration {
             () -> new Wrench(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
 
     public static final RegistryObject<Item> BAMBOO_DOOR_ITEM = ITEMS.register("bamboo_door_item",
-            () -> new DoubleHighBlockItem(Registration.BAMBOO_DOOR.get(), (new Item.Properties()).tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new FuelDoubleHighBlockItem(Registration.BAMBOO_DOOR.get(), (new Item.Properties()).tab(CreativeModeTabs.UNBELIEVABLE_TAB), 200));
 
 
     // Blocks
