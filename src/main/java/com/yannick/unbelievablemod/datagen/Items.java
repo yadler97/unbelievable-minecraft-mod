@@ -31,6 +31,11 @@ public class Items extends ItemModelProvider {
         singleTexture(Registration.ROSEGOLD_HOE.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/rosegold_hoe"));
         singleTexture(Registration.ROSEGOLD_SWORD.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/rosegold_sword"));
 
+        singleTexture(Registration.ROSEGOLD_HELMET.get().getRegistryName().getPath(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/rosegold_helmet"));
+        singleTexture(Registration.ROSEGOLD_CHESTPLATE.get().getRegistryName().getPath(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/rosegold_chestplate"));
+        singleTexture(Registration.ROSEGOLD_LEGGINGS.get().getRegistryName().getPath(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/rosegold_leggings"));
+        singleTexture(Registration.ROSEGOLD_BOOTS.get().getRegistryName().getPath(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/rosegold_boots"));
+
         singleTexture(Registration.COPPER_WRENCH.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/copper_wrench"));
 
         singleTexture(Registration.FRIED_EGG.get().getRegistryName().getPath(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/fried_egg"));

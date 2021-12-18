@@ -290,5 +290,21 @@ public class Recipes extends RecipeProvider {
         UpgradeRecipeBuilder.smithing(Ingredient.of(Items.GOLDEN_SWORD), Ingredient.of(Items.COPPER_INGOT), Registration.ROSEGOLD_SWORD.get())
                 .unlocks("has_copper_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
                 .save(consumer, Registration.ROSEGOLD_SWORD.getId() + "_smithing");
+
+        UpgradeRecipeBuilder.smithing(Ingredient.of(Items.GOLDEN_HELMET), Ingredient.of(Items.COPPER_INGOT), Registration.ROSEGOLD_HELMET.get())
+                .unlocks("has_copper_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
+                .save(consumer, Registration.ROSEGOLD_HELMET.getId() + "_smithing");
+
+        UpgradeRecipeBuilder.smithing(Ingredient.of(Items.GOLDEN_CHESTPLATE), Ingredient.of(Items.COPPER_INGOT), Registration.ROSEGOLD_CHESTPLATE.get())
+                .unlocks("has_copper_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
+                .save(consumer, Registration.ROSEGOLD_CHESTPLATE.getId() + "_smithing");
+
+        UpgradeRecipeBuilder.smithing(Ingredient.of(Items.GOLDEN_LEGGINGS), Ingredient.of(Items.COPPER_INGOT), Registration.ROSEGOLD_LEGGINGS.get())
+                .unlocks("has_copper_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
+                .save(consumer, Registration.ROSEGOLD_LEGGINGS.getId() + "_smithing");
+
+        UpgradeRecipeBuilder.smithing(Ingredient.of(Items.GOLDEN_BOOTS), Ingredient.of(Items.COPPER_INGOT), Registration.ROSEGOLD_BOOTS.get())
+                .unlocks("has_copper_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
+                .save(consumer, Registration.ROSEGOLD_BOOTS.getId() + "_smithing");
     }
 }

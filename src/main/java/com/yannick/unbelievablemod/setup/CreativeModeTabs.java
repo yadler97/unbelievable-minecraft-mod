@@ -28,6 +28,11 @@ public class CreativeModeTabs {
             items.add(Registration.ROSEGOLD_HOE.get().getDefaultInstance());
             items.add(Registration.ROSEGOLD_SWORD.get().getDefaultInstance());
 
+            items.add(Registration.ROSEGOLD_HELMET.get().getDefaultInstance());
+            items.add(Registration.ROSEGOLD_CHESTPLATE.get().getDefaultInstance());
+            items.add(Registration.ROSEGOLD_LEGGINGS.get().getDefaultInstance());
+            items.add(Registration.ROSEGOLD_BOOTS.get().getDefaultInstance());
+
             items.add(Registration.COPPER_WRENCH.get().getDefaultInstance());
 
             items.add(Registration.FRIED_EGG.get().getDefaultInstance());

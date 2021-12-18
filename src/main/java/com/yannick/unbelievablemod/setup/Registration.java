@@ -3,10 +3,12 @@ package com.yannick.unbelievablemod.setup;
 import com.yannick.unbelievablemod.blocks.*;
 import com.yannick.unbelievablemod.items.*;
 import com.yannick.unbelievablemod.UnbelievableMod;
+import com.yannick.unbelievablemod.items.ArmorMaterials;
 import com.yannick.unbelievablemod.items.Tiers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.BlockGetter;
@@ -67,6 +69,15 @@ public class Registration {
             () -> new HoeItem(Tiers.ROSEGOLD, 0, -3.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> ROSEGOLD_SWORD = ITEMS.register("rosegold_sword",
             () -> new SwordItem(Tiers.ROSEGOLD, 3, -2.4F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+
+    public static final RegistryObject<Item> ROSEGOLD_HELMET = ITEMS.register("rosegold_helmet",
+            () -> new ArmorItem(ArmorMaterials.ROSEGOLD, EquipmentSlot.HEAD, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+    public static final RegistryObject<Item> ROSEGOLD_CHESTPLATE = ITEMS.register("rosegold_chestplate",
+            () -> new ArmorItem(ArmorMaterials.ROSEGOLD, EquipmentSlot.CHEST, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+    public static final RegistryObject<Item> ROSEGOLD_LEGGINGS = ITEMS.register("rosegold_leggings",
+            () -> new ArmorItem(ArmorMaterials.ROSEGOLD, EquipmentSlot.LEGS, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+    public static final RegistryObject<Item> ROSEGOLD_BOOTS = ITEMS.register("rosegold_boots",
+            () -> new ArmorItem(ArmorMaterials.ROSEGOLD, EquipmentSlot.FEET, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
 
     public static final RegistryObject<Item> FRIED_EGG = ITEMS.register("fried_egg",
             () -> new Item(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB).food(Foods.FRIED_EGG)));
