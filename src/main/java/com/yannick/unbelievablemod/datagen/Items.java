@@ -60,6 +60,8 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.BAMBOO_BLOCK_FENCE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block_fence_inventory"));
         withExistingParent(Registration.BAMBOO_BLOCK_FENCE_GATE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block_fence_gate"));
         withExistingParent(Registration.BAMBOO_TRAPDOOR.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_trapdoor_bottom"));
+        withExistingParent(Registration.BAMBOO_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_pressure_plate"));
+        withExistingParent(Registration.BAMBOO_BUTTON.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_button_inventory"));
 
         withExistingParent(Registration.QUARTZ_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/quartz_wall_inventory"));
         withExistingParent(Registration.POLISHED_GRANITE_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/polished_granite_wall_inventory"));

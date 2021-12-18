@@ -38,19 +38,22 @@ public class BlockStates extends BlockStateProvider {
         slabBlock(Registration.BAMBOO_BLOCK_SLAB.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
         stairsBlock(Registration.BAMBOO_BLOCK_STAIRS.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
         fenceBlock(Registration.BAMBOO_BLOCK_FENCE.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
-        models().fenceInventory("bamboo_block_fence_inventory", new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
+        models().fenceInventory(Registration.BAMBOO_BLOCK_FENCE.getId() + "_inventory", new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
         fenceGateBlock(Registration.BAMBOO_BLOCK_FENCE_GATE.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
         doorBlock(Registration.BAMBOO_DOOR.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_door_bottom"), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_door_top"));
         trapdoorBlock(Registration.BAMBOO_TRAPDOOR.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_trapdoor"), true);
+        pressurePlateBlock(Registration.BAMBOO_PRESSURE_PLATE.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
+        buttonBlock(Registration.BAMBOO_BUTTON.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
+        models().buttonInventory(Registration.BAMBOO_BUTTON.getId() + "_inventory", new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
 
         wallBlock(Registration.QUARTZ_WALL.get(), new ResourceLocation("minecraft", "block/quartz_block_side"));
-        models().wallInventory("quartz_wall_inventory", new ResourceLocation("minecraft", "block/quartz_block_side"));
+        models().wallInventory(Registration.QUARTZ_WALL.getId() + "_inventory", new ResourceLocation("minecraft", "block/quartz_block_side"));
         wallBlock(Registration.POLISHED_GRANITE_WALL.get(), new ResourceLocation("minecraft", "block/polished_granite"));
-        models().wallInventory("polished_granite_wall_inventory", new ResourceLocation("minecraft", "block/polished_granite"));
+        models().wallInventory(Registration.POLISHED_GRANITE_WALL.getId() + "_inventory", new ResourceLocation("minecraft", "block/polished_granite"));
         wallBlock(Registration.POLISHED_DIORITE_WALL.get(), new ResourceLocation("minecraft", "block/polished_diorite"));
-        models().wallInventory("polished_diorite_wall_inventory", new ResourceLocation("minecraft", "block/polished_diorite"));
+        models().wallInventory(Registration.POLISHED_DIORITE_WALL.getId() + "_inventory", new ResourceLocation("minecraft", "block/polished_diorite"));
         wallBlock(Registration.POLISHED_ANDESITE_WALL.get(), new ResourceLocation("minecraft", "block/polished_andesite"));
-        models().wallInventory("polished_andesite_wall_inventory", new ResourceLocation("minecraft", "block/polished_andesite"));
+        models().wallInventory(Registration.POLISHED_ANDESITE_WALL.getId() + "_inventory", new ResourceLocation("minecraft", "block/polished_andesite"));
     }
 
     private void registerGeneratorBlock() {

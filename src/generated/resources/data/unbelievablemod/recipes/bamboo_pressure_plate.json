@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bb"
+  ],
+  "key": {
+    "b": {
+      "item": "unbelievablemod:bamboo_block"
+    }
+  },
+  "result": {
+    "item": "unbelievablemod:bamboo_pressure_plate"
+  }
+}

@@ -118,6 +118,10 @@ public class Registration {
             () -> new DoorBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PLANT).strength(1.5F, 2.0F).sound(SoundType.WOOD).noOcclusion()));
     public static final RegistryObject<TrapDoorBlock> BAMBOO_TRAPDOOR = registerBlock("bamboo_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PLANT).strength(1.5F, 2.0F).sound(SoundType.WOOD).noOcclusion().isValidSpawn(Registration::never)), true);
+    public static final RegistryObject<PressurePlateBlock> BAMBOO_PRESSURE_PLATE = registerBlock("bamboo_pressure_plate",
+            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PLANT).noCollission().strength(0.5F).sound(SoundType.WOOD)), true);
+    public static final RegistryObject<WoodButtonBlock> BAMBOO_BUTTON = registerBlock("bamboo_button",
+            () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PLANT).noCollission().strength(0.5F).sound(SoundType.WOOD)), true);
 
     public static final RegistryObject<WallBlock> QUARTZ_WALL = registerBlock("quartz_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)), false);
@@ -128,6 +132,7 @@ public class Registration {
     public static final RegistryObject<WallBlock> POLISHED_ANDESITE_WALL = registerBlock("polished_andesite_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.POLISHED_ANDESITE)), false);
 
+    // based on tutorial from McJty - will be changed later
     public static final RegistryObject<GeneratorBlock> GENERATOR = registerBlock("generator", GeneratorBlock::new, false);
     public static final RegistryObject<BlockEntityType<GeneratorBE>> GENERATOR_BE = BLOCKENTITIES.register("generator",
             () -> BlockEntityType.Builder.of(GeneratorBE::new, GENERATOR.get()).build(null));

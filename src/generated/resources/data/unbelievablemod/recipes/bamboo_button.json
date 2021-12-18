@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unbelievablemod:bamboo_block"
+    }
+  ],
+  "result": {
+    "item": "unbelievablemod:bamboo_button"
+  }
+}

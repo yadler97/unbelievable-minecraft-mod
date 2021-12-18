@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "unbelievablemod:block/bamboo_block"
+  }
+}

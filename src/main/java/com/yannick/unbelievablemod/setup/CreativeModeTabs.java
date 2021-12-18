@@ -51,6 +51,8 @@ public class CreativeModeTabs {
             items.add(Registration.BAMBOO_BLOCK_FENCE_GATE.get().asItem().getDefaultInstance());
             items.add(Registration.BAMBOO_DOOR_ITEM.get().getDefaultInstance());
             items.add(Registration.BAMBOO_TRAPDOOR.get().asItem().getDefaultInstance());
+            items.add(Registration.BAMBOO_PRESSURE_PLATE.get().asItem().getDefaultInstance());
+            items.add(Registration.BAMBOO_BUTTON.get().asItem().getDefaultInstance());
 
             items.add(Registration.QUARTZ_WALL.get().asItem().getDefaultInstance());
             items.add(Registration.POLISHED_GRANITE_WALL.get().asItem().getDefaultInstance());
