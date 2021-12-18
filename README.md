@@ -19,6 +19,10 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - Rosegold Shovel
 - Rosegold Hoe
 - Rosegold Sword
+- Rosegold Helmet
+- Rosegold Chestplate
+- Rosegold Leggings
+- Rosegold Boots
 - Fried Egg
 - Copper Wrench
 
@@ -29,9 +33,9 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - able to mine all blocks that diamond tools can mine
 - crafted with sticks and sapphires like other tools
 
-#### Rosegold Tools
-- created by combining a golden tool and a copper ingot in a smithing table
-- has twice the durability of gold tools (64 instead of 32)
+#### Rosegold Tools and Armor
+- created by combining a golden tool or piece of armor and a copper ingot in a smithing table
+- has twice the durability of golden tools and armor (64 instead of 32)
 
 #### Copper Wrench
 - allows rotating placed blocks
@@ -51,7 +55,16 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - Bamboo Block
 - Bamboo Slab
 - Bamboo Stairs
+- Bamboo Fence
+- Bamboo Fence Gate
+- Bamboo Door
+- Bamboo Trap Door
+- Bamboo Pressure Plate
+- Bamboo Button
 - Quartz Wall
+- Polished Granite Wall
+- Polished Diorite Wall
+- Polished Andesite Wall
 
 ### Details
 
@@ -62,3 +75,7 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 #### Ruby Ore
 - generates from the button of the world to level 40 in jungles and to level 20 in other biomes
 - can be found in abundance in jungles and very rarely in other biomes
+
+#### Bamboo Blocks
+- crafted from four bamboo items in a square
+- can be used as a building material
