@@ -110,6 +110,12 @@ public class Registration {
 
     public static final RegistryObject<WallBlock> QUARTZ_WALL = registerBlock("quartz_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)), false);
+    public static final RegistryObject<WallBlock> POLISHED_GRANITE_WALL = registerBlock("polished_granite_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.POLISHED_GRANITE)), false);
+    public static final RegistryObject<WallBlock> POLISHED_DIORITE_WALL = registerBlock("polished_diorite_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.POLISHED_DIORITE)), false);
+    public static final RegistryObject<WallBlock> POLISHED_ANDESITE_WALL = registerBlock("polished_andesite_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.POLISHED_ANDESITE)), false);
 
     public static final RegistryObject<GeneratorBlock> GENERATOR = registerBlock("generator", GeneratorBlock::new, false);
     public static final RegistryObject<BlockEntityType<GeneratorBE>> GENERATOR_BE = BLOCKENTITIES.register("generator",

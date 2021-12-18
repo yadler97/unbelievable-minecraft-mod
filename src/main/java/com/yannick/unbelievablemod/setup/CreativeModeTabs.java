@@ -48,6 +48,9 @@ public class CreativeModeTabs {
             items.add(Registration.BAMBOO_TRAPDOOR.get().asItem().getDefaultInstance());
 
             items.add(Registration.QUARTZ_WALL.get().asItem().getDefaultInstance());
+            items.add(Registration.POLISHED_GRANITE_WALL.get().asItem().getDefaultInstance());
+            items.add(Registration.POLISHED_DIORITE_WALL.get().asItem().getDefaultInstance());
+            items.add(Registration.POLISHED_ANDESITE_WALL.get().asItem().getDefaultInstance());
         }
     };
 }

@@ -218,6 +218,30 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("has_quartz_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.QUARTZ_BLOCK))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.POLISHED_GRANITE_WALL.get(), 6)
+                .pattern("   ")
+                .pattern("ggg")
+                .pattern("ggg")
+                .define('g', Blocks.POLISHED_GRANITE)
+                .unlockedBy("has_polished_granite", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_GRANITE))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.POLISHED_DIORITE_WALL.get(), 6)
+                .pattern("   ")
+                .pattern("ddd")
+                .pattern("ddd")
+                .define('d', Blocks.POLISHED_DIORITE)
+                .unlockedBy("has_polished_diorite", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_DIORITE))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.POLISHED_ANDESITE_WALL.get(), 6)
+                .pattern("   ")
+                .pattern("aaa")
+                .pattern("aaa")
+                .define('a', Blocks.POLISHED_ANDESITE)
+                .unlockedBy("has_polished_andesite", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_ANDESITE))
+                .save(consumer);
+
 
 
         // Smelting/Cooking

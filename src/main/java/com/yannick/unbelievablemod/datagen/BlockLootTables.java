@@ -51,6 +51,9 @@ public class BlockLootTables extends BlockLoot {
 
 
         this.dropSelf(Registration.QUARTZ_WALL.get());
+        this.dropSelf(Registration.POLISHED_GRANITE_WALL.get());
+        this.dropSelf(Registration.POLISHED_DIORITE_WALL.get());
+        this.dropSelf(Registration.POLISHED_ANDESITE_WALL.get());
 
         this.add(Registration.GENERATOR.get(), (block) -> {
             return createStandardTable("generator", Registration.GENERATOR.get()).setParamSet(LootContextParamSets.BLOCK);

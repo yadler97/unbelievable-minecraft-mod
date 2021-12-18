@@ -57,5 +57,8 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.BAMBOO_TRAPDOOR.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_trapdoor_bottom"));
 
         withExistingParent(Registration.QUARTZ_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/quartz_wall_inventory"));
+        withExistingParent(Registration.POLISHED_GRANITE_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/polished_granite_wall_inventory"));
+        withExistingParent(Registration.POLISHED_DIORITE_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/polished_diorite_wall_inventory"));
+        withExistingParent(Registration.POLISHED_ANDESITE_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/polished_andesite_wall_inventory"));
     }
 }

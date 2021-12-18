@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "ggg",
+    "ggg"
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:polished_granite"
+    }
+  },
+  "result": {
+    "item": "unbelievablemod:polished_granite_wall",
+    "count": 6
+  }
+}

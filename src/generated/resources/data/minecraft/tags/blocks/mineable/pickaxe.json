@@ -8,6 +8,9 @@
     "unbelievablemod:sapphire_block",
     "unbelievablemod:sapphire_ore",
     "unbelievablemod:deepslate_sapphire_ore",
-    "unbelievablemod:quartz_wall"
+    "unbelievablemod:quartz_wall",
+    "unbelievablemod:polished_granite_wall",
+    "unbelievablemod:polished_diorite_wall",
+    "unbelievablemod:polished_andesite_wall"
   ]
 }

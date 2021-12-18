@@ -23,7 +23,10 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.SAPPHIRE_BLOCK.get())
                 .add(Registration.SAPPHIRE_ORE.get())
                 .add(Registration.DEEPSLATE_SAPPHIRE_ORE.get())
-                .add(Registration.QUARTZ_WALL.get());
+                .add(Registration.QUARTZ_WALL.get())
+                .add(Registration.POLISHED_GRANITE_WALL.get())
+                .add(Registration.POLISHED_DIORITE_WALL.get())
+                .add(Registration.POLISHED_ANDESITE_WALL.get());
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(Registration.BAMBOO_BLOCK.get())
                 .add(Registration.BAMBOO_BLOCK_SLAB.get())
@@ -41,7 +44,10 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.SAPPHIRE_ORE.get())
                 .add(Registration.DEEPSLATE_SAPPHIRE_ORE.get());
         tag(BlockTags.WALLS)
-                .add(Registration.QUARTZ_WALL.get());
+                .add(Registration.QUARTZ_WALL.get())
+                .add(Registration.POLISHED_GRANITE_WALL.get())
+                .add(Registration.POLISHED_DIORITE_WALL.get())
+                .add(Registration.POLISHED_ANDESITE_WALL.get());
         tag(BlockTags.SLABS)
                 .add(Registration.BAMBOO_BLOCK_SLAB.get());
         tag(BlockTags.WOODEN_SLABS)

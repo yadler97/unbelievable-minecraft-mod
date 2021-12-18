@@ -45,6 +45,12 @@ public class BlockStates extends BlockStateProvider {
 
         wallBlock(Registration.QUARTZ_WALL.get(), new ResourceLocation("minecraft", "block/quartz_block_side"));
         models().wallInventory("quartz_wall_inventory", new ResourceLocation("minecraft", "block/quartz_block_side"));
+        wallBlock(Registration.POLISHED_GRANITE_WALL.get(), new ResourceLocation("minecraft", "block/polished_granite"));
+        models().wallInventory("polished_granite_wall_inventory", new ResourceLocation("minecraft", "block/polished_granite"));
+        wallBlock(Registration.POLISHED_DIORITE_WALL.get(), new ResourceLocation("minecraft", "block/polished_diorite"));
+        models().wallInventory("polished_diorite_wall_inventory", new ResourceLocation("minecraft", "block/polished_diorite"));
+        wallBlock(Registration.POLISHED_ANDESITE_WALL.get(), new ResourceLocation("minecraft", "block/polished_andesite"));
+        models().wallInventory("polished_andesite_wall_inventory", new ResourceLocation("minecraft", "block/polished_andesite"));
     }
 
     private void registerGeneratorBlock() {
