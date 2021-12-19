@@ -54,6 +54,15 @@ public class BlockStates extends BlockStateProvider {
         models().wallInventory(Registration.POLISHED_DIORITE_WALL.getId() + "_inventory", new ResourceLocation("minecraft", "block/polished_diorite"));
         wallBlock(Registration.POLISHED_ANDESITE_WALL.get(), new ResourceLocation("minecraft", "block/polished_andesite"));
         models().wallInventory(Registration.POLISHED_ANDESITE_WALL.getId() + "_inventory", new ResourceLocation("minecraft", "block/polished_andesite"));
+
+        simpleBlock(Registration.SPRUCE_BOOKSHELF.get(), models().cubeColumn("spruce_bookshelf", new ResourceLocation(UnbelievableMod.MODID, "block/spruce_bookshelf"), new ResourceLocation("minecraft", "block/spruce_planks")));
+        simpleBlock(Registration.BIRCH_BOOKSHELF.get(), models().cubeColumn("birch_bookshelf", new ResourceLocation(UnbelievableMod.MODID, "block/birch_bookshelf"), new ResourceLocation("minecraft", "block/birch_planks")));
+        simpleBlock(Registration.JUNGLE_BOOKSHELF.get(), models().cubeColumn("jungle_bookshelf", new ResourceLocation(UnbelievableMod.MODID, "block/jungle_bookshelf"), new ResourceLocation("minecraft", "block/jungle_planks")));
+        simpleBlock(Registration.ACACIA_BOOKSHELF.get(), models().cubeColumn("acacia_bookshelf", new ResourceLocation(UnbelievableMod.MODID, "block/acacia_bookshelf"), new ResourceLocation("minecraft", "block/acacia_planks")));
+        simpleBlock(Registration.DARK_OAK_BOOKSHELF.get(), models().cubeColumn("dark_oak_bookshelf", new ResourceLocation(UnbelievableMod.MODID, "block/dark_oak_bookshelf"), new ResourceLocation("minecraft", "block/dark_oak_planks")));
+        simpleBlock(Registration.CRIMSON_BOOKSHELF.get(), models().cubeColumn("crimson_bookshelf", new ResourceLocation(UnbelievableMod.MODID, "block/crimson_bookshelf"), new ResourceLocation("minecraft", "block/crimson_planks")));
+        simpleBlock(Registration.WARPED_BOOKSHELF.get(), models().cubeColumn("warped_bookshelf", new ResourceLocation(UnbelievableMod.MODID, "block/warped_bookshelf"), new ResourceLocation("minecraft", "block/warped_planks")));
+        simpleBlock(Registration.BAMBOO_BOOKSHELF.get(), models().cubeColumn("bamboo_bookshelf", new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_bookshelf"), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block")));
     }
 
     private void registerGeneratorBlock() {

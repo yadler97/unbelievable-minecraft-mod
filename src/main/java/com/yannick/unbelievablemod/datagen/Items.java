@@ -63,6 +63,15 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.BAMBOO_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_pressure_plate"));
         withExistingParent(Registration.BAMBOO_BUTTON.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_button_inventory"));
 
+        withExistingParent(Registration.SPRUCE_BOOKSHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/spruce_bookshelf"));
+        withExistingParent(Registration.BIRCH_BOOKSHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/birch_bookshelf"));
+        withExistingParent(Registration.JUNGLE_BOOKSHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/jungle_bookshelf"));
+        withExistingParent(Registration.ACACIA_BOOKSHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/acacia_bookshelf"));
+        withExistingParent(Registration.DARK_OAK_BOOKSHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/dark_oak_bookshelf"));
+        withExistingParent(Registration.CRIMSON_BOOKSHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/crimson_bookshelf"));
+        withExistingParent(Registration.WARPED_BOOKSHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/warped_bookshelf"));
+        withExistingParent(Registration.BAMBOO_BOOKSHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_bookshelf"));
+
         withExistingParent(Registration.QUARTZ_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/quartz_wall_inventory"));
         withExistingParent(Registration.POLISHED_GRANITE_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/polished_granite_wall_inventory"));
         withExistingParent(Registration.POLISHED_DIORITE_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/polished_diorite_wall_inventory"));

@@ -254,6 +254,97 @@ public class Recipes extends RecipeProvider {
                 .save(consumer);
 
 
+        ShapedRecipeBuilder.shaped(Blocks.BOOKSHELF)
+                .pattern("ppp")
+                .pattern("bbb")
+                .pattern("ppp")
+                .define('b', Items.BOOK)
+                .define('p', Blocks.OAK_PLANKS)
+                .unlockedBy("has_books", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BOOK))
+                .group("bookshelves")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.SPRUCE_BOOKSHELF.get())
+                .pattern("ppp")
+                .pattern("bbb")
+                .pattern("ppp")
+                .define('b', Items.BOOK)
+                .define('p', Blocks.SPRUCE_PLANKS)
+                .unlockedBy("has_books", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BOOK))
+                .group("bookshelves")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.BIRCH_BOOKSHELF.get())
+                .pattern("ppp")
+                .pattern("bbb")
+                .pattern("ppp")
+                .define('b', Items.BOOK)
+                .define('p', Blocks.BIRCH_PLANKS)
+                .unlockedBy("has_books", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BOOK))
+                .group("bookshelves")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.JUNGLE_BOOKSHELF.get())
+                .pattern("ppp")
+                .pattern("bbb")
+                .pattern("ppp")
+                .define('b', Items.BOOK)
+                .define('p', Blocks.JUNGLE_PLANKS)
+                .unlockedBy("has_books", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BOOK))
+                .group("bookshelves")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.ACACIA_BOOKSHELF.get())
+                .pattern("ppp")
+                .pattern("bbb")
+                .pattern("ppp")
+                .define('b', Items.BOOK)
+                .define('p', Blocks.ACACIA_PLANKS)
+                .unlockedBy("has_books", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BOOK))
+                .group("bookshelves")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.DARK_OAK_BOOKSHELF.get())
+                .pattern("ppp")
+                .pattern("bbb")
+                .pattern("ppp")
+                .define('b', Items.BOOK)
+                .define('p', Blocks.DARK_OAK_PLANKS)
+                .unlockedBy("has_books", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BOOK))
+                .group("bookshelves")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.CRIMSON_BOOKSHELF.get())
+                .pattern("ppp")
+                .pattern("bbb")
+                .pattern("ppp")
+                .define('b', Items.BOOK)
+                .define('p', Blocks.CRIMSON_PLANKS)
+                .unlockedBy("has_books", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BOOK))
+                .group("bookshelves")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.WARPED_BOOKSHELF.get())
+                .pattern("ppp")
+                .pattern("bbb")
+                .pattern("ppp")
+                .define('b', Items.BOOK)
+                .define('p', Blocks.WARPED_PLANKS)
+                .unlockedBy("has_books", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BOOK))
+                .group("bookshelves")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.BAMBOO_BOOKSHELF.get())
+                .pattern("ppp")
+                .pattern("bbb")
+                .pattern("ppp")
+                .define('b', Items.BOOK)
+                .define('p', Registration.BAMBOO_BLOCK.get())
+                .unlockedBy("has_books", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BOOK))
+                .group("bookshelves")
+                .save(consumer);
+
+
 
         // Smelting/Cooking
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.EGG), Registration.FRIED_EGG.get(), 0.35F, 200)

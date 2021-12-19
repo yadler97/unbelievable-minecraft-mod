@@ -58,6 +58,15 @@ public class CreativeModeTabs {
             items.add(Registration.POLISHED_GRANITE_WALL.get().asItem().getDefaultInstance());
             items.add(Registration.POLISHED_DIORITE_WALL.get().asItem().getDefaultInstance());
             items.add(Registration.POLISHED_ANDESITE_WALL.get().asItem().getDefaultInstance());
+
+            items.add(Registration.SPRUCE_BOOKSHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.BIRCH_BOOKSHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.JUNGLE_BOOKSHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.ACACIA_BOOKSHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.DARK_OAK_BOOKSHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.CRIMSON_BOOKSHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.WARPED_BOOKSHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.BAMBOO_BOOKSHELF.get().asItem().getDefaultInstance());
         }
     };
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "unbelievablemod:block/warped_bookshelf",
+    "end": "minecraft:block/warped_planks"
+  }
+}

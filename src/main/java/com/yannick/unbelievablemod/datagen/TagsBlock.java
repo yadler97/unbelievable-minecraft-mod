@@ -34,7 +34,15 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.BAMBOO_BLOCK_FENCE.get())
                 .add(Registration.BAMBOO_BLOCK_FENCE_GATE.get())
                 .add(Registration.BAMBOO_DOOR.get())
-                .add(Registration.BAMBOO_TRAPDOOR.get());
+                .add(Registration.BAMBOO_TRAPDOOR.get())
+                .add(Registration.SPRUCE_BOOKSHELF.get())
+                .add(Registration.BIRCH_BOOKSHELF.get())
+                .add(Registration.JUNGLE_BOOKSHELF.get())
+                .add(Registration.ACACIA_BOOKSHELF.get())
+                .add(Registration.DARK_OAK_BOOKSHELF.get())
+                .add(Registration.CRIMSON_BOOKSHELF.get())
+                .add(Registration.WARPED_BOOKSHELF.get())
+                .add(Registration.BAMBOO_BOOKSHELF.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(Registration.GENERATOR.get())

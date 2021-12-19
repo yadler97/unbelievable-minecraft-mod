@@ -48,6 +48,15 @@
   "block.unbelievablemod.polished_diorite_wall": "Polished Diorite Wall",
   "block.unbelievablemod.polished_andesite_wall": "Polished Andesite Wall",
 
+  "block.minecraft.bookshelf": "Oak Bookshelf",
+  "block.unbelievablemod.spruce_bookshelf": "Spruce Bookshelf",
+  "block.unbelievablemod.birch_bookshelf": "Birch Bookshelf",
+  "block.unbelievablemod.jungle_bookshelf": "Jungle Bookshelf",
+  "block.unbelievablemod.acacia_bookshelf": "Acacia Bookshelf",
+  "block.unbelievablemod.dark_oak_bookshelf": "Dark Oak Bookshelf",
+  "block.unbelievablemod.crimson_bookshelf": "Crimson Bookshelf",
+  "block.unbelievablemod.warped_bookshelf": "Warped Bookshelf",
+  "block.unbelievablemod.bamboo_bookshelf": "Bamboo Bookshelf",
 
 
   "message.sapphire_distance.tooltip": "Mine with extra distance %s",

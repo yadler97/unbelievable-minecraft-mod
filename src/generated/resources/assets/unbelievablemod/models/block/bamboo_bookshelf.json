@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "unbelievablemod:block/bamboo_bookshelf",
+    "end": "unbelievablemod:block/bamboo_block"
+  }
+}

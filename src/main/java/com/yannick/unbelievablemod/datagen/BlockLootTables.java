@@ -4,6 +4,7 @@ import com.yannick.unbelievablemod.setup.Registration;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.DynamicLoot;
@@ -56,6 +57,33 @@ public class BlockLootTables extends BlockLoot {
         this.dropSelf(Registration.POLISHED_GRANITE_WALL.get());
         this.dropSelf(Registration.POLISHED_DIORITE_WALL.get());
         this.dropSelf(Registration.POLISHED_ANDESITE_WALL.get());
+
+
+        this.add(Registration.SPRUCE_BOOKSHELF.get(), (block) -> {
+            return createSingleItemTableWithSilkTouch(Registration.SPRUCE_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
+        });
+        this.add(Registration.BIRCH_BOOKSHELF.get(), (block) -> {
+            return createSingleItemTableWithSilkTouch(Registration.BIRCH_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
+        });
+        this.add(Registration.JUNGLE_BOOKSHELF.get(), (block) -> {
+            return createSingleItemTableWithSilkTouch(Registration.JUNGLE_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
+        });
+        this.add(Registration.ACACIA_BOOKSHELF.get(), (block) -> {
+            return createSingleItemTableWithSilkTouch(Registration.ACACIA_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
+        });
+        this.add(Registration.DARK_OAK_BOOKSHELF.get(), (block) -> {
+            return createSingleItemTableWithSilkTouch(Registration.DARK_OAK_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
+        });
+        this.add(Registration.CRIMSON_BOOKSHELF.get(), (block) -> {
+            return createSingleItemTableWithSilkTouch(Registration.CRIMSON_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
+        });
+        this.add(Registration.WARPED_BOOKSHELF.get(), (block) -> {
+            return createSingleItemTableWithSilkTouch(Registration.WARPED_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
+        });
+        this.add(Registration.BAMBOO_BOOKSHELF.get(), (block) -> {
+            return createSingleItemTableWithSilkTouch(Registration.BAMBOO_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
+        });
+
 
         this.add(Registration.GENERATOR.get(), (block) -> {
             return createStandardTable("generator", Registration.GENERATOR.get()).setParamSet(LootContextParamSets.BLOCK);

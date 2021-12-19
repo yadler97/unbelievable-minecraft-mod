@@ -132,6 +132,23 @@ public class Registration {
     public static final RegistryObject<WallBlock> POLISHED_ANDESITE_WALL = registerBlock("polished_andesite_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.POLISHED_ANDESITE)), false);
 
+    public static final RegistryObject<FlammableEnchantPowerBonusBlock> SPRUCE_BOOKSHELF = registerBlock("spruce_bookshelf",
+            () -> new FlammableEnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
+    public static final RegistryObject<FlammableEnchantPowerBonusBlock> BIRCH_BOOKSHELF = registerBlock("birch_bookshelf",
+            () -> new FlammableEnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
+    public static final RegistryObject<FlammableEnchantPowerBonusBlock> JUNGLE_BOOKSHELF = registerBlock("jungle_bookshelf",
+            () -> new FlammableEnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
+    public static final RegistryObject<FlammableEnchantPowerBonusBlock> ACACIA_BOOKSHELF = registerBlock("acacia_bookshelf",
+            () -> new FlammableEnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
+    public static final RegistryObject<FlammableEnchantPowerBonusBlock> DARK_OAK_BOOKSHELF = registerBlock("dark_oak_bookshelf",
+            () -> new FlammableEnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
+    public static final RegistryObject<EnchantPowerBonusBlock> CRIMSON_BOOKSHELF = registerBlock("crimson_bookshelf",
+            () -> new EnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF)), false);
+    public static final RegistryObject<EnchantPowerBonusBlock> WARPED_BOOKSHELF = registerBlock("warped_bookshelf",
+            () -> new EnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF)), false);
+    public static final RegistryObject<FlammableEnchantPowerBonusBlock> BAMBOO_BOOKSHELF = registerBlock("bamboo_bookshelf",
+            () -> new FlammableEnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
+
     // based on tutorial from McJty - will be changed later
     public static final RegistryObject<GeneratorBlock> GENERATOR = registerBlock("generator", GeneratorBlock::new, false);
     public static final RegistryObject<BlockEntityType<GeneratorBE>> GENERATOR_BE = BLOCKENTITIES.register("generator",
