@@ -23,8 +23,9 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - Rosegold Chestplate
 - Rosegold Leggings
 - Rosegold Boots
-- Fried Egg
 - Copper Wrench
+- Bundle
+- Fried Egg
 
 ### Details
 
@@ -65,6 +66,14 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - Polished Granite Wall
 - Polished Diorite Wall
 - Polished Andesite Wall
+- Spruce Bookshelf
+- Birch Bookshelf
+- Jungle Bookshelf
+- Acacia Bookshelf
+- Dark Oak Bookshelf
+- Crimson Bookshelf
+- Warped Bookshelf
+- Bamboo Bookshelf
 
 ### Details
 
@@ -79,3 +88,10 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 #### Bamboo Blocks
 - crafted from four bamboo items in a square
 - can be used as a building material
+
+## Structures
+
+### Abandoned Lumberjack House
+
+- generates only in extreme hills biomes
+- contains three strays and a chest with loot

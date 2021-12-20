@@ -3,6 +3,7 @@ package com.yannick.unbelievablemod.setup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
 public class CreativeModeTabs {
     public static final CreativeModeTab UNBELIEVABLE_TAB = new CreativeModeTab("unbelievablemodtab") {
@@ -34,6 +35,8 @@ public class CreativeModeTabs {
             items.add(Registration.ROSEGOLD_BOOTS.get().getDefaultInstance());
 
             items.add(Registration.COPPER_WRENCH.get().getDefaultInstance());
+
+            items.add(Items.BUNDLE.getDefaultInstance());
 
             items.add(Registration.FRIED_EGG.get().getDefaultInstance());
 
