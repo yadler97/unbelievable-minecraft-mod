@@ -1,0 +1,15 @@
+{
+  "name": "unbelievablemod:abandoned_lumberjack_house/start_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "unbelievablemod:abandoned_lumberjack_house",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
