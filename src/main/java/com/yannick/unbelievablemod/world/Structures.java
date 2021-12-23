@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.yannick.unbelievablemod.UnbelievableMod;
 import com.yannick.unbelievablemod.world.structures.AbandonedLumberjackHouseStructure;
+import com.yannick.unbelievablemod.world.structures.CastleRuinsStructure;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.world.level.levelgen.StructureSettings;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
@@ -22,6 +23,7 @@ public class Structures {
 
     // Structures
     public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> ABANDONED_LUMBERJACK_HOUSE = DEFERRED_REGISTRY_STRUCTURE.register("abandoned_lumberjack_house", () -> (new AbandonedLumberjackHouseStructure(NoneFeatureConfiguration.CODEC)));
+    public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> CASTLE_RUINS = DEFERRED_REGISTRY_STRUCTURE.register("castle_ruins", () -> (new CastleRuinsStructure(NoneFeatureConfiguration.CODEC)));
 
     public static void setupStructures() {
         setupMapSpacingAndLand(
@@ -29,6 +31,13 @@ public class Structures {
                 new StructureFeatureConfiguration(100,
                         50,
                         987654321),
+                true);
+
+        setupMapSpacingAndLand(
+                CASTLE_RUINS.get(),
+                new StructureFeatureConfiguration(100,
+                        50,
+                        876543219),
                 true);
     }
 

@@ -1,0 +1,15 @@
+{
+  "name": "unbelievablemod:castle_ruins/start_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_entrance",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

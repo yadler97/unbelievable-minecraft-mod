@@ -95,3 +95,7 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 
 - generates only in extreme hills biomes
 - contains three strays and a chest with loot
+
+### Castle Ruins
+
+- consists of multiple parts that are randomly put together during generation

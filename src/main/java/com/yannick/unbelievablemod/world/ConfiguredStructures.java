@@ -10,9 +10,11 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 public class ConfiguredStructures {
 
     public static ConfiguredStructureFeature<?, ?> CONFIGURED_ABANDONED_LUMBERJACK_HOUSE = Structures.ABANDONED_LUMBERJACK_HOUSE.get().configured(NoneFeatureConfiguration.INSTANCE);
+    public static ConfiguredStructureFeature<?, ?> CONFIGURED_CASTLE_RUINS = Structures.CASTLE_RUINS.get().configured(NoneFeatureConfiguration.INSTANCE);
 
     public static void registerConfiguredStructures() {
         Registry<ConfiguredStructureFeature<?, ?>> registry = BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE;
         Registry.register(registry, new ResourceLocation(UnbelievableMod.MODID, "configured_abandoned_lumberjack_house"), CONFIGURED_ABANDONED_LUMBERJACK_HOUSE);
+        Registry.register(registry, new ResourceLocation(UnbelievableMod.MODID, "configured_ruined_castle"), CONFIGURED_CASTLE_RUINS);
     }
 }

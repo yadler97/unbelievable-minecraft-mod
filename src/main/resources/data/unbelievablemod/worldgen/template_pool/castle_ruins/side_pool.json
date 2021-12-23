@@ -1,0 +1,96 @@
+{
+  "name": "unbelievablemod:castle_ruins/side_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_crossway",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_large_end",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_small_end",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_small_hallway",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_stairway",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_t_hallway",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_throne_room",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_tower",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_wide_hallway",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_basement_stairs",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

@@ -65,6 +65,7 @@ public class UnbelievableMod {
         if (event.getCategory().equals(EXTREME_HILLS)) {
             event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_ABANDONED_LUMBERJACK_HOUSE);
         }
+        event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_CASTLE_RUINS);
     }
 
     private static Method GETCODEC_METHOD;
@@ -87,6 +88,7 @@ public class UnbelievableMod {
 
             Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(serverWorld.getChunkSource().generator.getSettings().structureConfig());
             tempMap.putIfAbsent(Structures.ABANDONED_LUMBERJACK_HOUSE.get(), StructureSettings.DEFAULTS.get(Structures.ABANDONED_LUMBERJACK_HOUSE.get()));
+            tempMap.putIfAbsent(Structures.CASTLE_RUINS.get(), StructureSettings.DEFAULTS.get(Structures.CASTLE_RUINS.get()));
             serverWorld.getChunkSource().generator.getSettings().structureConfig = tempMap;
         }
     }
