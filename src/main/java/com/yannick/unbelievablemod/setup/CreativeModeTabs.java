@@ -70,6 +70,16 @@ public class CreativeModeTabs {
             items.add(Registration.CRIMSON_BOOKSHELF.get().asItem().getDefaultInstance());
             items.add(Registration.WARPED_BOOKSHELF.get().asItem().getDefaultInstance());
             items.add(Registration.BAMBOO_BOOKSHELF.get().asItem().getDefaultInstance());
+
+            items.add(Registration.OAK_TABLE.get().asItem().getDefaultInstance());
+            items.add(Registration.SPRUCE_TABLE.get().asItem().getDefaultInstance());
+            items.add(Registration.BIRCH_TABLE.get().asItem().getDefaultInstance());
+            items.add(Registration.JUNGLE_TABLE.get().asItem().getDefaultInstance());
+            items.add(Registration.ACACIA_TABLE.get().asItem().getDefaultInstance());
+            items.add(Registration.DARK_OAK_TABLE.get().asItem().getDefaultInstance());
+            items.add(Registration.CRIMSON_TABLE.get().asItem().getDefaultInstance());
+            items.add(Registration.WARPED_TABLE.get().asItem().getDefaultInstance());
+            items.add(Registration.BAMBOO_TABLE.get().asItem().getDefaultInstance());
         }
     };
 }

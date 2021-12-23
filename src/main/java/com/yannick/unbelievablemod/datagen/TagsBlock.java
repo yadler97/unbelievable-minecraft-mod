@@ -42,7 +42,16 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.DARK_OAK_BOOKSHELF.get())
                 .add(Registration.CRIMSON_BOOKSHELF.get())
                 .add(Registration.WARPED_BOOKSHELF.get())
-                .add(Registration.BAMBOO_BOOKSHELF.get());
+                .add(Registration.BAMBOO_BOOKSHELF.get())
+                .add(Registration.OAK_TABLE.get())
+                .add(Registration.SPRUCE_TABLE.get())
+                .add(Registration.BIRCH_TABLE.get())
+                .add(Registration.JUNGLE_TABLE.get())
+                .add(Registration.ACACIA_TABLE.get())
+                .add(Registration.DARK_OAK_TABLE.get())
+                .add(Registration.CRIMSON_TABLE.get())
+                .add(Registration.WARPED_TABLE.get())
+                .add(Registration.BAMBOO_TABLE.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(Registration.GENERATOR.get())

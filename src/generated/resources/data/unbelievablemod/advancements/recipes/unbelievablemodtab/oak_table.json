@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "unbelievablemod:oak_table"
+    ]
+  },
+  "criteria": {
+    "has_oak_slabs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:oak_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "unbelievablemod:oak_table"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_oak_slabs",
+      "has_the_recipe"
+    ]
+  ]
+}

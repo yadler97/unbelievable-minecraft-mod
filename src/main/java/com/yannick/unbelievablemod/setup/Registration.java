@@ -149,6 +149,25 @@ public class Registration {
     public static final RegistryObject<FlammableEnchantPowerBonusBlock> BAMBOO_BOOKSHELF = registerBlock("bamboo_bookshelf",
             () -> new FlammableEnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
 
+    public static final RegistryObject<TableBlock> OAK_TABLE = registerBlock("oak_table",
+            () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS), 5 , 20), true);
+    public static final RegistryObject<TableBlock> SPRUCE_TABLE = registerBlock("spruce_table",
+            () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS), 5 , 20), true);
+    public static final RegistryObject<TableBlock> BIRCH_TABLE = registerBlock("birch_table",
+            () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS), 5 , 20), true);
+    public static final RegistryObject<TableBlock> JUNGLE_TABLE = registerBlock("jungle_table",
+            () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS), 5 , 20), true);
+    public static final RegistryObject<TableBlock> ACACIA_TABLE = registerBlock("acacia_table",
+            () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS), 5 , 20), true);
+    public static final RegistryObject<TableBlock> DARK_OAK_TABLE = registerBlock("dark_oak_table",
+            () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS), 5 , 20), true);
+    public static final RegistryObject<TableBlock> CRIMSON_TABLE = registerBlock("crimson_table",
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)), false);
+    public static final RegistryObject<TableBlock> WARPED_TABLE = registerBlock("warped_table",
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)), false);
+    public static final RegistryObject<TableBlock> BAMBOO_TABLE = registerBlock("bamboo_table",
+            () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
+
     // based on tutorial from McJty - will be changed later
     public static final RegistryObject<GeneratorBlock> GENERATOR = registerBlock("generator", GeneratorBlock::new, false);
     public static final RegistryObject<BlockEntityType<GeneratorBE>> GENERATOR_BE = BLOCKENTITIES.register("generator",

@@ -76,5 +76,15 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.POLISHED_GRANITE_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/polished_granite_wall_inventory"));
         withExistingParent(Registration.POLISHED_DIORITE_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/polished_diorite_wall_inventory"));
         withExistingParent(Registration.POLISHED_ANDESITE_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/polished_andesite_wall_inventory"));
+
+        withExistingParent(Registration.OAK_TABLE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/oak_table"));
+        withExistingParent(Registration.SPRUCE_TABLE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/spruce_table"));
+        withExistingParent(Registration.BIRCH_TABLE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/birch_table"));
+        withExistingParent(Registration.JUNGLE_TABLE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/jungle_table"));
+        withExistingParent(Registration.ACACIA_TABLE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/acacia_table"));
+        withExistingParent(Registration.DARK_OAK_TABLE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/dark_oak_table"));
+        withExistingParent(Registration.CRIMSON_TABLE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/crimson_table"));
+        withExistingParent(Registration.WARPED_TABLE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/warped_table"));
+        withExistingParent(Registration.BAMBOO_TABLE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_table"));
     }
 }

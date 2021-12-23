@@ -84,6 +84,16 @@ public class BlockLootTables extends BlockLoot {
             return createSingleItemTableWithSilkTouch(Registration.BAMBOO_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
         });
 
+        this.dropSelf(Registration.OAK_TABLE.get());
+        this.dropSelf(Registration.SPRUCE_TABLE.get());
+        this.dropSelf(Registration.BIRCH_TABLE.get());
+        this.dropSelf(Registration.JUNGLE_TABLE.get());
+        this.dropSelf(Registration.ACACIA_TABLE.get());
+        this.dropSelf(Registration.DARK_OAK_TABLE.get());
+        this.dropSelf(Registration.CRIMSON_TABLE.get());
+        this.dropSelf(Registration.WARPED_TABLE.get());
+        this.dropSelf(Registration.BAMBOO_TABLE.get());
+
 
         this.add(Registration.GENERATOR.get(), (block) -> {
             return createStandardTable("generator", Registration.GENERATOR.get()).setParamSet(LootContextParamSets.BLOCK);

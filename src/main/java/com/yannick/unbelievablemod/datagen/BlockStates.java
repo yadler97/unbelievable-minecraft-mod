@@ -1,11 +1,13 @@
 package com.yannick.unbelievablemod.datagen;
 
+import com.yannick.unbelievablemod.blocks.TableBlock;
 import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.UnbelievableMod;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
@@ -15,6 +17,8 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.function.Function;
+
+import static net.minecraftforge.client.model.generators.ModelProvider.BLOCK_FOLDER;
 
 public class BlockStates extends BlockStateProvider {
 
@@ -63,6 +67,16 @@ public class BlockStates extends BlockStateProvider {
         simpleBlock(Registration.CRIMSON_BOOKSHELF.get(), models().cubeColumn("crimson_bookshelf", new ResourceLocation(UnbelievableMod.MODID, "block/crimson_bookshelf"), new ResourceLocation("minecraft", "block/crimson_planks")));
         simpleBlock(Registration.WARPED_BOOKSHELF.get(), models().cubeColumn("warped_bookshelf", new ResourceLocation(UnbelievableMod.MODID, "block/warped_bookshelf"), new ResourceLocation("minecraft", "block/warped_planks")));
         simpleBlock(Registration.BAMBOO_BOOKSHELF.get(), models().cubeColumn("bamboo_bookshelf", new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_bookshelf"), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block")));
+
+        tableBlock("oak_table", Registration.OAK_TABLE.get(), new ResourceLocation("minecraft", "block/oak_planks"));
+        tableBlock("spruce_table", Registration.SPRUCE_TABLE.get(), new ResourceLocation("minecraft", "block/spruce_planks"));
+        tableBlock("birch_table", Registration.BIRCH_TABLE.get(), new ResourceLocation("minecraft", "block/birch_planks"));
+        tableBlock("jungle_table", Registration.JUNGLE_TABLE.get(), new ResourceLocation("minecraft", "block/jungle_planks"));
+        tableBlock("acacia_table", Registration.ACACIA_TABLE.get(), new ResourceLocation("minecraft", "block/acacia_planks"));
+        tableBlock("dark_oak_table", Registration.DARK_OAK_TABLE.get(), new ResourceLocation("minecraft", "block/dark_oak_planks"));
+        tableBlock("crimson_table", Registration.CRIMSON_TABLE.get(), new ResourceLocation("minecraft", "block/crimson_planks"));
+        tableBlock("warped_table", Registration.WARPED_TABLE.get(), new ResourceLocation("minecraft", "block/warped_planks"));
+        tableBlock("bamboo_table", Registration.BAMBOO_TABLE.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
     }
 
     private void registerGeneratorBlock() {
@@ -88,5 +102,10 @@ public class BlockStates extends BlockStateProvider {
                             .rotationY(dir.getAxis() != Direction.Axis.Y ? ((dir.get2DDataValue() +2) % 4) * 90 : 0)
                             .build();
                 });
+    }
+
+    private void tableBlock(String name, TableBlock block, ResourceLocation texture) {
+        ModelFile table = models().singleTexture(name, modLoc(BLOCK_FOLDER + "/table"), texture);
+        simpleBlock(block, table);
     }
 }

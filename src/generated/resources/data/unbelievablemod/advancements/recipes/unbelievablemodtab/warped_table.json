@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "unbelievablemod:warped_table"
+    ]
+  },
+  "criteria": {
+    "has_warped_slabs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:warped_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "unbelievablemod:warped_table"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_warped_slabs",
+      "has_the_recipe"
+    ]
+  ]
+}

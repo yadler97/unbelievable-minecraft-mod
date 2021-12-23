@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "unbelievablemod:bamboo_table"
+    ]
+  },
+  "criteria": {
+    "has_bamboo_slabs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unbelievablemod:bamboo_block_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "unbelievablemod:bamboo_table"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_bamboo_slabs",
+      "has_the_recipe"
+    ]
+  ]
+}

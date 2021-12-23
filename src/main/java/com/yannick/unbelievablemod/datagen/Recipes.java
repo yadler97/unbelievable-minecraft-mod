@@ -345,6 +345,97 @@ public class Recipes extends RecipeProvider {
                 .save(consumer);
 
 
+        ShapedRecipeBuilder.shaped(Registration.OAK_TABLE.get())
+                .pattern("SSS")
+                .pattern("s s")
+                .pattern("s s")
+                .define('S', Blocks.OAK_SLAB)
+                .define('s', Items.STICK)
+                .unlockedBy("has_oak_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.OAK_SLAB))
+                .group("tables")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.SPRUCE_TABLE.get())
+                .pattern("SSS")
+                .pattern("s s")
+                .pattern("s s")
+                .define('S', Blocks.SPRUCE_SLAB)
+                .define('s', Items.STICK)
+                .unlockedBy("has_spruce_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.SPRUCE_SLAB))
+                .group("tables")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.BIRCH_TABLE.get())
+                .pattern("SSS")
+                .pattern("s s")
+                .pattern("s s")
+                .define('S', Blocks.BIRCH_SLAB)
+                .define('s', Items.STICK)
+                .unlockedBy("has_birch_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.BIRCH_SLAB))
+                .group("tables")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.JUNGLE_TABLE.get())
+                .pattern("SSS")
+                .pattern("s s")
+                .pattern("s s")
+                .define('S', Blocks.JUNGLE_SLAB)
+                .define('s', Items.STICK)
+                .unlockedBy("has_jungle_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.JUNGLE_SLAB))
+                .group("tables")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.ACACIA_TABLE.get())
+                .pattern("SSS")
+                .pattern("s s")
+                .pattern("s s")
+                .define('S', Blocks.ACACIA_SLAB)
+                .define('s', Items.STICK)
+                .unlockedBy("has_acacia_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.ACACIA_SLAB))
+                .group("tables")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.DARK_OAK_TABLE.get())
+                .pattern("SSS")
+                .pattern("s s")
+                .pattern("s s")
+                .define('S', Blocks.DARK_OAK_SLAB)
+                .define('s', Items.STICK)
+                .unlockedBy("has_dark_oak_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.DARK_OAK_SLAB))
+                .group("tables")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.CRIMSON_TABLE.get())
+                .pattern("SSS")
+                .pattern("s s")
+                .pattern("s s")
+                .define('S', Blocks.CRIMSON_SLAB)
+                .define('s', Items.STICK)
+                .unlockedBy("has_crimson_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.CRIMSON_SLAB))
+                .group("tables")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.WARPED_TABLE.get())
+                .pattern("SSS")
+                .pattern("s s")
+                .pattern("s s")
+                .define('S', Blocks.WARPED_SLAB)
+                .define('s', Items.STICK)
+                .unlockedBy("has_warped_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.WARPED_SLAB))
+                .group("tables")
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.BAMBOO_TABLE.get())
+                .pattern("SSS")
+                .pattern("b b")
+                .pattern("b b")
+                .define('S', Registration.BAMBOO_BLOCK_SLAB.get())
+                .define('b', Items.BAMBOO)
+                .unlockedBy("has_bamboo_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.BAMBOO_BLOCK_SLAB.get()))
+                .group("tables")
+                .save(consumer);
+
+
 
         // Smelting/Cooking
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.EGG), Registration.FRIED_EGG.get(), 0.35F, 200)

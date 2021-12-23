@@ -74,6 +74,15 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - Crimson Bookshelf
 - Warped Bookshelf
 - Bamboo Bookshelf
+- Oak Table
+- Spruce Table
+- Birch Table
+- Jungle Table
+- Acacia Table
+- Dark Oak Table
+- Crimson Table
+- Warped Table
+- Bamboo Table
 
 ### Details
 
