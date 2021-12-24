@@ -2,13 +2,12 @@ package com.yannick.unbelievablemod.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class EnchantPowerBonusBlock extends Block {
+public class EnchantPowerBonusBlock extends FlammableBlock {
 
-    public EnchantPowerBonusBlock(Properties properties) {
-        super(properties);
+    public EnchantPowerBonusBlock(Properties properties, int fireSpreadSpeed, int flammability) {
+        super(properties, fireSpreadSpeed, flammability);
     }
 
     @Override

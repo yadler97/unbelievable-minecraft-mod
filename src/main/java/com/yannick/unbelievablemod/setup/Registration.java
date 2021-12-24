@@ -132,60 +132,60 @@ public class Registration {
     public static final RegistryObject<WallBlock> POLISHED_ANDESITE_WALL = registerBlock("polished_andesite_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.POLISHED_ANDESITE)), false);
 
-    public static final RegistryObject<FlammableEnchantPowerBonusBlock> SPRUCE_BOOKSHELF = registerBlock("spruce_bookshelf",
-            () -> new FlammableEnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
-    public static final RegistryObject<FlammableEnchantPowerBonusBlock> BIRCH_BOOKSHELF = registerBlock("birch_bookshelf",
-            () -> new FlammableEnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
-    public static final RegistryObject<FlammableEnchantPowerBonusBlock> JUNGLE_BOOKSHELF = registerBlock("jungle_bookshelf",
-            () -> new FlammableEnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
-    public static final RegistryObject<FlammableEnchantPowerBonusBlock> ACACIA_BOOKSHELF = registerBlock("acacia_bookshelf",
-            () -> new FlammableEnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
-    public static final RegistryObject<FlammableEnchantPowerBonusBlock> DARK_OAK_BOOKSHELF = registerBlock("dark_oak_bookshelf",
-            () -> new FlammableEnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
+    public static final RegistryObject<EnchantPowerBonusBlock> SPRUCE_BOOKSHELF = registerBlock("spruce_bookshelf",
+            () -> new EnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
+    public static final RegistryObject<EnchantPowerBonusBlock> BIRCH_BOOKSHELF = registerBlock("birch_bookshelf",
+            () -> new EnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
+    public static final RegistryObject<EnchantPowerBonusBlock> JUNGLE_BOOKSHELF = registerBlock("jungle_bookshelf",
+            () -> new EnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
+    public static final RegistryObject<EnchantPowerBonusBlock> ACACIA_BOOKSHELF = registerBlock("acacia_bookshelf",
+            () -> new EnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
+    public static final RegistryObject<EnchantPowerBonusBlock> DARK_OAK_BOOKSHELF = registerBlock("dark_oak_bookshelf",
+            () -> new EnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
     public static final RegistryObject<EnchantPowerBonusBlock> CRIMSON_BOOKSHELF = registerBlock("crimson_bookshelf",
-            () -> new EnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF)), false);
+            () -> new EnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 0, 0), false);
     public static final RegistryObject<EnchantPowerBonusBlock> WARPED_BOOKSHELF = registerBlock("warped_bookshelf",
-            () -> new EnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF)), false);
-    public static final RegistryObject<FlammableEnchantPowerBonusBlock> BAMBOO_BOOKSHELF = registerBlock("bamboo_bookshelf",
-            () -> new FlammableEnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
+            () -> new EnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 0, 0), false);
+    public static final RegistryObject<EnchantPowerBonusBlock> BAMBOO_BOOKSHELF = registerBlock("bamboo_bookshelf",
+            () -> new EnchantPowerBonusBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF), 30, 20), true);
 
     public static final RegistryObject<TableBlock> OAK_TABLE = registerBlock("oak_table",
-            () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS), 5 , 20), true);
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS), 5 , 20), true);
     public static final RegistryObject<TableBlock> SPRUCE_TABLE = registerBlock("spruce_table",
-            () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS), 5 , 20), true);
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS), 5 , 20), true);
     public static final RegistryObject<TableBlock> BIRCH_TABLE = registerBlock("birch_table",
-            () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS), 5 , 20), true);
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS), 5 , 20), true);
     public static final RegistryObject<TableBlock> JUNGLE_TABLE = registerBlock("jungle_table",
-            () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS), 5 , 20), true);
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS), 5 , 20), true);
     public static final RegistryObject<TableBlock> ACACIA_TABLE = registerBlock("acacia_table",
-            () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS), 5 , 20), true);
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS), 5 , 20), true);
     public static final RegistryObject<TableBlock> DARK_OAK_TABLE = registerBlock("dark_oak_table",
-            () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS), 5 , 20), true);
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS), 5 , 20), true);
     public static final RegistryObject<TableBlock> CRIMSON_TABLE = registerBlock("crimson_table",
-            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)), false);
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS), 0, 0), false);
     public static final RegistryObject<TableBlock> WARPED_TABLE = registerBlock("warped_table",
-            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)), false);
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS), 0, 0), false);
     public static final RegistryObject<TableBlock> BAMBOO_TABLE = registerBlock("bamboo_table",
-            () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
 
     public static final RegistryObject<ChairBlock> OAK_CHAIR = registerBlock("oak_chair",
-            () -> new FlammableChairBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS), 5 , 20), true);
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS), 5 , 20), true);
     public static final RegistryObject<ChairBlock> SPRUCE_CHAIR = registerBlock("spruce_chair",
-            () -> new FlammableChairBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS), 5 , 20), true);
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS), 5 , 20), true);
     public static final RegistryObject<ChairBlock> BIRCH_CHAIR = registerBlock("birch_chair",
-            () -> new FlammableChairBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS), 5 , 20), true);
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS), 5 , 20), true);
     public static final RegistryObject<ChairBlock> JUNGLE_CHAIR = registerBlock("jungle_chair",
-            () -> new FlammableChairBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS), 5 , 20), true);
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS), 5 , 20), true);
     public static final RegistryObject<ChairBlock> ACACIA_CHAIR = registerBlock("acacia_chair",
-            () -> new FlammableChairBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS), 5 , 20), true);
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS), 5 , 20), true);
     public static final RegistryObject<ChairBlock> DARK_OAK_CHAIR = registerBlock("dark_oak_chair",
-            () -> new FlammableChairBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS), 5 , 20), true);
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS), 5 , 20), true);
     public static final RegistryObject<ChairBlock> CRIMSON_CHAIR = registerBlock("crimson_chair",
-            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)), false);
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS), 0, 0), false);
     public static final RegistryObject<ChairBlock> WARPED_CHAIR = registerBlock("warped_chair",
-            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)), false);
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS), 0, 0), false);
     public static final RegistryObject<ChairBlock> BAMBOO_CHAIR = registerBlock("bamboo_chair",
-            () -> new FlammableChairBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
 
     // based on tutorial from McJty - will be changed later
     public static final RegistryObject<GeneratorBlock> GENERATOR = registerBlock("generator", GeneratorBlock::new, false);
