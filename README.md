@@ -83,6 +83,15 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - Crimson Table
 - Warped Table
 - Bamboo Table
+- Oak Chair
+- Spruce Chair
+- Birch Chair
+- Jungle Chair
+- Acacia Chair
+- Dark Oak Chair
+- Crimson Chair
+- Warped Chair
+- Bamboo Chair
 
 ### Details
 

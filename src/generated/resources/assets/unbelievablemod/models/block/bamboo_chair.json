@@ -1,0 +1,6 @@
+{
+  "parent": "unbelievablemod:block/chair",
+  "textures": {
+    "texture": "unbelievablemod:block/bamboo_block"
+  }
+}

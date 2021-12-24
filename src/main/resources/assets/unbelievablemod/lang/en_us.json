@@ -68,6 +68,16 @@
   "block.unbelievablemod.warped_table": "Warped Table",
   "block.unbelievablemod.bamboo_table": "Bamboo Table",
 
+  "block.unbelievablemod.oak_chair": "Oak Chair",
+  "block.unbelievablemod.spruce_chair": "Spruce Chair",
+  "block.unbelievablemod.birch_chair": "Birch Chair",
+  "block.unbelievablemod.jungle_chair": "Jungle Chair",
+  "block.unbelievablemod.acacia_chair": "Acacia Chair",
+  "block.unbelievablemod.dark_oak_chair": "Dark Oak Chair",
+  "block.unbelievablemod.crimson_chair": "Crimson Chair",
+  "block.unbelievablemod.warped_chair": "Warped Chair",
+  "block.unbelievablemod.bamboo_chair": "Bamboo Chair",
+
 
   "message.sapphire_distance.tooltip": "Mine with extra distance %s",
   "message.sapphire_distance.change": "Changed extra distance to %s",

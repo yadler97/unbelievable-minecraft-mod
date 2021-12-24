@@ -1,5 +1,6 @@
 package com.yannick.unbelievablemod.datagen;
 
+import com.yannick.unbelievablemod.blocks.ChairBlock;
 import com.yannick.unbelievablemod.blocks.TableBlock;
 import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.UnbelievableMod;
@@ -77,6 +78,16 @@ public class BlockStates extends BlockStateProvider {
         tableBlock("crimson_table", Registration.CRIMSON_TABLE.get(), new ResourceLocation("minecraft", "block/crimson_planks"));
         tableBlock("warped_table", Registration.WARPED_TABLE.get(), new ResourceLocation("minecraft", "block/warped_planks"));
         tableBlock("bamboo_table", Registration.BAMBOO_TABLE.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
+
+        chairBlock("oak_chair", Registration.OAK_CHAIR.get(), new ResourceLocation("minecraft", "block/oak_planks"));
+        chairBlock("spruce_chair", Registration.SPRUCE_CHAIR.get(), new ResourceLocation("minecraft", "block/spruce_planks"));
+        chairBlock("birch_chair", Registration.BIRCH_CHAIR.get(), new ResourceLocation("minecraft", "block/birch_planks"));
+        chairBlock("jungle_chair", Registration.JUNGLE_CHAIR.get(), new ResourceLocation("minecraft", "block/jungle_planks"));
+        chairBlock("acacia_chair", Registration.ACACIA_CHAIR.get(), new ResourceLocation("minecraft", "block/acacia_planks"));
+        chairBlock("dark_oak_chair", Registration.DARK_OAK_CHAIR.get(), new ResourceLocation("minecraft", "block/dark_oak_planks"));
+        chairBlock("crimson_chair", Registration.CRIMSON_CHAIR.get(), new ResourceLocation("minecraft", "block/crimson_planks"));
+        chairBlock("warped_chair", Registration.WARPED_CHAIR.get(), new ResourceLocation("minecraft", "block/warped_planks"));
+        chairBlock("bamboo_chair", Registration.BAMBOO_CHAIR.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
     }
 
     private void registerGeneratorBlock() {
@@ -107,5 +118,10 @@ public class BlockStates extends BlockStateProvider {
     private void tableBlock(String name, TableBlock block, ResourceLocation texture) {
         ModelFile table = models().singleTexture(name, modLoc(BLOCK_FOLDER + "/table"), texture);
         simpleBlock(block, table);
+    }
+
+    private void chairBlock(String name, ChairBlock block, ResourceLocation texture) {
+        ModelFile table = models().singleTexture(name, modLoc(BLOCK_FOLDER + "/chair"), texture);
+        horizontalBlock(block, table);
     }
 }

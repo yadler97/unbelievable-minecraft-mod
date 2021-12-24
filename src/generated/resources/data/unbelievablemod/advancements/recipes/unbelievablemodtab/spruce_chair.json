@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "unbelievablemod:spruce_chair"
+    ]
+  },
+  "criteria": {
+    "has_spruce_slabs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:spruce_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "unbelievablemod:spruce_chair"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_spruce_slabs",
+      "has_the_recipe"
+    ]
+  ]
+}

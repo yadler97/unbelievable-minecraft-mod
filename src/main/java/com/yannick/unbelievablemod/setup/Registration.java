@@ -168,6 +168,25 @@ public class Registration {
     public static final RegistryObject<TableBlock> BAMBOO_TABLE = registerBlock("bamboo_table",
             () -> new FlammableTableBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
 
+    public static final RegistryObject<ChairBlock> OAK_CHAIR = registerBlock("oak_chair",
+            () -> new FlammableChairBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS), 5 , 20), true);
+    public static final RegistryObject<ChairBlock> SPRUCE_CHAIR = registerBlock("spruce_chair",
+            () -> new FlammableChairBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS), 5 , 20), true);
+    public static final RegistryObject<ChairBlock> BIRCH_CHAIR = registerBlock("birch_chair",
+            () -> new FlammableChairBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS), 5 , 20), true);
+    public static final RegistryObject<ChairBlock> JUNGLE_CHAIR = registerBlock("jungle_chair",
+            () -> new FlammableChairBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS), 5 , 20), true);
+    public static final RegistryObject<ChairBlock> ACACIA_CHAIR = registerBlock("acacia_chair",
+            () -> new FlammableChairBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS), 5 , 20), true);
+    public static final RegistryObject<ChairBlock> DARK_OAK_CHAIR = registerBlock("dark_oak_chair",
+            () -> new FlammableChairBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS), 5 , 20), true);
+    public static final RegistryObject<ChairBlock> CRIMSON_CHAIR = registerBlock("crimson_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)), false);
+    public static final RegistryObject<ChairBlock> WARPED_CHAIR = registerBlock("warped_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)), false);
+    public static final RegistryObject<ChairBlock> BAMBOO_CHAIR = registerBlock("bamboo_chair",
+            () -> new FlammableChairBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
+
     // based on tutorial from McJty - will be changed later
     public static final RegistryObject<GeneratorBlock> GENERATOR = registerBlock("generator", GeneratorBlock::new, false);
     public static final RegistryObject<BlockEntityType<GeneratorBE>> GENERATOR_BE = BLOCKENTITIES.register("generator",

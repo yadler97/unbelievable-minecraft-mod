@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "unbelievablemod:block/birch_chair"
+    },
+    "facing=south": {
+      "model": "unbelievablemod:block/birch_chair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "unbelievablemod:block/birch_chair",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "unbelievablemod:block/birch_chair",
+      "y": 90
+    }
+  }
+}

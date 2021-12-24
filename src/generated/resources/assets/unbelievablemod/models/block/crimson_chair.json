@@ -1,0 +1,6 @@
+{
+  "parent": "unbelievablemod:block/chair",
+  "textures": {
+    "texture": "minecraft:block/crimson_planks"
+  }
+}

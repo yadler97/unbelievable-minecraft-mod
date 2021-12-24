@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "unbelievablemod:birch_chair"
+    ]
+  },
+  "criteria": {
+    "has_birch_slabs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:birch_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "unbelievablemod:birch_chair"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_birch_slabs",
+      "has_the_recipe"
+    ]
+  ]
+}

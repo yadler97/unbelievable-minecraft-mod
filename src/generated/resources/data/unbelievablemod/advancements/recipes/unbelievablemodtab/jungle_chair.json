@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "unbelievablemod:jungle_chair"
+    ]
+  },
+  "criteria": {
+    "has_jungle_slabs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:jungle_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "unbelievablemod:jungle_chair"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_jungle_slabs",
+      "has_the_recipe"
+    ]
+  ]
+}

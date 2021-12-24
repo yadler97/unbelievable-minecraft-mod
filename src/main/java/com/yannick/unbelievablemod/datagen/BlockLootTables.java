@@ -94,6 +94,16 @@ public class BlockLootTables extends BlockLoot {
         this.dropSelf(Registration.WARPED_TABLE.get());
         this.dropSelf(Registration.BAMBOO_TABLE.get());
 
+        this.dropSelf(Registration.OAK_CHAIR.get());
+        this.dropSelf(Registration.SPRUCE_CHAIR.get());
+        this.dropSelf(Registration.BIRCH_CHAIR.get());
+        this.dropSelf(Registration.JUNGLE_CHAIR.get());
+        this.dropSelf(Registration.ACACIA_CHAIR.get());
+        this.dropSelf(Registration.DARK_OAK_CHAIR.get());
+        this.dropSelf(Registration.CRIMSON_CHAIR.get());
+        this.dropSelf(Registration.WARPED_CHAIR.get());
+        this.dropSelf(Registration.BAMBOO_CHAIR.get());
+
 
         this.add(Registration.GENERATOR.get(), (block) -> {
             return createStandardTable("generator", Registration.GENERATOR.get()).setParamSet(LootContextParamSets.BLOCK);
