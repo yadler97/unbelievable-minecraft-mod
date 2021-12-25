@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "side": "unbelievablemod:block/jungle_bookshelf",
-    "end": "minecraft:block/jungle_planks"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "unbelievablemod:item/rosegold_helmet"
-  }
-}
