@@ -21,9 +21,27 @@
       }
     },
     {
-      "weight": 3,
+      "weight": 1,
       "element": {
         "location": "unbelievablemod:castle_ruins_small_end",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_small_end_2",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_small_end_3",
         "processors": "unbelievablemod:castle_ruins",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

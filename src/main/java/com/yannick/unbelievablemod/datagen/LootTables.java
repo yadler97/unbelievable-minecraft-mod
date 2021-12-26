@@ -15,11 +15,15 @@ import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public class LootTables extends LootTableProvider {
 
     private final List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>>
-            loot_tables = ImmutableList.of(Pair.of(BlockLootTables::new, LootContextParamSets.BLOCK));
+            block_loot_tables = ImmutableList.of(Pair.of(BlockLootTables::new, LootContextParamSets.BLOCK));
+
+    private final List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>>
+            chest_loot_tables = ImmutableList.of(Pair.of(ChestLootTables::new, LootContextParamSets.CHEST));
 
     public LootTables(DataGenerator generator) {
         super(generator);
@@ -27,11 +31,13 @@ public class LootTables extends LootTableProvider {
 
     @Override
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
-        return this.loot_tables;
+        List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> loot_tables =
+                Stream.concat(this.chest_loot_tables.stream(), this.block_loot_tables.stream()).toList();
+        return loot_tables;
     }
 
     @Override
-    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationtracker) {
+    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationTracker) {
 
     }
 }

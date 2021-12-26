@@ -1,0 +1,60 @@
+{
+  "name": "unbelievablemod:castle_ruins/basement_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 6,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_basement_crossway",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_basement_end",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_basement_hallway",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_basement_t_crossway",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_basement_spawner_room",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "unbelievablemod:castle_ruins_basement_treasure_room",
+        "processors": "unbelievablemod:castle_ruins",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
