@@ -78,6 +78,16 @@
   "block.unbelievablemod.warped_chair": "Warped Chair",
   "block.unbelievablemod.bamboo_chair": "Bamboo Chair",
 
+  "block.unbelievablemod.oak_shelf": "Oak Shelf",
+  "block.unbelievablemod.spruce_shelf": "Spruce Shelf",
+  "block.unbelievablemod.birch_shelf": "Birch Shelf",
+  "block.unbelievablemod.jungle_shelf": "Jungle Shelf",
+  "block.unbelievablemod.acacia_shelf": "Acacia Shelf",
+  "block.unbelievablemod.dark_oak_shelf": "Dark Oak Shelf",
+  "block.unbelievablemod.crimson_shelf": "Crimson Shelf",
+  "block.unbelievablemod.warped_shelf": "Warped Shelf",
+  "block.unbelievablemod.bamboo_shelf": "Bamboo Shelf",
+
 
   "message.sapphire_distance.tooltip": "Mine with extra distance %s",
   "message.sapphire_distance.change": "Changed extra distance to %s",

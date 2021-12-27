@@ -96,5 +96,15 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.CRIMSON_CHAIR.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/crimson_chair"));
         withExistingParent(Registration.WARPED_CHAIR.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/warped_chair"));
         withExistingParent(Registration.BAMBOO_CHAIR.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_chair"));
+
+        withExistingParent(Registration.OAK_SHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/oak_shelf"));
+        withExistingParent(Registration.SPRUCE_SHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/spruce_shelf"));
+        withExistingParent(Registration.BIRCH_SHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/birch_shelf"));
+        withExistingParent(Registration.JUNGLE_SHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/jungle_shelf"));
+        withExistingParent(Registration.ACACIA_SHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/acacia_shelf"));
+        withExistingParent(Registration.DARK_OAK_SHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/dark_oak_shelf"));
+        withExistingParent(Registration.CRIMSON_SHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/crimson_shelf"));
+        withExistingParent(Registration.WARPED_SHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/warped_shelf"));
+        withExistingParent(Registration.BAMBOO_SHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_shelf"));
     }
 }

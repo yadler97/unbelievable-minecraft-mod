@@ -8,7 +8,6 @@
 			"name": "leg_1",
 			"from": [4, 0, 4],
 			"to": [6, 6, 6],
-			"color": 6,
 			"faces": {
 				"north": {"uv": [0, 0, 2, 6], "texture": "#texture"},
 				"east": {"uv": [0, 0, 2, 6], "texture": "#texture"},
@@ -22,7 +21,6 @@
 			"name": "leg_2",
 			"from": [4, 0, 10],
 			"to": [6, 6, 12],
-			"color": 3,
 			"faces": {
 				"north": {"uv": [0, 0, 2, 6], "texture": "#texture"},
 				"east": {"uv": [0, 0, 2, 6], "texture": "#texture"},
@@ -36,7 +34,6 @@
 			"name": "leg_3",
 			"from": [10, 0, 10],
 			"to": [12, 6, 12],
-			"color": 2,
 			"faces": {
 				"north": {"uv": [0, 0, 2, 6], "texture": "#texture"},
 				"east": {"uv": [0, 0, 2, 6], "texture": "#texture"},
@@ -50,7 +47,6 @@
 			"name": "leg_4",
 			"from": [10, 0, 4],
 			"to": [12, 6, 6],
-			"color": 2,
 			"faces": {
 				"north": {"uv": [0, 0, 2, 6], "texture": "#texture"},
 				"east": {"uv": [0, 0, 2, 6], "texture": "#texture"},
@@ -64,7 +60,6 @@
 			"name": "plate",
 			"from": [3, 6, 3],
 			"to": [13, 8, 11],
-			"color": 0,
 			"faces": {
 				"north": {"uv": [0, 0, 10, 2], "texture": "#texture"},
 				"east": {"uv": [0, 0, 8, 2], "texture": "#texture"},
@@ -78,7 +73,6 @@
 			"name": "back",
 			"from": [3, 6, 11],
 			"to": [13, 19, 13],
-			"color": 6,
 			"faces": {
 				"north": {"uv": [0, 0, 10, 13], "texture": "#texture"},
 				"east": {"uv": [0, 0, 2, 13], "texture": "#texture"},

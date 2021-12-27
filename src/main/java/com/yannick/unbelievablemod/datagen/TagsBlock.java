@@ -60,7 +60,16 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.DARK_OAK_CHAIR.get())
                 .add(Registration.CRIMSON_CHAIR.get())
                 .add(Registration.WARPED_CHAIR.get())
-                .add(Registration.BAMBOO_CHAIR.get());
+                .add(Registration.BAMBOO_CHAIR.get())
+                .add(Registration.OAK_SHELF.get())
+                .add(Registration.SPRUCE_SHELF.get())
+                .add(Registration.BIRCH_SHELF.get())
+                .add(Registration.JUNGLE_SHELF.get())
+                .add(Registration.ACACIA_SHELF.get())
+                .add(Registration.DARK_OAK_SHELF.get())
+                .add(Registration.CRIMSON_SHELF.get())
+                .add(Registration.WARPED_SHELF.get())
+                .add(Registration.BAMBOO_SHELF.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(Registration.GENERATOR.get())

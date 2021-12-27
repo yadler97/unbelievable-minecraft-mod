@@ -187,6 +187,25 @@ public class Registration {
     public static final RegistryObject<ChairBlock> BAMBOO_CHAIR = registerBlock("bamboo_chair",
             () -> new ChairBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
 
+    public static final RegistryObject<ShelfBlock> OAK_SHELF = registerBlock("oak_shelf",
+            () -> new ShelfBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS), 5 , 20), true);
+    public static final RegistryObject<ShelfBlock> SPRUCE_SHELF = registerBlock("spruce_shelf",
+            () -> new ShelfBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS), 5 , 20), true);
+    public static final RegistryObject<ShelfBlock> BIRCH_SHELF = registerBlock("birch_shelf",
+            () -> new ShelfBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS), 5 , 20), true);
+    public static final RegistryObject<ShelfBlock> JUNGLE_SHELF = registerBlock("jungle_shelf",
+            () -> new ShelfBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS), 5 , 20), true);
+    public static final RegistryObject<ShelfBlock> ACACIA_SHELF = registerBlock("acacia_shelf",
+            () -> new ShelfBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS), 5 , 20), true);
+    public static final RegistryObject<ShelfBlock> DARK_OAK_SHELF = registerBlock("dark_oak_shelf",
+            () -> new ShelfBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS), 5 , 20), true);
+    public static final RegistryObject<ShelfBlock> CRIMSON_SHELF = registerBlock("crimson_shelf",
+            () -> new ShelfBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS), 0, 0), false);
+    public static final RegistryObject<ShelfBlock> WARPED_SHELF = registerBlock("warped_shelf",
+            () -> new ShelfBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS), 0, 0), false);
+    public static final RegistryObject<ShelfBlock> BAMBOO_SHELF = registerBlock("bamboo_shelf",
+            () -> new ShelfBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
+
     // based on tutorial from McJty - will be changed later
     public static final RegistryObject<GeneratorBlock> GENERATOR = registerBlock("generator", GeneratorBlock::new, false);
     public static final RegistryObject<BlockEntityType<GeneratorBE>> GENERATOR_BE = BLOCKENTITIES.register("generator",

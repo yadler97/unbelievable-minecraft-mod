@@ -90,6 +90,16 @@ public class CreativeModeTabs {
             items.add(Registration.CRIMSON_CHAIR.get().asItem().getDefaultInstance());
             items.add(Registration.WARPED_CHAIR.get().asItem().getDefaultInstance());
             items.add(Registration.BAMBOO_CHAIR.get().asItem().getDefaultInstance());
+
+            items.add(Registration.OAK_SHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.SPRUCE_SHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.BIRCH_SHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.JUNGLE_SHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.ACACIA_SHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.DARK_OAK_SHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.CRIMSON_SHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.WARPED_SHELF.get().asItem().getDefaultInstance());
+            items.add(Registration.BAMBOO_SHELF.get().asItem().getDefaultInstance());
         }
     };
 }

@@ -1,6 +1,7 @@
 package com.yannick.unbelievablemod.datagen;
 
 import com.yannick.unbelievablemod.blocks.ChairBlock;
+import com.yannick.unbelievablemod.blocks.ShelfBlock;
 import com.yannick.unbelievablemod.blocks.TableBlock;
 import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.UnbelievableMod;
@@ -87,6 +88,16 @@ public class BlockStates extends BlockStateProvider {
         chairBlock("crimson_chair", Registration.CRIMSON_CHAIR.get(), new ResourceLocation("minecraft", "block/crimson_planks"));
         chairBlock("warped_chair", Registration.WARPED_CHAIR.get(), new ResourceLocation("minecraft", "block/warped_planks"));
         chairBlock("bamboo_chair", Registration.BAMBOO_CHAIR.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
+
+        shelfBlock("oak_shelf", Registration.OAK_SHELF.get(), new ResourceLocation("minecraft", "block/oak_planks"));
+        shelfBlock("spruce_shelf", Registration.SPRUCE_SHELF.get(), new ResourceLocation("minecraft", "block/spruce_planks"));
+        shelfBlock("birch_shelf", Registration.BIRCH_SHELF.get(), new ResourceLocation("minecraft", "block/birch_planks"));
+        shelfBlock("jungle_shelf", Registration.JUNGLE_SHELF.get(), new ResourceLocation("minecraft", "block/jungle_planks"));
+        shelfBlock("acacia_shelf", Registration.ACACIA_SHELF.get(), new ResourceLocation("minecraft", "block/acacia_planks"));
+        shelfBlock("dark_oak_shelf", Registration.DARK_OAK_SHELF.get(), new ResourceLocation("minecraft", "block/dark_oak_planks"));
+        shelfBlock("crimson_shelf", Registration.CRIMSON_SHELF.get(), new ResourceLocation("minecraft", "block/crimson_planks"));
+        shelfBlock("warped_shelf", Registration.WARPED_SHELF.get(), new ResourceLocation("minecraft", "block/warped_planks"));
+        shelfBlock("bamboo_shelf", Registration.BAMBOO_SHELF.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
     }
 
     private void registerGeneratorBlock() {
@@ -120,7 +131,12 @@ public class BlockStates extends BlockStateProvider {
     }
 
     private void chairBlock(String name, ChairBlock block, ResourceLocation texture) {
-        ModelFile table = models().singleTexture(name, modLoc(BLOCK_FOLDER + "/chair"), texture);
-        horizontalBlock(block, table);
+        ModelFile chair = models().singleTexture(name, modLoc(BLOCK_FOLDER + "/chair"), texture);
+        horizontalBlock(block, chair);
+    }
+
+    private void shelfBlock(String name, ShelfBlock block, ResourceLocation texture) {
+        ModelFile shelf = models().singleTexture(name, modLoc(BLOCK_FOLDER + "/shelf"), texture);
+        horizontalBlock(block, shelf);
     }
 }

@@ -92,6 +92,15 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - Crimson Chair
 - Warped Chair
 - Bamboo Chair
+- Oak Shelf
+- Spruce Shelf
+- Birch Shelf
+- Jungle Shelf
+- Acacia Shelf
+- Dark Oak Shelf
+- Crimson Shelf
+- Warped Shelf
+- Bamboo Shelf
 
 ### Details
 
@@ -117,3 +126,4 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 ### Castle Ruins
 
 - consists of multiple parts that are randomly put together during generation
+- may have special rooms with treasure chests and/or a basement with treasure chests and mob spawners
