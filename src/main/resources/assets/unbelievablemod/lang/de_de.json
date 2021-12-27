@@ -1,0 +1,101 @@
+{
+  "item.unbelievablemod.ruby": "Rubin",
+
+  "item.unbelievablemod.sapphire": "Saphir",
+  "item.unbelievablemod.sapphire_pickaxe": "Saphirspitzhacke",
+  "item.unbelievablemod.sapphire_axe": "Saphiraxt",
+  "item.unbelievablemod.sapphire_shovel": "Saphirschaufel",
+  "item.unbelievablemod.sapphire_hoe": "Saphirhacke",
+  "item.unbelievablemod.sapphire_sword": "Saphirschwert",
+
+  "item.unbelievablemod.rosegold_pickaxe": "Roségoldspitzhacke",
+  "item.unbelievablemod.rosegold_axe": "Roségoldaxt",
+  "item.unbelievablemod.rosegold_shovel": "Roségoldschaufel",
+  "item.unbelievablemod.rosegold_hoe": "Roségoldhacke",
+  "item.unbelievablemod.rosegold_sword": "Roségoldschwert",
+
+  "item.unbelievablemod.rosegold_helmet": "Roségoldhelm",
+  "item.unbelievablemod.rosegold_chestplate": "Roségoldharnisch",
+  "item.unbelievablemod.rosegold_leggings": "Roségoldbeinschutz",
+  "item.unbelievablemod.rosegold_boots": "Roségoldstiefel",
+
+  "item.unbelievablemod.copper_wrench": "Kupferschraubenschlüssel",
+
+  "item.unbelievablemod.fried_egg": "Spiegelei",
+
+
+
+  "block.unbelievablemod.generator": "Power-Generator",
+
+  "block.unbelievablemod.ruby_block": "Rubinblock",
+  "block.unbelievablemod.ruby_ore": "Rubinerz",
+  "block.unbelievablemod.deepslate_ruby_ore": "Tiefenschiefer-Rubinerz",
+
+  "block.unbelievablemod.sapphire_block": "Saphirblock",
+  "block.unbelievablemod.sapphire_ore": "Saphirerz",
+  "block.unbelievablemod.deepslate_sapphire_ore": "Tiefenschiefer-Saphirerz",
+
+  "block.unbelievablemod.bamboo_block": "Bambusblock",
+  "block.unbelievablemod.bamboo_block_slab": "Bambusstufe",
+  "block.unbelievablemod.bamboo_block_stairs": "Bambustreppe",
+  "block.unbelievablemod.bamboo_block_fence": "Bambuszaun",
+  "block.unbelievablemod.bamboo_block_fence_gate": "Bambuszauntor",
+  "block.unbelievablemod.bamboo_door": "Bambustür",
+  "block.unbelievablemod.bamboo_trapdoor": "Bambusfalltür",
+  "block.unbelievablemod.bamboo_pressure_plate": "Bambusdruckplatte",
+  "block.unbelievablemod.bamboo_button": "Bambusknopf",
+
+  "block.unbelievablemod.quartz_wall": "Quarzmauer",
+  "block.unbelievablemod.polished_granite_wall": "Polierte Granitmauer",
+  "block.unbelievablemod.polished_diorite_wall": "Polierte Dioritmauer",
+  "block.unbelievablemod.polished_andesite_wall": "Polierte Andesitmauer",
+
+  "block.minecraft.bookshelf": "Eichenbücherregal",
+  "block.unbelievablemod.spruce_bookshelf": "Fichtenbücherregal",
+  "block.unbelievablemod.birch_bookshelf": "Birkenbücherregal",
+  "block.unbelievablemod.jungle_bookshelf": "Tropenbücherregal",
+  "block.unbelievablemod.acacia_bookshelf": "Akazienbücherregal",
+  "block.unbelievablemod.dark_oak_bookshelf": "Schwarzeichenbücherregal",
+  "block.unbelievablemod.crimson_bookshelf": "Karmesinbücherregal",
+  "block.unbelievablemod.warped_bookshelf": "Wirrbücherregal",
+  "block.unbelievablemod.bamboo_bookshelf": "Bambusbücherregal",
+
+  "block.unbelievablemod.oak_table": "Eichenholztisch",
+  "block.unbelievablemod.spruce_table": "Fichtenholztisch",
+  "block.unbelievablemod.birch_table": "Birkenholztisch",
+  "block.unbelievablemod.jungle_table": "Tropenholztisch",
+  "block.unbelievablemod.acacia_table": "Akazienholztisch",
+  "block.unbelievablemod.dark_oak_table": "Schwarzeichenholztisch",
+  "block.unbelievablemod.crimson_table": "Karmesintisch",
+  "block.unbelievablemod.warped_table": "Wirrtisch",
+  "block.unbelievablemod.bamboo_table": "Bambustisch",
+
+  "block.unbelievablemod.oak_chair": "Eichenholzstuhl",
+  "block.unbelievablemod.spruce_chair": "Fichtenholzstuhl",
+  "block.unbelievablemod.birch_chair": "Birkenholzstuhl",
+  "block.unbelievablemod.jungle_chair": "Tropenholzstuhl",
+  "block.unbelievablemod.acacia_chair": "Akazienholzstuhl",
+  "block.unbelievablemod.dark_oak_chair": "Schwarzeichenholzstuhl",
+  "block.unbelievablemod.crimson_chair": "Karmesinstuhl",
+  "block.unbelievablemod.warped_chair": "Wirrstuhl",
+  "block.unbelievablemod.bamboo_chair": "Bambusstuhl",
+
+  "block.unbelievablemod.oak_shelf": "Eichenholzregal",
+  "block.unbelievablemod.spruce_shelf": "Fichtenholzregal",
+  "block.unbelievablemod.birch_shelf": "Birkenholzregal",
+  "block.unbelievablemod.jungle_shelf": "Tropenholzregal",
+  "block.unbelievablemod.acacia_shelf": "Akazienholzregal",
+  "block.unbelievablemod.dark_oak_shelf": "Schwarzeichenholzregal",
+  "block.unbelievablemod.crimson_shelf": "Karmesinregal",
+  "block.unbelievablemod.warped_shelf": "Wirrregal",
+  "block.unbelievablemod.bamboo_shelf": "Bambusregal",
+
+
+  "message.sapphire_distance.tooltip": "Abbauen mit einer zusätzlichen Distanz von %s",
+  "message.sapphire_distance.change": "Zusätzliche Distanz gewechselt zu %s",
+
+  "message.generator.tooltip": "Der Power-Generator",
+  "screen.unbelievablemod.generator": "Generator-Bildschirm",
+
+  "itemGroup.unbelievablemodtab": "Unbelievable Mod"
+}
