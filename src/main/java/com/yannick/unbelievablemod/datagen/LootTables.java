@@ -31,9 +31,7 @@ public class LootTables extends LootTableProvider {
 
     @Override
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
-        List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> loot_tables =
-                Stream.concat(this.chest_loot_tables.stream(), this.block_loot_tables.stream()).toList();
-        return loot_tables;
+        return Stream.concat(this.chest_loot_tables.stream(), this.block_loot_tables.stream()).toList();
     }
 
     @Override

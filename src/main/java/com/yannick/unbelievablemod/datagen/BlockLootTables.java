@@ -20,34 +20,21 @@ import net.minecraftforge.fmllegacy.RegistryObject;
 public class BlockLootTables extends BlockLoot {
     @Override
     protected void addTables() {
-        this.add(Registration.RUBY_ORE.get(), (block) -> {
-            return createOreDrop(Registration.RUBY_ORE.get(), Registration.RUBY.get());
-        });
-        this.add(Registration.DEEPSLATE_RUBY_ORE.get(), (block) -> {
-            return createOreDrop(Registration.DEEPSLATE_RUBY_ORE.get(), Registration.RUBY.get());
-        });
+        this.add(Registration.RUBY_ORE.get(), (block) -> createOreDrop(Registration.RUBY_ORE.get(), Registration.RUBY.get()));
+        this.add(Registration.DEEPSLATE_RUBY_ORE.get(), (block) -> createOreDrop(Registration.DEEPSLATE_RUBY_ORE.get(), Registration.RUBY.get()));
         this.dropSelf(Registration.RUBY_BLOCK.get());
 
-
-        this.add(Registration.SAPPHIRE_ORE.get(), (block) -> {
-            return createOreDrop(Registration.SAPPHIRE_ORE.get(), Registration.SAPPHIRE.get());
-        });
-        this.add(Registration.DEEPSLATE_SAPPHIRE_ORE.get(), (block) -> {
-            return createOreDrop(Registration.DEEPSLATE_SAPPHIRE_ORE.get(), Registration.SAPPHIRE.get());
-        });
+        this.add(Registration.SAPPHIRE_ORE.get(), (block) -> createOreDrop(Registration.SAPPHIRE_ORE.get(), Registration.SAPPHIRE.get()));
+        this.add(Registration.DEEPSLATE_SAPPHIRE_ORE.get(), (block) -> createOreDrop(Registration.DEEPSLATE_SAPPHIRE_ORE.get(), Registration.SAPPHIRE.get()));
         this.dropSelf(Registration.SAPPHIRE_BLOCK.get());
 
 
         this.dropSelf(Registration.BAMBOO_BLOCK.get());
-        this.add(Registration.BAMBOO_BLOCK_SLAB.get(), (block) -> {
-            return createSlabItemTable(Registration.BAMBOO_BLOCK_SLAB.get());
-        });
+        this.add(Registration.BAMBOO_BLOCK_SLAB.get(), (block) -> createSlabItemTable(Registration.BAMBOO_BLOCK_SLAB.get()));
         this.dropSelf(Registration.BAMBOO_BLOCK_STAIRS.get());
         this.dropSelf(Registration.BAMBOO_BLOCK_FENCE.get());
         this.dropSelf(Registration.BAMBOO_BLOCK_FENCE_GATE.get());
-        this.add(Registration.BAMBOO_DOOR.get(), (block -> {
-            return createDoorTable(Registration.BAMBOO_DOOR.get());
-        }));
+        this.add(Registration.BAMBOO_DOOR.get(), (block -> createDoorTable(Registration.BAMBOO_DOOR.get())));
         this.dropSelf(Registration.BAMBOO_TRAPDOOR.get());
         this.dropSelf(Registration.BAMBOO_PRESSURE_PLATE.get());
         this.dropSelf(Registration.BAMBOO_BUTTON.get());
@@ -59,30 +46,14 @@ public class BlockLootTables extends BlockLoot {
         this.dropSelf(Registration.POLISHED_ANDESITE_WALL.get());
 
 
-        this.add(Registration.SPRUCE_BOOKSHELF.get(), (block) -> {
-            return createSingleItemTableWithSilkTouch(Registration.SPRUCE_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
-        });
-        this.add(Registration.BIRCH_BOOKSHELF.get(), (block) -> {
-            return createSingleItemTableWithSilkTouch(Registration.BIRCH_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
-        });
-        this.add(Registration.JUNGLE_BOOKSHELF.get(), (block) -> {
-            return createSingleItemTableWithSilkTouch(Registration.JUNGLE_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
-        });
-        this.add(Registration.ACACIA_BOOKSHELF.get(), (block) -> {
-            return createSingleItemTableWithSilkTouch(Registration.ACACIA_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
-        });
-        this.add(Registration.DARK_OAK_BOOKSHELF.get(), (block) -> {
-            return createSingleItemTableWithSilkTouch(Registration.DARK_OAK_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
-        });
-        this.add(Registration.CRIMSON_BOOKSHELF.get(), (block) -> {
-            return createSingleItemTableWithSilkTouch(Registration.CRIMSON_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
-        });
-        this.add(Registration.WARPED_BOOKSHELF.get(), (block) -> {
-            return createSingleItemTableWithSilkTouch(Registration.WARPED_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
-        });
-        this.add(Registration.BAMBOO_BOOKSHELF.get(), (block) -> {
-            return createSingleItemTableWithSilkTouch(Registration.BAMBOO_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3));
-        });
+        this.add(Registration.SPRUCE_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(Registration.SPRUCE_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3)));
+        this.add(Registration.BIRCH_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(Registration.BIRCH_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3)));
+        this.add(Registration.JUNGLE_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(Registration.JUNGLE_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3)));
+        this.add(Registration.ACACIA_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(Registration.ACACIA_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3)));
+        this.add(Registration.DARK_OAK_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(Registration.DARK_OAK_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3)));
+        this.add(Registration.CRIMSON_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(Registration.CRIMSON_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3)));
+        this.add(Registration.WARPED_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(Registration.WARPED_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3)));
+        this.add(Registration.BAMBOO_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(Registration.BAMBOO_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3)));
 
         this.dropSelf(Registration.OAK_TABLE.get());
         this.dropSelf(Registration.SPRUCE_TABLE.get());
@@ -105,9 +76,7 @@ public class BlockLootTables extends BlockLoot {
         this.dropSelf(Registration.BAMBOO_CHAIR.get());
 
 
-        this.add(Registration.GENERATOR.get(), (block) -> {
-            return createStandardTable("generator", Registration.GENERATOR.get()).setParamSet(LootContextParamSets.BLOCK);
-        });
+        this.add(Registration.GENERATOR.get(), (block) -> createStandardTable("generator", Registration.GENERATOR.get()).setParamSet(LootContextParamSets.BLOCK));
     }
 
     @Override

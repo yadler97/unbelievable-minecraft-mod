@@ -30,8 +30,8 @@ import java.util.Collections;
 import java.util.Objects;
 
 public class Wrench extends TieredItem implements Vanishable {
-    public Wrench(Item.Properties properties) {
-        super(Tiers.COPPER, properties);
+    public Wrench(Tiers tier, Item.Properties properties) {
+        super(tier, properties);
     }
 
     public boolean canAttackBlock(BlockState blockState, Level level, BlockPos blockPos, Player player) {

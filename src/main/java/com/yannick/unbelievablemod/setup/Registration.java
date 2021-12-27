@@ -83,7 +83,7 @@ public class Registration {
             () -> new Item(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB).food(Foods.FRIED_EGG)));
 
     public static final RegistryObject<Item> COPPER_WRENCH = ITEMS.register("copper_wrench",
-            () -> new Wrench(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new Wrench(Tiers.COPPER, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
 
     public static final RegistryObject<Item> BAMBOO_DOOR_ITEM = ITEMS.register("bamboo_door_item",
             () -> new FuelDoubleHighBlockItem(Registration.BAMBOO_DOOR.get(), (new Item.Properties()).tab(CreativeModeTabs.UNBELIEVABLE_TAB), 200));

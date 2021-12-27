@@ -9,15 +9,9 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public enum Tiers implements Tier {
-    SAPPHIRE(3, 1000, 4.0F, 3.5F, 10, () -> {
-        return Ingredient.of(Registration.SAPPHIRE.get());
-    }),
-    COPPER(0, 100, 4.0F, 3.5F, 10, () -> {
-        return Ingredient.of(Items.COPPER_INGOT);
-    }),
-    ROSEGOLD(0, 64, 12.0F, 0.0F, 22, () -> {
-        return Ingredient.of(Items.COPPER_INGOT);
-    });
+    SAPPHIRE(3, 1000, 4.0F, 3.5F, 10, () -> Ingredient.of(Registration.SAPPHIRE.get())),
+    COPPER(0, 100, 4.0F, 3.5F, 10, () -> Ingredient.of(Items.COPPER_INGOT)),
+    ROSEGOLD(0, 64, 12.0F, 0.0F, 22, () -> Ingredient.of(Items.COPPER_INGOT));
 
 
     private final int level;
@@ -27,7 +21,7 @@ public enum Tiers implements Tier {
     private final int enchantmentValue;
     private final LazyLoadedValue<Ingredient> repairIngredient;
 
-    private Tiers(int p_43332_, int p_43333_, float p_43334_, float p_43335_, int p_43336_, Supplier<Ingredient> p_43337_) {
+    Tiers(int p_43332_, int p_43333_, float p_43334_, float p_43335_, int p_43336_, Supplier<Ingredient> p_43337_) {
         this.level = p_43332_;
         this.uses = p_43333_;
         this.speed = p_43334_;
