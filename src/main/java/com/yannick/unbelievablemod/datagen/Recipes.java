@@ -644,6 +644,31 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("has_quartz_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.QUARTZ_BLOCK))
                 .save(consumer, Registration.QUARTZ_WALL.getId() + "_stonecutting");
 
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.GRANITE), Registration.POLISHED_GRANITE_WALL.get())
+                .unlockedBy("has_granite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.GRANITE))
+                .save(consumer, Registration.POLISHED_GRANITE_WALL.getId() + "_from_granite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.POLISHED_GRANITE), Registration.POLISHED_GRANITE_WALL.get())
+                .unlockedBy("has_polished_granite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_GRANITE))
+                .save(consumer, Registration.POLISHED_GRANITE_WALL.getId() + "_from_polished_granite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.DIORITE), Registration.POLISHED_DIORITE_WALL.get())
+                .unlockedBy("has_diorite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.DIORITE))
+                .save(consumer, Registration.POLISHED_DIORITE_WALL.getId() + "_from_diorite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.POLISHED_DIORITE), Registration.POLISHED_DIORITE_WALL.get())
+                .unlockedBy("has_polished_diorite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_DIORITE))
+                .save(consumer, Registration.POLISHED_DIORITE_WALL.getId() + "_from_polished_diorite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.ANDESITE), Registration.POLISHED_ANDESITE_WALL.get())
+                .unlockedBy("has_andesite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.ANDESITE))
+                .save(consumer, Registration.POLISHED_ANDESITE_WALL.getId() + "_from_andesite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.POLISHED_ANDESITE), Registration.POLISHED_ANDESITE_WALL.get())
+                .unlockedBy("has_polished_andesite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_ANDESITE))
+                .save(consumer, Registration.POLISHED_ANDESITE_WALL.getId() + "_from_polished_andesite_stonecutting");
+
+
 
         // Smithing
         UpgradeRecipeBuilder.smithing(Ingredient.of(Items.GOLDEN_PICKAXE), Ingredient.of(Items.COPPER_INGOT), Registration.ROSEGOLD_PICKAXE.get())
