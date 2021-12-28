@@ -100,6 +100,10 @@ public class CreativeModeTabs {
             items.add(Registration.CRIMSON_SHELF.get().asItem().getDefaultInstance());
             items.add(Registration.WARPED_SHELF.get().asItem().getDefaultInstance());
             items.add(Registration.BAMBOO_SHELF.get().asItem().getDefaultInstance());
+
+            items.add(Registration.CUT_GOLD.get().asItem().getDefaultInstance());
+            items.add(Registration.CUT_GOLD_SLAB.get().asItem().getDefaultInstance());
+            items.add(Registration.CUT_GOLD_STAIRS.get().asItem().getDefaultInstance());
         }
     };
 }

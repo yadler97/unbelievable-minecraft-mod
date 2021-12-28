@@ -98,6 +98,10 @@ public class BlockStates extends BlockStateProvider {
         shelfBlock("crimson_shelf", Registration.CRIMSON_SHELF.get(), new ResourceLocation("minecraft", "block/crimson_planks"));
         shelfBlock("warped_shelf", Registration.WARPED_SHELF.get(), new ResourceLocation("minecraft", "block/warped_planks"));
         shelfBlock("bamboo_shelf", Registration.BAMBOO_SHELF.get(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_block"));
+
+        simpleBlock(Registration.CUT_GOLD.get(), models().cubeAll("cut_gold", new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold")));
+        slabBlock(Registration.CUT_GOLD_SLAB.get(), new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold"), new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold"));
+        stairsBlock(Registration.CUT_GOLD_STAIRS.get(), new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold"));
     }
 
     private void registerGeneratorBlock() {

@@ -206,6 +206,13 @@ public class Registration {
     public static final RegistryObject<ShelfBlock> BAMBOO_SHELF = registerBlock("bamboo_shelf",
             () -> new ShelfBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
 
+    public static final RegistryObject<Block> CUT_GOLD = registerBlock("cut_gold",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)), false);
+    public static final RegistryObject<SlabBlock> CUT_GOLD_SLAB = registerBlock("cut_gold_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)), false);
+    public static final RegistryObject<StairBlock> CUT_GOLD_STAIRS = registerBlock("cut_gold_stairs",
+            () -> new StairBlock(() -> CUT_GOLD.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)), false);
+
     // based on tutorial from McJty - will be changed later
     public static final RegistryObject<GeneratorBlock> GENERATOR = registerBlock("generator", GeneratorBlock::new, false);
     public static final RegistryObject<BlockEntityType<GeneratorBE>> GENERATOR_BE = BLOCKENTITIES.register("generator",

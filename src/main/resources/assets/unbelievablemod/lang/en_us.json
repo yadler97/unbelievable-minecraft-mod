@@ -90,6 +90,10 @@
   "block.unbelievablemod.warped_shelf": "Warped Shelf",
   "block.unbelievablemod.bamboo_shelf": "Bamboo Shelf",
 
+  "block.unbelievablemod.cut_gold": "Cut Gold",
+  "block.unbelievablemod.cut_gold_slab": "Cut Gold Slab",
+  "block.unbelievablemod.cut_gold_stairs": "Cut Gold Stairs",
+
 
   "message.sapphire_distance.tooltip": "Mine with extra distance %s",
   "message.sapphire_distance.change": "Changed extra distance to %s",

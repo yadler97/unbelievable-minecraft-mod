@@ -19,6 +19,11 @@ public class TagsItem extends ItemTagsProvider {
         tag(ItemTags.BEACON_PAYMENT_ITEMS)
                 .add(Registration.RUBY.get())
                 .add(Registration.SAPPHIRE.get());
+
+        tag(ItemTags.PIGLIN_LOVED)
+                .add(Registration.CUT_GOLD.get().asItem())
+                .add(Registration.CUT_GOLD_SLAB.get().asItem())
+                .add(Registration.CUT_GOLD_STAIRS.get().asItem());
     }
 
     @Override

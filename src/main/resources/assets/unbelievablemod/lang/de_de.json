@@ -90,6 +90,10 @@
   "block.unbelievablemod.warped_shelf": "Wirrregal",
   "block.unbelievablemod.bamboo_shelf": "Bambusregal",
 
+  "block.unbelievablemod.cut_gold": "Geschnittener Goldblock",
+  "block.unbelievablemod.cut_gold_slab": "Geschnittene Goldstufe",
+  "block.unbelievablemod.cut_gold_stairs": "Geschnittene Goldtreppe",
+
 
   "message.sapphire_distance.tooltip": "Abbauen mit einer zusätzlichen Distanz von %s",
   "message.sapphire_distance.change": "Zusätzliche Distanz gewechselt zu %s",

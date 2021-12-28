@@ -106,5 +106,9 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.CRIMSON_SHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/crimson_shelf"));
         withExistingParent(Registration.WARPED_SHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/warped_shelf"));
         withExistingParent(Registration.BAMBOO_SHELF.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/bamboo_shelf"));
+
+        withExistingParent(Registration.CUT_GOLD.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold"));
+        withExistingParent(Registration.CUT_GOLD_SLAB.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold_slab"));
+        withExistingParent(Registration.CUT_GOLD_STAIRS.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold_stairs"));
     }
 }

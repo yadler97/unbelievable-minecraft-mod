@@ -26,7 +26,10 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.QUARTZ_WALL.get())
                 .add(Registration.POLISHED_GRANITE_WALL.get())
                 .add(Registration.POLISHED_DIORITE_WALL.get())
-                .add(Registration.POLISHED_ANDESITE_WALL.get());
+                .add(Registration.POLISHED_ANDESITE_WALL.get())
+                .add(Registration.CUT_GOLD.get())
+                .add(Registration.CUT_GOLD_SLAB.get())
+                .add(Registration.CUT_GOLD_STAIRS.get());
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(Registration.BAMBOO_BLOCK.get())
                 .add(Registration.BAMBOO_BLOCK_SLAB.get())
@@ -78,7 +81,10 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.DEEPSLATE_RUBY_ORE.get())
                 .add(Registration.SAPPHIRE_BLOCK.get())
                 .add(Registration.SAPPHIRE_ORE.get())
-                .add(Registration.DEEPSLATE_SAPPHIRE_ORE.get());
+                .add(Registration.DEEPSLATE_SAPPHIRE_ORE.get())
+                .add(Registration.CUT_GOLD.get())
+                .add(Registration.CUT_GOLD_SLAB.get())
+                .add(Registration.CUT_GOLD_STAIRS.get());
 
         tag(BlockTags.WALLS)
                 .add(Registration.QUARTZ_WALL.get())
@@ -127,6 +133,11 @@ public class TagsBlock extends BlockTagsProvider {
         tag(BlockTags.BEACON_BASE_BLOCKS)
                 .add(Registration.RUBY_BLOCK.get())
                 .add(Registration.SAPPHIRE_BLOCK.get());
+
+        tag(BlockTags.GUARDED_BY_PIGLINS)
+                .add(Registration.CUT_GOLD.get())
+                .add(Registration.CUT_GOLD_SLAB.get())
+                .add(Registration.CUT_GOLD_STAIRS.get());
     }
 
     @Override

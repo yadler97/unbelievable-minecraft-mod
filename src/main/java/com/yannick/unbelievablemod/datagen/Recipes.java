@@ -617,6 +617,27 @@ public class Recipes extends RecipeProvider {
                 .group("shelves")
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.CUT_GOLD.get(), 4)
+                .pattern("GG")
+                .pattern("GG")
+                .define('G', Blocks.GOLD_BLOCK)
+                .unlockedBy("has_gold_blocks", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.GOLD_BLOCK))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.CUT_GOLD_SLAB.get(), 6)
+                .pattern("GGG")
+                .define('G', Registration.CUT_GOLD.get())
+                .unlockedBy("has_cut_gold", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.CUT_GOLD.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.CUT_GOLD_STAIRS.get(), 4)
+                .pattern("  G")
+                .pattern(" GG")
+                .pattern("GGG")
+                .define('G',Registration.CUT_GOLD.get())
+                .unlockedBy("has_cut_gold", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.CUT_GOLD.get()))
+                .save(consumer);
+
 
 
         // Smelting/Cooking
@@ -667,6 +688,27 @@ public class Recipes extends RecipeProvider {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.POLISHED_ANDESITE), Registration.POLISHED_ANDESITE_WALL.get())
                 .unlockedBy("has_polished_andesite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_ANDESITE))
                 .save(consumer, Registration.POLISHED_ANDESITE_WALL.getId() + "_from_polished_andesite_stonecutting");
+
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.GOLD_BLOCK), Registration.CUT_GOLD.get())
+                .unlockedBy("has_gold_blocks", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.GOLD_BLOCK))
+                .save(consumer, Registration.CUT_GOLD.getId() + "_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.GOLD_BLOCK), Registration.CUT_GOLD_SLAB.get(), 2)
+                .unlockedBy("has_gold_blocks", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.GOLD_BLOCK))
+                .save(consumer, Registration.CUT_GOLD_SLAB.getId() + "from_gold_block_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Registration.CUT_GOLD.get()), Registration.CUT_GOLD_SLAB.get(), 2)
+                .unlockedBy("has_cut_gold", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.CUT_GOLD.get()))
+                .save(consumer, Registration.CUT_GOLD_SLAB.getId() + "from_cut_gold_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.GOLD_BLOCK), Registration.CUT_GOLD_STAIRS.get())
+                .unlockedBy("has_gold_blocks", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.GOLD_BLOCK))
+                .save(consumer, Registration.CUT_GOLD_STAIRS.getId() + "from_gold_block_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Registration.CUT_GOLD.get()), Registration.CUT_GOLD_STAIRS.get())
+                .unlockedBy("has_cut_gold", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.CUT_GOLD.get()))
+                .save(consumer, Registration.CUT_GOLD_STAIRS.getId() + "from_cut_gold_stonecutting");
 
 
 
