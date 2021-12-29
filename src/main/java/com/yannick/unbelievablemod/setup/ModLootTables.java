@@ -1,4 +1,4 @@
-package com.yannick.unbelievablemod.datagen;
+package com.yannick.unbelievablemod.setup;
 
 import com.google.common.collect.Sets;
 import com.yannick.unbelievablemod.UnbelievableMod;

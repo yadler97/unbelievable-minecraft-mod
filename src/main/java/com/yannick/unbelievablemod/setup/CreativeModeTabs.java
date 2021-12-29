@@ -104,6 +104,8 @@ public class CreativeModeTabs {
             items.add(Registration.CUT_GOLD.get().asItem().getDefaultInstance());
             items.add(Registration.CUT_GOLD_SLAB.get().asItem().getDefaultInstance());
             items.add(Registration.CUT_GOLD_STAIRS.get().asItem().getDefaultInstance());
+
+            items.add(Registration.SAWMILL.get().asItem().getDefaultInstance());
         }
     };
 }

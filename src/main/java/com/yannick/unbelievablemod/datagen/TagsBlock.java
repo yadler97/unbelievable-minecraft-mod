@@ -72,7 +72,8 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.DARK_OAK_SHELF.get())
                 .add(Registration.CRIMSON_SHELF.get())
                 .add(Registration.WARPED_SHELF.get())
-                .add(Registration.BAMBOO_SHELF.get());
+                .add(Registration.BAMBOO_SHELF.get())
+                .add(Registration.SAWMILL.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(Registration.GENERATOR.get())

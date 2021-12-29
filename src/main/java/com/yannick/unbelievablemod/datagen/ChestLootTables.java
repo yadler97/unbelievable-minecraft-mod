@@ -1,5 +1,6 @@
 package com.yannick.unbelievablemod.datagen;
 
+import com.yannick.unbelievablemod.setup.ModLootTables;
 import com.yannick.unbelievablemod.setup.Registration;
 import net.minecraft.data.loot.ChestLoot;
 import net.minecraft.resources.ResourceLocation;

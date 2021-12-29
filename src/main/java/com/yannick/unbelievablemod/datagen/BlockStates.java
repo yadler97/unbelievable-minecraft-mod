@@ -1,6 +1,7 @@
 package com.yannick.unbelievablemod.datagen;
 
 import com.yannick.unbelievablemod.blocks.ChairBlock;
+import com.yannick.unbelievablemod.blocks.SawmillBlock;
 import com.yannick.unbelievablemod.blocks.ShelfBlock;
 import com.yannick.unbelievablemod.blocks.TableBlock;
 import com.yannick.unbelievablemod.setup.Registration;
@@ -102,6 +103,8 @@ public class BlockStates extends BlockStateProvider {
         simpleBlock(Registration.CUT_GOLD.get(), models().cubeAll("cut_gold", new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold")));
         slabBlock(Registration.CUT_GOLD_SLAB.get(), new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold"), new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold"));
         stairsBlock(Registration.CUT_GOLD_STAIRS.get(), new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold"));
+
+        sawmillBlock("sawmill", Registration.SAWMILL.get(), new ResourceLocation(UnbelievableMod.MODID, "block/sawmill_side"), new ResourceLocation(UnbelievableMod.MODID, "block/sawmill_top"), new ResourceLocation(UnbelievableMod.MODID, "block/sawmill_bottom"));
     }
 
     private void registerGeneratorBlock() {
@@ -141,6 +144,11 @@ public class BlockStates extends BlockStateProvider {
 
     private void shelfBlock(String name, ShelfBlock block, ResourceLocation texture) {
         ModelFile shelf = models().singleTexture(name, modLoc(BLOCK_FOLDER + "/shelf"), texture);
+        horizontalBlock(block, shelf);
+    }
+
+    private void sawmillBlock(String name, SawmillBlock block, ResourceLocation side, ResourceLocation top, ResourceLocation bottom) {
+        ModelFile shelf = models().withExistingParent(name, mcLoc(BLOCK_FOLDER + "/stonecutter")).texture("side", side).texture("top", top).texture("bottom", bottom).texture("particle", bottom);
         horizontalBlock(block, shelf);
     }
 }

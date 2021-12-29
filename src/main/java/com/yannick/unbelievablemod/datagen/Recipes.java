@@ -1,12 +1,19 @@
 package com.yannick.unbelievablemod.datagen;
 
+import com.yannick.unbelievablemod.UnbelievableMod;
 import com.yannick.unbelievablemod.setup.Registration;
+import com.yannick.unbelievablemod.tools.WoodsawingRecipeBuilder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.Tag;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
@@ -634,8 +641,16 @@ public class Recipes extends RecipeProvider {
                 .pattern("  G")
                 .pattern(" GG")
                 .pattern("GGG")
-                .define('G',Registration.CUT_GOLD.get())
+                .define('G', Registration.CUT_GOLD.get())
                 .unlockedBy("has_cut_gold", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.CUT_GOLD.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.SAWMILL.get())
+                .pattern(" I ")
+                .pattern("PPP")
+                .define('I', Items.IRON_INGOT)
+                .define('P', ItemTags.PLANKS)
+                .unlockedBy("has_iron_ingots", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
                 .save(consumer);
 
 
@@ -748,5 +763,88 @@ public class Recipes extends RecipeProvider {
         UpgradeRecipeBuilder.smithing(Ingredient.of(Items.GOLDEN_BOOTS), Ingredient.of(Items.COPPER_INGOT), Registration.ROSEGOLD_BOOTS.get())
                 .unlocks("has_copper_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
                 .save(consumer, Registration.ROSEGOLD_BOOTS.getId() + "_smithing");
+
+
+
+        // Woodsawing
+        addWoodsawingRecipe(ItemTags.OAK_LOGS, Blocks.OAK_PLANKS, 4, consumer);
+        addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Blocks.SPRUCE_PLANKS, 4, consumer);
+        addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Blocks.BIRCH_PLANKS, 4, consumer);
+        addWoodsawingRecipe(ItemTags.JUNGLE_LOGS, Blocks.JUNGLE_PLANKS, 4, consumer);
+        addWoodsawingRecipe(ItemTags.ACACIA_LOGS, Blocks.ACACIA_PLANKS, 4, consumer);
+        addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Blocks.DARK_OAK_PLANKS, 4, consumer);
+        addWoodsawingRecipe(ItemTags.CRIMSON_STEMS, Blocks.CRIMSON_PLANKS, 4, consumer);
+        addWoodsawingRecipe(ItemTags.WARPED_STEMS, Blocks.WARPED_PLANKS, 4, consumer);
+
+        addWoodsawingRecipe(ItemTags.OAK_LOGS, Blocks.OAK_SLAB, 8, consumer);
+        addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Blocks.SPRUCE_SLAB, 8, consumer);
+        addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Blocks.BIRCH_SLAB, 8, consumer);
+        addWoodsawingRecipe(ItemTags.JUNGLE_LOGS, Blocks.JUNGLE_SLAB, 8, consumer);
+        addWoodsawingRecipe(ItemTags.ACACIA_LOGS, Blocks.ACACIA_SLAB, 8, consumer);
+        addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Blocks.DARK_OAK_SLAB, 8, consumer);
+        addWoodsawingRecipe(ItemTags.CRIMSON_STEMS, Blocks.CRIMSON_SLAB, 8, consumer);
+        addWoodsawingRecipe(ItemTags.WARPED_STEMS, Blocks.WARPED_SLAB, 8, consumer);
+
+        addWoodsawingRecipe(ItemTags.OAK_LOGS, Blocks.OAK_STAIRS, 4, consumer);
+        addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Blocks.SPRUCE_STAIRS, 4, consumer);
+        addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Blocks.BIRCH_STAIRS, 4, consumer);
+        addWoodsawingRecipe(ItemTags.JUNGLE_LOGS, Blocks.JUNGLE_STAIRS, 4, consumer);
+        addWoodsawingRecipe(ItemTags.ACACIA_LOGS, Blocks.ACACIA_STAIRS, 4, consumer);
+        addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Blocks.DARK_OAK_STAIRS, 4, consumer);
+        addWoodsawingRecipe(ItemTags.CRIMSON_STEMS, Blocks.CRIMSON_STAIRS, 4, consumer);
+        addWoodsawingRecipe(ItemTags.WARPED_STEMS, Blocks.WARPED_STAIRS, 4, consumer);
+
+        addWoodsawingRecipe(Blocks.OAK_PLANKS, Blocks.OAK_SLAB, 2, consumer);
+        addWoodsawingRecipe(Blocks.SPRUCE_PLANKS, Blocks.SPRUCE_SLAB, 2, consumer);
+        addWoodsawingRecipe(Blocks.BIRCH_PLANKS, Blocks.BIRCH_SLAB, 2, consumer);
+        addWoodsawingRecipe(Blocks.JUNGLE_PLANKS, Blocks.JUNGLE_SLAB, 2, consumer);
+        addWoodsawingRecipe(Blocks.ACACIA_PLANKS, Blocks.ACACIA_SLAB, 2, consumer);
+        addWoodsawingRecipe(Blocks.DARK_OAK_PLANKS, Blocks.DARK_OAK_SLAB, 2, consumer);
+        addWoodsawingRecipe(Blocks.CRIMSON_PLANKS, Blocks.CRIMSON_SLAB, 2, consumer);
+        addWoodsawingRecipe(Blocks.WARPED_PLANKS, Blocks.WARPED_SLAB, 2, consumer);
+
+        addWoodsawingRecipe(Blocks.OAK_PLANKS, Blocks.OAK_STAIRS, 1, consumer);
+        addWoodsawingRecipe(Blocks.SPRUCE_PLANKS, Blocks.SPRUCE_STAIRS, 1, consumer);
+        addWoodsawingRecipe(Blocks.BIRCH_PLANKS, Blocks.BIRCH_STAIRS, 1, consumer);
+        addWoodsawingRecipe(Blocks.JUNGLE_PLANKS, Blocks.JUNGLE_STAIRS, 1, consumer);
+        addWoodsawingRecipe(Blocks.ACACIA_PLANKS, Blocks.ACACIA_STAIRS, 1, consumer);
+        addWoodsawingRecipe(Blocks.DARK_OAK_PLANKS, Blocks.DARK_OAK_STAIRS, 1, consumer);
+        addWoodsawingRecipe(Blocks.CRIMSON_PLANKS, Blocks.CRIMSON_STAIRS, 1, consumer);
+        addWoodsawingRecipe(Blocks.WARPED_PLANKS, Blocks.WARPED_STAIRS, 1, consumer);
+
+        addWoodsawingRecipe(ItemTags.OAK_LOGS, Items.OAK_BOAT, 1, consumer);
+        addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Items.SPRUCE_BOAT, 1, consumer);
+        addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Items.BIRCH_BOAT, 1, consumer);
+        addWoodsawingRecipe(ItemTags.JUNGLE_LOGS, Items.JUNGLE_BOAT, 1, consumer);
+        addWoodsawingRecipe(ItemTags.ACACIA_LOGS, Items.ACACIA_BOAT, 1, consumer);
+        addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Items.DARK_OAK_BOAT, 1, consumer);
+
+        addWoodsawingRecipe(ItemTags.LOGS, Items.STICK, 8, consumer);
+        addWoodsawingRecipe(ItemTags.PLANKS, Items.STICK, 2, consumer);
+        addWoodsawingRecipe(ItemTags.LOGS, Blocks.CRAFTING_TABLE, 1, consumer);
+    }
+
+    private void addWoodsawingRecipe(Tag.Named<Item> tag, Block result, int count, Consumer<FinishedRecipe> consumer) {
+        WoodsawingRecipeBuilder.woodsawing(Ingredient.of(tag), result, count)
+                .unlockedBy("has_" + tag.getName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(tag).build()))
+                .save(consumer, new ResourceLocation(UnbelievableMod.MODID, "woodsawing/" + result.asItem() + "_from_" + tag.getName().getPath() + "_woodsawing"));
+    }
+
+    private void addWoodsawingRecipe(Block input, Block result, int count, Consumer<FinishedRecipe> consumer) {
+        WoodsawingRecipeBuilder.woodsawing(Ingredient.of(input), result, count)
+                .unlockedBy("has_" + input.asItem(), InventoryChangeTrigger.TriggerInstance.hasItems(input))
+                .save(consumer, new ResourceLocation(UnbelievableMod.MODID, "woodsawing/" + result.asItem() + "_from_" + input.asItem() + "_woodsawing"));
+    }
+
+    private void addWoodsawingRecipe(Tag.Named<Item> tag, Item result, int count, Consumer<FinishedRecipe> consumer) {
+        WoodsawingRecipeBuilder.woodsawing(Ingredient.of(tag), result, count)
+                .unlockedBy("has_" + tag.getName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(tag).build()))
+                .save(consumer, new ResourceLocation(UnbelievableMod.MODID, "woodsawing/" + result + "_from_" + tag.getName().getPath() + "_woodsawing"));
+    }
+
+    private void addWoodsawingRecipe(Block input, Item result, int count, Consumer<FinishedRecipe> consumer) {
+        WoodsawingRecipeBuilder.woodsawing(Ingredient.of(input), result, count)
+                .unlockedBy("has_" + input.asItem(), InventoryChangeTrigger.TriggerInstance.hasItems(input))
+                .save(consumer, new ResourceLocation(UnbelievableMod.MODID, "woodsawing/" + result + "_from_" + input.asItem() + "_woodsawing"));
     }
 }

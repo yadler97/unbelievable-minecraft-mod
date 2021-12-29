@@ -110,5 +110,7 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.CUT_GOLD.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold"));
         withExistingParent(Registration.CUT_GOLD_SLAB.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold_slab"));
         withExistingParent(Registration.CUT_GOLD_STAIRS.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold_stairs"));
+
+        withExistingParent(Registration.SAWMILL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/sawmill"));
     }
 }

@@ -101,6 +101,10 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - Crimson Shelf
 - Warped Shelf
 - Bamboo Shelf
+- Cut Gold
+- Cut Gold Slab
+- Cut Gold Stairs
+- Sawmill
 
 ### Details
 
@@ -115,6 +119,9 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 #### Bamboo Blocks
 - crafted from four bamboo items in a square
 - can be used as a building material
+
+#### Sawmill
+- stonecutter variant for sawing wood
 
 ## Structures
 

@@ -94,6 +94,9 @@
   "block.unbelievablemod.cut_gold_slab": "Cut Gold Slab",
   "block.unbelievablemod.cut_gold_stairs": "Cut Gold Stairs",
 
+  "block.unbelievablemod.sawmill": "Sawmill",
+  "container.unbelievablemod.sawmill": "Sawmill",
+
 
   "message.sapphire_distance.tooltip": "Mine with extra distance %s",
   "message.sapphire_distance.change": "Changed extra distance to %s",

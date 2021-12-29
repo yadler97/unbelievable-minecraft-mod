@@ -1,5 +1,6 @@
 package com.yannick.unbelievablemod.blocks;
 
+import com.yannick.unbelievablemod.inventory.GeneratorContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;

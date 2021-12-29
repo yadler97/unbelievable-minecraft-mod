@@ -1,8 +1,9 @@
-package com.yannick.unbelievablemod.blocks;
+package com.yannick.unbelievablemod.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.yannick.unbelievablemod.UnbelievableMod;
+import com.yannick.unbelievablemod.inventory.GeneratorContainer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;

@@ -1,6 +1,8 @@
 package com.yannick.unbelievablemod.setup;
 
 import com.yannick.unbelievablemod.blocks.*;
+import com.yannick.unbelievablemod.inventory.GeneratorContainer;
+import com.yannick.unbelievablemod.inventory.SawmillMenu;
 import com.yannick.unbelievablemod.items.*;
 import com.yannick.unbelievablemod.UnbelievableMod;
 import com.yannick.unbelievablemod.items.ArmorMaterials;
@@ -9,6 +11,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.BlockGetter;
@@ -212,6 +215,16 @@ public class Registration {
             () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)), false);
     public static final RegistryObject<StairBlock> CUT_GOLD_STAIRS = registerBlock("cut_gold_stairs",
             () -> new StairBlock(() -> CUT_GOLD.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)), false);
+
+    public static final RegistryObject<SawmillBlock> SAWMILL = registerBlock("sawmill",
+            () -> new SawmillBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), false);
+    public static final RegistryObject<MenuType<SawmillMenu>> SAWMILL_MENU = CONTAINERS.register("sawmill",
+            () -> IForgeContainerType.create((windowId, inv, data) -> {
+                BlockPos pos = data.readBlockPos();
+                Level world = inv.player.getCommandSenderWorld();
+                ContainerLevelAccess cla = ContainerLevelAccess.create(world, pos);
+                return new SawmillMenu(windowId, inv, cla);
+            }));
 
     // based on tutorial from McJty - will be changed later
     public static final RegistryObject<GeneratorBlock> GENERATOR = registerBlock("generator", GeneratorBlock::new, false);

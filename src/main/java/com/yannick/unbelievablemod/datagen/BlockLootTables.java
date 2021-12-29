@@ -89,6 +89,8 @@ public class BlockLootTables extends BlockLoot {
         this.add(Registration.CUT_GOLD_SLAB.get(), (block) -> createSlabItemTable(Registration.CUT_GOLD_SLAB.get()));
         this.dropSelf(Registration.CUT_GOLD_STAIRS.get());
 
+        this.dropSelf(Registration.SAWMILL.get());
+
 
         this.add(Registration.GENERATOR.get(), (block) -> createStandardTable("generator", Registration.GENERATOR.get()).setParamSet(LootContextParamSets.BLOCK));
     }

@@ -1,4 +1,4 @@
-package com.yannick.unbelievablemod.blocks;
+package com.yannick.unbelievablemod.inventory;
 
 import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.tools.CustomEnergyStorage;
