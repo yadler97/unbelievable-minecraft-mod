@@ -812,6 +812,78 @@ public class Recipes extends RecipeProvider {
         addWoodsawingRecipe(Blocks.CRIMSON_PLANKS, Blocks.CRIMSON_STAIRS, 1, consumer);
         addWoodsawingRecipe(Blocks.WARPED_PLANKS, Blocks.WARPED_STAIRS, 1, consumer);
 
+        addWoodsawingRecipe(ItemTags.OAK_LOGS, Items.OAK_SIGN, 2, consumer);
+        addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Items.SPRUCE_SIGN, 2, consumer);
+        addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Items.BIRCH_SIGN, 2, consumer);
+        addWoodsawingRecipe(ItemTags.JUNGLE_LOGS, Items.JUNGLE_SIGN, 2, consumer);
+        addWoodsawingRecipe(ItemTags.ACACIA_LOGS, Items.ACACIA_SIGN, 2, consumer);
+        addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Items.DARK_OAK_SIGN, 2, consumer);
+        addWoodsawingRecipe(ItemTags.CRIMSON_STEMS, Items.CRIMSON_SIGN, 2, consumer);
+        addWoodsawingRecipe(ItemTags.WARPED_STEMS, Items.WARPED_SIGN, 2, consumer);
+
+        addWoodsawingRecipe(ItemTags.OAK_LOGS, Blocks.OAK_FENCE_GATE, 1, consumer);
+        addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Blocks.SPRUCE_FENCE_GATE, 1, consumer);
+        addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Blocks.BIRCH_FENCE_GATE, 1, consumer);
+        addWoodsawingRecipe(ItemTags.JUNGLE_LOGS, Blocks.JUNGLE_FENCE_GATE, 1, consumer);
+        addWoodsawingRecipe(ItemTags.ACACIA_LOGS, Blocks.ACACIA_FENCE_GATE, 1, consumer);
+        addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Blocks.DARK_OAK_FENCE_GATE, 1, consumer);
+        addWoodsawingRecipe(ItemTags.CRIMSON_STEMS, Blocks.CRIMSON_FENCE_GATE, 1, consumer);
+        addWoodsawingRecipe(ItemTags.WARPED_STEMS, Blocks.WARPED_FENCE_GATE, 1, consumer);
+
+        addWoodsawingRecipe(ItemTags.OAK_LOGS, Blocks.OAK_FENCE, 3, consumer);
+        addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Blocks.SPRUCE_FENCE, 3, consumer);
+        addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Blocks.BIRCH_FENCE, 3, consumer);
+        addWoodsawingRecipe(ItemTags.JUNGLE_LOGS, Blocks.JUNGLE_FENCE, 3, consumer);
+        addWoodsawingRecipe(ItemTags.ACACIA_LOGS, Blocks.ACACIA_FENCE, 3, consumer);
+        addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Blocks.DARK_OAK_FENCE, 3, consumer);
+        addWoodsawingRecipe(ItemTags.CRIMSON_STEMS, Blocks.CRIMSON_FENCE, 3, consumer);
+        addWoodsawingRecipe(ItemTags.WARPED_STEMS, Blocks.WARPED_FENCE, 3, consumer);
+
+        addWoodsawingRecipe(ItemTags.OAK_LOGS, Items.OAK_DOOR, 2, consumer);
+        addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Items.SPRUCE_DOOR, 2, consumer);
+        addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Items.BIRCH_DOOR, 2, consumer);
+        addWoodsawingRecipe(ItemTags.JUNGLE_LOGS, Items.JUNGLE_DOOR, 2, consumer);
+        addWoodsawingRecipe(ItemTags.ACACIA_LOGS, Items.ACACIA_DOOR, 2, consumer);
+        addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Items.DARK_OAK_DOOR, 2, consumer);
+        addWoodsawingRecipe(ItemTags.CRIMSON_STEMS, Items.CRIMSON_DOOR, 2, consumer);
+        addWoodsawingRecipe(ItemTags.WARPED_STEMS, Items.WARPED_DOOR, 2, consumer);
+
+        addWoodsawingRecipe(ItemTags.OAK_LOGS, Blocks.OAK_TRAPDOOR, 2, consumer);
+        addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Blocks.SPRUCE_TRAPDOOR, 2, consumer);
+        addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Blocks.BIRCH_TRAPDOOR, 2, consumer);
+        addWoodsawingRecipe(ItemTags.JUNGLE_LOGS, Blocks.JUNGLE_TRAPDOOR, 2, consumer);
+        addWoodsawingRecipe(ItemTags.ACACIA_LOGS, Blocks.ACACIA_TRAPDOOR, 2, consumer);
+        addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Blocks.DARK_OAK_TRAPDOOR, 2, consumer);
+        addWoodsawingRecipe(ItemTags.CRIMSON_STEMS, Blocks.CRIMSON_TRAPDOOR, 2, consumer);
+        addWoodsawingRecipe(ItemTags.WARPED_STEMS, Blocks.WARPED_TRAPDOOR, 2, consumer);
+
+        addWoodsawingRecipe(ItemTags.OAK_LOGS, Blocks.OAK_BUTTON, 4, consumer);
+        addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Blocks.SPRUCE_BUTTON, 4, consumer);
+        addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Blocks.BIRCH_BUTTON, 4, consumer);
+        addWoodsawingRecipe(ItemTags.JUNGLE_LOGS, Blocks.JUNGLE_BUTTON, 4, consumer);
+        addWoodsawingRecipe(ItemTags.ACACIA_LOGS, Blocks.ACACIA_BUTTON, 4, consumer);
+        addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Blocks.DARK_OAK_BUTTON, 4, consumer);
+        addWoodsawingRecipe(ItemTags.CRIMSON_STEMS, Blocks.CRIMSON_BUTTON, 4, consumer);
+        addWoodsawingRecipe(ItemTags.WARPED_STEMS, Blocks.WARPED_BUTTON, 4, consumer);
+
+        addWoodsawingRecipe(Blocks.OAK_PLANKS, Blocks.OAK_BUTTON, 1, consumer);
+        addWoodsawingRecipe(Blocks.SPRUCE_PLANKS, Blocks.SPRUCE_BUTTON, 1, consumer);
+        addWoodsawingRecipe(Blocks.BIRCH_PLANKS, Blocks.BIRCH_BUTTON, 1, consumer);
+        addWoodsawingRecipe(Blocks.JUNGLE_PLANKS, Blocks.JUNGLE_BUTTON, 1, consumer);
+        addWoodsawingRecipe(Blocks.ACACIA_PLANKS, Blocks.ACACIA_BUTTON, 1, consumer);
+        addWoodsawingRecipe(Blocks.DARK_OAK_PLANKS, Blocks.DARK_OAK_BUTTON, 1, consumer);
+        addWoodsawingRecipe(Blocks.CRIMSON_PLANKS, Blocks.CRIMSON_BUTTON, 1, consumer);
+        addWoodsawingRecipe(Blocks.WARPED_PLANKS, Blocks.WARPED_BUTTON, 1, consumer);
+
+        addWoodsawingRecipe(ItemTags.OAK_LOGS, Blocks.OAK_PRESSURE_PLATE, 2, consumer);
+        addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Blocks.SPRUCE_PRESSURE_PLATE, 2, consumer);
+        addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Blocks.BIRCH_PRESSURE_PLATE, 2, consumer);
+        addWoodsawingRecipe(ItemTags.JUNGLE_LOGS, Blocks.JUNGLE_PRESSURE_PLATE, 2, consumer);
+        addWoodsawingRecipe(ItemTags.ACACIA_LOGS, Blocks.ACACIA_PRESSURE_PLATE, 2, consumer);
+        addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Blocks.DARK_OAK_PRESSURE_PLATE, 2, consumer);
+        addWoodsawingRecipe(ItemTags.CRIMSON_STEMS, Blocks.CRIMSON_PRESSURE_PLATE, 2, consumer);
+        addWoodsawingRecipe(ItemTags.WARPED_STEMS, Blocks.WARPED_PRESSURE_PLATE, 2, consumer);
+
         addWoodsawingRecipe(ItemTags.OAK_LOGS, Items.OAK_BOAT, 1, consumer);
         addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Items.SPRUCE_BOAT, 1, consumer);
         addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Items.BIRCH_BOAT, 1, consumer);
@@ -822,6 +894,7 @@ public class Recipes extends RecipeProvider {
         addWoodsawingRecipe(ItemTags.LOGS, Items.STICK, 8, consumer);
         addWoodsawingRecipe(ItemTags.PLANKS, Items.STICK, 2, consumer);
         addWoodsawingRecipe(ItemTags.LOGS, Blocks.CRAFTING_TABLE, 1, consumer);
+        addWoodsawingRecipe(ItemTags.LOGS, Items.BOWL, 6, consumer);
     }
 
     private void addWoodsawingRecipe(Tag.Named<Item> tag, Block result, int count, Consumer<FinishedRecipe> consumer) {
