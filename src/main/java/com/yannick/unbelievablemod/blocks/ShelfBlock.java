@@ -1,12 +1,15 @@
 package com.yannick.unbelievablemod.blocks;
 
-import com.yannick.unbelievablemod.UnbelievableMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -91,13 +94,27 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityB
     public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
         if (!level.isClientSide) {
             int clickedSlot = getClickedSlot(blockState, blockHitResult);
-            UnbelievableMod.LOGGER.log(org.apache.logging.log4j.Level.INFO, "Clicked Slot: " + clickedSlot);
             if (clickedSlot != -1) {
                 ShelfBlockEntity blockEntity = (ShelfBlockEntity) level.getBlockEntity(blockPos);
+                ItemStack stack = player.getItemInHand(interactionHand);
                 if (blockEntity != null) {
-                    blockEntity.addItemToShelf(clickedSlot);
+                    ItemStack inputStack = stack.copy();
+                    inputStack.setCount(1);
+                    ItemStack returnStack = blockEntity.addItemToShelf(clickedSlot, inputStack);
+                    if (returnStack.getItem() != Items.AIR) {
+                        Direction direction = blockHitResult.getDirection();
+                        Direction direction1 = direction.getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : direction;
+                        ItemEntity itementity = new ItemEntity(level, (double)blockPos.getX() + 0.5D + (double)direction1.getStepX() * 0.65D, (double)blockPos.getY() + 0.1D, (double)blockPos.getZ() + 0.5D + (double)direction1.getStepZ() * 0.65D, returnStack);
+                        itementity.setDeltaMovement(0.05D * (double)direction1.getStepX() + level.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double)direction1.getStepZ() + level.random.nextDouble() * 0.02D);
+                        level.addFreshEntity(itementity);
+                    } else {
+                        if (!player.getAbilities().instabuild) {
+                            stack.shrink(1);
+                        }
+                    }
                 }
             }
+            return InteractionResult.CONSUME;
         }
         return InteractionResult.SUCCESS;
     }
@@ -160,6 +177,20 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityB
             return blockGetter.getFluidState(blockPos).is(FluidTags.WATER);
         }
         return false;
+    }
+
+    public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState replacingBlockState, boolean p_51542_) {
+        if (!blockState.is(replacingBlockState.getBlock())) {
+            ShelfBlockEntity blockEntity = (ShelfBlockEntity) level.getBlockEntity(blockPos);
+            if (blockEntity != null) {
+                Containers.dropItemStack(level, blockPos.getX(), blockPos.getY(), blockPos.getZ(), blockEntity.getStackInSlot(0));
+                Containers.dropItemStack(level, blockPos.getX(), blockPos.getY(), blockPos.getZ(), blockEntity.getStackInSlot(1));
+                Containers.dropItemStack(level, blockPos.getX(), blockPos.getY(), blockPos.getZ(), blockEntity.getStackInSlot(2));
+                Containers.dropItemStack(level, blockPos.getX(), blockPos.getY(), blockPos.getZ(), blockEntity.getStackInSlot(3));
+            }
+
+            super.onRemove(blockState, level, blockPos, replacingBlockState, p_51542_);
+        }
     }
 
     private int getClickedSlot(BlockState blockState, BlockHitResult blockHitResult) {

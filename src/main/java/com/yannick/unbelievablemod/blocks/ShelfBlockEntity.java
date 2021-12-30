@@ -39,15 +39,14 @@ public class ShelfBlockEntity extends BlockEntity {
                 setChanged();
             }
 
-            @Override
-            public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                return true;
-            }
-
             @Nonnull
             @Override
             public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-                return super.insertItem(slot, stack, simulate);
+                ItemStack existingStack = this.getStackInSlot(slot);
+                if (existingStack.getItem() == Items.AIR) {
+                    return super.insertItem(slot, stack, simulate);
+                }
+                return super.extractItem(slot, 1, simulate);
             }
         };
     }
@@ -66,7 +65,11 @@ public class ShelfBlockEntity extends BlockEntity {
         return super.save(tag);
     }
 
-    public void addItemToShelf(int slot) {
-        itemHandler.insertItem(slot, new ItemStack(Items.PAPER), false);
+    public ItemStack addItemToShelf(int slot, ItemStack itemStack) {
+        return itemHandler.insertItem(slot, itemStack, false);
+    }
+
+    public ItemStack getStackInSlot(int slot) {
+        return itemHandler.getStackInSlot(slot);
     }
 }
