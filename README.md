@@ -134,3 +134,12 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 
 - consists of multiple parts that are randomly put together during generation
 - may have special rooms with treasure chests and/or a basement with treasure chests and mob spawners
+
+## Special Thanks
+
+Special thanks go to the creators of Forge modding tutorials that were really useful for me as a beginner:
+
+- [McJty](https://github.com/McJty/YouTubeTutorial17)
+- [TurtyWurty](https://github.com/DaRealTurtyWurty/1.17-Tutorial-Mod)
+- [Tutorials By Kaupenjoe](https://github.com/Tutorials-By-Kaupenjoe/Forge-Tutorial-1.17.1)
+- [TelepathicGrunt](https://github.com/TelepathicGrunt/StructureTutorialMod/)
