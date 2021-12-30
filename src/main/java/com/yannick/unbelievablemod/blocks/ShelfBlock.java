@@ -12,6 +12,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -29,12 +30,11 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
-import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 import static net.minecraft.core.Direction.*;
 
-public class ShelfBlock extends Block implements SimpleWaterloggedBlock {
+public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityBlock {
 
     private final int fireSpreadSpeed;
     private final int flammability;
@@ -92,6 +92,12 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock {
         if (!level.isClientSide) {
             int clickedSlot = getClickedSlot(blockState, blockHitResult);
             UnbelievableMod.LOGGER.log(org.apache.logging.log4j.Level.INFO, "Clicked Slot: " + clickedSlot);
+            if (clickedSlot != -1) {
+                ShelfBlockEntity blockEntity = (ShelfBlockEntity) level.getBlockEntity(blockPos);
+                if (blockEntity != null) {
+                    blockEntity.addItemToShelf(clickedSlot);
+                }
+            }
         }
         return InteractionResult.SUCCESS;
     }
@@ -167,16 +173,16 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock {
                 Direction dir = blockHitResult.getDirection();
                 if (((dir == EAST || dir == WEST) && xd != 0.0) || ((dir == UP || dir == DOWN) && yd != 0.0)) {
                     if (xd < 0.5 && yd < 0.5) {
-                        return 1;
+                        return 0;
                     }
                     if (xd >= 0.5 && yd < 0.5) {
-                        return 2;
+                        return 1;
                     }
                     if (xd < 0.5 && yd >= 0.5) {
-                        return 3;
+                        return 2;
                     }
                     if (xd >= 0.5 && yd >= 0.5) {
-                        return 4;
+                        return 3;
                     }
                 }
             }
@@ -184,21 +190,27 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock {
                 Direction dir = blockHitResult.getDirection();
                 if (((dir == NORTH || dir == SOUTH) && zd != 0.0) || ((dir == UP || dir == DOWN) && yd != 0.0)) {
                     if (zd < 0.5 && yd < 0.5) {
-                        return 1;
+                        return 0;
                     }
                     if (zd >= 0.5 && yd < 0.5) {
-                        return 2;
+                        return 1;
                     }
                     if (zd < 0.5 && yd >= 0.5) {
-                        return 3;
+                        return 2;
                     }
                     if (zd >= 0.5 && yd >= 0.5) {
-                        return 4;
+                        return 3;
                     }
                 }
             }
         }
 
-        return 0;
+        return -1;
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+        return new ShelfBlockEntity(blockPos, blockState);
     }
 }
