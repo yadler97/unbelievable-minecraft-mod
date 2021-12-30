@@ -1,10 +1,15 @@
 package com.yannick.unbelievablemod.blocks;
 
+import com.yannick.unbelievablemod.UnbelievableMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,13 +21,18 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
+import java.util.logging.Logger;
 import java.util.stream.Stream;
+
+import static net.minecraft.core.Direction.*;
 
 public class ShelfBlock extends Block implements SimpleWaterloggedBlock {
 
@@ -76,6 +86,14 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock {
         BlockPos blockpos = context.getClickedPos();
         FluidState fluidstate = context.getLevel().getFluidState(blockpos);
         return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
+    }
+
+    public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+        if (!level.isClientSide) {
+            int clickedSlot = getClickedSlot(blockState, blockHitResult);
+            UnbelievableMod.LOGGER.log(org.apache.logging.log4j.Level.INFO, "Clicked Slot: " + clickedSlot);
+        }
+        return InteractionResult.SUCCESS;
     }
 
     @Override
@@ -136,5 +154,51 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock {
             return blockGetter.getFluidState(blockPos).is(FluidTags.WATER);
         }
         return false;
+    }
+
+    private int getClickedSlot(BlockState blockState, BlockHitResult blockHitResult) {
+        Vec3 vec = blockHitResult.getLocation();
+        double xd = Math.abs(vec.x % 1);
+        double yd = Math.abs(vec.y % 1);
+        double zd = Math.abs(vec.z % 1);
+
+        switch (blockState.getValue(FACING)) {
+            case SOUTH, NORTH -> {
+                Direction dir = blockHitResult.getDirection();
+                if (((dir == EAST || dir == WEST) && xd != 0.0) || ((dir == UP || dir == DOWN) && yd != 0.0)) {
+                    if (xd < 0.5 && yd < 0.5) {
+                        return 1;
+                    }
+                    if (xd >= 0.5 && yd < 0.5) {
+                        return 2;
+                    }
+                    if (xd < 0.5 && yd >= 0.5) {
+                        return 3;
+                    }
+                    if (xd >= 0.5 && yd >= 0.5) {
+                        return 4;
+                    }
+                }
+            }
+            case EAST, WEST -> {
+                Direction dir = blockHitResult.getDirection();
+                if (((dir == NORTH || dir == SOUTH) && zd != 0.0) || ((dir == UP || dir == DOWN) && yd != 0.0)) {
+                    if (zd < 0.5 && yd < 0.5) {
+                        return 1;
+                    }
+                    if (zd >= 0.5 && yd < 0.5) {
+                        return 2;
+                    }
+                    if (zd < 0.5 && yd >= 0.5) {
+                        return 3;
+                    }
+                    if (zd >= 0.5 && yd >= 0.5) {
+                        return 4;
+                    }
+                }
+            }
+        }
+
+        return 0;
     }
 }
