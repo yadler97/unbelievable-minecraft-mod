@@ -120,6 +120,11 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - crafted from four bamboo items in a square
 - can be used as a building material
 
+#### Shelves
+- can store up to four items/blocks for decorative purposes
+- an item/a block can be added to the shelf by right-clicking with the item/block on one of the four shelf slots
+- stored items/blocks are visually displayed in the shelf
+
 #### Sawmill
 - stonecutter variant for sawing wood
 
