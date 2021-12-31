@@ -2,11 +2,21 @@ package com.yannick.unbelievablemod.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.world.Containers;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -16,6 +26,8 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -24,7 +36,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import javax.annotation.Nullable;
 import java.util.stream.Stream;
 
-public class ShelfBlock extends Block implements SimpleWaterloggedBlock {
+import static net.minecraft.core.Direction.*;
+
+public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityBlock {
 
     private final int fireSpreadSpeed;
     private final int flammability;
@@ -76,6 +90,34 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock {
         BlockPos blockpos = context.getClickedPos();
         FluidState fluidstate = context.getLevel().getFluidState(blockpos);
         return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
+    }
+
+    public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+        if (!level.isClientSide) {
+            int clickedSlot = getClickedSlot(blockState, blockHitResult);
+            if (clickedSlot != -1) {
+                ShelfBlockEntity blockEntity = (ShelfBlockEntity) level.getBlockEntity(blockPos);
+                ItemStack stack = player.getItemInHand(interactionHand);
+                if (blockEntity != null) {
+                    ItemStack inputStack = stack.copy();
+                    inputStack.setCount(1);
+                    ItemStack returnStack = blockEntity.addItemToShelf(clickedSlot, inputStack);
+                    if (returnStack.getItem() != Items.AIR) {
+                        Direction direction = blockHitResult.getDirection();
+                        Direction direction1 = direction.getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : direction;
+                        ItemEntity itementity = new ItemEntity(level, (double)blockPos.getX() + 0.5D + (double)direction1.getStepX() * 0.65D, (double)blockPos.getY() + 0.1D, (double)blockPos.getZ() + 0.5D + (double)direction1.getStepZ() * 0.65D, returnStack);
+                        itementity.setDeltaMovement(0.05D * (double)direction1.getStepX() + level.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double)direction1.getStepZ() + level.random.nextDouble() * 0.02D);
+                        level.addFreshEntity(itementity);
+                    } else {
+                        if (!player.getAbilities().instabuild) {
+                            stack.shrink(1);
+                        }
+                    }
+                }
+            }
+            return InteractionResult.CONSUME;
+        }
+        return InteractionResult.SUCCESS;
     }
 
     @Override
@@ -136,5 +178,71 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock {
             return blockGetter.getFluidState(blockPos).is(FluidTags.WATER);
         }
         return false;
+    }
+
+    public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState replacingBlockState, boolean p_51542_) {
+        if (!blockState.is(replacingBlockState.getBlock())) {
+            ShelfBlockEntity blockEntity = (ShelfBlockEntity) level.getBlockEntity(blockPos);
+            if (blockEntity != null) {
+                NonNullList<ItemStack> items = blockEntity.getItems();
+                for (ItemStack itemStack : items) {
+                    Containers.dropItemStack(level, blockPos.getX(), blockPos.getY(), blockPos.getZ(), itemStack);
+                }
+            }
+
+            super.onRemove(blockState, level, blockPos, replacingBlockState, p_51542_);
+        }
+    }
+
+    private int getClickedSlot(BlockState blockState, BlockHitResult blockHitResult) {
+        Vec3 vec = blockHitResult.getLocation();
+        double xd = Math.abs(vec.x % 1);
+        double yd = Math.abs(vec.y % 1);
+        double zd = Math.abs(vec.z % 1);
+
+        switch (blockState.getValue(FACING)) {
+            case SOUTH, NORTH -> {
+                Direction dir = blockHitResult.getDirection();
+                if (((dir == EAST || dir == WEST) && xd != 0.0) || ((dir == UP || dir == DOWN) && yd != 0.0)) {
+                    if (xd < 0.5 && yd < 0.5) {
+                        return 0;
+                    }
+                    if (xd >= 0.5 && yd < 0.5) {
+                        return 1;
+                    }
+                    if (xd < 0.5 && yd >= 0.5) {
+                        return 2;
+                    }
+                    if (xd >= 0.5 && yd >= 0.5) {
+                        return 3;
+                    }
+                }
+            }
+            case EAST, WEST -> {
+                Direction dir = blockHitResult.getDirection();
+                if (((dir == NORTH || dir == SOUTH) && zd != 0.0) || ((dir == UP || dir == DOWN) && yd != 0.0)) {
+                    if (zd < 0.5 && yd < 0.5) {
+                        return 0;
+                    }
+                    if (zd >= 0.5 && yd < 0.5) {
+                        return 1;
+                    }
+                    if (zd < 0.5 && yd >= 0.5) {
+                        return 2;
+                    }
+                    if (zd >= 0.5 && yd >= 0.5) {
+                        return 3;
+                    }
+                }
+            }
+        }
+
+        return -1;
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+        return new ShelfBlockEntity(blockPos, blockState);
     }
 }
