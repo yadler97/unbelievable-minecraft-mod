@@ -352,86 +352,6 @@ public class Recipes extends RecipeProvider {
                 .save(consumer);
 
 
-        ShapedRecipeBuilder.shaped(Registration.OAK_TABLE.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("s s")
-                .define('S', Blocks.OAK_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_oak_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.OAK_SLAB))
-                .group("tables")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.SPRUCE_TABLE.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("s s")
-                .define('S', Blocks.SPRUCE_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_spruce_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.SPRUCE_SLAB))
-                .group("tables")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.BIRCH_TABLE.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("s s")
-                .define('S', Blocks.BIRCH_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_birch_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.BIRCH_SLAB))
-                .group("tables")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.JUNGLE_TABLE.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("s s")
-                .define('S', Blocks.JUNGLE_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_jungle_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.JUNGLE_SLAB))
-                .group("tables")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.ACACIA_TABLE.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("s s")
-                .define('S', Blocks.ACACIA_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_acacia_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.ACACIA_SLAB))
-                .group("tables")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.DARK_OAK_TABLE.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("s s")
-                .define('S', Blocks.DARK_OAK_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_dark_oak_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.DARK_OAK_SLAB))
-                .group("tables")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.CRIMSON_TABLE.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("s s")
-                .define('S', Blocks.CRIMSON_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_crimson_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.CRIMSON_SLAB))
-                .group("tables")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.WARPED_TABLE.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("s s")
-                .define('S', Blocks.WARPED_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_warped_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.WARPED_SLAB))
-                .group("tables")
-                .save(consumer);
-
         ShapedRecipeBuilder.shaped(Registration.BAMBOO_TABLE.get())
                 .pattern("SSS")
                 .pattern("b b")
@@ -439,88 +359,6 @@ public class Recipes extends RecipeProvider {
                 .define('S', Registration.BAMBOO_BLOCK_SLAB.get())
                 .define('b', Items.BAMBOO)
                 .unlockedBy("has_bamboo_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.BAMBOO_BLOCK_SLAB.get()))
-                .group("tables")
-                .save(consumer);
-
-
-        ShapedRecipeBuilder.shaped(Registration.OAK_CHAIR.get())
-                .pattern("  S")
-                .pattern("SSS")
-                .pattern("s s")
-                .define('S', Blocks.OAK_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_oak_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.OAK_SLAB))
-                .group("chairs")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.SPRUCE_CHAIR.get())
-                .pattern("  S")
-                .pattern("SSS")
-                .pattern("s s")
-                .define('S', Blocks.SPRUCE_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_spruce_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.SPRUCE_SLAB))
-                .group("chairs")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.BIRCH_CHAIR.get())
-                .pattern("  S")
-                .pattern("SSS")
-                .pattern("s s")
-                .define('S', Blocks.BIRCH_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_birch_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.BIRCH_SLAB))
-                .group("chairs")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.JUNGLE_CHAIR.get())
-                .pattern("  S")
-                .pattern("SSS")
-                .pattern("s s")
-                .define('S', Blocks.JUNGLE_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_jungle_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.JUNGLE_SLAB))
-                .group("chairs")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.ACACIA_CHAIR.get())
-                .pattern("  S")
-                .pattern("SSS")
-                .pattern("s s")
-                .define('S', Blocks.ACACIA_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_acacia_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.ACACIA_SLAB))
-                .group("chairs")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.DARK_OAK_CHAIR.get())
-                .pattern("  S")
-                .pattern("SSS")
-                .pattern("s s")
-                .define('S', Blocks.DARK_OAK_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_dark_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.DARK_OAK_SLAB))
-                .group("chairs")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.CRIMSON_CHAIR.get())
-                .pattern("  S")
-                .pattern("SSS")
-                .pattern("s s")
-                .define('S', Blocks.CRIMSON_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_crimson_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.CRIMSON_SLAB))
-                .group("chairs")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.WARPED_CHAIR.get())
-                .pattern("  S")
-                .pattern("SSS")
-                .pattern("s s")
-                .define('S', Blocks.WARPED_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_warped_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.WARPED_SLAB))
-                .group("chairs")
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(Registration.BAMBOO_CHAIR.get())
@@ -530,88 +368,6 @@ public class Recipes extends RecipeProvider {
                 .define('S', Registration.BAMBOO_BLOCK_SLAB.get())
                 .define('b', Items.BAMBOO)
                 .unlockedBy("has_bamboo_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.BAMBOO_BLOCK_SLAB.get()))
-                .group("chairs")
-                .save(consumer);
-
-
-        ShapedRecipeBuilder.shaped(Registration.OAK_SHELF.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("SSS")
-                .define('S', Blocks.OAK_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_oak_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.OAK_SLAB))
-                .group("shelves")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.SPRUCE_SHELF.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("SSS")
-                .define('S', Blocks.SPRUCE_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_spruce_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.SPRUCE_SLAB))
-                .group("shelves")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.BIRCH_SHELF.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("SSS")
-                .define('S', Blocks.BIRCH_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_birch_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.BIRCH_SLAB))
-                .group("shelves")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.JUNGLE_SHELF.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("SSS")
-                .define('S', Blocks.JUNGLE_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_jungle_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.JUNGLE_SLAB))
-                .group("shelves")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.ACACIA_SHELF.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("SSS")
-                .define('S', Blocks.ACACIA_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_acacia_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.ACACIA_SLAB))
-                .group("shelves")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.DARK_OAK_SHELF.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("SSS")
-                .define('S', Blocks.DARK_OAK_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_dark_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.DARK_OAK_SLAB))
-                .group("shelves")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.CRIMSON_SHELF.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("SSS")
-                .define('S', Blocks.CRIMSON_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_crimson_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.CRIMSON_SLAB))
-                .group("shelves")
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(Registration.WARPED_SHELF.get())
-                .pattern("SSS")
-                .pattern("s s")
-                .pattern("SSS")
-                .define('S', Blocks.WARPED_SLAB)
-                .define('s', Items.STICK)
-                .unlockedBy("has_warped_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.WARPED_SLAB))
-                .group("shelves")
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(Registration.BAMBOO_SHELF.get())
@@ -621,8 +377,8 @@ public class Recipes extends RecipeProvider {
                 .define('S', Registration.BAMBOO_BLOCK_SLAB.get())
                 .define('b', Items.BAMBOO)
                 .unlockedBy("has_bamboo_slabs", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.BAMBOO_BLOCK_SLAB.get()))
-                .group("shelves")
                 .save(consumer);
+
 
         ShapedRecipeBuilder.shaped(Registration.CUT_GOLD.get(), 4)
                 .pattern("GG")
@@ -644,6 +400,7 @@ public class Recipes extends RecipeProvider {
                 .define('G', Registration.CUT_GOLD.get())
                 .unlockedBy("has_cut_gold", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.CUT_GOLD.get()))
                 .save(consumer);
+
 
         ShapedRecipeBuilder.shaped(Registration.SAWMILL.get())
                 .pattern(" I ")
@@ -883,6 +640,33 @@ public class Recipes extends RecipeProvider {
         addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Blocks.DARK_OAK_PRESSURE_PLATE, 2, consumer);
         addWoodsawingRecipe(ItemTags.CRIMSON_STEMS, Blocks.CRIMSON_PRESSURE_PLATE, 2, consumer);
         addWoodsawingRecipe(ItemTags.WARPED_STEMS, Blocks.WARPED_PRESSURE_PLATE, 2, consumer);
+
+        addWoodsawingRecipe(ItemTags.OAK_LOGS, Registration.OAK_TABLE.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Registration.SPRUCE_TABLE.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Registration.BIRCH_TABLE.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.JUNGLE_LOGS, Registration.JUNGLE_TABLE.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.ACACIA_LOGS, Registration.ACACIA_TABLE.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Registration.DARK_OAK_TABLE.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.CRIMSON_STEMS, Registration.CRIMSON_TABLE.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.WARPED_STEMS, Registration.WARPED_TABLE.get(), 1, consumer);
+
+        addWoodsawingRecipe(ItemTags.OAK_LOGS, Registration.OAK_CHAIR.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Registration.SPRUCE_CHAIR.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Registration.BIRCH_CHAIR.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.JUNGLE_LOGS, Registration.JUNGLE_CHAIR.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.ACACIA_LOGS, Registration.ACACIA_CHAIR.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Registration.DARK_OAK_CHAIR.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.CRIMSON_STEMS, Registration.CRIMSON_CHAIR.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.WARPED_STEMS, Registration.WARPED_CHAIR.get(), 1, consumer);
+
+        addWoodsawingRecipe(ItemTags.OAK_LOGS, Registration.OAK_SHELF.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Registration.SPRUCE_SHELF.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.BIRCH_LOGS, Registration.BIRCH_SHELF.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.JUNGLE_LOGS, Registration.JUNGLE_SHELF.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.ACACIA_LOGS, Registration.ACACIA_SHELF.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.DARK_OAK_LOGS, Registration.DARK_OAK_SHELF.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.CRIMSON_STEMS, Registration.CRIMSON_SHELF.get(), 1, consumer);
+        addWoodsawingRecipe(ItemTags.WARPED_STEMS, Registration.WARPED_SHELF.get(), 1, consumer);
 
         addWoodsawingRecipe(ItemTags.OAK_LOGS, Items.OAK_BOAT, 1, consumer);
         addWoodsawingRecipe(ItemTags.SPRUCE_LOGS, Items.SPRUCE_BOAT, 1, consumer);

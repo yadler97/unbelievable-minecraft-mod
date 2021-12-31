@@ -127,6 +127,7 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 
 #### Sawmill
 - stonecutter variant for sawing wood
+- wooden tables, chairs and shelves can only be crafted using the sawmill
 
 ## Structures
 
