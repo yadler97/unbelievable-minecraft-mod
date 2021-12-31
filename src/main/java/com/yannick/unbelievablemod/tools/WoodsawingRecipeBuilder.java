@@ -1,7 +1,7 @@
 package com.yannick.unbelievablemod.tools;
 
 import com.google.gson.JsonObject;
-import com.yannick.unbelievablemod.setup.RecipeSerializers;
+import com.yannick.unbelievablemod.setup.Registration;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
@@ -37,11 +37,11 @@ public class WoodsawingRecipeBuilder implements RecipeBuilder {
     }
 
     public static WoodsawingRecipeBuilder woodsawing(Ingredient ingredient, ItemLike itemLike) {
-        return new WoodsawingRecipeBuilder(RecipeSerializers.WOODSAWING, ingredient, itemLike, 1);
+        return new WoodsawingRecipeBuilder(Registration.WOODSAWING_RECIPES.get(), ingredient, itemLike, 1);
     }
 
     public static WoodsawingRecipeBuilder woodsawing(Ingredient ingredient, ItemLike itemLike, int count) {
-        return new WoodsawingRecipeBuilder(RecipeSerializers.WOODSAWING, ingredient, itemLike, count);
+        return new WoodsawingRecipeBuilder(Registration.WOODSAWING_RECIPES.get(), ingredient, itemLike, count);
     }
 
     public WoodsawingRecipeBuilder unlockedBy(String name, CriterionTriggerInstance criterionTriggerInstance) {

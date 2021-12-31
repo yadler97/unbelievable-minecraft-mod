@@ -14,6 +14,8 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.SingleItemRecipe;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -36,6 +38,7 @@ public class Registration {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, UnbelievableMod.MODID);
     private static final DeferredRegister<BlockEntityType<?>> BLOCKENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, UnbelievableMod.MODID);
     private static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, UnbelievableMod.MODID);
+    public static final DeferredRegister<RecipeSerializer<?>> RECIPES = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, UnbelievableMod.MODID);
 
     public static void init() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -43,6 +46,7 @@ public class Registration {
         BLOCKS.register(bus);
         BLOCKENTITIES.register(bus);
         CONTAINERS.register(bus);
+        RECIPES.register(bus);
     }
 
     // Items
@@ -228,6 +232,7 @@ public class Registration {
                 ContainerLevelAccess cla = ContainerLevelAccess.create(world, pos);
                 return new SawmillMenu(windowId, inv, cla);
             }));
+    public static final RegistryObject<RecipeSerializer<WoodsawingRecipe>> WOODSAWING_RECIPES = RECIPES.register("woodsawing", () -> new SingleItemRecipe.Serializer<>(WoodsawingRecipe::new) {});
 
     // based on tutorial from McJty - will be changed later
     public static final RegistryObject<GeneratorBlock> GENERATOR = registerBlock("generator", GeneratorBlock::new, false);

@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 public class WoodsawingRecipe extends SingleItemRecipe {
 
     public WoodsawingRecipe(ResourceLocation location, String group, Ingredient ingredient, ItemStack result) {
-        super(RecipeTypes.WOODSAWING, RecipeSerializers.WOODSAWING, location, group, ingredient, result);
+        super(RecipeTypes.WOODSAWING, Registration.WOODSAWING_RECIPES.get(), location, group, ingredient, result);
     }
 
     @Override
