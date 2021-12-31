@@ -2,6 +2,7 @@ package com.yannick.unbelievablemod.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
@@ -183,10 +184,10 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityB
         if (!blockState.is(replacingBlockState.getBlock())) {
             ShelfBlockEntity blockEntity = (ShelfBlockEntity) level.getBlockEntity(blockPos);
             if (blockEntity != null) {
-                Containers.dropItemStack(level, blockPos.getX(), blockPos.getY(), blockPos.getZ(), blockEntity.getStackInSlot(0));
-                Containers.dropItemStack(level, blockPos.getX(), blockPos.getY(), blockPos.getZ(), blockEntity.getStackInSlot(1));
-                Containers.dropItemStack(level, blockPos.getX(), blockPos.getY(), blockPos.getZ(), blockEntity.getStackInSlot(2));
-                Containers.dropItemStack(level, blockPos.getX(), blockPos.getY(), blockPos.getZ(), blockEntity.getStackInSlot(3));
+                NonNullList<ItemStack> items = blockEntity.getItems();
+                for (ItemStack itemStack : items) {
+                    Containers.dropItemStack(level, blockPos.getX(), blockPos.getY(), blockPos.getZ(), itemStack);
+                }
             }
 
             super.onRemove(blockState, level, blockPos, replacingBlockState, p_51542_);

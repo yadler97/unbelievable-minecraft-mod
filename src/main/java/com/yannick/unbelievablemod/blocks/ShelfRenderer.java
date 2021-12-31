@@ -13,7 +13,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 
 public class ShelfRenderer implements BlockEntityRenderer<ShelfBlockEntity> {
 
@@ -23,15 +22,7 @@ public class ShelfRenderer implements BlockEntityRenderer<ShelfBlockEntity> {
     @Override
     public void render(ShelfBlockEntity shelfBlockEntity, float partialTicks, PoseStack poseStack, MultiBufferSource multiBufferSource, int combinedLight, int combinedOverlay) {
         Direction direction = shelfBlockEntity.getBlockState().getValue(ShelfBlock.FACING);
-        NonNullList<ItemStack> items = NonNullList.withSize(4, ItemStack.EMPTY);
-        //items.set(0, shelfBlockEntity.getStackInSlot(0));//.getItem() == Items.AIR ? ItemStack.EMPTY : shelfBlockEntity.getStackInSlot(0));
-        //items.set(1, shelfBlockEntity.getStackInSlot(1));//.getItem() == Items.AIR ? ItemStack.EMPTY : shelfBlockEntity.getStackInSlot(1));
-        //items.set(2, shelfBlockEntity.getStackInSlot(2));//.getItem() == Items.AIR ? ItemStack.EMPTY : shelfBlockEntity.getStackInSlot(2));
-        //items.set(3, shelfBlockEntity.getStackInSlot(3));//.getItem() == Items.AIR ? ItemStack.EMPTY : shelfBlockEntity.getStackInSlot(3));
-        items.set(0, new ItemStack(Items.PAPER));
-        items.set(1, new ItemStack(Items.COBBLESTONE));
-        items.set(2, new ItemStack(Items.DIAMOND));
-        items.set(3, new ItemStack(Items.GOLDEN_AXE));
+        NonNullList<ItemStack> items = shelfBlockEntity.getItems();
         int i = (int)shelfBlockEntity.getBlockPos().asLong();
 
         for(int j = 0; j < items.size(); ++j) {
