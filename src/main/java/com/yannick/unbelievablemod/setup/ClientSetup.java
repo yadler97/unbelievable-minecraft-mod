@@ -1,12 +1,13 @@
 package com.yannick.unbelievablemod.setup;
 
 import com.yannick.unbelievablemod.UnbelievableMod;
-import com.yannick.unbelievablemod.blocks.ShelfRenderer;
+import com.yannick.unbelievablemod.client.ShelfRenderer;
 import com.yannick.unbelievablemod.gui.GeneratorScreen;
 import com.yannick.unbelievablemod.gui.SawmillScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -18,8 +19,7 @@ public class ClientSetup {
         event.enqueueWork(() -> {
             MenuScreens.register(Registration.GENERATOR_CONTAINER.get(), GeneratorScreen::new);
             MenuScreens.register(Registration.SAWMILL_MENU.get(), SawmillScreen::new);
-            ItemBlockRenderTypes.setRenderLayer(Registration.OAK_SHELF.get(), RenderType.translucent());
-            ShelfRenderer.register();
+            BlockEntityRenderers.register(Registration.SHELF_BE.get(), ShelfRenderer::new);
         });
 
         ItemBlockRenderTypes.setRenderLayer(Registration.BAMBOO_DOOR.get(), RenderType.cutout());

@@ -209,7 +209,8 @@ public class Registration {
     public static final RegistryObject<ShelfBlock> BAMBOO_SHELF = registerBlock("bamboo_shelf",
             () -> new ShelfBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
     public static final RegistryObject<BlockEntityType<ShelfBlockEntity>> SHELF_BE = BLOCKENTITIES.register("shelf",
-            () -> BlockEntityType.Builder.of(ShelfBlockEntity::new, OAK_SHELF.get()).build(null));
+            () -> BlockEntityType.Builder.of(ShelfBlockEntity::new, OAK_SHELF.get(), BIRCH_SHELF.get(), SPRUCE_SHELF.get(), JUNGLE_SHELF.get(), ACACIA_SHELF.get(), DARK_OAK_SHELF.get(), CRIMSON_SHELF.get(), WARPED_SHELF.get(), BAMBOO_SHELF.get()).build(null));
+
 
     public static final RegistryObject<Block> CUT_GOLD = registerBlock("cut_gold",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)), false);

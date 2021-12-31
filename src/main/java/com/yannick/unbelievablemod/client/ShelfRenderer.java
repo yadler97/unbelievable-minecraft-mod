@@ -1,14 +1,14 @@
-package com.yannick.unbelievablemod.blocks;
+package com.yannick.unbelievablemod.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
-import com.yannick.unbelievablemod.setup.Registration;
+import com.yannick.unbelievablemod.blocks.ShelfBlock;
+import com.yannick.unbelievablemod.blocks.ShelfBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.BlockItem;
@@ -16,7 +16,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class ShelfRenderer implements BlockEntityRenderer<ShelfBlockEntity> {
 
-    public ShelfRenderer(BlockEntityRendererProvider.Context p_173529_) {
+    public ShelfRenderer(BlockEntityRendererProvider.Context context) {
     }
 
     @Override
@@ -82,9 +82,5 @@ public class ShelfRenderer implements BlockEntityRenderer<ShelfBlockEntity> {
                 poseStack.popPose();
             }
         }
-    }
-
-    public static void register() {
-        BlockEntityRenderers.register(Registration.SHELF_BE.get(), ShelfRenderer::new);
     }
 }
