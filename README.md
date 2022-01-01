@@ -124,6 +124,7 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - can store up to four items/blocks for decorative purposes
 - an item/a block can be added to the shelf by right-clicking with the item/block on one of the four shelf slots
 - stored items/blocks are visually displayed in the shelf
+- a redstone comparator can be used to get the amount of items in a shelf in form of a redstone signal
 
 #### Sawmill
 - stonecutter variant for sawing wood

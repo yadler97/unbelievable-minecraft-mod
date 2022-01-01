@@ -8,7 +8,6 @@ import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -51,7 +50,7 @@ public class ShelfBlockEntity extends BlockEntity {
             @Override
             public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
                 ItemStack existingStack = this.getStackInSlot(slot);
-                if (existingStack.getItem() == Items.AIR) {
+                if (existingStack == ItemStack.EMPTY) {
                     return super.insertItem(slot, stack, simulate);
                 }
                 return super.extractItem(slot, 1, simulate);
@@ -80,10 +79,10 @@ public class ShelfBlockEntity extends BlockEntity {
 
     public ItemStack addItemToShelf(int slot, ItemStack itemStack) {
         ItemStack returnStack = itemHandler.insertItem(slot, itemStack, false);
-        if (returnStack.getItem() == Items.AIR) {
+        if (returnStack == ItemStack.EMPTY) {
             this.items.set(slot, itemStack);
         } else {
-            this.items.set(slot, new ItemStack(Items.AIR));
+            this.items.set(slot, ItemStack.EMPTY);
         }
         markUpdated();
         return returnStack;

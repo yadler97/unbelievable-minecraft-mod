@@ -10,7 +10,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -34,6 +33,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
+import java.util.Collections;
 import java.util.stream.Stream;
 
 import static net.minecraft.core.Direction.*;
@@ -102,7 +102,7 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityB
                     ItemStack inputStack = stack.copy();
                     inputStack.setCount(1);
                     ItemStack returnStack = blockEntity.addItemToShelf(clickedSlot, inputStack);
-                    if (returnStack.getItem() != Items.AIR) {
+                    if (returnStack != ItemStack.EMPTY) {
                         Direction direction = blockHitResult.getDirection();
                         Direction direction1 = direction.getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : direction;
                         ItemEntity itementity = new ItemEntity(level, (double)blockPos.getX() + 0.5D + (double)direction1.getStepX() * 0.65D, (double)blockPos.getY() + 0.1D, (double)blockPos.getZ() + 0.5D + (double)direction1.getStepZ() * 0.65D, returnStack);
@@ -244,5 +244,33 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityB
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         return new ShelfBlockEntity(blockPos, blockState);
+    }
+
+    public boolean hasAnalogOutputSignal(BlockState blockState) {
+        return true;
+    }
+
+    public int getAnalogOutputSignal(BlockState blockState, Level level, BlockPos blockPos) {
+        BlockEntity blockentity = level.getBlockEntity(blockPos);
+        if (blockentity instanceof ShelfBlockEntity) {
+            NonNullList<ItemStack> items = ((ShelfBlockEntity) blockentity).getItems();
+            int filledShelfSlots = 4 - Collections.frequency(items, ItemStack.EMPTY);
+            switch (filledShelfSlots) {
+                case 1 -> {
+                    return 3;
+                }
+                case 2 -> {
+                    return 7;
+                }
+                case 3 -> {
+                    return 11;
+                }
+                case 4 -> {
+                    return 15;
+                }
+            }
+        }
+
+        return 0;
     }
 }
