@@ -40,7 +40,7 @@ public class Registration {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, UnbelievableMod.MODID);
     private static final DeferredRegister<BlockEntityType<?>> BLOCKENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, UnbelievableMod.MODID);
     private static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, UnbelievableMod.MODID);
-    public static final DeferredRegister<RecipeSerializer<?>> RECIPES = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, UnbelievableMod.MODID);
+    private static final DeferredRegister<RecipeSerializer<?>> RECIPES = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, UnbelievableMod.MODID);
     private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, UnbelievableMod.MODID);
 
     public static void init() {
@@ -197,11 +197,8 @@ public class Registration {
             () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS), 0, 0), false);
     public static final RegistryObject<ChairBlock> BAMBOO_CHAIR = registerBlock("bamboo_chair",
             () -> new ChairBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
-    public static final RegistryObject<EntityType<ChairEntity>> CHAIR_ENTITY = ENTITIES.register("chair", () -> EntityType.Builder.<ChairEntity>of(ChairEntity::new, MobCategory.MISC)
-            .sized(0.6f, 1.95f)
-            .clientTrackingRange(8)
-            .setShouldReceiveVelocityUpdates(false)
-            .build("chair"));
+    public static final RegistryObject<EntityType<ChairEntity>> CHAIR_ENTITY = ENTITIES.register("chair",
+            () -> EntityType.Builder.<ChairEntity>of(ChairEntity::new, MobCategory.MISC).sized(1.0f, 1.0f).clientTrackingRange(10).setShouldReceiveVelocityUpdates(false).build("chair"));
 
     public static final RegistryObject<ShelfBlock> OAK_SHELF = registerBlock("oak_shelf",
             () -> new ShelfBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS), 5 , 20), true);

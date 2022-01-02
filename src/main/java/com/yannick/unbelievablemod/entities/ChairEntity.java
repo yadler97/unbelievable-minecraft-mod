@@ -20,7 +20,7 @@ public class ChairEntity extends Entity {
 
     public ChairEntity(Level level, BlockPos blockPos) {
         this(Registration.CHAIR_ENTITY.get(), level);
-        this.setPos(blockPos.getX() + 0.5D, blockPos.getY() - 1.2D, blockPos.getZ() + 0.5D);
+        this.setPos(blockPos.getX() + 0.5D, blockPos.getY() - 0.5D, blockPos.getZ() + 0.5D);
         this.location = blockPos;
     }
 
