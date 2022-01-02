@@ -1,6 +1,6 @@
 package com.yannick.unbelievablemod.client;
 
-import com.yannick.unbelievablemod.blocks.ChairEntity;
+import com.yannick.unbelievablemod.entities.ChairEntity;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

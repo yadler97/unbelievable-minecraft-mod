@@ -1,14 +1,12 @@
 package com.yannick.unbelievablemod.blocks;
 
+import com.yannick.unbelievablemod.entities.ChairEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.NonNullList;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -83,29 +81,15 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
     }
 
     public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
-        if (level.isClientSide) {
-            return InteractionResult.CONSUME;
-        } else {
+        if (!level.isClientSide) {
             ChairEntity entity = new ChairEntity(level, blockPos);
             level.addFreshEntity(entity);
             player.startRiding(entity);
 
-            return InteractionResult.SUCCESS;
+            return InteractionResult.CONSUME;
         }
-    }
 
-    public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState replacingBlockState, boolean p_51542_) {
-        if (!blockState.is(replacingBlockState.getBlock())) {
-            ShelfBlockEntity blockEntity = (ShelfBlockEntity) level.getBlockEntity(blockPos);
-            if (blockEntity != null) {
-                NonNullList<ItemStack> items = blockEntity.getItems();
-                for (ItemStack itemStack : items) {
-                    Containers.dropItemStack(level, blockPos.getX(), blockPos.getY(), blockPos.getZ(), itemStack);
-                }
-            }
-
-            super.onRemove(blockState, level, blockPos, replacingBlockState, p_51542_);
-        }
+        return InteractionResult.SUCCESS;
     }
 
     @Nullable

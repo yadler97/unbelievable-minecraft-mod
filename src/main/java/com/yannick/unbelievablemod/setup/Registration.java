@@ -1,6 +1,7 @@
 package com.yannick.unbelievablemod.setup;
 
 import com.yannick.unbelievablemod.blocks.*;
+import com.yannick.unbelievablemod.entities.ChairEntity;
 import com.yannick.unbelievablemod.inventory.GeneratorContainer;
 import com.yannick.unbelievablemod.inventory.SawmillMenu;
 import com.yannick.unbelievablemod.items.*;
