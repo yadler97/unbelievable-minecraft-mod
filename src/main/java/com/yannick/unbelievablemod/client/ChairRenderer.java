@@ -8,8 +8,8 @@ import net.minecraft.resources.ResourceLocation;
 
 public class ChairRenderer extends EntityRenderer<ChairEntity> {
 
-    public ChairRenderer(EntityRendererProvider.Context ctx) {
-        super(ctx);
+    public ChairRenderer(EntityRendererProvider.Context context) {
+        super(context);
     }
 
     @Override
