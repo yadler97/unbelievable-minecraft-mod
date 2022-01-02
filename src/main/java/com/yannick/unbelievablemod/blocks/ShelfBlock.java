@@ -115,8 +115,10 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityB
                     }
                 }
             }
+
             return InteractionResult.CONSUME;
         }
+
         return InteractionResult.SUCCESS;
     }
 

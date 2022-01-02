@@ -1,6 +1,7 @@
 package com.yannick.unbelievablemod.setup;
 
 import com.yannick.unbelievablemod.blocks.*;
+import com.yannick.unbelievablemod.entities.ChairEntity;
 import com.yannick.unbelievablemod.inventory.GeneratorContainer;
 import com.yannick.unbelievablemod.inventory.SawmillMenu;
 import com.yannick.unbelievablemod.items.*;
@@ -11,6 +12,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.*;
@@ -38,7 +40,8 @@ public class Registration {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, UnbelievableMod.MODID);
     private static final DeferredRegister<BlockEntityType<?>> BLOCKENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, UnbelievableMod.MODID);
     private static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, UnbelievableMod.MODID);
-    public static final DeferredRegister<RecipeSerializer<?>> RECIPES = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, UnbelievableMod.MODID);
+    private static final DeferredRegister<RecipeSerializer<?>> RECIPES = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, UnbelievableMod.MODID);
+    private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, UnbelievableMod.MODID);
 
     public static void init() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -47,6 +50,7 @@ public class Registration {
         BLOCKENTITIES.register(bus);
         CONTAINERS.register(bus);
         RECIPES.register(bus);
+        ENTITIES.register(bus);
     }
 
     // Items
@@ -193,6 +197,8 @@ public class Registration {
             () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS), 0, 0), false);
     public static final RegistryObject<ChairBlock> BAMBOO_CHAIR = registerBlock("bamboo_chair",
             () -> new ChairBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
+    public static final RegistryObject<EntityType<ChairEntity>> CHAIR_ENTITY = ENTITIES.register("chair",
+            () -> EntityType.Builder.<ChairEntity>of(ChairEntity::new, MobCategory.MISC).sized(1.0f, 1.0f).clientTrackingRange(10).setShouldReceiveVelocityUpdates(false).build("chair"));
 
     public static final RegistryObject<ShelfBlock> OAK_SHELF = registerBlock("oak_shelf",
             () -> new ShelfBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS), 5 , 20), true);
@@ -213,7 +219,7 @@ public class Registration {
     public static final RegistryObject<ShelfBlock> BAMBOO_SHELF = registerBlock("bamboo_shelf",
             () -> new ShelfBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
     public static final RegistryObject<BlockEntityType<ShelfBlockEntity>> SHELF_BE = BLOCKENTITIES.register("shelf",
-            () -> BlockEntityType.Builder.of(ShelfBlockEntity::new, OAK_SHELF.get(), BIRCH_SHELF.get(), SPRUCE_SHELF.get(), JUNGLE_SHELF.get(), ACACIA_SHELF.get(), DARK_OAK_SHELF.get(), CRIMSON_SHELF.get(), WARPED_SHELF.get(), BAMBOO_SHELF.get()).build(null));
+            () -> BlockEntityType.Builder.of(ShelfBlockEntity::new, OAK_SHELF.get(), SPRUCE_SHELF.get(), BIRCH_SHELF.get(), JUNGLE_SHELF.get(), ACACIA_SHELF.get(), DARK_OAK_SHELF.get(), CRIMSON_SHELF.get(), WARPED_SHELF.get(), BAMBOO_SHELF.get()).build(null));
 
 
     public static final RegistryObject<Block> CUT_GOLD = registerBlock("cut_gold",

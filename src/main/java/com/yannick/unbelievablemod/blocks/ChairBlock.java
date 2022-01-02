@@ -1,10 +1,15 @@
 package com.yannick.unbelievablemod.blocks;
 
+import com.yannick.unbelievablemod.entities.ChairEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,6 +21,7 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -72,6 +78,18 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
         this.fireSpreadSpeed = fireSpreadSpeed;
         this.flammability = flammability;
         this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE));
+    }
+
+    public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+        if (!level.isClientSide) {
+            ChairEntity entity = new ChairEntity(level, blockPos);
+            level.addFreshEntity(entity);
+            player.startRiding(entity);
+
+            return InteractionResult.CONSUME;
+        }
+
+        return InteractionResult.SUCCESS;
     }
 
     @Nullable
