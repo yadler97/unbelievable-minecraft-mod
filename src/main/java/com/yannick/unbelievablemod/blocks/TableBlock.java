@@ -87,7 +87,7 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock {
 
     public BlockState updateShape(BlockState p_56381_, Direction direction, BlockState blockState, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos1) {
         if (p_56381_.getValue(WATERLOGGED)) {
-            levelAccessor.getLiquidTicks().scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
+            levelAccessor.scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
         }
 
         return super.updateShape(p_56381_, direction, blockState, levelAccessor, blockPos, blockPos1);

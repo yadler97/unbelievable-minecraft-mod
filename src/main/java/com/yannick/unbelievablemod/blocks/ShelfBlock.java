@@ -169,7 +169,7 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityB
 
     public BlockState updateShape(BlockState p_56381_, Direction direction, BlockState blockState, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos1) {
         if (p_56381_.getValue(WATERLOGGED)) {
-            levelAccessor.getLiquidTicks().scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
+            levelAccessor.scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
         }
 
         return super.updateShape(p_56381_, direction, blockState, levelAccessor, blockPos, blockPos1);
@@ -203,7 +203,7 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityB
         double zd = Math.abs(vec.z % 1);
 
         switch (blockState.getValue(FACING)) {
-            case SOUTH, NORTH -> {
+            case NORTH -> {
                 Direction dir = blockHitResult.getDirection();
                 if (((dir == EAST || dir == WEST) && xd != 0.0) || ((dir == UP || dir == DOWN) && yd != 0.0)) {
                     if (xd < 0.5 && yd < 0.5) {
@@ -220,7 +220,25 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityB
                     }
                 }
             }
-            case EAST, WEST -> {
+            case SOUTH -> {
+                Direction dir = blockHitResult.getDirection();
+                if (((dir == EAST || dir == WEST) && xd != 0.0) || ((dir == UP || dir == DOWN) && yd != 0.0)) {
+                    if (xd >= 0.5 && yd < 0.5) {
+                        return 0;
+                    }
+                    if (xd < 0.5 && yd < 0.5) {
+                        return 1;
+                    }
+                    if (xd >= 0.5 && yd >= 0.5) {
+                        return 2;
+                    }
+                    if (xd < 0.5 && yd >= 0.5) {
+                        return 3;
+                    }
+
+                }
+            }
+            case WEST -> {
                 Direction dir = blockHitResult.getDirection();
                 if (((dir == NORTH || dir == SOUTH) && zd != 0.0) || ((dir == UP || dir == DOWN) && yd != 0.0)) {
                     if (zd < 0.5 && yd < 0.5) {
@@ -233,6 +251,23 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityB
                         return 2;
                     }
                     if (zd >= 0.5 && yd >= 0.5) {
+                        return 3;
+                    }
+                }
+            }
+            case EAST -> {
+                Direction dir = blockHitResult.getDirection();
+                if (((dir == NORTH || dir == SOUTH) && zd != 0.0) || ((dir == UP || dir == DOWN) && yd != 0.0)) {
+                    if (zd >= 0.5 && yd < 0.5) {
+                        return 0;
+                    }
+                    if (zd < 0.5 && yd < 0.5) {
+                        return 1;
+                    }
+                    if (zd >= 0.5 && yd >= 0.5) {
+                        return 2;
+                    }
+                    if (zd < 0.5 && yd >= 0.5) {
                         return 3;
                     }
                 }

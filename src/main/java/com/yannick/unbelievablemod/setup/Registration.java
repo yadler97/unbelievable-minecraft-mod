@@ -26,12 +26,12 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
-import net.minecraftforge.common.extensions.IForgeContainerType;
+import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
@@ -232,7 +232,7 @@ public class Registration {
     public static final RegistryObject<SawmillBlock> SAWMILL = registerBlock("sawmill",
             () -> new SawmillBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), false);
     public static final RegistryObject<MenuType<SawmillMenu>> SAWMILL_MENU = CONTAINERS.register("sawmill",
-            () -> IForgeContainerType.create((windowId, inv, data) -> {
+            () -> IForgeMenuType.create((windowId, inv, data) -> {
                 BlockPos pos = data.readBlockPos();
                 Level world = inv.player.getCommandSenderWorld();
                 ContainerLevelAccess cla = ContainerLevelAccess.create(world, pos);
@@ -245,7 +245,7 @@ public class Registration {
     public static final RegistryObject<BlockEntityType<GeneratorBE>> GENERATOR_BE = BLOCKENTITIES.register("generator",
             () -> BlockEntityType.Builder.of(GeneratorBE::new, GENERATOR.get()).build(null));
     public static final RegistryObject<MenuType<GeneratorContainer>> GENERATOR_CONTAINER = CONTAINERS.register("generator",
-            () -> IForgeContainerType.create((windowId, inv, data) -> {
+            () -> IForgeMenuType.create((windowId, inv, data) -> {
                 BlockPos pos = data.readBlockPos();
                 Level world = inv.player.getCommandSenderWorld();
                 return new GeneratorContainer(windowId, world, pos, inv, inv.player);

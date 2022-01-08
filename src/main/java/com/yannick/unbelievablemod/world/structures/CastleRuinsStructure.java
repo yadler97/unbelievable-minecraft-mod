@@ -3,42 +3,34 @@ package com.yannick.unbelievablemod.world.structures;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.yannick.unbelievablemod.UnbelievableMod;
+import com.yannick.unbelievablemod.world.Structures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
-import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.NoiseColumn;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.structures.JigsawPlacement;
-import net.minecraft.world.level.levelgen.structure.NoiseAffectingStructureStart;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
-import net.minecraft.world.level.levelgen.structure.StructurePiece;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.PostPlacementProcessor;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import net.minecraftforge.common.util.Lazy;
+import net.minecraftforge.event.world.StructureSpawnListGatherEvent;
 import org.apache.logging.log4j.Level;
 
 import java.util.List;
+import java.util.Optional;
 
-public class CastleRuinsStructure extends StructureFeature<NoneFeatureConfiguration> {
-    public CastleRuinsStructure(Codec<NoneFeatureConfiguration> codec) {
-        super(codec);
-    }
+public class CastleRuinsStructure extends StructureFeature<JigsawConfiguration> {
 
-    @Override
-    public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
-        return CastleRuinsStructure.Start::new;
+    public CastleRuinsStructure(Codec<JigsawConfiguration> codec) {
+        super(codec, CastleRuinsStructure::createPiecesGenerator, PostPlacementProcessor.NONE);
     }
 
     @Override
@@ -46,66 +38,67 @@ public class CastleRuinsStructure extends StructureFeature<NoneFeatureConfigurat
         return GenerationStep.Decoration.SURFACE_STRUCTURES;
     }
 
-    private static final List<MobSpawnSettings.SpawnerData> STRUCTURE_MONSTERS = ImmutableList.of();
+    private static final Lazy<List<MobSpawnSettings.SpawnerData>> STRUCTURE_MONSTERS = Lazy.of(ImmutableList::of);
 
-    @Override
-    public List<MobSpawnSettings.SpawnerData> getDefaultSpawnList() {
-        return STRUCTURE_MONSTERS;
+    private static final Lazy<List<MobSpawnSettings.SpawnerData>> STRUCTURE_CREATURES = Lazy.of(ImmutableList::of);
+
+    public static void setupStructureSpawns(final StructureSpawnListGatherEvent event) {
+        if (event.getStructure() == Structures.CASTLE_RUINS.get()) {
+            event.addEntitySpawns(MobCategory.MONSTER, STRUCTURE_MONSTERS.get());
+            event.addEntitySpawns(MobCategory.CREATURE, STRUCTURE_CREATURES.get());
+        }
     }
 
-    private static final List<MobSpawnSettings.SpawnerData> STRUCTURE_CREATURES = ImmutableList.of();
-    @Override
-    public List<MobSpawnSettings.SpawnerData> getDefaultCreatureSpawnList() {
-        return STRUCTURE_CREATURES;
-    }
-
-    @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, WorldgenRandom random, ChunkPos chunkPos1, Biome biome, ChunkPos chunkPos2, NoneFeatureConfiguration featureConfig, LevelHeightAccessor heightLimitView) {
-        BlockPos blockPos = chunkPos1.getWorldPosition();
-        int landHeight = chunkGenerator.getFirstOccupiedHeight(blockPos.getX(), blockPos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
-        NoiseColumn columnOfBlocks = chunkGenerator.getBaseColumn(blockPos.getX(), blockPos.getZ(), heightLimitView);
-        BlockState topBlock = columnOfBlocks.getBlockState(blockPos.above(landHeight));
+    private static boolean isFeatureChunk(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
+        BlockPos blockPos = context.chunkPos().getWorldPosition();
+        int landHeight = context.chunkGenerator().getFirstOccupiedHeight(blockPos.getX(), blockPos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
+        NoiseColumn columnOfBlocks = context.chunkGenerator().getBaseColumn(blockPos.getX(), blockPos.getZ(), context.heightAccessor());
+        BlockState topBlock = columnOfBlocks.getBlock(landHeight);
 
         return topBlock.getFluidState().isEmpty();
     }
 
-    public static class Start extends NoiseAffectingStructureStart<NoneFeatureConfiguration> {
-        public Start(StructureFeature<NoneFeatureConfiguration> structureIn, ChunkPos chunkPos, int referenceIn, long seedIn) {
-            super(structureIn, chunkPos, referenceIn, seedIn);
+    public static Optional<PieceGenerator<JigsawConfiguration>> createPiecesGenerator(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
+
+        // Check if the spot is valid for our structure. This is just as another method for cleanness.
+        // Returning an empty optional tells the game to skip this spot as it will not generate the structure.
+        if (!CastleRuinsStructure.isFeatureChunk(context)) {
+            return Optional.empty();
         }
 
-        @Override
-        public void generatePieces(RegistryAccess dynamicRegistryAccess, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos, Biome biomeIn, NoneFeatureConfiguration config, LevelHeightAccessor heightLimitView) {
+        JigsawConfiguration newConfig = new JigsawConfiguration(
+                () -> context.registryAccess().ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
+                        .get(new ResourceLocation(UnbelievableMod.MODID, "castle_ruins/start_pool")),
+                10
+        );
 
-            BlockPos structureBlockPos = new BlockPos(chunkPos.getMinBlockX(), 0, chunkPos.getMinBlockZ());
+        PieceGeneratorSupplier.Context<JigsawConfiguration> newContext = new PieceGeneratorSupplier.Context<>(
+                context.chunkGenerator(),
+                context.biomeSource(),
+                context.seed(),
+                context.chunkPos(),
+                newConfig,
+                context.heightAccessor(),
+                context.validBiome(),
+                context.structureManager(),
+                context.registryAccess()
+        );
 
-            JigsawPlacement.addPieces(
-                    dynamicRegistryAccess,
-                    new JigsawConfiguration(() -> dynamicRegistryAccess.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
-                            .get(new ResourceLocation(UnbelievableMod.MODID, "castle_ruins/start_pool")),
-                            10),
-                    PoolElementStructurePiece::new,
-                    chunkGenerator,
-                    structureManager,
-                    structureBlockPos,
-                    this,
-                    this.random,
-                    false,
-                    true,
-                    heightLimitView);
+        BlockPos blockpos = context.chunkPos().getMiddleBlockPosition(0);
 
-            this.pieces.forEach(piece -> piece.move(0, 0, 0));
+        Optional<PieceGenerator<JigsawConfiguration>> structurePiecesGenerator =
+                JigsawPlacement.addPieces(
+                        newContext,
+                        PoolElementStructurePiece::new,
+                        blockpos,
+                        false,
+                        true
+                );
 
-            Vec3i structureCenter = this.pieces.get(0).getBoundingBox().getCenter();
-            int xOffset = structureBlockPos.getX() - structureCenter.getX();
-            int zOffset = structureBlockPos.getZ() - structureCenter.getZ();
-            for(StructurePiece structurePiece : this.pieces){
-                structurePiece.move(xOffset, 0, zOffset);
-            }
-
-            this.getBoundingBox();
-
-            UnbelievableMod.LOGGER.log(Level.DEBUG, "Ruined Castle at " + this.pieces.get(0).getBoundingBox().getCenter());
+        if (structurePiecesGenerator.isPresent()) {
+            UnbelievableMod.LOGGER.log(Level.DEBUG, "Castle Ruins at " + blockpos);
         }
+
+        return structurePiecesGenerator;
     }
 }

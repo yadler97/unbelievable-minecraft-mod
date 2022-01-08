@@ -70,11 +70,16 @@ public class ShelfBlockEntity extends BlockEntity {
         super.load(tag);
     }
 
-    @Override
+    /*@Override
     public CompoundTag save(CompoundTag tag) {
         this.saveMetadataAndItems(tag);
 
         return super.save(tag);
+    }*/
+
+    protected void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
+        ContainerHelper.saveAllItems(tag, this.items, true);
     }
 
     public ItemStack addItemToShelf(int slot, ItemStack itemStack) {
@@ -88,19 +93,16 @@ public class ShelfBlockEntity extends BlockEntity {
         return returnStack;
     }
 
-    private CompoundTag saveMetadataAndItems(CompoundTag tag) {
-        super.save(tag);
-        ContainerHelper.saveAllItems(tag, this.items, true);
-        return tag;
-    }
-
     @Nullable
+    @Override
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
-        return new ClientboundBlockEntityDataPacket(this.worldPosition, 100, this.getUpdateTag());
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     public CompoundTag getUpdateTag() {
-        return this.saveMetadataAndItems(new CompoundTag());
+        CompoundTag compoundtag = new CompoundTag();
+        ContainerHelper.saveAllItems(compoundtag, this.items, true);
+        return compoundtag;
     }
 
     public NonNullList<ItemStack> getItems() {
