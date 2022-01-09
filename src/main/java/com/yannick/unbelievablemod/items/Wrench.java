@@ -81,7 +81,7 @@ public class Wrench extends TieredItem implements Vanishable {
         return !collection.isEmpty();
     }
 
-    private void handleInteraction(Player player, BlockState blockState, LevelAccessor levelAccessor, BlockPos blockPos, boolean isRightClick, ItemStack itemStack) {
+    private void handleInteraction(Player player, BlockState blockState, LevelAccessor levelAccessor, BlockPos blockPos, boolean shouldCycleState, ItemStack itemStack) {
         Block block = blockState.getBlock();
         StateDefinition<Block, BlockState> stateDefinition = block.getStateDefinition();
         Collection<Property<?>> collection = getAllowedProperties(stateDefinition);
@@ -90,7 +90,7 @@ public class Wrench extends TieredItem implements Vanishable {
         CompoundTag compoundtag = itemStack.getOrCreateTagElement("WrenchProperty");
         String s1 = compoundtag.getString(s);
         Property<?> property = stateDefinition.getProperty(s1);
-        if (isRightClick) {
+        if (shouldCycleState) {
             if (property == null) {
                 property = collection.iterator().next();
             }

@@ -145,12 +145,12 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
         return SimpleWaterloggedBlock.super.canPlaceLiquid(blockGetter, blockPos, blockState, fluid);
     }
 
-    public BlockState updateShape(BlockState p_56381_, Direction direction, BlockState blockState, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos1) {
-        if (p_56381_.getValue(WATERLOGGED)) {
+    public BlockState updateShape(BlockState blockState, Direction direction, BlockState facingBlockState, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos1) {
+        if (blockState.getValue(WATERLOGGED)) {
             levelAccessor.scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
         }
 
-        return super.updateShape(p_56381_, direction, blockState, levelAccessor, blockPos, blockPos1);
+        return super.updateShape(blockState, direction, facingBlockState, levelAccessor, blockPos, blockPos1);
     }
 
     public boolean isPathfindable(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, PathComputationType pathComputationType) {

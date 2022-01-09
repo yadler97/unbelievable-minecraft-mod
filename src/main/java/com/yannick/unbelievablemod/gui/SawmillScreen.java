@@ -155,10 +155,10 @@ public class SawmillScreen extends AbstractContainerScreen<SawmillMenu> {
         }
     }
 
-    public boolean mouseScrolled(double p_99314_, double p_99315_, double p_99316_) {
+    public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
         if (this.isScrollBarActive()) {
             int i = this.getOffscreenRows();
-            this.scrollOffs = (float)((double)this.scrollOffs - p_99316_ / (double)i);
+            this.scrollOffs = (float)((double)this.scrollOffs - delta / (double)i);
             this.scrollOffs = Mth.clamp(this.scrollOffs, 0.0F, 1.0F);
             this.startIndex = (int)((double)(this.scrollOffs * (float)i) + 0.5D) * 4;
         }
