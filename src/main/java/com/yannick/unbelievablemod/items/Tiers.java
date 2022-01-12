@@ -13,7 +13,6 @@ public enum Tiers implements Tier {
     COPPER(0, 100, 4.0F, 3.5F, 10, () -> Ingredient.of(Items.COPPER_INGOT)),
     ROSEGOLD(0, 64, 12.0F, 0.0F, 22, () -> Ingredient.of(Items.COPPER_INGOT));
 
-
     private final int level;
     private final int uses;
     private final float speed;

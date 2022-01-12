@@ -70,13 +70,6 @@ public class ShelfBlockEntity extends BlockEntity {
         super.load(tag);
     }
 
-    /*@Override
-    public CompoundTag save(CompoundTag tag) {
-        this.saveMetadataAndItems(tag);
-
-        return super.save(tag);
-    }*/
-
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
         ContainerHelper.saveAllItems(tag, this.items, true);

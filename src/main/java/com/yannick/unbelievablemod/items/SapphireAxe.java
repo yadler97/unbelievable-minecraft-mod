@@ -1,5 +1,6 @@
 package com.yannick.unbelievablemod.items;
 
+import com.yannick.unbelievablemod.setup.Config;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -44,7 +45,7 @@ public class SapphireAxe extends AxeItem {
         ItemStack stack = player.getItemInHand(hand);
         int distance = stack.getOrCreateTag().getInt("distance");
         distance++;
-        if (distance > 3) {
+        if (distance > Config.MAX_SAPPHIRE_DISTANCE.get()) {
             distance = 0;
         }
         stack.getTag().putInt("distance", distance);

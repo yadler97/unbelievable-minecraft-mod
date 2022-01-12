@@ -145,6 +145,16 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 - consists of multiple parts that are randomly put together during generation
 - may have special rooms with treasure chests and/or a basement with treasure chests and mob spawners
 
+## Config
+
+### Server Config
+
+- **sapphireToolsMaxMiningBlocks**: How many additional blocks in a row sapphire tools can mine at max
+
+### Client Config
+
+- **renderBlockItemsAsBlocks**: Determines if BlockItems should be rendered as blocks instead of items in shelves
+
 ## Special Thanks
 
 Special thanks go to the creators of Forge modding tutorials that were really useful for me as a beginner:

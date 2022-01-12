@@ -24,10 +24,11 @@ public class TagsItem extends ItemTagsProvider {
                 .add(Registration.CUT_GOLD.get().asItem())
                 .add(Registration.CUT_GOLD_SLAB.get().asItem())
                 .add(Registration.CUT_GOLD_STAIRS.get().asItem());
-    }
 
-    @Override
-    public String getName() {
-        return "UnbelievableMod Tag";
+        tag(ItemTags.DOORS)
+                .add(Registration.BAMBOO_DOOR_ITEM.get());
+
+        tag(ItemTags.BUTTONS)
+                .add(Registration.BAMBOO_BUTTON.get().asItem());
     }
 }

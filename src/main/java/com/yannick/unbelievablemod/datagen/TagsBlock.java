@@ -140,9 +140,4 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.CUT_GOLD_SLAB.get())
                 .add(Registration.CUT_GOLD_STAIRS.get());
     }
-
-    @Override
-    public String getName() {
-        return "UnbelievableMod Tag";
-    }
 }
