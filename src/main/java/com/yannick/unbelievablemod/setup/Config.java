@@ -11,6 +11,7 @@ public class Config {
     public static ForgeConfigSpec.IntValue MAX_SAPPHIRE_DISTANCE;
 
     public static ForgeConfigSpec.BooleanValue RENDER_SHELF_BLOCK_ITEMS_AS_BLOCKS;
+    public static ForgeConfigSpec.BooleanValue RENDER_SHELF_ITEMS_LYING;
 
     public static void init() {
         initServer();
@@ -39,6 +40,9 @@ public class Config {
         RENDER_SHELF_BLOCK_ITEMS_AS_BLOCKS = builder
                 .comment("Determines if BlockItems should be rendered as blocks instead of items in shelves")
                 .define("renderBlockItemsAsBlocks", true);
+        RENDER_SHELF_ITEMS_LYING = builder
+                .comment("Determines if Items should be rendered lying on the floor of the shelf slot instead of floating")
+                .define("renderItemsLying", false);
         builder.pop();
 
         CLIENT_CONFIG = builder.build();

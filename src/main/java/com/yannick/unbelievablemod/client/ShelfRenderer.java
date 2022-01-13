@@ -127,6 +127,11 @@ public class ShelfRenderer implements BlockEntityRenderer<ShelfBlockEntity> {
                                 itemstack.getItem() == Items.REDSTONE_TORCH || itemstack.getItem() == Items.COBWEB || itemstack.getItem() == Items.HANGING_ROOTS || itemstack.getItem() == Items.REPEATER ||
                                 itemstack.getItem() == Items.COMPARATOR || itemstack.getItem() == Items.BREWING_STAND || itemstack.getItem() == Items.CAULDRON || itemstack.getItem() == Items.HOPPER ||
                                 itemstack.getItem() == Items.CAMPFIRE || itemstack.getItem() == Items.SOUL_CAMPFIRE || itemstack.getItem() == Items.LEVER || itemstack.is(ItemTags.BUTTONS)) {
+                            if (Config.RENDER_SHELF_ITEMS_LYING.get()) {
+                                poseStack.mulPose(Vector3f.XP.rotationDegrees(90.0F));
+                                poseStack.translate(0.0D, 0.0D, 0.175D);
+                            }
+
                             poseStack.scale(0.375F, 0.375F, 0.375F);
                             Minecraft.getInstance().getItemRenderer().renderStatic(itemstack, ItemTransforms.TransformType.FIXED, packedLight, packedOverlay, poseStack, multiBufferSource, i + itemSlot);
                         } else {
@@ -136,6 +141,11 @@ public class ShelfRenderer implements BlockEntityRenderer<ShelfBlockEntity> {
                         }
                     }
                 } else {
+                    if (Config.RENDER_SHELF_ITEMS_LYING.get()) {
+                        poseStack.mulPose(Vector3f.XP.rotationDegrees(90.0F));
+                        poseStack.translate(0.0D, 0.0D, 0.175D);
+                    }
+
                     poseStack.scale(0.375F, 0.375F, 0.375F);
                     Minecraft.getInstance().getItemRenderer().renderStatic(itemstack, ItemTransforms.TransformType.FIXED, packedLight, packedOverlay, poseStack, multiBufferSource, i + itemSlot);
                 }

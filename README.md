@@ -154,6 +154,7 @@ This mod requires Forge. To install the mod, just move the built jar into the mo
 ### Client Config
 
 - **renderBlockItemsAsBlocks**: Determines if BlockItems should be rendered as blocks instead of items in shelves
+- **renderItemsLying**: Determines if Items should be rendered lying on the floor of the shelf slot instead of floating
 
 ## Special Thanks
 
