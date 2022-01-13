@@ -17,12 +17,12 @@ public class FlammableSlabBlock extends SlabBlock {
     }
 
     @Override
-    public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+    public int getFireSpreadSpeed(BlockState blockState, BlockGetter world, BlockPos pos, Direction face) {
         return this.fireSpreadSpeed;
     }
 
     @Override
-    public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+    public int getFlammability(BlockState blockState, BlockGetter world, BlockPos pos, Direction face) {
         return this.flammability;
     }
 }

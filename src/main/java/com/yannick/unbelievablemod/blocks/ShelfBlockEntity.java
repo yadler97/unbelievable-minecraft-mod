@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -17,6 +18,9 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
+import static com.yannick.unbelievablemod.blocks.ShelfBlock.LIGHT_LEVEL;
+import static com.yannick.unbelievablemod.blocks.ShelfBlock.LIT;
 
 public class ShelfBlockEntity extends BlockEntity {
 
@@ -104,6 +108,7 @@ public class ShelfBlockEntity extends BlockEntity {
 
     private void markUpdated() {
         this.setChanged();
+        this.getLightEmission();
         if (this.getLevel() != null) {
             this.getLevel().sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), Block.UPDATE_ALL);
         }
@@ -125,5 +130,29 @@ public class ShelfBlockEntity extends BlockEntity {
     private void loadClientData(CompoundTag tag) {
         this.items.clear();
         ContainerHelper.loadAllItems(tag, this.items);
+    }
+
+    public void getLightEmission() {
+        int highestLightLevel = 0;
+        for (ItemStack itemStack : items) {
+            if (itemStack.getItem() instanceof BlockItem blockItem) {
+                if (!(blockItem.getBlock() instanceof ShelfBlock)) {
+                    int lightLevel = blockItem.getBlock().getLightEmission(blockItem.getBlock().defaultBlockState(), getLevel(), getBlockPos());
+                    if (lightLevel != 0 && highestLightLevel < lightLevel) {
+                        highestLightLevel = lightLevel;
+                    }
+                }
+            }
+        }
+
+        if (level != null) {
+            BlockState blockState = level.getBlockState(worldPosition);
+
+            if (highestLightLevel == 0) {
+                level.setBlock(worldPosition, blockState.setValue(LIT, Boolean.FALSE).setValue(LIGHT_LEVEL, 0), Block.UPDATE_ALL);
+            } else {
+                level.setBlock(worldPosition, blockState.setValue(LIT, Boolean.TRUE).setValue(LIGHT_LEVEL, highestLightLevel), Block.UPDATE_ALL);
+            }
+        }
     }
 }

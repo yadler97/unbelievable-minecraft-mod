@@ -18,10 +18,10 @@ public class ChairEntity extends Entity {
         this.noPhysics = true;
     }
 
-    public ChairEntity(Level level, BlockPos blockPos) {
+    public ChairEntity(Level level, BlockPos pos) {
         this(Registration.CHAIR_ENTITY.get(), level);
-        this.setPos(blockPos.getX() + 0.5D, blockPos.getY() - 0.5D, blockPos.getZ() + 0.5D);
-        this.location = blockPos;
+        this.setPos(pos.getX() + 0.5D, pos.getY() - 0.5D, pos.getZ() + 0.5D);
+        this.location = pos;
     }
 
     @Override

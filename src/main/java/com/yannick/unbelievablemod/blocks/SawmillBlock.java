@@ -41,7 +41,7 @@ public class SawmillBlock extends Block {
         return this.defaultBlockState().setValue(FACING, blockPlaceContext.getHorizontalDirection().getOpposite());
     }
 
-    public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+    public InteractionResult use(BlockState blockState, Level level, BlockPos pos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
         if (!level.isClientSide) {
             MenuProvider containerProvider = new MenuProvider() {
                 @Override
@@ -51,15 +51,15 @@ public class SawmillBlock extends Block {
 
                 @Override
                 public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
-                    return new SawmillMenu(windowId, playerInventory, ContainerLevelAccess.create(level, blockPos));
+                    return new SawmillMenu(windowId, playerInventory, ContainerLevelAccess.create(level, pos));
                 }
             };
-            NetworkHooks.openGui((ServerPlayer) player, containerProvider, blockPos);
+            NetworkHooks.openGui((ServerPlayer) player, containerProvider, pos);
         }
         return InteractionResult.SUCCESS;
     }
 
-    public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
+    public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos pos, CollisionContext collisionContext) {
         return SHAPE;
     }
 
@@ -83,7 +83,7 @@ public class SawmillBlock extends Block {
         blockStateBuilder.add(FACING);
     }
 
-    public boolean isPathfindable(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, PathComputationType pathComputationType) {
+    public boolean isPathfindable(BlockState blockState, BlockGetter blockGetter, BlockPos pos, PathComputationType pathComputationType) {
         return false;
     }
 }
