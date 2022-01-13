@@ -25,8 +25,6 @@
 
 
 
-  "block.unbelievablemod.generator": "Power-Generator",
-
   "block.unbelievablemod.ruby_block": "Rubinblock",
   "block.unbelievablemod.ruby_ore": "Rubinerz",
   "block.unbelievablemod.deepslate_ruby_ore": "Tiefenschiefer-Rubinerz",
@@ -101,8 +99,6 @@
   "message.sapphire_distance.tooltip": "Abbauen mit einer zusätzlichen Distanz von %s",
   "message.sapphire_distance.change": "Zusätzliche Distanz gewechselt zu %s",
 
-  "message.generator.tooltip": "Der Power-Generator",
-  "screen.unbelievablemod.generator": "Generator-Bildschirm",
 
   "itemGroup.unbelievablemodtab": "Unbelievable Mod"
 }

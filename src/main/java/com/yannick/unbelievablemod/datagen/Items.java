@@ -44,8 +44,6 @@ public class Items extends ItemModelProvider {
 
 
         // BlockItems
-        withExistingParent(Registration.GENERATOR.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/generator"));
-
         withExistingParent(Registration.RUBY_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/ruby_block"));
         withExistingParent(Registration.RUBY_ORE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/ruby_ore"));
         withExistingParent(Registration.DEEPSLATE_RUBY_ORE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/deepslate_ruby_ore"));

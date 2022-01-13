@@ -127,16 +127,6 @@ public class Recipes extends RecipeProvider {
 
 
         // Crafting Blocks
-        ShapedRecipeBuilder.shaped(Registration.GENERATOR.get())
-                .pattern("iii")
-                .pattern("iCi")
-                .pattern("ccc")
-                .define('i', Tags.Items.INGOTS_IRON)
-                .define('C', Tags.Items.STORAGE_BLOCKS_COAL)
-                .define('c', ItemTags.COALS)
-                .unlockedBy("has_coals", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COAL))
-                .save(consumer);
-
         ShapedRecipeBuilder.shaped(Registration.RUBY_BLOCK.get())
                 .pattern("rrr")
                 .pattern("rrr")

@@ -91,27 +91,10 @@ public class BlockLootTables extends BlockLoot {
         this.dropSelf(Registration.CUT_GOLD_STAIRS.get());
 
         this.dropSelf(Registration.SAWMILL.get());
-
-
-        this.add(Registration.GENERATOR.get(), (block) -> createStandardTable("generator", Registration.GENERATOR.get(), Registration.GENERATOR_BE.get()).setParamSet(LootContextParamSets.BLOCK));
     }
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
         return Registration.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
-    }
-
-    protected LootTable.Builder createStandardTable(String name, Block block, BlockEntityType<?> type) {
-        LootPool.Builder builder = LootPool.lootPool()
-                .name(name)
-                .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(block)
-                        .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY))
-                        .apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY)
-                                .copy("inv", "BlockEntityTag.inv", CopyNbtFunction.MergeStrategy.REPLACE)
-                                .copy("energy", "BlockEntityTag.energy", CopyNbtFunction.MergeStrategy.REPLACE))
-                        .apply(SetContainerContents.setContents(type).withEntry(DynamicLoot.dynamicEntry(new ResourceLocation("minecraft", "contents"))))
-                );
-        return LootTable.lootTable().withPool(builder);
     }
 }

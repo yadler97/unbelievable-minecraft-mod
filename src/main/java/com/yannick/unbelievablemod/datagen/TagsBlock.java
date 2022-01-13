@@ -16,7 +16,6 @@ public class TagsBlock extends BlockTagsProvider {
     @Override
     protected void addTags() {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(Registration.GENERATOR.get())
                 .add(Registration.RUBY_BLOCK.get())
                 .add(Registration.RUBY_ORE.get())
                 .add(Registration.DEEPSLATE_RUBY_ORE.get())
@@ -76,7 +75,6 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.SAWMILL.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(Registration.GENERATOR.get())
                 .add(Registration.RUBY_BLOCK.get())
                 .add(Registration.RUBY_ORE.get())
                 .add(Registration.DEEPSLATE_RUBY_ORE.get())

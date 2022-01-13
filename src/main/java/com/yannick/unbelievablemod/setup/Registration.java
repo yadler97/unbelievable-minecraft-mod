@@ -2,7 +2,6 @@ package com.yannick.unbelievablemod.setup;
 
 import com.yannick.unbelievablemod.blocks.*;
 import com.yannick.unbelievablemod.entities.ChairEntity;
-import com.yannick.unbelievablemod.inventory.GeneratorContainer;
 import com.yannick.unbelievablemod.inventory.SawmillMenu;
 import com.yannick.unbelievablemod.items.*;
 import com.yannick.unbelievablemod.UnbelievableMod;
@@ -239,17 +238,6 @@ public class Registration {
                 return new SawmillMenu(windowId, inv, cla);
             }));
     public static final RegistryObject<RecipeSerializer<WoodsawingRecipe>> WOODSAWING_RECIPES = RECIPES.register("woodsawing", () -> new SingleItemRecipe.Serializer<>(WoodsawingRecipe::new) {});
-
-    // based on tutorial from McJty - will be changed later
-    public static final RegistryObject<GeneratorBlock> GENERATOR = registerBlock("generator", GeneratorBlock::new, false);
-    public static final RegistryObject<BlockEntityType<GeneratorBE>> GENERATOR_BE = BLOCKENTITIES.register("generator",
-            () -> BlockEntityType.Builder.of(GeneratorBE::new, GENERATOR.get()).build(null));
-    public static final RegistryObject<MenuType<GeneratorContainer>> GENERATOR_CONTAINER = CONTAINERS.register("generator",
-            () -> IForgeMenuType.create((windowId, inv, data) -> {
-                BlockPos pos = data.readBlockPos();
-                Level world = inv.player.getCommandSenderWorld();
-                return new GeneratorContainer(windowId, world, pos, inv, inv.player);
-    }));
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, boolean isFuel) {
         RegistryObject<T> registryBlock = BLOCKS.register(name, block);

@@ -6,19 +6,11 @@ import com.yannick.unbelievablemod.blocks.ShelfBlock;
 import com.yannick.unbelievablemod.blocks.TableBlock;
 import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.UnbelievableMod;
-import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-
-import java.util.function.Function;
 
 import static net.minecraftforge.client.model.generators.ModelProvider.BLOCK_FOLDER;
 
@@ -30,8 +22,6 @@ public class BlockStates extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        registerGeneratorBlock();
-
         simpleBlock(Registration.RUBY_BLOCK.get(), models().cubeAll("ruby_block", new ResourceLocation(UnbelievableMod.MODID, "block/ruby_block")));
         simpleBlock(Registration.RUBY_ORE.get(), models().cubeAll("ruby_ore", new ResourceLocation(UnbelievableMod.MODID, "block/ruby_ore")));
         simpleBlock(Registration.DEEPSLATE_RUBY_ORE.get(), models().cubeAll("deepslate_ruby_ore", new ResourceLocation(UnbelievableMod.MODID, "block/deepslate_ruby_ore")));
@@ -105,31 +95,6 @@ public class BlockStates extends BlockStateProvider {
         stairsBlock(Registration.CUT_GOLD_STAIRS.get(), new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold"));
 
         sawmillBlock("sawmill", Registration.SAWMILL.get(), new ResourceLocation(UnbelievableMod.MODID, "block/sawmill_side"), new ResourceLocation(UnbelievableMod.MODID, "block/sawmill_top"), new ResourceLocation(UnbelievableMod.MODID, "block/sawmill_bottom"));
-    }
-
-    private void registerGeneratorBlock() {
-        ResourceLocation txt = new ResourceLocation(UnbelievableMod.MODID, "block/generator");
-        BlockModelBuilder modelGenerator = models().cube("generator", txt, txt, new ResourceLocation(UnbelievableMod.MODID, "block/generator_front"), txt, txt, txt);
-        BlockModelBuilder modelGeneratorPowered = models().cube("generator_powered", txt, txt, new ResourceLocation(UnbelievableMod.MODID, "block/generator_powered"), txt, txt, txt);
-        orientedBlock(Registration.GENERATOR.get(), state -> {
-            if (state.getValue(BlockStateProperties.POWERED)) {
-                return modelGeneratorPowered;
-            } else {
-                return modelGenerator;
-            }
-        });
-    }
-
-    private void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {
-        getVariantBuilder(block)
-                .forAllStates(state -> {
-                    Direction dir = state.getValue(BlockStateProperties.FACING);
-                    return ConfiguredModel.builder()
-                            .modelFile(modelFunc.apply(state))
-                            .rotationX(dir.getAxis() == Direction.Axis.Y ? dir.getAxisDirection().getStep() * -90 : 0)
-                            .rotationY(dir.getAxis() != Direction.Axis.Y ? ((dir.get2DDataValue() +2) % 4) * 90 : 0)
-                            .build();
-                });
     }
 
     private void tableBlock(String name, TableBlock block, ResourceLocation texture) {
