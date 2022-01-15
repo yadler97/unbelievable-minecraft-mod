@@ -34,9 +34,9 @@ public class Wrench extends TieredItem implements Vanishable {
         super(tier, properties);
     }
 
-    public boolean canAttackBlock(BlockState blockState, Level level, BlockPos blockPos, Player player) {
+    public boolean canAttackBlock(BlockState blockState, Level level, BlockPos pos, Player player) {
         if (!level.isClientSide) {
-            this.handleInteraction(player, blockState, level, blockPos, false, player.getItemInHand(InteractionHand.MAIN_HAND));
+            this.handleInteraction(player, blockState, level, pos, false, player.getItemInHand(InteractionHand.MAIN_HAND));
         }
 
         return false;
@@ -49,8 +49,7 @@ public class Wrench extends TieredItem implements Vanishable {
         if (checkIfActionIsEligible(level.getBlockState(blockPos))) {
             if (!level.isClientSide && player != null) {
                 handleInteraction(player, level.getBlockState(blockPos), level, blockPos, true, context.getItemInHand());
-            } else if (player != null) {
-                level.playSound(player, blockPos, SoundEvents.ARMOR_STAND_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
+                level.playSound(null, blockPos, SoundEvents.ARMOR_STAND_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
@@ -66,11 +65,13 @@ public class Wrench extends TieredItem implements Vanishable {
                 block == Blocks.SOUL_WALL_TORCH || block == Blocks.REDSTONE_WALL_TORCH || block == Blocks.PISTON_HEAD || block == Blocks.MOVING_PISTON) {
             return false;
         }
+
         if (block == Blocks.STICKY_PISTON || block == Blocks.PISTON) {
             if (Objects.equals(blockState.getValues().get(BlockStateProperties.EXTENDED), true)) {
                 return false;
             }
         }
+
         if (block == Blocks.CHEST || block == Blocks.TRAPPED_CHEST) {
             if (!(Objects.equals(blockState.getValues().get(BlockStateProperties.CHEST_TYPE), ChestType.SINGLE))) {
                 return false;
@@ -81,7 +82,7 @@ public class Wrench extends TieredItem implements Vanishable {
         return !collection.isEmpty();
     }
 
-    private void handleInteraction(Player player, BlockState blockState, LevelAccessor levelAccessor, BlockPos blockPos, boolean shouldCycleState, ItemStack itemStack) {
+    private void handleInteraction(Player player, BlockState blockState, LevelAccessor levelAccessor, BlockPos pos, boolean shouldCycleState, ItemStack itemStack) {
         Block block = blockState.getBlock();
         StateDefinition<Block, BlockState> stateDefinition = block.getStateDefinition();
         Collection<Property<?>> collection = getAllowedProperties(stateDefinition);
@@ -96,7 +97,7 @@ public class Wrench extends TieredItem implements Vanishable {
             }
 
             BlockState blockstate = cycleState(blockState, property, player.isSecondaryUseActive());
-            levelAccessor.setBlock(blockPos, blockstate, 18);
+            levelAccessor.setBlock(pos, blockstate, 18);
             itemStack.hurtAndBreak(1, player, e -> e.broadcastBreakEvent(player.swingingArm));
         } else {
             property = getRelative(collection, property, player.isSecondaryUseActive());

@@ -124,6 +124,7 @@ Before building the jar, runData must be executed first. To then build the jar, 
 
 #### Chairs
 - players can sit on chairs by right-clicking on them
+- cushions can be added by right-clicking with a carpet
 
 #### Shelves
 - can store up to four items for decorative purposes
@@ -167,3 +168,5 @@ Special thanks go to the creators of Forge modding tutorials that were really us
 - [TurtyWurty](https://github.com/DaRealTurtyWurty/1.17-Tutorial-Mod)
 - [Tutorials By Kaupenjoe](https://github.com/Tutorials-By-Kaupenjoe/Forge-Tutorial-1.17.1)
 - [TelepathicGrunt](https://github.com/TelepathicGrunt/StructureTutorialMod/)
+
+Block models have been created using [Blockbench](https://www.blockbench.net/).

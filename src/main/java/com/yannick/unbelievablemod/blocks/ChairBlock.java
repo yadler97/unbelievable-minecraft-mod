@@ -3,10 +3,19 @@ package com.yannick.unbelievablemod.blocks;
 import com.yannick.unbelievablemod.entities.ChairEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -14,9 +23,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
@@ -36,6 +43,8 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
     private final int flammability;
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    public static final BooleanProperty CARPET = BooleanProperty.create("has_carpet");
+    public static final EnumProperty<DyeColor> COLOR = EnumProperty.create("color", DyeColor.class);
 
     private static final VoxelShape SHAPE_N = Stream.of(
             Block.box(4, 0, 4, 6, 6, 6),
@@ -77,14 +86,39 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
         super(properties);
         this.fireSpreadSpeed = fireSpreadSpeed;
         this.flammability = flammability;
-        this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE));
+        this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE).setValue(CARPET, Boolean.FALSE));
     }
 
     public InteractionResult use(BlockState blockState, Level level, BlockPos pos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
         if (!level.isClientSide) {
-            ChairEntity entity = new ChairEntity(level, pos);
-            level.addFreshEntity(entity);
-            player.startRiding(entity);
+            ItemStack stack = player.getItemInHand(interactionHand);
+            if (stack.is(ItemTags.CARPETS)) {
+                if (blockState.getValue(CARPET)) {
+                    level.setBlock(pos, blockState.setValue(CARPET, Boolean.FALSE), UPDATE_ALL);
+                    level.playSound(null, pos, SoundEvents.WOOL_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
+
+                    if (!player.getAbilities().instabuild) {
+                        Direction direction = blockHitResult.getDirection();
+                        Direction direction1 = direction.getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : direction;
+                        ItemEntity itementity = new ItemEntity(level, (double) pos.getX() + 0.5D + (double) direction1.getStepX() * 0.65D, (double) pos.getY() + 0.1D, (double) pos.getZ() + 0.5D + (double) direction1.getStepZ() * 0.65D, getReturnCarpet(blockState.getValue(COLOR)));
+                        itementity.setDeltaMovement(0.05D * (double) direction1.getStepX() + level.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double) direction1.getStepZ() + level.random.nextDouble() * 0.02D);
+                        level.addFreshEntity(itementity);
+                    }
+                } else {
+                    if (stack.getItem() instanceof BlockItem carpetItem && carpetItem.getBlock() instanceof WoolCarpetBlock carpetBlock) {
+                        level.setBlock(pos, blockState.setValue(CARPET, Boolean.TRUE).setValue(COLOR, carpetBlock.getColor()), UPDATE_ALL);
+                        level.playSound(null, pos, SoundEvents.WOOL_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
+
+                        if (!player.getAbilities().instabuild) {
+                            stack.shrink(1);
+                        }
+                    }
+                }
+            } else {
+                ChairEntity entity = new ChairEntity(level, pos);
+                level.addFreshEntity(entity);
+                player.startRiding(entity);
+            }
 
             return InteractionResult.CONSUME;
         }
@@ -97,12 +131,12 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockPos blockpos = context.getClickedPos();
         FluidState fluidstate = context.getLevel().getFluidState(blockpos);
-        return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
+        return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER).setValue(CARPET, Boolean.FALSE);
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState>  builder) {
-        builder.add(FACING, WATERLOGGED);
+        builder.add(FACING, WATERLOGGED, CARPET, COLOR);
     }
 
     public BlockState rotate(BlockState blockState, Rotation rotation) {
@@ -158,5 +192,37 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
             return blockGetter.getFluidState(pos).is(FluidTags.WATER);
         }
         return false;
+    }
+
+    public void onRemove(BlockState blockState, Level level, BlockPos pos, BlockState replacingBlockState, boolean isMoving) {
+        if (!blockState.is(replacingBlockState.getBlock())) {
+            if (blockState.getValue(CARPET)) {
+                ItemStack returnStack = getReturnCarpet(blockState.getValue(COLOR));
+                Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), returnStack);
+            }
+
+            super.onRemove(blockState, level, pos, replacingBlockState, isMoving);
+        }
+    }
+
+    private ItemStack getReturnCarpet(DyeColor color) {
+        return switch(color) {
+            case ORANGE -> new ItemStack(Items.ORANGE_CARPET);
+            case MAGENTA -> new ItemStack(Items.MAGENTA_CARPET);
+            case LIGHT_BLUE -> new ItemStack(Items.LIGHT_BLUE_CARPET);
+            case YELLOW -> new ItemStack(Items.YELLOW_CARPET);
+            case LIME -> new ItemStack(Items.LIME_CARPET);
+            case PINK -> new ItemStack(Items.PINK_CARPET);
+            case GRAY -> new ItemStack(Items.GRAY_CARPET);
+            case LIGHT_GRAY -> new ItemStack(Items.LIGHT_GRAY_CARPET);
+            case CYAN -> new ItemStack(Items.CYAN_CARPET);
+            case PURPLE -> new ItemStack(Items.PURPLE_CARPET);
+            case BLUE -> new ItemStack(Items.BLUE_CARPET);
+            case BROWN -> new ItemStack(Items.BROWN_CARPET);
+            case GREEN -> new ItemStack(Items.GREEN_CARPET);
+            case RED -> new ItemStack(Items.RED_CARPET);
+            case BLACK -> new ItemStack(Items.BLACK_CARPET);
+            default -> new ItemStack(Items.WHITE_CARPET);
+        };
     }
 }

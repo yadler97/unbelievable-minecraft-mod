@@ -61,10 +61,10 @@ public class SawmillMenu extends AbstractContainerMenu {
                     SawmillMenu.this.setupResultSlot();
                 }
 
-                containerLevelAccess.execute((p_40364_, p_40365_) -> {
-                    long l = p_40364_.getGameTime();
+                containerLevelAccess.execute((level, pos) -> {
+                    long l = level.getGameTime();
                     if (SawmillMenu.this.lastSoundTime != l) {
-                        p_40364_.playSound((Player)null, p_40365_, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        level.playSound(null, pos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
                         SawmillMenu.this.lastSoundTime = l;
                     }
 

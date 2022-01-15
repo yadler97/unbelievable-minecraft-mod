@@ -9,6 +9,7 @@ import com.yannick.unbelievablemod.UnbelievableMod;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -104,7 +105,36 @@ public class BlockStates extends BlockStateProvider {
 
     private void chairBlock(String name, ChairBlock block, ResourceLocation texture) {
         ModelFile chair = models().singleTexture(name, modLoc(BLOCK_FOLDER + "/chair"), texture);
-        horizontalBlock(block, chair);
+
+        getVariantBuilder(block).forAllStates(state -> {
+            ModelFile model = chair;
+            if (state.getValue(ChairBlock.CARPET)) {
+                switch(state.getValue(ChairBlock.COLOR)) {
+                    case ORANGE -> model = models().withExistingParent(name + "_with_cushion_orange", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/orange_wool"));
+                    case MAGENTA -> model = models().withExistingParent(name + "_with_cushion_magenta", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/magenta_wool"));
+                    case LIGHT_BLUE -> model = models().withExistingParent(name + "_with_cushion_light_blue", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/light_blue_wool"));
+                    case YELLOW -> model = models().withExistingParent(name + "_with_cushion_yellow", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/yellow_wool"));
+                    case LIME -> model = models().withExistingParent(name + "_with_cushion_lime", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/lime_wool"));
+                    case PINK -> model = models().withExistingParent(name + "_with_cushion_pink", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/pink_wool"));
+                    case GRAY -> model = models().withExistingParent(name + "_with_cushion_gray", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/gray_wool"));
+                    case LIGHT_GRAY -> model = models().withExistingParent(name + "_with_cushion_light_gray", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/light_gray_wool"));
+                    case CYAN -> model = models().withExistingParent(name + "_with_cushion_cyan", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/cyan_wool"));
+                    case PURPLE -> model = models().withExistingParent(name + "_with_cushion_purple", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/purple_wool"));
+                    case BLUE -> model = models().withExistingParent(name + "_with_cushion_blue", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/blue_wool"));
+                    case BROWN -> model = models().withExistingParent(name + "_with_cushion_brown", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/brown_wool"));
+                    case GREEN -> model = models().withExistingParent(name + "_with_cushion_green", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/green_wool"));
+                    case RED -> model = models().withExistingParent(name + "_with_cushion_red", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/red_wool"));
+                    case BLACK -> model = models().withExistingParent(name + "_with_cushion_black", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/black_wool"));
+                    default -> model = models().withExistingParent(name + "_with_cushion_white", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/white_wool"));
+                }
+            }
+            return ConfiguredModel.builder()
+                    .modelFile(model)
+                    .rotationY((int) state.getValue(ChairBlock.FACING).toYRot())
+                    .rotationY(((int) state.getValue(ChairBlock.FACING).toYRot() + 180) % 360)
+                    .uvLock(true)
+                    .build();
+        });
     }
 
     private void shelfBlock(String name, ShelfBlock block, ResourceLocation texture) {
