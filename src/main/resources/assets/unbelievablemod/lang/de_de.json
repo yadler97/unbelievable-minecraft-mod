@@ -23,6 +23,8 @@
 
   "item.unbelievablemod.fried_egg": "Spiegelei",
 
+  "item.unbelievablemod.depth_meter": "Tiefenmeter",
+
 
 
   "block.unbelievablemod.ruby_block": "Rubinblock",
@@ -95,6 +97,7 @@
   "block.unbelievablemod.sawmill": "Sägebank",
   "container.unbelievablemod.sawmill": "Sägebank",
 
+  "message.depth.tooltip": "Aktuelle Tiefe: %s",
 
   "message.sapphire_distance.tooltip": "Abbauen mit einer zusätzlichen Distanz von %s",
   "message.sapphire_distance.change": "Zusätzliche Distanz gewechselt zu %s",

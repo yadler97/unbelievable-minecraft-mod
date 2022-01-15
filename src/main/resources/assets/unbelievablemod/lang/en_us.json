@@ -23,6 +23,8 @@
 
   "item.unbelievablemod.fried_egg": "Fried Egg",
 
+  "item.unbelievablemod.depth_meter": "Depth Meter",
+
 
 
   "block.unbelievablemod.ruby_block": "Block of Ruby",
@@ -95,6 +97,7 @@
   "block.unbelievablemod.sawmill": "Sawmill",
   "container.unbelievablemod.sawmill": "Sawmill",
 
+  "message.depth.tooltip": "Current depth: %s",
 
   "message.sapphire_distance.tooltip": "Mine with extra distance %s",
   "message.sapphire_distance.change": "Changed extra distance to %s",

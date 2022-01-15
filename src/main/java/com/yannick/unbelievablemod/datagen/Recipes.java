@@ -82,6 +82,16 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("has_copper_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.DEPTH_METER.get())
+                .pattern("ccc")
+                .pattern("crc")
+                .pattern("ccc")
+                .define('c', Items.COPPER_INGOT)
+                .define('r', Registration.RUBY.get())
+                .unlockedBy("has_ruby", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.RUBY.get()))
+                .save(consumer);
+
+
         // Existing Items
         ShapelessRecipeBuilder.shapeless(Items.NAME_TAG)
                 .requires(Items.PAPER)

@@ -40,6 +40,8 @@ public class CreativeModeTabs {
 
             items.add(Registration.FRIED_EGG.get().getDefaultInstance());
 
+            items.add(Registration.DEPTH_METER.get().getDefaultInstance());
+
             items.add(Registration.RUBY_BLOCK.get().asItem().getDefaultInstance());
             items.add(Registration.SAPPHIRE_BLOCK.get().asItem().getDefaultInstance());
             items.add(Registration.RUBY_ORE.get().asItem().getDefaultInstance());

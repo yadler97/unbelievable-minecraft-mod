@@ -28,6 +28,7 @@ Before building the jar, runData must be executed first. To then build the jar, 
 - Copper Wrench
 - Bundle
 - Fried Egg
+- Depth Meter
 
 ### Details
 
@@ -45,6 +46,10 @@ Before building the jar, runData must be executed first. To then build the jar, 
 - break after 100 uses (can be enchanted with Unbreaking and Mending)
 - cannot be used on double blocks like beds, double chests and extended pistons
 - crafted from four copper ingots
+
+#### Depth Meter
+- visually displays the current depth where the player is located
+- crafted from copper ingots and rubies
 
 ## Blocks
 

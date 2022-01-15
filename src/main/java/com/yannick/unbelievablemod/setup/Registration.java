@@ -98,6 +98,9 @@ public class Registration {
     public static final RegistryObject<Item> BAMBOO_DOOR_ITEM = ITEMS.register("bamboo_door_item",
             () -> new FuelDoubleHighBlockItem(Registration.BAMBOO_DOOR.get(), (new Item.Properties()).tab(CreativeModeTabs.UNBELIEVABLE_TAB), 200));
 
+    public static final RegistryObject<DepthMeter> DEPTH_METER = ITEMS.register("depth_meter",
+            () -> new DepthMeter(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB).stacksTo(1)));
+
 
     // Blocks
     public static final RegistryObject<Block> RUBY_BLOCK = registerBlock("ruby_block",

@@ -4,8 +4,11 @@ import com.yannick.unbelievablemod.UnbelievableMod;
 import com.yannick.unbelievablemod.setup.Registration;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+
+import static com.yannick.unbelievablemod.setup.ClientSetup.DEPTH_PROPERTY;
 
 public class Items extends ItemModelProvider {
     public Items(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -41,6 +44,22 @@ public class Items extends ItemModelProvider {
         singleTexture(Registration.FRIED_EGG.get().getRegistryName().getPath(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/fried_egg"));
 
         singleTexture(Registration.BAMBOO_DOOR_ITEM.get().getRegistryName().getPath(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/bamboo_door"));
+
+        getBuilder(Registration.DEPTH_METER.get().getRegistryName().getPath())
+                .parent(getExistingFile(mcLoc("item/generated")))
+                .texture("layer0", "item/depth_meter0")
+                .override().predicate(DEPTH_PROPERTY, 1).model(createDepthMeterModel(1)).end()
+                .override().predicate(DEPTH_PROPERTY, 2).model(createDepthMeterModel(2)).end()
+                .override().predicate(DEPTH_PROPERTY, 3).model(createDepthMeterModel(3)).end()
+                .override().predicate(DEPTH_PROPERTY, 4).model(createDepthMeterModel(4)).end()
+                .override().predicate(DEPTH_PROPERTY, 5).model(createDepthMeterModel(5)).end()
+                .override().predicate(DEPTH_PROPERTY, 6).model(createDepthMeterModel(6)).end()
+                .override().predicate(DEPTH_PROPERTY, 7).model(createDepthMeterModel(7)).end()
+                .override().predicate(DEPTH_PROPERTY, 8).model(createDepthMeterModel(8)).end()
+                .override().predicate(DEPTH_PROPERTY, 9).model(createDepthMeterModel(9)).end()
+                .override().predicate(DEPTH_PROPERTY, 10).model(createDepthMeterModel(10)).end()
+                .override().predicate(DEPTH_PROPERTY, 11).model(createDepthMeterModel(11)).end();
+
 
 
         // BlockItems
@@ -110,5 +129,10 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.CUT_GOLD_STAIRS.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/cut_gold_stairs"));
 
         withExistingParent(Registration.SAWMILL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/sawmill"));
+    }
+
+    private ItemModelBuilder createDepthMeterModel(int suffix) {
+        return getBuilder("depth_meter" + suffix).parent(getExistingFile(mcLoc("item/generated")))
+                .texture("layer0", "item/depth_meter" + suffix);
     }
 }
