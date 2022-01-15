@@ -4,6 +4,8 @@ A truly unbelievable Minecraft Mod which adds various things like new ores, tool
 
 This mod requires Forge. To install the mod, just move the built jar into the mods folder of your Minecraft installation.
 
+Before building the jar, runData must be executed first. To then build the jar, simply run `./gradlew.bat build` (Windows).
+
 ## Items
 
 ### List
