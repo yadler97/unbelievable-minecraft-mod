@@ -26,7 +26,9 @@ public class DepthMeter extends Item {
     }
 
     public void inventoryTick(ItemStack itemStack, Level level, Entity entity, int itemSlot, boolean isSelected) {
-        itemStack.getOrCreateTag().putInt("depth", entity.getBlockY());
+        if (level.isClientSide) {
+            itemStack.getOrCreateTag().putInt("depth", entity.getBlockY());
+        }
     }
 
     public int getCurrentDepth(ItemStack stack) {

@@ -46,7 +46,7 @@ public class Items extends ItemModelProvider {
         singleTexture(Registration.BAMBOO_DOOR_ITEM.get().getRegistryName().getPath(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/bamboo_door"));
 
         getBuilder(Registration.DEPTH_METER.get().getRegistryName().getPath())
-                .parent(getExistingFile(mcLoc("item/generated")))
+                .parent(getExistingFile(modLoc("item/handheld_depth_meter")))
                 .texture("layer0", "item/depth_meter0")
                 .override().predicate(DEPTH_PROPERTY, 1).model(createDepthMeterModel(1)).end()
                 .override().predicate(DEPTH_PROPERTY, 2).model(createDepthMeterModel(2)).end()
@@ -132,7 +132,7 @@ public class Items extends ItemModelProvider {
     }
 
     private ItemModelBuilder createDepthMeterModel(int suffix) {
-        return getBuilder("depth_meter" + suffix).parent(getExistingFile(mcLoc("item/generated")))
+        return getBuilder("depth_meter" + suffix).parent(getExistingFile(modLoc("item/handheld_depth_meter")))
                 .texture("layer0", "item/depth_meter" + suffix);
     }
 }

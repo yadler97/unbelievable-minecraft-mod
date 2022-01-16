@@ -103,5 +103,7 @@
   "message.sapphire_distance.change": "Zusätzliche Distanz gewechselt zu %s",
 
 
-  "itemGroup.unbelievablemodtab": "Unbelievable Mod"
+  "itemGroup.unbelievablemodtab": "Unbelievable Mod",
+
+  "enchantment.unbelievablemod.smelting": "Schmelzen"
 }

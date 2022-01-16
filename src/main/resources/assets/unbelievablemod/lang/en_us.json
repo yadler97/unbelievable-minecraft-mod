@@ -102,5 +102,7 @@
   "message.sapphire_distance.tooltip": "Mine with extra distance %s",
   "message.sapphire_distance.change": "Changed extra distance to %s",
 
-  "itemGroup.unbelievablemodtab": "Unbelievable Mod"
+  "itemGroup.unbelievablemodtab": "Unbelievable Mod",
+
+  "enchantment.unbelievablemod.smelting": "Smelting"
 }

@@ -43,7 +43,7 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
     private final int flammability;
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    public static final BooleanProperty CARPET = BooleanProperty.create("has_carpet");
+    public static final BooleanProperty CUSHION = BooleanProperty.create("has_cushion");
     public static final EnumProperty<DyeColor> COLOR = EnumProperty.create("color", DyeColor.class);
 
     private static final VoxelShape SHAPE_N = Stream.of(
@@ -86,15 +86,15 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
         super(properties);
         this.fireSpreadSpeed = fireSpreadSpeed;
         this.flammability = flammability;
-        this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE).setValue(CARPET, Boolean.FALSE));
+        this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE).setValue(CUSHION, Boolean.FALSE));
     }
 
     public InteractionResult use(BlockState blockState, Level level, BlockPos pos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
         if (!level.isClientSide) {
             ItemStack stack = player.getItemInHand(interactionHand);
             if (stack.is(ItemTags.CARPETS)) {
-                if (blockState.getValue(CARPET)) {
-                    level.setBlock(pos, blockState.setValue(CARPET, Boolean.FALSE), UPDATE_ALL);
+                if (blockState.getValue(CUSHION)) {
+                    level.setBlock(pos, blockState.setValue(CUSHION, Boolean.FALSE), UPDATE_ALL);
                     level.playSound(null, pos, SoundEvents.WOOL_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
 
                     if (!player.getAbilities().instabuild) {
@@ -106,7 +106,7 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
                     }
                 } else {
                     if (stack.getItem() instanceof BlockItem carpetItem && carpetItem.getBlock() instanceof WoolCarpetBlock carpetBlock) {
-                        level.setBlock(pos, blockState.setValue(CARPET, Boolean.TRUE).setValue(COLOR, carpetBlock.getColor()), UPDATE_ALL);
+                        level.setBlock(pos, blockState.setValue(CUSHION, Boolean.TRUE).setValue(COLOR, carpetBlock.getColor()), UPDATE_ALL);
                         level.playSound(null, pos, SoundEvents.WOOL_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
 
                         if (!player.getAbilities().instabuild) {
@@ -131,12 +131,12 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockPos blockpos = context.getClickedPos();
         FluidState fluidstate = context.getLevel().getFluidState(blockpos);
-        return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER).setValue(CARPET, Boolean.FALSE);
+        return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER).setValue(CUSHION, Boolean.FALSE);
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState>  builder) {
-        builder.add(FACING, WATERLOGGED, CARPET, COLOR);
+        builder.add(FACING, WATERLOGGED, CUSHION, COLOR);
     }
 
     public BlockState rotate(BlockState blockState, Rotation rotation) {
@@ -196,7 +196,7 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
 
     public void onRemove(BlockState blockState, Level level, BlockPos pos, BlockState replacingBlockState, boolean isMoving) {
         if (!blockState.is(replacingBlockState.getBlock())) {
-            if (blockState.getValue(CARPET)) {
+            if (blockState.getValue(CUSHION)) {
                 ItemStack returnStack = getReturnCarpet(blockState.getValue(COLOR));
                 Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), returnStack);
             }

@@ -154,6 +154,15 @@ Before building the jar, runData must be executed first. To then build the jar, 
 - consists of multiple parts that are randomly put together during generation
 - may have special rooms with treasure chests and/or a basement with treasure chests and mob spawners
 
+## Enchantments
+
+### Smelting
+
+- smelts mined blocks directly without needing a furnace
+- cannot be obtained using an enchantment table
+- is incompatible with Silk Touch
+- gives no experience orbs when mining
+
 ## Config
 
 ### Server Config

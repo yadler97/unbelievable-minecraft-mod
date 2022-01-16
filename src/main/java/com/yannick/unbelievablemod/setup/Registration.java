@@ -1,6 +1,7 @@
 package com.yannick.unbelievablemod.setup;
 
 import com.yannick.unbelievablemod.blocks.*;
+import com.yannick.unbelievablemod.enchantments.SmeltingEnchantment;
 import com.yannick.unbelievablemod.entities.ChairEntity;
 import com.yannick.unbelievablemod.inventory.SawmillMenu;
 import com.yannick.unbelievablemod.items.*;
@@ -17,6 +18,8 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.SingleItemRecipe;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -41,6 +44,7 @@ public class Registration {
     private static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, UnbelievableMod.MODID);
     private static final DeferredRegister<RecipeSerializer<?>> RECIPES = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, UnbelievableMod.MODID);
     private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, UnbelievableMod.MODID);
+    private static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, UnbelievableMod.MODID);
 
     public static void init() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -50,6 +54,7 @@ public class Registration {
         CONTAINERS.register(bus);
         RECIPES.register(bus);
         ENTITIES.register(bus);
+        ENCHANTMENTS.register(bus);
     }
 
     // Items
@@ -241,6 +246,10 @@ public class Registration {
                 return new SawmillMenu(windowId, inv, cla);
             }));
     public static final RegistryObject<RecipeSerializer<WoodsawingRecipe>> WOODSAWING_RECIPES = RECIPES.register("woodsawing", () -> new SingleItemRecipe.Serializer<>(WoodsawingRecipe::new) {});
+
+
+    public static final RegistryObject<Enchantment> SMELTING = ENCHANTMENTS.register("smelting",
+            () -> new SmeltingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentCategory.DIGGER, EquipmentSlot.MAINHAND));
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, boolean isFuel) {
         RegistryObject<T> registryBlock = BLOCKS.register(name, block);

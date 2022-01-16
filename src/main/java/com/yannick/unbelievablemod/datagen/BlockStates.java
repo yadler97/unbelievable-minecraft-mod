@@ -108,7 +108,7 @@ public class BlockStates extends BlockStateProvider {
 
         getVariantBuilder(block).forAllStates(state -> {
             ModelFile model = chair;
-            if (state.getValue(ChairBlock.CARPET)) {
+            if (state.getValue(ChairBlock.CUSHION)) {
                 switch(state.getValue(ChairBlock.COLOR)) {
                     case ORANGE -> model = models().withExistingParent(name + "_with_cushion_orange", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/orange_wool"));
                     case MAGENTA -> model = models().withExistingParent(name + "_with_cushion_magenta", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/magenta_wool"));

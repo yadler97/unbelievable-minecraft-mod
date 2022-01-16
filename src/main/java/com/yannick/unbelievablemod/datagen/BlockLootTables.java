@@ -1,24 +1,36 @@
 package com.yannick.unbelievablemod.datagen;
 
 import com.yannick.unbelievablemod.setup.Registration;
+import net.minecraft.advancements.critereon.EnchantmentPredicate;
+import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.loot.BlockLoot;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.entries.DynamicLoot;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.functions.CopyNameFunction;
-import net.minecraft.world.level.storage.loot.functions.CopyNbtFunction;
-import net.minecraft.world.level.storage.loot.functions.SetContainerContents;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
 public class BlockLootTables extends BlockLoot {
+
+    private static final LootItemCondition.Builder HAS_SILK_TOUCH = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.Ints.atLeast(1))));
+    private static final LootItemCondition.Builder HAS_SMELTING = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Registration.SMELTING.get(), MinMaxBounds.Ints.atLeast(1))));
+
     @Override
     protected void addTables() {
         this.add(Registration.RUBY_ORE.get(), (block) -> createOreDrop(Registration.RUBY_ORE.get(), Registration.RUBY.get()));
@@ -91,10 +103,77 @@ public class BlockLootTables extends BlockLoot {
         this.dropSelf(Registration.CUT_GOLD_STAIRS.get());
 
         this.dropSelf(Registration.SAWMILL.get());
+
+        this.add(Blocks.IRON_ORE, (block) -> createSingleItemWithSmeltingAndSilkTouch(Blocks.IRON_ORE, Items.IRON_INGOT, Items.RAW_IRON));
+        this.add(Blocks.DEEPSLATE_IRON_ORE, (block) -> createSingleItemWithSmeltingAndSilkTouch(Blocks.DEEPSLATE_IRON_ORE, Items.IRON_INGOT, Items.RAW_IRON));
+        this.add(Blocks.COPPER_ORE, (block) -> createCopperOreDropWithSmelting(Blocks.COPPER_ORE, Items.COPPER_INGOT, Items.RAW_COPPER));
+        this.add(Blocks.DEEPSLATE_COPPER_ORE, (block) -> createCopperOreDropWithSmelting(Blocks.DEEPSLATE_COPPER_ORE, Items.COPPER_INGOT, Items.RAW_COPPER));
+        this.add(Blocks.GOLD_ORE, (block) -> createSingleItemWithSmeltingAndSilkTouch(Blocks.GOLD_ORE, Items.GOLD_INGOT, Items.RAW_GOLD));
+        this.add(Blocks.DEEPSLATE_GOLD_ORE, (block) -> createSingleItemWithSmeltingAndSilkTouch(Blocks.DEEPSLATE_GOLD_ORE, Items.GOLD_INGOT, Items.RAW_GOLD));
+
+        this.add(Blocks.ANCIENT_DEBRIS, (block) -> createSingleItemWithSmelting(Blocks.ANCIENT_DEBRIS, Items.NETHERITE_SCRAP));
+        this.add(Blocks.SAND, (block) -> createSingleItemWithSmelting(Blocks.SAND, Items.GLASS));
+        this.add(Blocks.RED_SAND, (block) -> createSingleItemWithSmelting(Blocks.RED_SAND, Items.GLASS));
+        this.add(Blocks.SANDSTONE, (block) -> createSingleItemWithSmelting(Blocks.SANDSTONE, Items.SMOOTH_SANDSTONE));
+        this.add(Blocks.RED_SANDSTONE, (block) -> createSingleItemWithSmelting(Blocks.RED_SANDSTONE, Items.SMOOTH_RED_SANDSTONE));
+        this.add(Blocks.NETHERRACK, (block) -> createSingleItemWithSmelting(Blocks.NETHERRACK, Items.NETHER_BRICK));
+        this.add(Blocks.COBBLESTONE, (block) -> createSingleItemWithSmelting(Blocks.COBBLESTONE, Items.STONE));
+        this.add(Blocks.COBBLED_DEEPSLATE, (block) -> createSingleItemWithSmelting(Blocks.COBBLED_DEEPSLATE, Items.DEEPSLATE));
+        this.add(Blocks.QUARTZ_BLOCK, (block) -> createSingleItemWithSmelting(Blocks.QUARTZ_BLOCK, Items.SMOOTH_QUARTZ));
+        this.add(Blocks.BASALT, (block) -> createSingleItemWithSmelting(Blocks.BASALT, Items.SMOOTH_BASALT));
+        this.add(Blocks.CLAY, (block) -> createClayDrop(Blocks.CLAY, Items.TERRACOTTA, Items.CLAY_BALL));
     }
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return Registration.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+        Collection<Block> blocks = new ArrayList<>(Collections.emptyList());
+        Collection<RegistryObject<Block>> modBlocks = Registration.BLOCKS.getEntries();
+        modBlocks.forEach((block) -> blocks.add(block.get()));
+        blocks.add(Blocks.IRON_ORE);
+        blocks.add(Blocks.DEEPSLATE_IRON_ORE);
+        blocks.add(Blocks.COPPER_ORE);
+        blocks.add(Blocks.DEEPSLATE_COPPER_ORE);
+        blocks.add(Blocks.GOLD_ORE);
+        blocks.add(Blocks.DEEPSLATE_GOLD_ORE);
+        blocks.add(Blocks.ANCIENT_DEBRIS);
+        blocks.add(Blocks.SAND);
+        blocks.add(Blocks.RED_SAND);
+        blocks.add(Blocks.SANDSTONE);
+        blocks.add(Blocks.RED_SANDSTONE);
+        blocks.add(Blocks.NETHERRACK);
+        blocks.add(Blocks.COBBLESTONE);
+        blocks.add(Blocks.COBBLED_DEEPSLATE);
+        blocks.add(Blocks.QUARTZ_BLOCK);
+        blocks.add(Blocks.BASALT);
+        blocks.add(Blocks.CLAY);
+        return blocks.stream()::iterator;
+    }
+
+    private LootTable.Builder createSingleItemWithSmeltingAndSilkTouch(Block silkTouchBlock, ItemLike smeltingItemLike, ItemLike noSilkTouchOrSmeltingItemLike) {
+        LootPoolEntryContainer.Builder<?> alternativeEntryBuilder = applyExplosionDecay(silkTouchBlock, LootItem.lootTableItem(noSilkTouchOrSmeltingItemLike).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)));
+        LootPoolEntryContainer.Builder<?> smeltingEntryBuilder = LootItem.lootTableItem(smeltingItemLike).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)).when(HAS_SMELTING);
+        return createSingleItemWithSmeltingAndSilkTouch(silkTouchBlock, smeltingEntryBuilder, alternativeEntryBuilder);
+    }
+
+    private LootTable.Builder createCopperOreDropWithSmelting(Block silkTouchBlock, ItemLike smeltingItemLike, ItemLike noSilkTouchOrSmeltingItemLike) {
+        LootPoolEntryContainer.Builder<?> alternativeEntryBuilder = applyExplosionDecay(silkTouchBlock, LootItem.lootTableItem(noSilkTouchOrSmeltingItemLike).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F))));
+        LootPoolEntryContainer.Builder<?> smeltingEntryBuilder = LootItem.lootTableItem(smeltingItemLike).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F))).when(HAS_SMELTING);
+        return createSingleItemWithSmeltingAndSilkTouch(silkTouchBlock, smeltingEntryBuilder, alternativeEntryBuilder);
+    }
+
+    private LootTable.Builder createClayDrop(Block silkTouchBlock, ItemLike smeltingItemLike, ItemLike noSilkTouchOrSmeltingItemLike) {
+        LootPoolEntryContainer.Builder<?> alternativeEntryBuilder = applyExplosionDecay(silkTouchBlock, LootItem.lootTableItem(noSilkTouchOrSmeltingItemLike).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))));
+        LootPoolEntryContainer.Builder<?> smeltingEntryBuilder = LootItem.lootTableItem(smeltingItemLike).when(HAS_SMELTING);
+        return createSingleItemWithSmeltingAndSilkTouch(silkTouchBlock, smeltingEntryBuilder, alternativeEntryBuilder);
+    }
+
+    private LootTable.Builder createSingleItemWithSmeltingAndSilkTouch(Block silkTouchBlock, LootPoolEntryContainer.Builder<?> smeltingEntryBuilder, LootPoolEntryContainer.Builder<?> alternativeEntryBuilder) {
+        return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(silkTouchBlock).when(HAS_SILK_TOUCH).otherwise(smeltingEntryBuilder.otherwise(alternativeEntryBuilder))));
+    }
+
+    private LootTable.Builder createSingleItemWithSmelting(Block block, ItemLike smeltingItemLike) {
+        LootPoolEntryContainer.Builder<?> alternativeEntryBuilder = applyExplosionCondition(block, LootItem.lootTableItem(block));
+        LootPoolEntryContainer.Builder<?> smeltingEntryBuilder = LootItem.lootTableItem(smeltingItemLike).when(HAS_SMELTING);
+        return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(smeltingEntryBuilder.otherwise(alternativeEntryBuilder)));
     }
 }
