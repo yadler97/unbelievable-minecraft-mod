@@ -60,8 +60,6 @@ public class CastleRuinsStructure extends StructureFeature<JigsawConfiguration> 
 
     public static Optional<PieceGenerator<JigsawConfiguration>> createPiecesGenerator(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
 
-        // Check if the spot is valid for our structure. This is just as another method for cleanness.
-        // Returning an empty optional tells the game to skip this spot as it will not generate the structure.
         if (!CastleRuinsStructure.isFeatureChunk(context)) {
             return Optional.empty();
         }
@@ -84,19 +82,19 @@ public class CastleRuinsStructure extends StructureFeature<JigsawConfiguration> 
                 context.registryAccess()
         );
 
-        BlockPos blockpos = context.chunkPos().getMiddleBlockPosition(0);
+        BlockPos pos = context.chunkPos().getMiddleBlockPosition(0);
 
         Optional<PieceGenerator<JigsawConfiguration>> structurePiecesGenerator =
                 JigsawPlacement.addPieces(
                         newContext,
                         PoolElementStructurePiece::new,
-                        blockpos,
+                        pos,
                         false,
                         true
                 );
 
         if (structurePiecesGenerator.isPresent()) {
-            UnbelievableMod.LOGGER.log(Level.DEBUG, "Castle Ruins at " + blockpos);
+            UnbelievableMod.LOGGER.log(Level.DEBUG, "Castle Ruins at " + pos);
         }
 
         return structurePiecesGenerator;

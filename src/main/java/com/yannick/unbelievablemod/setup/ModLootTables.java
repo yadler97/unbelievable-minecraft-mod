@@ -14,6 +14,7 @@ public class ModLootTables {
     public static final ResourceLocation CASTLE_RUINS = register("chests/castle_ruins");
     public static final ResourceLocation CASTLE_RUINS_BASEMENT = register("chests/castle_ruins_basement");
     public static final ResourceLocation ABANDONED_LUMBERJACK_HOUSE = register("chests/abandoned_lumberjack_house");
+    public static final ResourceLocation UNDERGROUND_CABIN = register("chests/underground_cabin");
 
     private static ResourceLocation register(String path) {
         return register(new ResourceLocation(UnbelievableMod.MODID, path));

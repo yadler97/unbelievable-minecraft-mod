@@ -154,6 +154,11 @@ Before building the jar, runData must be executed first. To then build the jar, 
 - consists of multiple parts that are randomly put together during generation
 - may have special rooms with treasure chests and/or a basement with treasure chests and mob spawners
 
+### Underground Cabin
+
+- small miner's hut that only generates below y = 0
+- loot chest can contain enchanted book with Smelting
+
 ## Enchantments
 
 ### Smelting

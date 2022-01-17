@@ -12,6 +12,7 @@ import com.yannick.unbelievablemod.world.ConfiguredStructures;
 import com.yannick.unbelievablemod.world.Structures;
 import com.yannick.unbelievablemod.world.structures.AbandonedLumberjackHouseStructure;
 import com.yannick.unbelievablemod.world.structures.CastleRuinsStructure;
+import com.yannick.unbelievablemod.world.structures.UndergroundCabinStructure;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
@@ -60,6 +61,7 @@ public class UnbelievableMod {
         forgeBus.addListener(EventPriority.NORMAL, this::addDimensionalSpacing);
         forgeBus.addListener(EventPriority.NORMAL, CastleRuinsStructure::setupStructureSpawns);
         forgeBus.addListener(EventPriority.NORMAL, AbandonedLumberjackHouseStructure::setupStructureSpawns);
+        forgeBus.addListener(EventPriority.NORMAL, UndergroundCabinStructure::setupStructureSpawns);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -87,6 +89,7 @@ public class UnbelievableMod {
                 Biome.BiomeCategory biomeCategory = biomeEntry.getValue().getBiomeCategory();
                 if (biomeCategory != Biome.BiomeCategory.OCEAN && biomeCategory != Biome.BiomeCategory.THEEND && biomeCategory != Biome.BiomeCategory.NETHER && biomeCategory != Biome.BiomeCategory.NONE) {
                     associateBiomeToConfiguredStructure(STStructureToMultiMap, ConfiguredStructures.CONFIGURED_CASTLE_RUINS, biomeEntry.getKey());
+                    associateBiomeToConfiguredStructure(STStructureToMultiMap, ConfiguredStructures.CONFIGURED_UNDERGROUND_CABIN, biomeEntry.getKey());
                 }
                 if (biomeCategory == Biome.BiomeCategory.EXTREME_HILLS) {
                     associateBiomeToConfiguredStructure(STStructureToMultiMap, ConfiguredStructures.CONFIGURED_ABANDONED_LUMBERJACK_HOUSE, biomeEntry.getKey());
@@ -112,6 +115,7 @@ public class UnbelievableMod {
             Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(worldStructureConfig.structureConfig());
             tempMap.putIfAbsent(Structures.CASTLE_RUINS.get(), StructureSettings.DEFAULTS.get(Structures.CASTLE_RUINS.get()));
             tempMap.putIfAbsent(Structures.ABANDONED_LUMBERJACK_HOUSE.get(), StructureSettings.DEFAULTS.get(Structures.ABANDONED_LUMBERJACK_HOUSE.get()));
+            tempMap.putIfAbsent(Structures.UNDERGROUND_CABIN.get(), StructureSettings.DEFAULTS.get(Structures.UNDERGROUND_CABIN.get()));
             worldStructureConfig.structureConfig = tempMap;
         }
     }
