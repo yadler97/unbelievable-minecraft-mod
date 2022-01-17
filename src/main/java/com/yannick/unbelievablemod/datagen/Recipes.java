@@ -425,6 +425,38 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("has_egg", has(Items.EGG))
                 .save(consumer, Registration.FRIED_EGG.getId() + "_from_campfire_cooking");
 
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Registration.SAPPHIRE_ORE.get()), Registration.SAPPHIRE.get(), 1.0F, 200)
+                .unlockedBy("has_sapphire_ore", has(Registration.SAPPHIRE_ORE.get()))
+                .save(consumer, Registration.SAPPHIRE.get() + "_from_smelting_sapphire_ore");
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Registration.DEEPSLATE_SAPPHIRE_ORE.get()), Registration.SAPPHIRE.get(), 1.0F, 200)
+                .unlockedBy("has_deepslate_sapphire_ore", has(Registration.DEEPSLATE_SAPPHIRE_ORE.get()))
+                .save(consumer, Registration.SAPPHIRE.get() + "_from_smelting_deepslate_sapphire_ore");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(Registration.SAPPHIRE_ORE.get()), Registration.SAPPHIRE.get(), 1.0F, 100)
+                .unlockedBy("has_sapphire_ore", has(Registration.SAPPHIRE_ORE.get()))
+                .save(consumer, Registration.SAPPHIRE.get() + "_from_blasting_sapphire_ore");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(Registration.DEEPSLATE_SAPPHIRE_ORE.get()), Registration.SAPPHIRE.get(), 1.0F, 100)
+                .unlockedBy("has_deepslate_sapphire_ore", has(Registration.DEEPSLATE_SAPPHIRE_ORE.get()))
+                .save(consumer, Registration.SAPPHIRE.get() + "_from_blasting_deepslate_sapphire_ore");
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Registration.RUBY_ORE.get()), Registration.RUBY.get(), 1.0F, 200)
+                .unlockedBy("has_ruby_ore", has(Registration.RUBY_ORE.get()))
+                .save(consumer, Registration.RUBY.get() + "_from_smelting_ruby_ore");
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Registration.DEEPSLATE_RUBY_ORE.get()), Registration.RUBY.get(), 1.0F, 200)
+                .unlockedBy("has_deepslate_ruby_ore", has(Registration.DEEPSLATE_RUBY_ORE.get()))
+                .save(consumer, Registration.RUBY.get() + "_from_smelting_deepslate_ruby_ore");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(Registration.RUBY_ORE.get()), Registration.RUBY.get(), 1.0F, 100)
+                .unlockedBy("has_ruby_ore", has(Registration.RUBY_ORE.get()))
+                .save(consumer, Registration.RUBY.get() + "_from_blasting_ruby_ore");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(Registration.DEEPSLATE_RUBY_ORE.get()), Registration.RUBY.get(), 1.0F, 100)
+                .unlockedBy("has_deepslate_ruby_ore", has(Registration.DEEPSLATE_RUBY_ORE.get()))
+                .save(consumer, Registration.RUBY.get() + "_from_blasting_deepslate_ruby_ore");
+
         // Existing Items
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.ROTTEN_FLESH), Items.LEATHER, 0.05F, 200)
                 .unlockedBy("has_rotten_flesh", has(Items.ROTTEN_FLESH))
