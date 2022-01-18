@@ -91,6 +91,26 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("has_ruby", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.RUBY.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.WOODEN_BUCKET.get())
+                .pattern(" s ")
+                .pattern("p p")
+                .pattern(" p ")
+                .define('s', Items.STICK)
+                .define('p', ItemTags.PLANKS)
+                .unlockedBy("has_planks", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTags.PLANKS).build()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Items.CAKE)
+                .pattern("mmm")
+                .pattern("ses")
+                .pattern("www")
+                .define('m', Registration.WOODEN_MILK_BUCKET.get())
+                .define('s', Items.SUGAR)
+                .define('e', Items.EGG)
+                .define('w', Items.WHEAT)
+                .unlockedBy("has_milk", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.WOODEN_MILK_BUCKET.get()))
+                .save(consumer, new ResourceLocation(UnbelievableMod.MODID, Items.CAKE + "_from_" + Registration.WOODEN_MILK_BUCKET.get()));
+
 
         // Existing Items
         ShapelessRecipeBuilder.shapeless(Items.NAME_TAG)

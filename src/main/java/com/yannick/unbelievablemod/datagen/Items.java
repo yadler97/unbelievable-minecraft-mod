@@ -60,6 +60,10 @@ public class Items extends ItemModelProvider {
                 .override().predicate(DEPTH_PROPERTY, 10).model(createDepthMeterModel(10)).end()
                 .override().predicate(DEPTH_PROPERTY, 11).model(createDepthMeterModel(11)).end();
 
+        singleTexture(Registration.WOODEN_BUCKET.get().getRegistryName().getPath(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/wooden_bucket"));
+        singleTexture(Registration.WOODEN_WATER_BUCKET.get().getRegistryName().getPath(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/wooden_water_bucket"));
+        singleTexture(Registration.WOODEN_MILK_BUCKET.get().getRegistryName().getPath(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(UnbelievableMod.MODID, "item/wooden_milk_bucket"));
+
 
 
         // BlockItems

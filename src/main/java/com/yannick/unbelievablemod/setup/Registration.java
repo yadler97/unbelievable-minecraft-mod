@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.common.extensions.IForgeMenuType;
@@ -106,6 +107,12 @@ public class Registration {
     public static final RegistryObject<DepthMeter> DEPTH_METER = ITEMS.register("depth_meter",
             () -> new DepthMeter(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB).stacksTo(1)));
 
+    public static final RegistryObject<WoodenBucket> WOODEN_BUCKET = ITEMS.register("wooden_bucket",
+            () -> new WoodenBucket(Fluids.EMPTY, net.minecraft.world.item.Tiers.WOOD, new Item.Properties().setNoRepair().tab(CreativeModeTabs.UNBELIEVABLE_TAB).stacksTo(1)));
+    public static final RegistryObject<WoodenBucket> WOODEN_WATER_BUCKET = ITEMS.register("wooden_water_bucket",
+            () -> new WoodenBucket(Fluids.WATER, net.minecraft.world.item.Tiers.WOOD, new Item.Properties().setNoRepair().tab(CreativeModeTabs.UNBELIEVABLE_TAB).stacksTo(1)));
+    public static final RegistryObject<WoodenMilkBucketItem> WOODEN_MILK_BUCKET = ITEMS.register("wooden_milk_bucket",
+            () -> new WoodenMilkBucketItem(net.minecraft.world.item.Tiers.WOOD, new Item.Properties().setNoRepair().craftRemainder(Registration.WOODEN_BUCKET.get()).stacksTo(1).tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
 
     // Blocks
     public static final RegistryObject<Block> RUBY_BLOCK = registerBlock("ruby_block",

@@ -25,6 +25,10 @@
 
   "item.unbelievablemod.depth_meter": "Tiefenmeter",
 
+  "item.unbelievablemod.wooden_bucket": "Holzeimer",
+  "item.unbelievablemod.wooden_water_bucket": "Holzeimer mit Wasser",
+  "item.unbelievablemod.wooden_milk_bucket": "Holzeimer mit Milch",
+
 
 
   "block.unbelievablemod.ruby_block": "Rubinblock",

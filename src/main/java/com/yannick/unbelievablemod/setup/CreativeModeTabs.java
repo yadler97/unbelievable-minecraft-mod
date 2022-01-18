@@ -42,6 +42,10 @@ public class CreativeModeTabs {
 
             items.add(Registration.DEPTH_METER.get().getDefaultInstance());
 
+            items.add(Registration.WOODEN_BUCKET.get().getDefaultInstance());
+            items.add(Registration.WOODEN_WATER_BUCKET.get().getDefaultInstance());
+            items.add(Registration.WOODEN_MILK_BUCKET.get().getDefaultInstance());
+
             items.add(Registration.RUBY_BLOCK.get().asItem().getDefaultInstance());
             items.add(Registration.SAPPHIRE_BLOCK.get().asItem().getDefaultInstance());
             items.add(Registration.RUBY_ORE.get().asItem().getDefaultInstance());

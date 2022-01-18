@@ -29,6 +29,9 @@ Before building the jar, runData must be executed first. To then build the jar, 
 - Bundle
 - Fried Egg
 - Depth Meter
+- Wooden Bucket
+- Wooden Water Bucket
+- Wooden Milk Bucket
 
 ### Details
 
@@ -50,6 +53,11 @@ Before building the jar, runData must be executed first. To then build the jar, 
 #### Depth Meter
 - visually displays the current depth where the player is located
 - crafted from copper ingots and rubies
+
+#### Wooden Bucket
+- Bucket made of wood
+- cannot contain lava, powder snow or mobs like fishes
+- breaks after a certain amount of uses
 
 ## Blocks
 
@@ -145,24 +153,20 @@ Before building the jar, runData must be executed first. To then build the jar, 
 ## Structures
 
 ### Abandoned Lumberjack House
-
 - generates only in extreme hills biomes
 - contains three strays and a chest with loot
 
 ### Castle Ruins
-
 - consists of multiple parts that are randomly put together during generation
 - may have special rooms with treasure chests and/or a basement with treasure chests and mob spawners
 
 ### Underground Cabin
-
 - small miner's hut that only generates below y = 0
 - loot chest can contain enchanted book with Smelting
 
 ## Enchantments
 
 ### Smelting
-
 - smelts mined blocks directly without needing a furnace
 - cannot be obtained using an enchantment table
 - is incompatible with Silk Touch
@@ -171,16 +175,13 @@ Before building the jar, runData must be executed first. To then build the jar, 
 ## Config
 
 ### Server Config
-
 - **sapphireToolsMaxMiningBlocks**: How many additional blocks in a row sapphire tools can mine at max
 
 ### Client Config
-
 - **renderBlockItemsAsBlocks**: Determines if BlockItems should be rendered as blocks instead of items in shelves
 - **renderItemsLying**: Determines if Items should be rendered lying on the floor of the shelf slot instead of floating
 
 ## Special Thanks
-
 Special thanks go to the creators of Forge modding tutorials that were really useful for me as a beginner:
 
 - [McJty](https://github.com/McJty/YouTubeTutorial17)
