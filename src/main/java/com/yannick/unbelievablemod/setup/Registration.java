@@ -1,6 +1,7 @@
 package com.yannick.unbelievablemod.setup;
 
 import com.yannick.unbelievablemod.blocks.*;
+import com.yannick.unbelievablemod.enchantments.FreezingEnchantment;
 import com.yannick.unbelievablemod.enchantments.SmeltingEnchantment;
 import com.yannick.unbelievablemod.entities.ChairEntity;
 import com.yannick.unbelievablemod.inventory.SawmillMenu;
@@ -257,6 +258,8 @@ public class Registration {
 
     public static final RegistryObject<Enchantment> SMELTING = ENCHANTMENTS.register("smelting",
             () -> new SmeltingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentCategory.DIGGER, EquipmentSlot.MAINHAND));
+    public static final RegistryObject<Enchantment> FREEZING = ENCHANTMENTS.register("freezing",
+            () -> new FreezingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentCategory.WEAPON, EquipmentSlot.MAINHAND));
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, boolean isFuel) {
         RegistryObject<T> registryBlock = BLOCKS.register(name, block);
