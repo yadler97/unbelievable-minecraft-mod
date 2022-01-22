@@ -52,6 +52,13 @@ public class BlockStates extends BlockStateProvider {
         wallBlock(Registration.POLISHED_ANDESITE_WALL.get(), new ResourceLocation("minecraft", "block/polished_andesite"));
         models().wallInventory(Registration.POLISHED_ANDESITE_WALL.getId() + "_inventory", new ResourceLocation("minecraft", "block/polished_andesite"));
 
+        simpleBlock(Registration.GRANITE_BRICKS.get(), models().cubeAll("granite_bricks", new ResourceLocation(UnbelievableMod.MODID, "block/granite_bricks")));
+        simpleBlock(Registration.DIORITE_BRICKS.get(), models().cubeAll("diorite_bricks", new ResourceLocation(UnbelievableMod.MODID, "block/diorite_bricks")));
+        simpleBlock(Registration.ANDESITE_BRICKS.get(), models().cubeAll("andesite_bricks", new ResourceLocation(UnbelievableMod.MODID, "block/andesite_bricks")));
+        axisBlock(Registration.GRANITE_PILLAR.get(), new ResourceLocation(UnbelievableMod.MODID, "block/granite_pillar_side"), new ResourceLocation(UnbelievableMod.MODID, "block/granite_pillar_top"));
+        axisBlock(Registration.DIORITE_PILLAR.get(), new ResourceLocation(UnbelievableMod.MODID, "block/diorite_pillar_side"), new ResourceLocation(UnbelievableMod.MODID, "block/diorite_pillar_top"));
+        axisBlock(Registration.ANDESITE_PILLAR.get(), new ResourceLocation(UnbelievableMod.MODID, "block/andesite_pillar_side"), new ResourceLocation(UnbelievableMod.MODID, "block/andesite_pillar_top"));
+
         simpleBlock(Registration.SPRUCE_BOOKSHELF.get(), models().cubeColumn("spruce_bookshelf", new ResourceLocation(UnbelievableMod.MODID, "block/spruce_bookshelf"), new ResourceLocation("minecraft", "block/spruce_planks")));
         simpleBlock(Registration.BIRCH_BOOKSHELF.get(), models().cubeColumn("birch_bookshelf", new ResourceLocation(UnbelievableMod.MODID, "block/birch_bookshelf"), new ResourceLocation("minecraft", "block/birch_planks")));
         simpleBlock(Registration.JUNGLE_BOOKSHELF.get(), models().cubeColumn("jungle_bookshelf", new ResourceLocation(UnbelievableMod.MODID, "block/jungle_bookshelf"), new ResourceLocation("minecraft", "block/jungle_planks")));

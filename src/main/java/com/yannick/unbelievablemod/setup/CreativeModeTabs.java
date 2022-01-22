@@ -68,6 +68,13 @@ public class CreativeModeTabs {
             items.add(Registration.POLISHED_DIORITE_WALL.get().asItem().getDefaultInstance());
             items.add(Registration.POLISHED_ANDESITE_WALL.get().asItem().getDefaultInstance());
 
+            items.add(Registration.GRANITE_BRICKS.get().asItem().getDefaultInstance());
+            items.add(Registration.DIORITE_BRICKS.get().asItem().getDefaultInstance());
+            items.add(Registration.ANDESITE_BRICKS.get().asItem().getDefaultInstance());
+            items.add(Registration.GRANITE_PILLAR.get().asItem().getDefaultInstance());
+            items.add(Registration.DIORITE_PILLAR.get().asItem().getDefaultInstance());
+            items.add(Registration.ANDESITE_PILLAR.get().asItem().getDefaultInstance());
+
             items.add(Registration.SPRUCE_BOOKSHELF.get().asItem().getDefaultInstance());
             items.add(Registration.BIRCH_BOOKSHELF.get().asItem().getDefaultInstance());
             items.add(Registration.JUNGLE_BOOKSHELF.get().asItem().getDefaultInstance());

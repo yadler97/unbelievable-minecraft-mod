@@ -98,6 +98,13 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.POLISHED_DIORITE_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/polished_diorite_wall_inventory"));
         withExistingParent(Registration.POLISHED_ANDESITE_WALL.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/polished_andesite_wall_inventory"));
 
+        withExistingParent(Registration.GRANITE_BRICKS.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/granite_bricks"));
+        withExistingParent(Registration.DIORITE_BRICKS.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/diorite_bricks"));
+        withExistingParent(Registration.ANDESITE_BRICKS.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/andesite_bricks"));
+        withExistingParent(Registration.GRANITE_PILLAR.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/granite_pillar"));
+        withExistingParent(Registration.DIORITE_PILLAR.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/diorite_pillar"));
+        withExistingParent(Registration.ANDESITE_PILLAR.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/andesite_pillar"));
+
         withExistingParent(Registration.OAK_TABLE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/oak_table"));
         withExistingParent(Registration.SPRUCE_TABLE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/spruce_table"));
         withExistingParent(Registration.BIRCH_TABLE.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/birch_table"));

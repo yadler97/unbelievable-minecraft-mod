@@ -101,6 +101,13 @@
   "block.unbelievablemod.sawmill": "Sawmill",
   "container.unbelievablemod.sawmill": "Sawmill",
 
+  "block.unbelievablemod.granite_bricks": "Granite Bricks",
+  "block.unbelievablemod.diorite_bricks": "Diorite Bricks",
+  "block.unbelievablemod.andesite_bricks": "Andesite Bricks",
+  "block.unbelievablemod.granite_pillar": "Granite Pillar",
+  "block.unbelievablemod.diorite_pillar": "Diorite Pillar",
+  "block.unbelievablemod.andesite_pillar": "Andesite Pillar",
+
   "message.depth.tooltip": "Current depth: %s",
 
   "message.sapphire_distance.tooltip": "Mine with extra distance %s",

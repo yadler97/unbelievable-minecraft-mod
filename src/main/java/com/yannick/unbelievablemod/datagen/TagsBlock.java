@@ -28,7 +28,14 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.POLISHED_ANDESITE_WALL.get())
                 .add(Registration.CUT_GOLD.get())
                 .add(Registration.CUT_GOLD_SLAB.get())
-                .add(Registration.CUT_GOLD_STAIRS.get());
+                .add(Registration.CUT_GOLD_STAIRS.get())
+                .add(Registration.GRANITE_BRICKS.get())
+                .add(Registration.DIORITE_BRICKS.get())
+                .add(Registration.ANDESITE_BRICKS.get())
+                .add(Registration.GRANITE_PILLAR.get())
+                .add(Registration.DIORITE_PILLAR.get())
+                .add(Registration.ANDESITE_PILLAR.get());
+
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(Registration.BAMBOO_BLOCK.get())
                 .add(Registration.BAMBOO_BLOCK_SLAB.get())

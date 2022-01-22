@@ -58,6 +58,13 @@ public class BlockLootTables extends BlockLoot {
         this.dropSelf(Registration.POLISHED_DIORITE_WALL.get());
         this.dropSelf(Registration.POLISHED_ANDESITE_WALL.get());
 
+        this.dropSelf(Registration.GRANITE_BRICKS.get());
+        this.dropSelf(Registration.DIORITE_BRICKS.get());
+        this.dropSelf(Registration.ANDESITE_BRICKS.get());
+        this.dropSelf(Registration.GRANITE_PILLAR.get());
+        this.dropSelf(Registration.DIORITE_PILLAR.get());
+        this.dropSelf(Registration.ANDESITE_PILLAR.get());
+
 
         this.add(Registration.SPRUCE_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(Registration.SPRUCE_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3)));
         this.add(Registration.BIRCH_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(Registration.BIRCH_BOOKSHELF.get(), Items.BOOK, ConstantValue.exactly(3)));

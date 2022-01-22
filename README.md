@@ -81,6 +81,12 @@ Before building the jar, runData must be executed first. To then build the jar, 
 - Polished Granite Wall
 - Polished Diorite Wall
 - Polished Andesite Wall
+- Granite Bricks
+- Diorite Bricks
+- Andesite Bricks
+- Granite Pillar
+- Diorite Pillar
+- Andesite Pillar
 - Spruce Bookshelf
 - Birch Bookshelf
 - Jungle Bookshelf

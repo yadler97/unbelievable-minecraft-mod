@@ -101,6 +101,13 @@
   "block.unbelievablemod.sawmill": "Sägebank",
   "container.unbelievablemod.sawmill": "Sägebank",
 
+  "block.unbelievablemod.granite_bricks": "Granitziegeln",
+  "block.unbelievablemod.diorite_bricks": "Dioritziegeln",
+  "block.unbelievablemod.andesite_bricks": "Andesitziegeln",
+  "block.unbelievablemod.granite_pillar": "Granitsäule",
+  "block.unbelievablemod.diorite_pillar": "Dioritsäule",
+  "block.unbelievablemod.andesite_pillar": "Andesitsäule",
+
   "message.depth.tooltip": "Aktuelle Tiefe: %s",
 
   "message.sapphire_distance.tooltip": "Abbauen mit einer zusätzlichen Distanz von %s",

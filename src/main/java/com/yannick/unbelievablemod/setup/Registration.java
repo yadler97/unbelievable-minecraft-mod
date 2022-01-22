@@ -254,6 +254,19 @@ public class Registration {
             }));
     public static final RegistryObject<RecipeSerializer<WoodsawingRecipe>> WOODSAWING_RECIPES = RECIPES.register("woodsawing", () -> new SingleItemRecipe.Serializer<>(WoodsawingRecipe::new) {});
 
+    public static final RegistryObject<Block> GRANITE_BRICKS = registerBlock("granite_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.POLISHED_GRANITE)), false);
+    public static final RegistryObject<Block> DIORITE_BRICKS = registerBlock("diorite_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.POLISHED_DIORITE)), false);
+    public static final RegistryObject<Block> ANDESITE_BRICKS = registerBlock("andesite_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.POLISHED_ANDESITE)), false);
+    public static final RegistryObject<RotatedPillarBlock> GRANITE_PILLAR = registerBlock("granite_pillar",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.POLISHED_GRANITE)), false);
+    public static final RegistryObject<RotatedPillarBlock> DIORITE_PILLAR = registerBlock("diorite_pillar",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.POLISHED_DIORITE)), false);
+    public static final RegistryObject<RotatedPillarBlock> ANDESITE_PILLAR = registerBlock("andesite_pillar",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.POLISHED_ANDESITE)), false);
+
 
     public static final RegistryObject<Enchantment> SMELTING = ENCHANTMENTS.register("smelting",
             () -> new SmeltingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentCategory.DIGGER, EquipmentSlot.MAINHAND));
