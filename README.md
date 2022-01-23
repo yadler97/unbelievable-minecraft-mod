@@ -178,6 +178,9 @@ Before building the jar, runData must be executed first. To then build the jar, 
 - is incompatible with Silk Touch
 - gives no experience orbs when mining
 
+## Advancements
+- the mod contains several advancements that can be found in a separate tab in the advancement screen
+
 ## Config
 
 ### Server Config

@@ -102,4 +102,8 @@ public class AbandonedLumberjackHouseStructure extends StructureFeature<JigsawCo
 
         return structurePiecesGenerator;
     }
+
+    public String getFeatureName() {
+        return this.getRegistryName().toString();
+    }
 }

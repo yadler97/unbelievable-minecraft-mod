@@ -106,4 +106,8 @@ public class UndergroundCabinStructure extends StructureFeature<JigsawConfigurat
 
         return structurePiecesGenerator;
     }
+
+    public String getFeatureName() {
+        return this.getRegistryName().toString();
+    }
 }

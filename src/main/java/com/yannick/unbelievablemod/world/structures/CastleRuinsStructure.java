@@ -99,4 +99,8 @@ public class CastleRuinsStructure extends StructureFeature<JigsawConfiguration> 
 
         return structurePiecesGenerator;
     }
+
+    public String getFeatureName() {
+        return this.getRegistryName().toString();
+    }
 }

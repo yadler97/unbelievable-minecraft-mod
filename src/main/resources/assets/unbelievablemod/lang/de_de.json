@@ -129,5 +129,26 @@
   "advancements.mod.let_me_fix_this.description": "Stelle einen Kupferschraubenschlüssel her",
 
   "advancements.mod.small_upgrade.title": "Kleine Optimierung",
-  "advancements.mod.small_upgrade.description": "Werte eines deiner goldenen Werkzeuge oder Rüstungsteile zu Roségold auf"
+  "advancements.mod.small_upgrade.description": "Werte eines deiner goldenen Werkzeuge oder Rüstungsteile zu Roségold auf",
+
+  "advancements.mod.bigger_upgrade.title": "Größere Optimierung",
+  "advancements.mod.bigger_upgrade.description": "Werte alle goldenen Werkzeuge und Rüstungsteile zu Roségold auf",
+
+  "advancements.mod.long_ago.title": "Vor langer Zeit...",
+  "advancements.mod.long_ago.description": "Finde Burgruinen",
+
+  "advancements.mod.hello_anybody_here.title": "Hallo... ist da jemand?",
+  "advancements.mod.hello_anybody_here.description": "Finde eine verlassene Holzfällerhütte",
+
+  "advancements.mod.anybody_living_down_here.title": "Lebt hier unten jemand...?",
+  "advancements.mod.anybody_living_down_here.description": "Finde eine Untergrundhütte",
+
+  "advancements.mod.is_that_redstone.title": "Ist das Redstone?",
+  "advancements.mod.is_that_redstone.description": "Finde Rubine",
+
+  "advancements.mod.diamonds_wait.title": "Diamanten??? ... Moment",
+  "advancements.mod.diamonds_wait.description": "Finde Saphire",
+
+  "advancements.mod.it_fulfilled_its_purpose.title": "Er hat seinen Zweck erfüllt...",
+  "advancements.mod.it_fulfilled_its_purpose.description": "Mach einen Holzeimer kaputt"
 }

@@ -128,5 +128,26 @@
   "advancements.mod.let_me_fix_this.description": "Craft a copper wrench",
 
   "advancements.mod.small_upgrade.title": "Small Upgrade",
-  "advancements.mod.small_upgrade.description": "Upgrade one of your golden tools or pieces of armor to rosegold"
+  "advancements.mod.small_upgrade.description": "Upgrade one of your golden tools or pieces of armor to rosegold",
+
+  "advancements.mod.bigger_upgrade.title": "Bigger Upgrade",
+  "advancements.mod.bigger_upgrade.description": "Upgrade all golden tools and pieces of armor to rosegold",
+
+  "advancements.mod.long_ago.title": "Long ago...",
+  "advancements.mod.long_ago.description": "Find some castle ruins",
+
+  "advancements.mod.hello_anybody_here.title": "Hello... anybody here?",
+  "advancements.mod.hello_anybody_here.description": "Find an abandoned lumberjack house",
+
+  "advancements.mod.anybody_living_down_here.title": "Anybody living down here...?",
+  "advancements.mod.anybody_living_down_here.description": "Find an underground cabin",
+
+  "advancements.mod.is_that_redstone.title": "Is that redstone?",
+  "advancements.mod.is_that_redstone.description": "Find rubies",
+
+  "advancements.mod.diamonds_wait.title": "Diamonds??? ... wait",
+  "advancements.mod.diamonds_wait.description": "Find sapphires",
+
+  "advancements.mod.it_fulfilled_its_purpose.title": "It fulfilled its purpose...",
+  "advancements.mod.it_fulfilled_its_purpose.description": "Break a wooden bucket"
 }
