@@ -116,5 +116,18 @@
 
   "itemGroup.unbelievablemodtab": "Unbelievable Mod",
 
-  "enchantment.unbelievablemod.smelting": "Schmelzen"
+  "enchantment.unbelievablemod.smelting": "Schmelzen",
+
+
+  "advancements.mod.root.title": "Unbelievable Mod",
+  "advancements.mod.root.description": "Verbessere deine Minecraft-Erfahrung!",
+
+  "advancements.mod.professional_interior_designer.title": "Professioneller Inneneinrichter",
+  "advancements.mod.professional_interior_designer.description": "Stelle Tische, Stühle und Regale her",
+
+  "advancements.mod.let_me_fix_this.title": "Lass mich das schnell beheben",
+  "advancements.mod.let_me_fix_this.description": "Stelle einen Kupferschraubenschlüssel her",
+
+  "advancements.mod.small_upgrade.title": "Kleine Optimierung",
+  "advancements.mod.small_upgrade.description": "Werte eines deiner goldenen Werkzeuge oder Rüstungsteile zu Roségold auf"
 }

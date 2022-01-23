@@ -1,5 +1,6 @@
 package com.yannick.unbelievablemod.datagen;
 
+import com.yannick.unbelievablemod.setup.CustomTags;
 import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.UnbelievableMod;
 import net.minecraft.data.DataGenerator;
@@ -144,5 +145,38 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.CUT_GOLD.get())
                 .add(Registration.CUT_GOLD_SLAB.get())
                 .add(Registration.CUT_GOLD_STAIRS.get());
+
+        tag(CustomTags.Blocks.TABLES)
+                .add(Registration.OAK_TABLE.get())
+                .add(Registration.SPRUCE_TABLE.get())
+                .add(Registration.BIRCH_TABLE.get())
+                .add(Registration.JUNGLE_TABLE.get())
+                .add(Registration.ACACIA_TABLE.get())
+                .add(Registration.DARK_OAK_TABLE.get())
+                .add(Registration.CRIMSON_TABLE.get())
+                .add(Registration.WARPED_TABLE.get())
+                .add(Registration.BAMBOO_TABLE.get());
+
+        tag(CustomTags.Blocks.CHAIRS)
+                .add(Registration.OAK_CHAIR.get())
+                .add(Registration.SPRUCE_CHAIR.get())
+                .add(Registration.BIRCH_CHAIR.get())
+                .add(Registration.JUNGLE_CHAIR.get())
+                .add(Registration.ACACIA_CHAIR.get())
+                .add(Registration.DARK_OAK_CHAIR.get())
+                .add(Registration.CRIMSON_CHAIR.get())
+                .add(Registration.WARPED_CHAIR.get())
+                .add(Registration.BAMBOO_CHAIR.get());
+
+        tag(CustomTags.Blocks.SHELVES)
+                .add(Registration.OAK_SHELF.get())
+                .add(Registration.SPRUCE_SHELF.get())
+                .add(Registration.BIRCH_SHELF.get())
+                .add(Registration.JUNGLE_SHELF.get())
+                .add(Registration.ACACIA_SHELF.get())
+                .add(Registration.DARK_OAK_SHELF.get())
+                .add(Registration.CRIMSON_SHELF.get())
+                .add(Registration.WARPED_SHELF.get())
+                .add(Registration.BAMBOO_SHELF.get());
     }
 }

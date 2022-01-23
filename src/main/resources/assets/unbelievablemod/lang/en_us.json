@@ -115,5 +115,18 @@
 
   "itemGroup.unbelievablemodtab": "Unbelievable Mod",
 
-  "enchantment.unbelievablemod.smelting": "Smelting"
+  "enchantment.unbelievablemod.smelting": "Smelting",
+
+
+  "advancements.mod.root.title": "Unbelievable Mod",
+  "advancements.mod.root.description": "Enhance your Minecraft Experience!",
+
+  "advancements.mod.professional_interior_designer.title": "Professional Interior Designer",
+  "advancements.mod.professional_interior_designer.description": "Craft tables, chairs and shelves",
+
+  "advancements.mod.let_me_fix_this.title": "Let me fix this",
+  "advancements.mod.let_me_fix_this.description": "Craft a copper wrench",
+
+  "advancements.mod.small_upgrade.title": "Small Upgrade",
+  "advancements.mod.small_upgrade.description": "Upgrade one of your golden tools or pieces of armor to rosegold"
 }
