@@ -61,6 +61,12 @@ public class BlockLootTables extends BlockLoot {
         this.dropSelf(Registration.GRANITE_BRICKS.get());
         this.dropSelf(Registration.DIORITE_BRICKS.get());
         this.dropSelf(Registration.ANDESITE_BRICKS.get());
+        this.add(Registration.GRANITE_BRICK_SLAB.get(), (block) -> createSlabItemTable(Registration.GRANITE_BRICK_SLAB.get()));
+        this.add(Registration.DIORITE_BRICK_SLAB.get(), (block) -> createSlabItemTable(Registration.DIORITE_BRICK_SLAB.get()));
+        this.add(Registration.ANDESITE_BRICK_SLAB.get(), (block) -> createSlabItemTable(Registration.ANDESITE_BRICK_SLAB.get()));
+        this.dropSelf(Registration.GRANITE_BRICK_STAIRS.get());
+        this.dropSelf(Registration.DIORITE_BRICK_STAIRS.get());
+        this.dropSelf(Registration.ANDESITE_BRICK_STAIRS.get());
         this.dropSelf(Registration.GRANITE_PILLAR.get());
         this.dropSelf(Registration.DIORITE_PILLAR.get());
         this.dropSelf(Registration.ANDESITE_PILLAR.get());

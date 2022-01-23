@@ -55,6 +55,12 @@ public class BlockStates extends BlockStateProvider {
         simpleBlock(Registration.GRANITE_BRICKS.get(), models().cubeAll("granite_bricks", new ResourceLocation(UnbelievableMod.MODID, "block/granite_bricks")));
         simpleBlock(Registration.DIORITE_BRICKS.get(), models().cubeAll("diorite_bricks", new ResourceLocation(UnbelievableMod.MODID, "block/diorite_bricks")));
         simpleBlock(Registration.ANDESITE_BRICKS.get(), models().cubeAll("andesite_bricks", new ResourceLocation(UnbelievableMod.MODID, "block/andesite_bricks")));
+        slabBlock(Registration.GRANITE_BRICK_SLAB.get(), new ResourceLocation(UnbelievableMod.MODID, "block/granite_bricks"), new ResourceLocation(UnbelievableMod.MODID, "block/granite_bricks"));
+        slabBlock(Registration.DIORITE_BRICK_SLAB.get(), new ResourceLocation(UnbelievableMod.MODID, "block/diorite_bricks"), new ResourceLocation(UnbelievableMod.MODID, "block/diorite_bricks"));
+        slabBlock(Registration.ANDESITE_BRICK_SLAB.get(), new ResourceLocation(UnbelievableMod.MODID, "block/andesite_bricks"), new ResourceLocation(UnbelievableMod.MODID, "block/andesite_bricks"));
+        stairsBlock(Registration.GRANITE_BRICK_STAIRS.get(), new ResourceLocation(UnbelievableMod.MODID, "block/granite_bricks"));
+        stairsBlock(Registration.DIORITE_BRICK_STAIRS.get(), new ResourceLocation(UnbelievableMod.MODID, "block/diorite_bricks"));
+        stairsBlock(Registration.ANDESITE_BRICK_STAIRS.get(), new ResourceLocation(UnbelievableMod.MODID, "block/andesite_bricks"));
         axisBlock(Registration.GRANITE_PILLAR.get(), new ResourceLocation(UnbelievableMod.MODID, "block/granite_pillar_side"), new ResourceLocation(UnbelievableMod.MODID, "block/granite_pillar_top"));
         axisBlock(Registration.DIORITE_PILLAR.get(), new ResourceLocation(UnbelievableMod.MODID, "block/diorite_pillar_side"), new ResourceLocation(UnbelievableMod.MODID, "block/diorite_pillar_top"));
         axisBlock(Registration.ANDESITE_PILLAR.get(), new ResourceLocation(UnbelievableMod.MODID, "block/andesite_pillar_side"), new ResourceLocation(UnbelievableMod.MODID, "block/andesite_pillar_top"));

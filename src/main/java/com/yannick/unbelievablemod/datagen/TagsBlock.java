@@ -33,6 +33,12 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.GRANITE_BRICKS.get())
                 .add(Registration.DIORITE_BRICKS.get())
                 .add(Registration.ANDESITE_BRICKS.get())
+                .add(Registration.GRANITE_BRICK_SLAB.get())
+                .add(Registration.DIORITE_BRICK_SLAB.get())
+                .add(Registration.ANDESITE_BRICK_SLAB.get())
+                .add(Registration.GRANITE_BRICK_STAIRS.get())
+                .add(Registration.DIORITE_BRICK_STAIRS.get())
+                .add(Registration.ANDESITE_BRICK_STAIRS.get())
                 .add(Registration.GRANITE_PILLAR.get())
                 .add(Registration.DIORITE_PILLAR.get())
                 .add(Registration.ANDESITE_PILLAR.get());

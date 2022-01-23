@@ -260,6 +260,18 @@ public class Registration {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.POLISHED_DIORITE)), false);
     public static final RegistryObject<Block> ANDESITE_BRICKS = registerBlock("andesite_bricks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.POLISHED_ANDESITE)), false);
+    public static final RegistryObject<SlabBlock> GRANITE_BRICK_SLAB = registerBlock("granite_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.POLISHED_GRANITE)), false);
+    public static final RegistryObject<SlabBlock> DIORITE_BRICK_SLAB = registerBlock("diorite_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.POLISHED_DIORITE)), false);
+    public static final RegistryObject<SlabBlock> ANDESITE_BRICK_SLAB = registerBlock("andesite_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.POLISHED_ANDESITE)), false);
+    public static final RegistryObject<StairBlock> GRANITE_BRICK_STAIRS = registerBlock("granite_brick_stairs",
+            () -> new StairBlock(() -> GRANITE_BRICKS.get().defaultBlockState(),BlockBehaviour.Properties.copy(Blocks.POLISHED_GRANITE)), false);
+    public static final RegistryObject<StairBlock> DIORITE_BRICK_STAIRS = registerBlock("diorite_brick_stairs",
+            () -> new StairBlock(() -> DIORITE_BRICKS.get().defaultBlockState(),BlockBehaviour.Properties.copy(Blocks.POLISHED_DIORITE)), false);
+    public static final RegistryObject<StairBlock> ANDESITE_BRICK_STAIRS = registerBlock("andesite_brick_stairs",
+            () -> new StairBlock(() -> ANDESITE_BRICKS.get().defaultBlockState(),BlockBehaviour.Properties.copy(Blocks.POLISHED_ANDESITE)), false);
     public static final RegistryObject<RotatedPillarBlock> GRANITE_PILLAR = registerBlock("granite_pillar",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.POLISHED_GRANITE)), false);
     public static final RegistryObject<RotatedPillarBlock> DIORITE_PILLAR = registerBlock("diorite_pillar",

@@ -71,6 +71,12 @@ public class CreativeModeTabs {
             items.add(Registration.GRANITE_BRICKS.get().asItem().getDefaultInstance());
             items.add(Registration.DIORITE_BRICKS.get().asItem().getDefaultInstance());
             items.add(Registration.ANDESITE_BRICKS.get().asItem().getDefaultInstance());
+            items.add(Registration.GRANITE_BRICK_SLAB.get().asItem().getDefaultInstance());
+            items.add(Registration.DIORITE_BRICK_SLAB.get().asItem().getDefaultInstance());
+            items.add(Registration.ANDESITE_BRICK_SLAB.get().asItem().getDefaultInstance());
+            items.add(Registration.GRANITE_BRICK_STAIRS.get().asItem().getDefaultInstance());
+            items.add(Registration.DIORITE_BRICK_STAIRS.get().asItem().getDefaultInstance());
+            items.add(Registration.ANDESITE_BRICK_STAIRS.get().asItem().getDefaultInstance());
             items.add(Registration.GRANITE_PILLAR.get().asItem().getDefaultInstance());
             items.add(Registration.DIORITE_PILLAR.get().asItem().getDefaultInstance());
             items.add(Registration.ANDESITE_PILLAR.get().asItem().getDefaultInstance());

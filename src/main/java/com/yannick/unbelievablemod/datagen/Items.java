@@ -101,6 +101,12 @@ public class Items extends ItemModelProvider {
         withExistingParent(Registration.GRANITE_BRICKS.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/granite_bricks"));
         withExistingParent(Registration.DIORITE_BRICKS.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/diorite_bricks"));
         withExistingParent(Registration.ANDESITE_BRICKS.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/andesite_bricks"));
+        withExistingParent(Registration.GRANITE_BRICK_SLAB.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/granite_brick_slab"));
+        withExistingParent(Registration.DIORITE_BRICK_SLAB.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/diorite_brick_slab"));
+        withExistingParent(Registration.ANDESITE_BRICK_SLAB.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/andesite_brick_slab"));
+        withExistingParent(Registration.GRANITE_BRICK_STAIRS.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/granite_brick_stairs"));
+        withExistingParent(Registration.DIORITE_BRICK_STAIRS.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/diorite_brick_stairs"));
+        withExistingParent(Registration.ANDESITE_BRICK_STAIRS.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/andesite_brick_stairs"));
         withExistingParent(Registration.GRANITE_PILLAR.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/granite_pillar"));
         withExistingParent(Registration.DIORITE_PILLAR.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/diorite_pillar"));
         withExistingParent(Registration.ANDESITE_PILLAR.get().getRegistryName().getPath(), new ResourceLocation(UnbelievableMod.MODID, "block/andesite_pillar"));

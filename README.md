@@ -30,8 +30,8 @@ Before building the jar, runData must be executed first. To then build the jar, 
 - Fried Egg
 - Depth Meter
 - Wooden Bucket
-- Wooden Water Bucket
-- Wooden Milk Bucket
+  - Wooden Water Bucket
+  - Wooden Milk Bucket
 
 ### Details
 
@@ -63,27 +63,33 @@ Before building the jar, runData must be executed first. To then build the jar, 
 
 ### List
 - Ruby Ore
-- Deepslate Ruby Ore
+  - Deepslate Ruby Ore
 - Block of Ruby
 - Sapphire Ore
-- Deepslate Sapphire Ore
+  - Deepslate Sapphire Ore
 - Block of Sapphire
 - Bamboo Block
-- Bamboo Slab
-- Bamboo Stairs
-- Bamboo Fence
-- Bamboo Fence Gate
-- Bamboo Door
-- Bamboo Trap Door
-- Bamboo Pressure Plate
-- Bamboo Button
+  - Bamboo Slab
+  - Bamboo Stairs
+  - Bamboo Fence
+  - Bamboo Fence Gate
+  - Bamboo Door
+  - Bamboo Trap Door
+  - Bamboo Pressure Plate
+  - Bamboo Button
 - Quartz Wall
 - Polished Granite Wall
 - Polished Diorite Wall
 - Polished Andesite Wall
 - Granite Bricks
+  - Granite Brick Slab
+  - Granite Brick Stairs
 - Diorite Bricks
+  - Diorite Brick Slab
+  - Diorite Brick Stairs
 - Andesite Bricks
+  - Andesite Brick Slab
+  - Andesite Brick Stairs
 - Granite Pillar
 - Diorite Pillar
 - Andesite Pillar
@@ -123,8 +129,8 @@ Before building the jar, runData must be executed first. To then build the jar, 
 - Warped Shelf
 - Bamboo Shelf
 - Cut Gold
-- Cut Gold Slab
-- Cut Gold Stairs
+  - Cut Gold Slab
+  - Cut Gold Stairs
 - Sawmill
 
 ### Details

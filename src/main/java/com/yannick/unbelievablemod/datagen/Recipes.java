@@ -452,6 +452,48 @@ public class Recipes extends RecipeProvider {
                 .unlockedBy("has_polished_andesite", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_ANDESITE))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(Registration.GRANITE_BRICK_SLAB.get(), 6)
+                .pattern("ggg")
+                .define('g', Registration.GRANITE_BRICKS.get())
+                .unlockedBy("has_granite_bricks", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.GRANITE_BRICKS.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.DIORITE_BRICK_SLAB.get(), 6)
+                .pattern("ddd")
+                .define('d', Registration.DIORITE_BRICKS.get())
+                .unlockedBy("has_diorite_bricks", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.DIORITE_BRICKS.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.ANDESITE_BRICK_SLAB.get(), 6)
+                .pattern("aaa")
+                .define('a', Registration.ANDESITE_BRICKS.get())
+                .unlockedBy("has_andesite_bricks", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.ANDESITE_BRICKS.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.GRANITE_BRICK_STAIRS.get(), 4)
+                .pattern("  g")
+                .pattern(" gg")
+                .pattern("ggg")
+                .define('g', Registration.GRANITE_BRICKS.get())
+                .unlockedBy("has_granite_bricks", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.GRANITE_BRICKS.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.DIORITE_BRICK_STAIRS.get(), 4)
+                .pattern("  d")
+                .pattern(" dd")
+                .pattern("ddd")
+                .define('d', Registration.DIORITE_BRICKS.get())
+                .unlockedBy("has_diorite_bricks", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.DIORITE_BRICKS.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.ANDESITE_BRICK_STAIRS.get(), 4)
+                .pattern("  a")
+                .pattern(" aa")
+                .pattern("aaa")
+                .define('a', Registration.ANDESITE_BRICKS.get())
+                .unlockedBy("has_andesite_bricks", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.ANDESITE_BRICKS.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(Registration.GRANITE_PILLAR.get(), 2)
                 .pattern("g")
                 .pattern("g")
@@ -579,6 +621,78 @@ public class Recipes extends RecipeProvider {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.POLISHED_ANDESITE), Registration.ANDESITE_BRICKS.get())
                 .unlockedBy("has_polished_andesite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_ANDESITE))
                 .save(consumer, Registration.ANDESITE_BRICKS.getId() + "_from_polished_andesite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.GRANITE), Registration.GRANITE_BRICK_SLAB.get(), 2)
+                .unlockedBy("has_granite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.GRANITE))
+                .save(consumer, Registration.GRANITE_BRICK_SLAB.getId() + "_from_granite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.POLISHED_GRANITE), Registration.GRANITE_BRICK_SLAB.get(), 2)
+                .unlockedBy("has_polished_granite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_GRANITE))
+                .save(consumer, Registration.GRANITE_BRICK_SLAB.getId() + "_from_polished_granite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Registration.GRANITE_BRICKS.get()), Registration.GRANITE_BRICK_SLAB.get(), 2)
+                .unlockedBy("has_granite_bricks_block", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.GRANITE_BRICKS.get()))
+                .save(consumer, Registration.GRANITE_BRICK_SLAB.getId() + "_from_granite_bricks_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.DIORITE), Registration.DIORITE_BRICK_SLAB.get(), 2)
+                .unlockedBy("has_diorite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.DIORITE))
+                .save(consumer, Registration.DIORITE_BRICK_SLAB.getId() + "_from_diorite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.POLISHED_DIORITE), Registration.DIORITE_BRICK_SLAB.get(), 2)
+                .unlockedBy("has_polished_diorite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_DIORITE))
+                .save(consumer, Registration.DIORITE_BRICK_SLAB.getId() + "_from_polished_diorite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Registration.DIORITE_BRICKS.get()), Registration.DIORITE_BRICK_SLAB.get(), 2)
+                .unlockedBy("has_diorite_bricks_block", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.DIORITE_BRICKS.get()))
+                .save(consumer, Registration.DIORITE_BRICK_SLAB.getId() + "_from_diorite_bricks_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.ANDESITE), Registration.ANDESITE_BRICK_SLAB.get(), 2)
+                .unlockedBy("has_andesite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.ANDESITE))
+                .save(consumer, Registration.ANDESITE_BRICK_SLAB.getId() + "_from_andesite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.POLISHED_ANDESITE), Registration.ANDESITE_BRICK_SLAB.get(), 2)
+                .unlockedBy("has_polished_andesite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_ANDESITE))
+                .save(consumer, Registration.ANDESITE_BRICK_SLAB.getId() + "_from_polished_andesite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Registration.ANDESITE_BRICKS.get()), Registration.ANDESITE_BRICK_SLAB.get(), 2)
+                .unlockedBy("has_andesite_bricks_block", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.ANDESITE_BRICKS.get()))
+                .save(consumer, Registration.ANDESITE_BRICK_SLAB.getId() + "_from_andesite_bricks_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.GRANITE), Registration.GRANITE_BRICK_STAIRS.get())
+                .unlockedBy("has_granite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.GRANITE))
+                .save(consumer, Registration.GRANITE_BRICK_STAIRS.getId() + "_from_granite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.POLISHED_GRANITE), Registration.GRANITE_BRICK_STAIRS.get())
+                .unlockedBy("has_polished_granite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_GRANITE))
+                .save(consumer, Registration.GRANITE_BRICK_STAIRS.getId() + "_from_polished_granite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Registration.GRANITE_BRICKS.get()), Registration.GRANITE_BRICK_STAIRS.get())
+                .unlockedBy("has_granite_bricks_block", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.GRANITE_BRICKS.get()))
+                .save(consumer, Registration.GRANITE_BRICK_STAIRS.getId() + "_from_granite_bricks_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.DIORITE), Registration.DIORITE_BRICK_STAIRS.get())
+                .unlockedBy("has_diorite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.DIORITE))
+                .save(consumer, Registration.DIORITE_BRICK_STAIRS.getId() + "_from_diorite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.POLISHED_DIORITE), Registration.DIORITE_BRICK_STAIRS.get())
+                .unlockedBy("has_polished_diorite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_DIORITE))
+                .save(consumer, Registration.DIORITE_BRICK_STAIRS.getId() + "_from_polished_diorite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Registration.DIORITE_BRICKS.get()), Registration.DIORITE_BRICK_STAIRS.get())
+                .unlockedBy("has_diorite_bricks_block", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.DIORITE_BRICKS.get()))
+                .save(consumer, Registration.DIORITE_BRICK_STAIRS.getId() + "_from_diorite_bricks_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.ANDESITE), Registration.ANDESITE_BRICK_STAIRS.get())
+                .unlockedBy("has_andesite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.ANDESITE))
+                .save(consumer, Registration.ANDESITE_BRICK_STAIRS.getId() + "_from_andesite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.POLISHED_ANDESITE), Registration.ANDESITE_BRICK_STAIRS.get())
+                .unlockedBy("has_polished_andesite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_ANDESITE))
+                .save(consumer, Registration.ANDESITE_BRICK_STAIRS.getId() + "_from_polished_andesite_stonecutting");
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Registration.ANDESITE_BRICKS.get()), Registration.ANDESITE_BRICK_STAIRS.get())
+                .unlockedBy("has_andesite_bricks_block", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.ANDESITE_BRICKS.get()))
+                .save(consumer, Registration.ANDESITE_BRICK_STAIRS.getId() + "_from_andesite_bricks_stonecutting");
 
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.GRANITE), Registration.GRANITE_PILLAR.get())
                 .unlockedBy("has_granite_block", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.GRANITE))
