@@ -12,6 +12,7 @@ import com.yannick.unbelievablemod.world.ConfiguredStructures;
 import com.yannick.unbelievablemod.world.Structures;
 import com.yannick.unbelievablemod.world.structures.AbandonedLumberjackHouseStructure;
 import com.yannick.unbelievablemod.world.structures.CastleRuinsStructure;
+import com.yannick.unbelievablemod.world.structures.MountainFortressStructure;
 import com.yannick.unbelievablemod.world.structures.UndergroundCabinStructure;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
@@ -62,6 +63,7 @@ public class UnbelievableMod {
         forgeBus.addListener(EventPriority.NORMAL, CastleRuinsStructure::setupStructureSpawns);
         forgeBus.addListener(EventPriority.NORMAL, AbandonedLumberjackHouseStructure::setupStructureSpawns);
         forgeBus.addListener(EventPriority.NORMAL, UndergroundCabinStructure::setupStructureSpawns);
+        forgeBus.addListener(EventPriority.NORMAL, MountainFortressStructure::setupStructureSpawns);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -94,6 +96,9 @@ public class UnbelievableMod {
                 if (biomeCategory == Biome.BiomeCategory.EXTREME_HILLS) {
                     associateBiomeToConfiguredStructure(STStructureToMultiMap, ConfiguredStructures.CONFIGURED_ABANDONED_LUMBERJACK_HOUSE, biomeEntry.getKey());
                 }
+                if (biomeCategory == Biome.BiomeCategory.MOUNTAIN) {
+                    associateBiomeToConfiguredStructure(STStructureToMultiMap, ConfiguredStructures.CONFIGURED_MOUNTAIN_FORTRESS, biomeEntry.getKey());
+                }
             }
 
             ImmutableMap.Builder<StructureFeature<?>, ImmutableMultimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> tempStructureToMultiMap = ImmutableMap.builder();
@@ -116,6 +121,7 @@ public class UnbelievableMod {
             tempMap.putIfAbsent(Structures.CASTLE_RUINS.get(), StructureSettings.DEFAULTS.get(Structures.CASTLE_RUINS.get()));
             tempMap.putIfAbsent(Structures.ABANDONED_LUMBERJACK_HOUSE.get(), StructureSettings.DEFAULTS.get(Structures.ABANDONED_LUMBERJACK_HOUSE.get()));
             tempMap.putIfAbsent(Structures.UNDERGROUND_CABIN.get(), StructureSettings.DEFAULTS.get(Structures.UNDERGROUND_CABIN.get()));
+            tempMap.putIfAbsent(Structures.MOUNTAIN_FORTRESS.get(), StructureSettings.DEFAULTS.get(Structures.MOUNTAIN_FORTRESS.get()));
             worldStructureConfig.structureConfig = tempMap;
         }
     }

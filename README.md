@@ -176,6 +176,10 @@ Before building the jar, runData must be executed first. To then build the jar, 
 - small miner's hut that only generates below y = 0
 - loot chest can contain enchanted book with Smelting
 
+### Mountain Fortress
+- large fortress that only generates between y = 150 and y = 200
+- populated by pillagers
+
 ## Enchantments
 
 ### Smelting

@@ -190,7 +190,7 @@ public class Advancements extends AdvancementProvider {
                 .parent(longAgoAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/hello_anybody_here")));
 
-        Advancement.Builder.advancement()
+        Advancement undergroundCabinAdvancement = Advancement.Builder.advancement()
                 .display(
                         Items.BLACK_CANDLE,
                         new TranslatableComponent("advancements.mod.anybody_living_down_here.title"),
@@ -203,5 +203,19 @@ public class Advancements extends AdvancementProvider {
                 .addCriterion("find_underground_cabin", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(Structures.UNDERGROUND_CABIN.get())))
                 .parent(lumberjackHouseAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/anybody_living_down_here")));
+
+        Advancement.Builder.advancement()
+                .display(
+                        Registration.ANDESITE_PILLAR.get(),
+                        new TranslatableComponent("advancements.mod.mountaineer.title"),
+                        new TranslatableComponent("advancements.mod.mountaineer.description"),
+                        null,
+                        FrameType.TASK,
+                        true,
+                        false,
+                        false)
+                .addCriterion("find_mountain_fortress", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(Structures.MOUNTAIN_FORTRESS.get())))
+                .parent(undergroundCabinAdvancement)
+                .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/mountaineer")));
     }
 }

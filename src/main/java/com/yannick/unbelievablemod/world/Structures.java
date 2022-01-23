@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import com.yannick.unbelievablemod.UnbelievableMod;
 import com.yannick.unbelievablemod.world.structures.AbandonedLumberjackHouseStructure;
 import com.yannick.unbelievablemod.world.structures.CastleRuinsStructure;
+import com.yannick.unbelievablemod.world.structures.MountainFortressStructure;
 import com.yannick.unbelievablemod.world.structures.UndergroundCabinStructure;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.world.level.levelgen.StructureSettings;
@@ -26,6 +27,7 @@ public class Structures {
     public static final RegistryObject<StructureFeature<JigsawConfiguration>> ABANDONED_LUMBERJACK_HOUSE = DEFERRED_REGISTRY_STRUCTURE.register("abandoned_lumberjack_house", () -> (new AbandonedLumberjackHouseStructure(JigsawConfiguration.CODEC)));
     public static final RegistryObject<StructureFeature<JigsawConfiguration>> CASTLE_RUINS = DEFERRED_REGISTRY_STRUCTURE.register("castle_ruins", () -> (new CastleRuinsStructure(JigsawConfiguration.CODEC)));
     public static final RegistryObject<StructureFeature<JigsawConfiguration>> UNDERGROUND_CABIN = DEFERRED_REGISTRY_STRUCTURE.register("underground_cabin", () -> (new UndergroundCabinStructure(JigsawConfiguration.CODEC)));
+    public static final RegistryObject<StructureFeature<JigsawConfiguration>> MOUNTAIN_FORTRESS = DEFERRED_REGISTRY_STRUCTURE.register("mountain_fortress", () -> (new MountainFortressStructure(JigsawConfiguration.CODEC)));
 
     public static void setupStructures() {
         setupMapSpacingAndLand(
@@ -47,6 +49,13 @@ public class Structures {
                 new StructureFeatureConfiguration(50,
                         20,
                         765432198),
+                true);
+
+        setupMapSpacingAndLand(
+                MOUNTAIN_FORTRESS.get(),
+                new StructureFeatureConfiguration(50,
+                        20,
+                        654321987),
                 true);
     }
 
