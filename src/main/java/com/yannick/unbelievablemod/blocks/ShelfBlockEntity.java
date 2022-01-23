@@ -1,12 +1,15 @@
 package com.yannick.unbelievablemod.blocks;
 
+import com.yannick.unbelievablemod.advancements.ModCriteriaTriggers;
 import com.yannick.unbelievablemod.setup.Registration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -79,10 +82,11 @@ public class ShelfBlockEntity extends BlockEntity {
         ContainerHelper.saveAllItems(tag, this.items, true);
     }
 
-    public ItemStack addItemToShelf(int slot, ItemStack itemStack) {
+    public ItemStack addItemToShelf(Player player, int slot, ItemStack itemStack) {
         ItemStack returnStack = itemHandler.insertItem(slot, itemStack, false);
         if (returnStack == ItemStack.EMPTY) {
             this.items.set(slot, itemStack);
+            ModCriteriaTriggers.ADD_ITEM_TO_SHELF.trigger((ServerPlayer) player, this.items);
         } else {
             this.items.set(slot, ItemStack.EMPTY);
         }

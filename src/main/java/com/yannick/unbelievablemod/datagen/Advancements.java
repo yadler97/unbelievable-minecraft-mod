@@ -1,6 +1,7 @@
 package com.yannick.unbelievablemod.datagen;
 
 import com.yannick.unbelievablemod.UnbelievableMod;
+import com.yannick.unbelievablemod.advancements.criteron.AddItemToShelfTrigger;
 import com.yannick.unbelievablemod.setup.CustomTags;
 import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.world.Structures;
@@ -40,7 +41,7 @@ public class Advancements extends AdvancementProvider {
                 .addCriterion("has_crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.CRAFTING_TABLE))
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/root")));
 
-        Advancement.Builder.advancement()
+        Advancement interiorDesignerAdvancement = Advancement.Builder.advancement()
                 .display(
                     Registration.OAK_CHAIR.get(),
                     new TranslatableComponent("advancements.mod.professional_interior_designer.title"),
@@ -56,6 +57,24 @@ public class Advancements extends AdvancementProvider {
                 .requirements(RequirementsStrategy.AND)
                 .parent(rootAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/professional_interior_designer")));
+
+        Advancement.Builder.advancement()
+                .display(
+                        Registration.OAK_SHELF.get(),
+                        new TranslatableComponent("advancements.mod.all_my_treasure.title"),
+                        new TranslatableComponent("advancements.mod.all_my_treasure.description"),
+                        null,
+                        FrameType.GOAL,
+                        true,
+                        false,
+                        false)
+                .addCriterion("has_added_treasure", AddItemToShelfTrigger.TriggerInstance.itemAddedToShelf(
+                        ItemPredicate.Builder.item().of(Items.DIAMOND).build(),
+                        ItemPredicate.Builder.item().of(Items.EMERALD).build(),
+                        ItemPredicate.Builder.item().of(Registration.RUBY.get()).build(),
+                        ItemPredicate.Builder.item().of(Registration.SAPPHIRE.get()).build()))
+                .parent(interiorDesignerAdvancement)
+                .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/all_my_treasure")));
 
         Advancement.Builder.advancement()
                 .display(

@@ -4,6 +4,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.mojang.serialization.Codec;
+import com.yannick.unbelievablemod.advancements.ModCriteriaTriggers;
 import com.yannick.unbelievablemod.setup.ClientSetup;
 import com.yannick.unbelievablemod.setup.Config;
 import com.yannick.unbelievablemod.setup.Registration;
@@ -51,6 +52,7 @@ public class UnbelievableMod {
     public UnbelievableMod() {
         Registration.init();
         Config.init();
+        ModCriteriaTriggers.init();
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         Structures.DEFERRED_REGISTRY_STRUCTURE.register(bus);
