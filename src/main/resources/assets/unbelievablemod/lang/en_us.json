@@ -160,6 +160,9 @@
   "advancements.mod.diamonds_wait.title": "Diamonds??? ... wait",
   "advancements.mod.diamonds_wait.description": "Find sapphires",
 
+  "advancements.mod.terraforming_specialist.title": "Terraforming Specialist",
+  "advancements.mod.terraforming_specialist.description": "Use a sapphire shovel with max mining distance",
+
   "advancements.mod.it_fulfilled_its_purpose.title": "It fulfilled its purpose...",
   "advancements.mod.it_fulfilled_its_purpose.description": "Break a wooden bucket"
 }

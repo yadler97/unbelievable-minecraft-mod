@@ -2,6 +2,7 @@ package com.yannick.unbelievablemod.datagen;
 
 import com.yannick.unbelievablemod.UnbelievableMod;
 import com.yannick.unbelievablemod.advancements.criteron.AddItemToShelfTrigger;
+import com.yannick.unbelievablemod.advancements.criteron.SapphireMineMaxDistanceTrigger;
 import com.yannick.unbelievablemod.setup.CustomTags;
 import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.world.Structures;
@@ -104,7 +105,7 @@ public class Advancements extends AdvancementProvider {
                 .parent(rootAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/is_that_redstone")));
 
-        Advancement.Builder.advancement()
+        Advancement sapphireAdvancement = Advancement.Builder.advancement()
                 .display(
                         Registration.SAPPHIRE.get(),
                         new TranslatableComponent("advancements.mod.diamonds_wait.title"),
@@ -117,6 +118,20 @@ public class Advancements extends AdvancementProvider {
                 .addCriterion("has_sapphires", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.SAPPHIRE.get()))
                 .parent(rubyAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/diamonds_wait")));
+
+        Advancement.Builder.advancement()
+                .display(
+                        Registration.SAPPHIRE_SHOVEL.get(),
+                        new TranslatableComponent("advancements.mod.terraforming_specialist.title"),
+                        new TranslatableComponent("advancements.mod.terraforming_specialist.description"),
+                        null,
+                        FrameType.TASK,
+                        true,
+                        false,
+                        false)
+                .addCriterion("mines_with_max_distance", SapphireMineMaxDistanceTrigger.TriggerInstance.minedWithMaxDistance(ItemPredicate.Builder.item().of(Registration.SAPPHIRE_SHOVEL.get()).build()))
+                .parent(sapphireAdvancement)
+                .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/terraforming_specialist")));
 
         Advancement.Builder.advancement()
                 .display(

@@ -1,5 +1,6 @@
 package com.yannick.unbelievablemod.items;
 
+import com.yannick.unbelievablemod.advancements.ModCriteriaTriggers;
 import com.yannick.unbelievablemod.setup.Config;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
@@ -74,6 +75,9 @@ public class SapphirePickaxe extends PickaxeItem {
                                 tag.putBoolean("mining", false);
                                 return result;
                             }
+                        }
+                        if (getDistance(stack) == Config.MAX_SAPPHIRE_DISTANCE.get() && entity instanceof ServerPlayer player) {
+                            ModCriteriaTriggers.SAPPHIRE_MINE_MAX_DISTANCE.trigger(player, stack);
                         }
                         tag.putBoolean("mining", false);
                     }

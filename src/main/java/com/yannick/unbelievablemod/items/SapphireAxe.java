@@ -1,5 +1,6 @@
 package com.yannick.unbelievablemod.items;
 
+import com.yannick.unbelievablemod.advancements.ModCriteriaTriggers;
 import com.yannick.unbelievablemod.setup.Config;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
@@ -12,10 +13,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -77,6 +75,9 @@ public class SapphireAxe extends AxeItem {
                                 tag.putBoolean("mining", false);
                                 return result;
                             }
+                        }
+                        if (getDistance(stack) == Config.MAX_SAPPHIRE_DISTANCE.get() && entity instanceof ServerPlayer player) {
+                            ModCriteriaTriggers.SAPPHIRE_MINE_MAX_DISTANCE.trigger(player, stack);
                         }
                         tag.putBoolean("mining", false);
                     }
