@@ -3,6 +3,8 @@ package com.yannick.unbelievablemod.blocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
@@ -106,12 +108,14 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityB
                     inputStack.setCount(1);
                     ItemStack returnStack = blockEntity.addItemToShelf(player, clickedSlot, inputStack);
                     if (returnStack != ItemStack.EMPTY) {
+                        level.playSound(null, pos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS, 1.0F, 1.0F);
                         Direction direction = blockHitResult.getDirection();
                         Direction direction1 = direction.getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : direction;
                         ItemEntity itementity = new ItemEntity(level, (double)pos.getX() + 0.5D + (double)direction1.getStepX() * 0.65D, (double)pos.getY() + 0.1D, (double)pos.getZ() + 0.5D + (double)direction1.getStepZ() * 0.65D, returnStack);
                         itementity.setDeltaMovement(0.05D * (double)direction1.getStepX() + level.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double)direction1.getStepZ() + level.random.nextDouble() * 0.02D);
                         level.addFreshEntity(itementity);
                     } else {
+                        level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS, 1.0F, 1.0F);
                         if (!player.getAbilities().instabuild) {
                             stack.shrink(1);
                         }
