@@ -1,6 +1,6 @@
 package com.yannick.unbelievablemod.datagen;
 
-import com.yannick.unbelievablemod.setup.CustomTags;
+import com.yannick.unbelievablemod.setup.ModTags;
 import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.UnbelievableMod;
 import net.minecraft.data.DataGenerator;
@@ -152,7 +152,7 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.CUT_GOLD_SLAB.get())
                 .add(Registration.CUT_GOLD_STAIRS.get());
 
-        tag(CustomTags.Blocks.TABLES)
+        tag(ModTags.Blocks.TABLES)
                 .add(Registration.OAK_TABLE.get())
                 .add(Registration.SPRUCE_TABLE.get())
                 .add(Registration.BIRCH_TABLE.get())
@@ -163,7 +163,7 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.WARPED_TABLE.get())
                 .add(Registration.BAMBOO_TABLE.get());
 
-        tag(CustomTags.Blocks.CHAIRS)
+        tag(ModTags.Blocks.CHAIRS)
                 .add(Registration.OAK_CHAIR.get())
                 .add(Registration.SPRUCE_CHAIR.get())
                 .add(Registration.BIRCH_CHAIR.get())
@@ -174,7 +174,7 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(Registration.WARPED_CHAIR.get())
                 .add(Registration.BAMBOO_CHAIR.get());
 
-        tag(CustomTags.Blocks.SHELVES)
+        tag(ModTags.Blocks.SHELVES)
                 .add(Registration.OAK_SHELF.get())
                 .add(Registration.SPRUCE_SHELF.get())
                 .add(Registration.BIRCH_SHELF.get())

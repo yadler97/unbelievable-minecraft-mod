@@ -28,7 +28,7 @@ import java.util.List;
 public class SapphireAxe extends AxeItem {
 
     public SapphireAxe(Item.Properties properties) {
-        super(Tiers.SAPPHIRE, 5.0F, -3.0F, properties);
+        super(ModTiers.SAPPHIRE, 5.0F, -3.0F, properties);
     }
 
     @Override

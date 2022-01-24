@@ -28,7 +28,7 @@ import java.util.List;
 public class SapphireShovel extends ShovelItem {
 
     public SapphireShovel(Properties properties) {
-        super(Tiers.SAPPHIRE, 1.5F, -3.0F, properties);
+        super(ModTiers.SAPPHIRE, 1.5F, -3.0F, properties);
     }
 
     @Override

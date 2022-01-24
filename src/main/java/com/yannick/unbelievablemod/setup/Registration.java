@@ -6,8 +6,8 @@ import com.yannick.unbelievablemod.entities.ChairEntity;
 import com.yannick.unbelievablemod.inventory.SawmillMenu;
 import com.yannick.unbelievablemod.items.*;
 import com.yannick.unbelievablemod.UnbelievableMod;
-import com.yannick.unbelievablemod.items.ArmorMaterials;
-import com.yannick.unbelievablemod.items.Tiers;
+import com.yannick.unbelievablemod.items.ModArmorMaterials;
+import com.yannick.unbelievablemod.items.ModTiers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
@@ -41,7 +41,7 @@ import java.util.function.Supplier;
 public class Registration {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, UnbelievableMod.MODID);
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, UnbelievableMod.MODID);
-    private static final DeferredRegister<BlockEntityType<?>> BLOCKENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, UnbelievableMod.MODID);
+    private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, UnbelievableMod.MODID);
     private static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, UnbelievableMod.MODID);
     private static final DeferredRegister<RecipeSerializer<?>> RECIPES = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, UnbelievableMod.MODID);
     private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, UnbelievableMod.MODID);
@@ -51,7 +51,7 @@ public class Registration {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ITEMS.register(bus);
         BLOCKS.register(bus);
-        BLOCKENTITIES.register(bus);
+        BLOCK_ENTITIES.register(bus);
         CONTAINERS.register(bus);
         RECIPES.register(bus);
         ENTITIES.register(bus);
@@ -71,35 +71,35 @@ public class Registration {
     public static final RegistryObject<Item> SAPPHIRE_SHOVEL = ITEMS.register("sapphire_shovel",
             () -> new SapphireShovel(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> SAPPHIRE_HOE = ITEMS.register("sapphire_hoe",
-            () -> new HoeItem(com.yannick.unbelievablemod.items.Tiers.SAPPHIRE, -3, 0.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new HoeItem(ModTiers.SAPPHIRE, -3, 0.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> SAPPHIRE_SWORD = ITEMS.register("sapphire_sword",
-            () -> new SwordItem(Tiers.SAPPHIRE, 3, -2.4F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new SwordItem(ModTiers.SAPPHIRE, 3, -2.4F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
 
     public static final RegistryObject<Item> ROSEGOLD_PICKAXE = ITEMS.register("rosegold_pickaxe",
-            () -> new PickaxeItem(Tiers.ROSEGOLD, 1, -2.8F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new PickaxeItem(ModTiers.ROSEGOLD, 1, -2.8F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> ROSEGOLD_AXE = ITEMS.register("rosegold_axe",
-            () -> new AxeItem(Tiers.ROSEGOLD, 6.0F, -3.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new AxeItem(ModTiers.ROSEGOLD, 6.0F, -3.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> ROSEGOLD_SHOVEL = ITEMS.register("rosegold_shovel",
-            () -> new ShovelItem(Tiers.ROSEGOLD, 1.5F, -3.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new ShovelItem(ModTiers.ROSEGOLD, 1.5F, -3.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> ROSEGOLD_HOE = ITEMS.register("rosegold_hoe",
-            () -> new HoeItem(Tiers.ROSEGOLD, 0, -3.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new HoeItem(ModTiers.ROSEGOLD, 0, -3.0F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> ROSEGOLD_SWORD = ITEMS.register("rosegold_sword",
-            () -> new SwordItem(Tiers.ROSEGOLD, 3, -2.4F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new SwordItem(ModTiers.ROSEGOLD, 3, -2.4F, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
 
     public static final RegistryObject<Item> ROSEGOLD_HELMET = ITEMS.register("rosegold_helmet",
-            () -> new ArmorItem(ArmorMaterials.ROSEGOLD, EquipmentSlot.HEAD, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new ArmorItem(ModArmorMaterials.ROSEGOLD, EquipmentSlot.HEAD, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> ROSEGOLD_CHESTPLATE = ITEMS.register("rosegold_chestplate",
-            () -> new ArmorItem(ArmorMaterials.ROSEGOLD, EquipmentSlot.CHEST, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new ArmorItem(ModArmorMaterials.ROSEGOLD, EquipmentSlot.CHEST, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> ROSEGOLD_LEGGINGS = ITEMS.register("rosegold_leggings",
-            () -> new ArmorItem(ArmorMaterials.ROSEGOLD, EquipmentSlot.LEGS, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new ArmorItem(ModArmorMaterials.ROSEGOLD, EquipmentSlot.LEGS, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
     public static final RegistryObject<Item> ROSEGOLD_BOOTS = ITEMS.register("rosegold_boots",
-            () -> new ArmorItem(ArmorMaterials.ROSEGOLD, EquipmentSlot.FEET, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new ArmorItem(ModArmorMaterials.ROSEGOLD, EquipmentSlot.FEET, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
 
     public static final RegistryObject<Item> FRIED_EGG = ITEMS.register("fried_egg",
             () -> new Item(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB).food(Foods.FRIED_EGG)));
 
     public static final RegistryObject<Item> COPPER_WRENCH = ITEMS.register("copper_wrench",
-            () -> new Wrench(Tiers.COPPER, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new Wrench(ModTiers.COPPER, new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
 
     public static final RegistryObject<Item> BAMBOO_DOOR_ITEM = ITEMS.register("bamboo_door_item",
             () -> new FuelDoubleHighBlockItem(Registration.BAMBOO_DOOR.get(), (new Item.Properties()).tab(CreativeModeTabs.UNBELIEVABLE_TAB), 200));
@@ -108,11 +108,11 @@ public class Registration {
             () -> new DepthMeter(new Item.Properties().tab(CreativeModeTabs.UNBELIEVABLE_TAB).stacksTo(1)));
 
     public static final RegistryObject<WoodenBucket> WOODEN_BUCKET = ITEMS.register("wooden_bucket",
-            () -> new WoodenBucket(Fluids.EMPTY, net.minecraft.world.item.Tiers.WOOD, new Item.Properties().setNoRepair().tab(CreativeModeTabs.UNBELIEVABLE_TAB).stacksTo(1)));
+            () -> new WoodenBucket(Fluids.EMPTY, Tiers.WOOD, new Item.Properties().setNoRepair().tab(CreativeModeTabs.UNBELIEVABLE_TAB).stacksTo(1)));
     public static final RegistryObject<WoodenBucket> WOODEN_WATER_BUCKET = ITEMS.register("wooden_water_bucket",
-            () -> new WoodenBucket(Fluids.WATER, net.minecraft.world.item.Tiers.WOOD, new Item.Properties().setNoRepair().tab(CreativeModeTabs.UNBELIEVABLE_TAB).stacksTo(1)));
+            () -> new WoodenBucket(Fluids.WATER, Tiers.WOOD, new Item.Properties().setNoRepair().tab(CreativeModeTabs.UNBELIEVABLE_TAB).stacksTo(1)));
     public static final RegistryObject<WoodenMilkBucketItem> WOODEN_MILK_BUCKET = ITEMS.register("wooden_milk_bucket",
-            () -> new WoodenMilkBucketItem(net.minecraft.world.item.Tiers.WOOD, new Item.Properties().setNoRepair().craftRemainder(Registration.WOODEN_BUCKET.get()).stacksTo(1).tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
+            () -> new WoodenMilkBucketItem(Tiers.WOOD, new Item.Properties().setNoRepair().craftRemainder(Registration.WOODEN_BUCKET.get()).stacksTo(1).tab(CreativeModeTabs.UNBELIEVABLE_TAB)));
 
     // Blocks
     public static final RegistryObject<Block> RUBY_BLOCK = registerBlock("ruby_block",
@@ -232,7 +232,7 @@ public class Registration {
             () -> new ShelfBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS), 0, 0), false);
     public static final RegistryObject<ShelfBlock> BAMBOO_SHELF = registerBlock("bamboo_shelf",
             () -> new ShelfBlock(BlockBehaviour.Properties.copy(Registration.BAMBOO_BLOCK.get()), 5 , 20), true);
-    public static final RegistryObject<BlockEntityType<ShelfBlockEntity>> SHELF_BE = BLOCKENTITIES.register("shelf",
+    public static final RegistryObject<BlockEntityType<ShelfBlockEntity>> SHELF_BE = BLOCK_ENTITIES.register("shelf",
             () -> BlockEntityType.Builder.of(ShelfBlockEntity::new, OAK_SHELF.get(), SPRUCE_SHELF.get(), BIRCH_SHELF.get(), JUNGLE_SHELF.get(), ACACIA_SHELF.get(), DARK_OAK_SHELF.get(), CRIMSON_SHELF.get(), WARPED_SHELF.get(), BAMBOO_SHELF.get()).build(null));
 
 

@@ -1,8 +1,10 @@
 package com.yannick.unbelievablemod.blocks;
 
+import com.yannick.unbelievablemod.advancements.ModCriteriaTriggers;
 import com.yannick.unbelievablemod.entities.ChairEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
@@ -108,6 +110,7 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
                     if (stack.getItem() instanceof BlockItem carpetItem && carpetItem.getBlock() instanceof WoolCarpetBlock carpetBlock) {
                         level.setBlock(pos, blockState.setValue(CUSHION, Boolean.TRUE).setValue(COLOR, carpetBlock.getColor()), UPDATE_ALL);
                         level.playSound(null, pos, SoundEvents.WOOL_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        ModCriteriaTriggers.ADD_CUSHION_TO_CHAIR.trigger((ServerPlayer) player, stack);
 
                         if (!player.getAbilities().instabuild) {
                             stack.shrink(1);

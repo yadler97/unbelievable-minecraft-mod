@@ -30,7 +30,7 @@ import java.util.Collections;
 import java.util.Objects;
 
 public class Wrench extends TieredItem implements Vanishable {
-    public Wrench(Tiers tier, Item.Properties properties) {
+    public Wrench(ModTiers tier, Item.Properties properties) {
         super(tier, properties);
     }
 

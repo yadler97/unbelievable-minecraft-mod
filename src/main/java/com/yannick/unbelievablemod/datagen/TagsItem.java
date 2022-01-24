@@ -1,6 +1,6 @@
 package com.yannick.unbelievablemod.datagen;
 
-import com.yannick.unbelievablemod.setup.CustomTags;
+import com.yannick.unbelievablemod.setup.ModTags;
 import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.UnbelievableMod;
 import net.minecraft.data.DataGenerator;
@@ -32,7 +32,7 @@ public class TagsItem extends ItemTagsProvider {
         tag(ItemTags.BUTTONS)
                 .add(Registration.BAMBOO_BUTTON.get().asItem());
 
-        tag(CustomTags.Items.TABLES)
+        tag(ModTags.Items.TABLES)
                 .add(Registration.OAK_TABLE.get().asItem())
                 .add(Registration.SPRUCE_TABLE.get().asItem())
                 .add(Registration.BIRCH_TABLE.get().asItem())
@@ -43,7 +43,7 @@ public class TagsItem extends ItemTagsProvider {
                 .add(Registration.WARPED_TABLE.get().asItem())
                 .add(Registration.BAMBOO_TABLE.get().asItem());
 
-        tag(CustomTags.Items.CHAIRS)
+        tag(ModTags.Items.CHAIRS)
                 .add(Registration.OAK_CHAIR.get().asItem())
                 .add(Registration.SPRUCE_CHAIR.get().asItem())
                 .add(Registration.BIRCH_CHAIR.get().asItem())
@@ -54,7 +54,7 @@ public class TagsItem extends ItemTagsProvider {
                 .add(Registration.WARPED_CHAIR.get().asItem())
                 .add(Registration.BAMBOO_CHAIR.get().asItem());
 
-        tag(CustomTags.Items.SHELVES)
+        tag(ModTags.Items.SHELVES)
                 .add(Registration.OAK_SHELF.get().asItem())
                 .add(Registration.SPRUCE_SHELF.get().asItem())
                 .add(Registration.BIRCH_SHELF.get().asItem())

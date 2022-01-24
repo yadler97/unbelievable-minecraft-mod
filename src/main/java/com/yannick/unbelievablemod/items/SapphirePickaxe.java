@@ -28,7 +28,7 @@ import java.util.List;
 public class SapphirePickaxe extends PickaxeItem {
 
     public SapphirePickaxe(Properties properties) {
-        super(Tiers.SAPPHIRE, 1, -2.8F, properties);
+        super(ModTiers.SAPPHIRE, 1, -2.8F, properties);
     }
 
     @Override

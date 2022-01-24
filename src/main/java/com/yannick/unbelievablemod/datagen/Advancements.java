@@ -1,9 +1,10 @@
 package com.yannick.unbelievablemod.datagen;
 
 import com.yannick.unbelievablemod.UnbelievableMod;
+import com.yannick.unbelievablemod.advancements.criteron.AddCushionToChairTrigger;
 import com.yannick.unbelievablemod.advancements.criteron.AddItemToShelfTrigger;
 import com.yannick.unbelievablemod.advancements.criteron.SapphireMineMaxDistanceTrigger;
-import com.yannick.unbelievablemod.setup.CustomTags;
+import com.yannick.unbelievablemod.setup.ModTags;
 import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.world.Structures;
 import net.minecraft.advancements.Advancement;
@@ -52,12 +53,42 @@ public class Advancements extends AdvancementProvider {
                     true,
                     false,
                     false)
-                .addCriterion("has_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(CustomTags.Items.TABLES).build()))
-                .addCriterion("has_chair", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(CustomTags.Items.CHAIRS).build()))
-                .addCriterion("has_shelf", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(CustomTags.Items.SHELVES).build()))
+                .addCriterion("has_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ModTags.Items.TABLES).build()))
+                .addCriterion("has_chair", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ModTags.Items.CHAIRS).build()))
+                .addCriterion("has_shelf", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ModTags.Items.SHELVES).build()))
                 .requirements(RequirementsStrategy.AND)
                 .parent(rootAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/professional_interior_designer")));
+
+        Advancement.Builder.advancement()
+                .display(
+                        Items.MAGENTA_DYE,
+                        new TranslatableComponent("advancements.mod.colorful.title"),
+                        new TranslatableComponent("advancements.mod.colorful.description"),
+                        null,
+                        FrameType.TASK,
+                        true,
+                        false,
+                        false)
+                .addCriterion("has_white_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.WHITE_CARPET).build()))
+                .addCriterion("has_orange_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.ORANGE_CARPET).build()))
+                .addCriterion("has_magenta_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.MAGENTA_CARPET).build()))
+                .addCriterion("has_light_blue_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.LIGHT_BLUE_CARPET).build()))
+                .addCriterion("has_yellow_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.YELLOW_CARPET).build()))
+                .addCriterion("has_lime_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.LIME_CARPET).build()))
+                .addCriterion("has_pink_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.PINK_CARPET).build()))
+                .addCriterion("has_gray_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.GRAY_CARPET).build()))
+                .addCriterion("has_light_gray_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.LIGHT_GRAY_CARPET).build()))
+                .addCriterion("has_cyan_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.CYAN_CARPET).build()))
+                .addCriterion("has_purple_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.PURPLE_CARPET).build()))
+                .addCriterion("has_blue_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.BLUE_CARPET).build()))
+                .addCriterion("has_brown_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.BROWN_CARPET).build()))
+                .addCriterion("has_green_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.GREEN_CARPET).build()))
+                .addCriterion("has_red_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.RED_CARPET).build()))
+                .addCriterion("has_black_cushion", AddCushionToChairTrigger.TriggerInstance.addedCushionToChair(ItemPredicate.Builder.item().of(Items.BLACK_CARPET).build()))
+                .requirements(RequirementsStrategy.AND)
+                .parent(interiorDesignerAdvancement)
+                .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/colorful")));
 
         Advancement.Builder.advancement()
                 .display(

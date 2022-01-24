@@ -6,7 +6,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 
-public class CustomTags {
+public class ModTags {
 
     public static class Blocks {
         public static final Tags.IOptionalNamedTag<Block> TABLES = createBlockTag("tables");
