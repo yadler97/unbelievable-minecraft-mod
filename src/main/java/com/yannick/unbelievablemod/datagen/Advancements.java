@@ -3,6 +3,7 @@ package com.yannick.unbelievablemod.datagen;
 import com.yannick.unbelievablemod.UnbelievableMod;
 import com.yannick.unbelievablemod.advancements.criteron.AddCushionToChairTrigger;
 import com.yannick.unbelievablemod.advancements.criteron.AddItemToShelfTrigger;
+import com.yannick.unbelievablemod.advancements.criteron.MineWithSmeltingTrigger;
 import com.yannick.unbelievablemod.advancements.criteron.SapphireMineMaxDistanceTrigger;
 import com.yannick.unbelievablemod.setup.ModTags;
 import com.yannick.unbelievablemod.setup.Registration;
@@ -268,6 +269,20 @@ public class Advancements extends AdvancementProvider {
                 .addCriterion("find_underground_cabin", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(Structures.UNDERGROUND_CABIN.get())))
                 .parent(lumberjackHouseAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/anybody_living_down_here")));
+
+        Advancement.Builder.advancement()
+                .display(
+                        Items.COPPER_INGOT,
+                        new TranslatableComponent("advancements.mod.high_tech_mining.title"),
+                        new TranslatableComponent("advancements.mod.high_tech_mining.description"),
+                        null,
+                        FrameType.GOAL,
+                        true,
+                        false,
+                        false)
+                .addCriterion("find_mountain_fortress", MineWithSmeltingTrigger.TriggerInstance.minedWithSmelting())
+                .parent(undergroundCabinAdvancement)
+                .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/high_tech_mining")));
 
         Advancement.Builder.advancement()
                 .display(
