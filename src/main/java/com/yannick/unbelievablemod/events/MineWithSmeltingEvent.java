@@ -11,10 +11,13 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,26 +29,49 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.Optional;
+
 @Mod.EventBusSubscriber(modid = UnbelievableMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class MineWithSmeltingEvent {
 
     @SubscribeEvent
-    public static void onMineWithSmelting(BlockEvent.BreakEvent event) {
+    public static boolean onMineWithSmelting(BlockEvent.BreakEvent event) {
         Player player = event.getPlayer();
         ServerLevel level = (ServerLevel) player.getLevel();
         ItemStack itemStack = player.getMainHandItem();
-        BlockPos pos = event.getPos();
         BlockState blockState = event.getState();
 
-        if (blockState != null && ForgeHooks.isCorrectToolForDrops(blockState, player) && EnchantmentHelper.getItemEnchantmentLevel(Registration.SMELTING.get(), itemStack) != 0 &&
-                (blockState.is(Tags.Blocks.ORES_IRON) || blockState.is(Tags.Blocks.ORES_COPPER) || blockState.is(Tags.Blocks.ORES_GOLD) || blockState.is(Blocks.ANCIENT_DEBRIS)||
+        if (blockState != null && ForgeHooks.isCorrectToolForDrops(blockState, player) && EnchantmentHelper.getItemEnchantmentLevel(Registration.SMELTING.get(), itemStack) != 0 && (
+                blockState.is(Tags.Blocks.ORES_IRON) || blockState.is(Tags.Blocks.ORES_COPPER) || blockState.is(Tags.Blocks.ORES_GOLD) || blockState.is(Blocks.ANCIENT_DEBRIS)||
                 blockState.is(Tags.Blocks.SAND) || blockState.is(Blocks.SANDSTONE) || blockState.is(Blocks.RED_SANDSTONE) || blockState.is(Blocks.NETHERRACK) ||
                 blockState.is(Blocks.COBBLESTONE) || blockState.is(Blocks.COBBLED_DEEPSLATE) || blockState.is(Blocks.QUARTZ_BLOCK) || blockState.is(Blocks.BASALT) ||
-                blockState.is(Blocks.CLAY))) {
+                blockState.is(Blocks.CLAY) || blockState.is(Blocks.WHITE_TERRACOTTA) || blockState.is(Blocks.ORANGE_TERRACOTTA) || blockState.is(Blocks.MAGENTA_TERRACOTTA) ||
+                blockState.is(Blocks.LIGHT_BLUE_TERRACOTTA) || blockState.is(Blocks.YELLOW_TERRACOTTA) || blockState.is(Blocks.LIME_TERRACOTTA) || blockState.is(Blocks.PINK_TERRACOTTA) ||
+                blockState.is(Blocks.GRAY_TERRACOTTA) || blockState.is(Blocks.LIGHT_GRAY_TERRACOTTA) || blockState.is(Blocks.CYAN_TERRACOTTA) || blockState.is(Blocks.PURPLE_TERRACOTTA) ||
+                blockState.is(Blocks.BLUE_TERRACOTTA) || blockState.is(Blocks.BROWN_TERRACOTTA) || blockState.is(Blocks.GREEN_TERRACOTTA) || blockState.is(Blocks.RED_TERRACOTTA) ||
+                blockState.is(Blocks.BLACK_TERRACOTTA))) {
+            BlockPos pos = event.getPos();
             level.playSound(null, pos, SoundEvents.GENERIC_BURN, SoundSource.BLOCKS, 1.0F, 1.0F);
             spawnParticlesOnBlockFaces(level, pos, ParticleTypes.FLAME, UniformInt.of(2, 4));
             ModCriteriaTriggers.MINE_WITH_SMELTING.trigger((ServerPlayer) player);
+
+            Optional<SmeltingRecipe> optional = level.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(new ItemStack(blockState.getBlock())), level);
+            if (optional.isPresent()) {
+                SmeltingRecipe recipe = optional.get();
+
+                if (blockState.is(Blocks.ANCIENT_DEBRIS)) {
+                    event.setExpToDrop((int) recipe.getExperience());
+                } else {
+                    if (Math.random() <= recipe.getExperience()) {
+                        event.setExpToDrop(1);
+                    }
+                }
+
+                return true;
+            }
         }
+
+        return false;
     }
 
     private static void spawnParticlesOnBlockFaces(ServerLevel serverLevel, BlockPos pos, ParticleOptions particleType, UniformInt amount) {

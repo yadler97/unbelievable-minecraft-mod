@@ -186,7 +186,7 @@ Before building the jar, runData must be executed first. To then build the jar, 
 - smelts mined blocks directly without needing a furnace
 - cannot be obtained using an enchantment table
 - is incompatible with Silk Touch
-- gives no experience orbs when mining
+- gives the same amount of experience as when smelting the item in a furnace
 
 ## Advancements
 - the mod contains several advancements that can be found in a separate tab in the advancement screen

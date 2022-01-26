@@ -125,6 +125,7 @@ public class BlockLootTables extends BlockLoot {
         this.add(Blocks.DEEPSLATE_GOLD_ORE, (block) -> createSingleItemWithSmeltingAndSilkTouch(Blocks.DEEPSLATE_GOLD_ORE, Items.GOLD_INGOT, Items.RAW_GOLD));
 
         this.add(Blocks.ANCIENT_DEBRIS, (block) -> createSingleItemWithSmelting(Blocks.ANCIENT_DEBRIS, Items.NETHERITE_SCRAP));
+        this.add(Blocks.NETHER_GOLD_ORE, (block) -> createNetherGoldOreDrop(Blocks.NETHER_GOLD_ORE, Items.GOLD_INGOT, Items.GOLD_NUGGET));
         this.add(Blocks.SAND, (block) -> createSingleItemWithSmelting(Blocks.SAND, Items.GLASS));
         this.add(Blocks.RED_SAND, (block) -> createSingleItemWithSmelting(Blocks.RED_SAND, Items.GLASS));
         this.add(Blocks.SANDSTONE, (block) -> createSingleItemWithSmelting(Blocks.SANDSTONE, Items.SMOOTH_SANDSTONE));
@@ -135,6 +136,23 @@ public class BlockLootTables extends BlockLoot {
         this.add(Blocks.QUARTZ_BLOCK, (block) -> createSingleItemWithSmelting(Blocks.QUARTZ_BLOCK, Items.SMOOTH_QUARTZ));
         this.add(Blocks.BASALT, (block) -> createSingleItemWithSmelting(Blocks.BASALT, Items.SMOOTH_BASALT));
         this.add(Blocks.CLAY, (block) -> createClayDrop(Blocks.CLAY, Items.TERRACOTTA, Items.CLAY_BALL));
+
+        this.add(Blocks.WHITE_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.WHITE_TERRACOTTA, Items.WHITE_GLAZED_TERRACOTTA));
+        this.add(Blocks.ORANGE_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.ORANGE_TERRACOTTA, Items.ORANGE_GLAZED_TERRACOTTA));
+        this.add(Blocks.MAGENTA_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.MAGENTA_TERRACOTTA, Items.MAGENTA_GLAZED_TERRACOTTA));
+        this.add(Blocks.LIGHT_BLUE_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.LIGHT_BLUE_TERRACOTTA, Items.LIGHT_BLUE_GLAZED_TERRACOTTA));
+        this.add(Blocks.YELLOW_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.YELLOW_TERRACOTTA, Items.YELLOW_GLAZED_TERRACOTTA));
+        this.add(Blocks.LIME_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.LIME_TERRACOTTA, Items.LIME_GLAZED_TERRACOTTA));
+        this.add(Blocks.PINK_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.PINK_TERRACOTTA, Items.PINK_GLAZED_TERRACOTTA));
+        this.add(Blocks.GRAY_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.GRAY_TERRACOTTA, Items.GRAY_GLAZED_TERRACOTTA));
+        this.add(Blocks.LIGHT_GRAY_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.LIGHT_GRAY_TERRACOTTA, Items.LIGHT_GRAY_GLAZED_TERRACOTTA));
+        this.add(Blocks.CYAN_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.CYAN_TERRACOTTA, Items.CYAN_GLAZED_TERRACOTTA));
+        this.add(Blocks.PURPLE_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.PURPLE_TERRACOTTA, Items.PURPLE_GLAZED_TERRACOTTA));
+        this.add(Blocks.BLUE_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.BLUE_TERRACOTTA, Items.BLUE_GLAZED_TERRACOTTA));
+        this.add(Blocks.BROWN_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.BROWN_TERRACOTTA, Items.BROWN_GLAZED_TERRACOTTA));
+        this.add(Blocks.GREEN_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.GREEN_TERRACOTTA, Items.GREEN_GLAZED_TERRACOTTA));
+        this.add(Blocks.RED_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.RED_TERRACOTTA, Items.RED_GLAZED_TERRACOTTA));
+        this.add(Blocks.BLACK_TERRACOTTA, (block) -> createSingleItemWithSmelting(Blocks.BLACK_TERRACOTTA, Items.BLACK_GLAZED_TERRACOTTA));
     }
 
     @Override
@@ -149,6 +167,7 @@ public class BlockLootTables extends BlockLoot {
         blocks.add(Blocks.GOLD_ORE);
         blocks.add(Blocks.DEEPSLATE_GOLD_ORE);
         blocks.add(Blocks.ANCIENT_DEBRIS);
+        blocks.add(Blocks.NETHER_GOLD_ORE);
         blocks.add(Blocks.SAND);
         blocks.add(Blocks.RED_SAND);
         blocks.add(Blocks.SANDSTONE);
@@ -159,12 +178,34 @@ public class BlockLootTables extends BlockLoot {
         blocks.add(Blocks.QUARTZ_BLOCK);
         blocks.add(Blocks.BASALT);
         blocks.add(Blocks.CLAY);
+        blocks.add(Blocks.WHITE_TERRACOTTA);
+        blocks.add(Blocks.ORANGE_TERRACOTTA);
+        blocks.add(Blocks.MAGENTA_TERRACOTTA);
+        blocks.add(Blocks.LIGHT_BLUE_TERRACOTTA);
+        blocks.add(Blocks.YELLOW_TERRACOTTA);
+        blocks.add(Blocks.LIME_TERRACOTTA);
+        blocks.add(Blocks.PINK_TERRACOTTA);
+        blocks.add(Blocks.GRAY_TERRACOTTA);
+        blocks.add(Blocks.LIGHT_GRAY_TERRACOTTA);
+        blocks.add(Blocks.CYAN_TERRACOTTA);
+        blocks.add(Blocks.PURPLE_TERRACOTTA);
+        blocks.add(Blocks.BLUE_TERRACOTTA);
+        blocks.add(Blocks.BROWN_TERRACOTTA);
+        blocks.add(Blocks.GREEN_TERRACOTTA);
+        blocks.add(Blocks.RED_TERRACOTTA);
+        blocks.add(Blocks.BLACK_TERRACOTTA);
         return blocks.stream()::iterator;
     }
 
     private LootTable.Builder createSingleItemWithSmeltingAndSilkTouch(Block silkTouchBlock, ItemLike smeltingItemLike, ItemLike noSilkTouchOrSmeltingItemLike) {
         LootPoolEntryContainer.Builder<?> alternativeEntryBuilder = applyExplosionDecay(silkTouchBlock, LootItem.lootTableItem(noSilkTouchOrSmeltingItemLike).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)));
         LootPoolEntryContainer.Builder<?> smeltingEntryBuilder = LootItem.lootTableItem(smeltingItemLike).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)).when(HAS_SMELTING);
+        return createSingleItemWithSmeltingAndSilkTouch(silkTouchBlock, smeltingEntryBuilder, alternativeEntryBuilder);
+    }
+
+    private LootTable.Builder createNetherGoldOreDrop(Block silkTouchBlock, ItemLike smeltingItemLike, ItemLike noSilkTouchOrSmeltingItemLike) {
+        LootPoolEntryContainer.Builder<?> alternativeEntryBuilder = applyExplosionDecay(silkTouchBlock, LootItem.lootTableItem(noSilkTouchOrSmeltingItemLike).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)));
+        LootPoolEntryContainer.Builder<?> smeltingEntryBuilder = LootItem.lootTableItem(smeltingItemLike).when(HAS_SMELTING);
         return createSingleItemWithSmeltingAndSilkTouch(silkTouchBlock, smeltingEntryBuilder, alternativeEntryBuilder);
     }
 
