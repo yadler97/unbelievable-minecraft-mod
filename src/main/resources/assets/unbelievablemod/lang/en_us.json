@@ -163,6 +163,9 @@
   "advancements.mod.is_that_redstone.title": "Is that redstone?",
   "advancements.mod.is_that_redstone.description": "Find rubies",
 
+  "advancements.mod.is_this_deep_enough.title": "Is this deep enough?",
+  "advancements.mod.is_this_deep_enough.description": "Use a depth meter at the bottom of the world",
+
   "advancements.mod.diamonds_wait.title": "Diamonds??? ... wait",
   "advancements.mod.diamonds_wait.description": "Find sapphires",
 

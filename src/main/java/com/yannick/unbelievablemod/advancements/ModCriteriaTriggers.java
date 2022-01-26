@@ -1,9 +1,6 @@
 package com.yannick.unbelievablemod.advancements;
 
-import com.yannick.unbelievablemod.advancements.criteron.AddCushionToChairTrigger;
-import com.yannick.unbelievablemod.advancements.criteron.AddItemToShelfTrigger;
-import com.yannick.unbelievablemod.advancements.criteron.MineWithSmeltingTrigger;
-import com.yannick.unbelievablemod.advancements.criteron.SapphireMineMaxDistanceTrigger;
+import com.yannick.unbelievablemod.advancements.criteron.*;
 import net.minecraft.advancements.CriteriaTriggers;
 
 public class ModCriteriaTriggers extends CriteriaTriggers {
@@ -11,6 +8,7 @@ public class ModCriteriaTriggers extends CriteriaTriggers {
     public static SapphireMineMaxDistanceTrigger SAPPHIRE_MINE_MAX_DISTANCE = register(new SapphireMineMaxDistanceTrigger());
     public static AddCushionToChairTrigger ADD_CUSHION_TO_CHAIR = register(new AddCushionToChairTrigger());
     public static MineWithSmeltingTrigger MINE_WITH_SMELTING = register(new MineWithSmeltingTrigger());
+    public static UseItemAtHeightTrigger USE_ITEM_AT_HEIGHT = register(new UseItemAtHeightTrigger());
 
     public static void init() {
     }

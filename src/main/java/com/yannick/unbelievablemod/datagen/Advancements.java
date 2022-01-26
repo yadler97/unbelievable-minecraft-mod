@@ -1,10 +1,7 @@
 package com.yannick.unbelievablemod.datagen;
 
 import com.yannick.unbelievablemod.UnbelievableMod;
-import com.yannick.unbelievablemod.advancements.criteron.AddCushionToChairTrigger;
-import com.yannick.unbelievablemod.advancements.criteron.AddItemToShelfTrigger;
-import com.yannick.unbelievablemod.advancements.criteron.MineWithSmeltingTrigger;
-import com.yannick.unbelievablemod.advancements.criteron.SapphireMineMaxDistanceTrigger;
+import com.yannick.unbelievablemod.advancements.criteron.*;
 import com.yannick.unbelievablemod.setup.ModTags;
 import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.world.Structures;
@@ -136,6 +133,20 @@ public class Advancements extends AdvancementProvider {
                 .addCriterion("has_rubies", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.RUBY.get()))
                 .parent(rootAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/is_that_redstone")));
+
+        Advancement.Builder.advancement()
+                .display(
+                        Registration.DEPTH_METER.get(),
+                        new TranslatableComponent("advancements.mod.is_this_deep_enough.title"),
+                        new TranslatableComponent("advancements.mod.is_this_deep_enough.description"),
+                        null,
+                        FrameType.TASK,
+                        true,
+                        false,
+                        false)
+                .addCriterion("uses_depth_meter_at_bottom_of_world", UseItemAtHeightTrigger.TriggerInstance.usedItemAtHeight(ItemPredicate.Builder.item().of(Registration.DEPTH_METER.get()).build(), MinMaxBounds.Ints.exactly(-63)))
+                .parent(rubyAdvancement)
+                .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/is_this_deep_enough")));
 
         Advancement sapphireAdvancement = Advancement.Builder.advancement()
                 .display(
