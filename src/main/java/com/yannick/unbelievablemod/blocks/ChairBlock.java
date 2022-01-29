@@ -2,6 +2,7 @@ package com.yannick.unbelievablemod.blocks;
 
 import com.yannick.unbelievablemod.advancements.ModCriteriaTriggers;
 import com.yannick.unbelievablemod.entities.ChairEntity;
+import com.yannick.unbelievablemod.setup.ModStats;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
@@ -121,6 +122,7 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
                 ChairEntity entity = new ChairEntity(level, pos);
                 level.addFreshEntity(entity);
                 player.startRiding(entity);
+                player.awardStat(ModStats.SIT_ON_CHAIR);
             }
 
             return InteractionResult.CONSUME;

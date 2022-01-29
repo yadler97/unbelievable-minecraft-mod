@@ -1,9 +1,12 @@
 package com.yannick.unbelievablemod.items;
 
+import com.yannick.unbelievablemod.advancements.ModCriteriaTriggers;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -28,6 +31,14 @@ public class DepthMeter extends Item {
     public void inventoryTick(ItemStack itemStack, Level level, Entity entity, int itemSlot, boolean isSelected) {
         if (level.isClientSide) {
             itemStack.getOrCreateTag().putInt("depth", entity.getBlockY());
+        } else {
+            if (entity instanceof Player player) {
+                if (player.getMainHandItem().is(itemStack.getItem())) {
+                    ModCriteriaTriggers.USE_ITEM_AT_HEIGHT.trigger((ServerPlayer) player, player.getMainHandItem(), player.getBlockY());
+                } else if (player.getOffhandItem().is(itemStack.getItem())) {
+                    ModCriteriaTriggers.USE_ITEM_AT_HEIGHT.trigger((ServerPlayer) player, player.getOffhandItem(), player.getBlockY());
+                }
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 package com.yannick.unbelievablemod.blocks;
 
+import com.yannick.unbelievablemod.setup.ModStats;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -116,6 +117,7 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityB
                         level.addFreshEntity(itementity);
                     } else {
                         level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        player.awardStat(ModStats.ADD_ITEM_TO_SHELF);
                         if (!player.getAbilities().instabuild) {
                             stack.shrink(1);
                         }

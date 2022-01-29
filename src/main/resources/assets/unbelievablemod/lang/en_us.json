@@ -173,5 +173,9 @@
   "advancements.mod.terraforming_specialist.description": "Use a sapphire shovel with max mining distance",
 
   "advancements.mod.it_fulfilled_its_purpose.title": "It fulfilled its purpose...",
-  "advancements.mod.it_fulfilled_its_purpose.description": "Break a wooden bucket"
+  "advancements.mod.it_fulfilled_its_purpose.description": "Break a wooden bucket",
+
+  "stat.unbelievablemod.interact_with_sawmill": "Interactions with Sawmill",
+  "stat.unbelievablemod.add_item_to_shelf": "Items Added to Shelf",
+  "stat.unbelievablemod.sit_on_chair": "Sat on Chair"
 }

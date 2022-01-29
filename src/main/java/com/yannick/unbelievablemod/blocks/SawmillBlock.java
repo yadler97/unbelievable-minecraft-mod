@@ -1,6 +1,7 @@
 package com.yannick.unbelievablemod.blocks;
 
 import com.yannick.unbelievablemod.inventory.SawmillMenu;
+import com.yannick.unbelievablemod.setup.ModStats;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -42,7 +43,9 @@ public class SawmillBlock extends Block {
     }
 
     public InteractionResult use(BlockState blockState, Level level, BlockPos pos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
-        if (!level.isClientSide) {
+        if (level.isClientSide) {
+            return InteractionResult.SUCCESS;
+        } else {
             MenuProvider containerProvider = new MenuProvider() {
                 @Override
                 public Component getDisplayName() {
@@ -55,8 +58,9 @@ public class SawmillBlock extends Block {
                 }
             };
             NetworkHooks.openGui((ServerPlayer) player, containerProvider, pos);
+            player.awardStat(ModStats.INTERACT_WITH_SAWMILL);
+            return InteractionResult.CONSUME;
         }
-        return InteractionResult.SUCCESS;
     }
 
     public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos pos, CollisionContext collisionContext) {

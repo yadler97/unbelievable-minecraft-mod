@@ -7,6 +7,7 @@ import com.mojang.serialization.Codec;
 import com.yannick.unbelievablemod.advancements.ModCriteriaTriggers;
 import com.yannick.unbelievablemod.setup.ClientSetup;
 import com.yannick.unbelievablemod.setup.Config;
+import com.yannick.unbelievablemod.setup.ModStats;
 import com.yannick.unbelievablemod.setup.Registration;
 import com.yannick.unbelievablemod.world.OreGeneration;
 import com.yannick.unbelievablemod.world.ConfiguredStructures;
@@ -53,6 +54,7 @@ public class UnbelievableMod {
         Registration.init();
         Config.init();
         ModCriteriaTriggers.init();
+        ModStats.init();
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         Structures.DEFERRED_REGISTRY_STRUCTURE.register(bus);
