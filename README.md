@@ -147,6 +147,9 @@ Before building the jar, runData must be executed first. To then build the jar, 
 - crafted from four bamboo items in a square
 - can be used as a building material
 
+#### Tables
+- connect to neighbouring tables of the same wood type
+
 #### Chairs
 - players can sit on chairs by right-clicking on them
 - cushions can be added by right-clicking with a carpet

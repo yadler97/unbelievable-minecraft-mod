@@ -93,9 +93,9 @@ public class ShelfBlock extends Block implements SimpleWaterloggedBlock, EntityB
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        BlockPos blockpos = context.getClickedPos();
-        FluidState fluidstate = context.getLevel().getFluidState(blockpos);
-        return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER).setValue(LIT, Boolean.FALSE).setValue(LIGHT_LEVEL, 0);
+        BlockPos pos = context.getClickedPos();
+        FluidState fluidState = context.getLevel().getFluidState(pos);
+        return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(WATERLOGGED, fluidState.getType() == Fluids.WATER).setValue(LIT, Boolean.FALSE).setValue(LIGHT_LEVEL, 0);
     }
 
     public InteractionResult use(BlockState blockState, Level level, BlockPos pos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {

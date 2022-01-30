@@ -21,8 +21,8 @@ import java.util.function.Consumer;
 
 public class Recipes extends RecipeProvider {
 
-    public Recipes(DataGenerator generatorIn) {
-        super(generatorIn);
+    public Recipes(DataGenerator generator) {
+        super(generator);
     }
 
     @Override

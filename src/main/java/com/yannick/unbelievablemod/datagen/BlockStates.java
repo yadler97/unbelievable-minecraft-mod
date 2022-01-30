@@ -17,8 +17,8 @@ import static net.minecraftforge.client.model.generators.ModelProvider.BLOCK_FOL
 
 public class BlockStates extends BlockStateProvider {
 
-    public BlockStates(DataGenerator gen, ExistingFileHelper exFileHelper) {
-        super(gen, UnbelievableMod.MODID, exFileHelper);
+    public BlockStates(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+        super(generator, UnbelievableMod.MODID, existingFileHelper);
     }
 
     @Override
@@ -113,16 +113,64 @@ public class BlockStates extends BlockStateProvider {
 
     private void tableBlock(String name, TableBlock block, ResourceLocation texture) {
         ModelFile table = models().singleTexture(name, modLoc(BLOCK_FOLDER + "/table"), texture);
-        simpleBlock(block, table);
+        ModelFile table_with_two_legs = models().singleTexture(name + "_with_two_legs", modLoc(BLOCK_FOLDER + "/table_with_two_legs"), texture);
+        ModelFile table_with_one_leg = models().singleTexture(name + "_with_one_leg", modLoc(BLOCK_FOLDER + "/table_with_one_leg"), texture);
+        ModelFile table_with_no_legs = models().singleTexture(name + "_with_no_legs", modLoc(BLOCK_FOLDER + "/table_with_no_legs"), texture);
+        getVariantBuilder(block).forAllStatesExcept(state -> {
+            ModelFile model = table;
+            int rotation = 0;
+            int north = state.getValue(TableBlock.NORTH) ? 8 : 0;
+            int east = state.getValue(TableBlock.EAST) ? 4 : 0;
+            int south = state.getValue(TableBlock.SOUTH) ? 2 : 0;
+            int west = state.getValue(TableBlock.WEST) ? 1 : 0;
+            switch (north + east + south + west) {
+                case 15, 14, 13, 11, 10, 7, 5 -> model = table_with_no_legs;
+                case 12 -> {
+                    model = table_with_one_leg;
+                    rotation = 90;
+                }
+                case 9 -> {
+                    model = table_with_one_leg;
+                }
+                case 8 -> {
+                    model = table_with_two_legs;
+                }
+                case 6 -> {
+                    model = table_with_one_leg;
+                    rotation = 180;
+                }
+                case 4 -> {
+                    model = table_with_two_legs;
+                    rotation = 90;
+                }
+                case 3 -> {
+                    model = table_with_one_leg;
+                    rotation = 270;
+                }
+                case 2 -> {
+                    model = table_with_two_legs;
+                    rotation = 180;
+                }
+                case 1 -> {
+                    model = table_with_two_legs;
+                    rotation = 270;
+                }
+            }
+            return ConfiguredModel.builder()
+                    .modelFile(model)
+                    .rotationY(rotation % 360)
+                    .uvLock(true)
+                    .build();
+        }, TableBlock.WATERLOGGED);
     }
 
     private void chairBlock(String name, ChairBlock block, ResourceLocation texture) {
         ModelFile chair = models().singleTexture(name, modLoc(BLOCK_FOLDER + "/chair"), texture);
 
-        getVariantBuilder(block).forAllStates(state -> {
+        getVariantBuilder(block).forAllStatesExcept(state -> {
             ModelFile model = chair;
             if (state.getValue(ChairBlock.CUSHION)) {
-                switch(state.getValue(ChairBlock.COLOR)) {
+                switch (state.getValue(ChairBlock.COLOR)) {
                     case ORANGE -> model = models().withExistingParent(name + "_with_cushion_orange", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/orange_wool"));
                     case MAGENTA -> model = models().withExistingParent(name + "_with_cushion_magenta", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/magenta_wool"));
                     case LIGHT_BLUE -> model = models().withExistingParent(name + "_with_cushion_light_blue", modLoc(BLOCK_FOLDER + "/chair_with_cushion")).texture("texture", texture).texture("wool", new ResourceLocation("minecraft", "block/light_blue_wool"));
@@ -147,7 +195,7 @@ public class BlockStates extends BlockStateProvider {
                     .rotationY(((int) state.getValue(ChairBlock.FACING).toYRot() + 180) % 360)
                     .uvLock(true)
                     .build();
-        });
+        }, ChairBlock.WATERLOGGED);
     }
 
     private void shelfBlock(String name, ShelfBlock block, ResourceLocation texture) {

@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -29,38 +30,52 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock {
     private final int fireSpreadSpeed;
     private final int flammability;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-
-    private static final VoxelShape SHAPE = Stream.of(
-            Block.box(1, 0, 13, 3, 14, 15),
-            Block.box(13, 0, 13, 15, 14, 15),
-            Block.box(1, 0, 1, 3, 14, 3),
-            Block.box(13, 0, 1, 15, 14, 3),
-            Block.box(0, 14, 0, 16, 16, 16)
-    ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
+    public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
+    public static final BooleanProperty EAST = BlockStateProperties.EAST;
+    public static final BooleanProperty SOUTH = BlockStateProperties.SOUTH;
+    public static final BooleanProperty WEST = BlockStateProperties.WEST;
 
     public TableBlock(Properties properties, int fireSpreadSpeed, int flammability) {
         super(properties);
         this.fireSpreadSpeed = fireSpreadSpeed;
         this.flammability = flammability;
-        this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, Boolean.FALSE));
+        this.registerDefaultState(this.defaultBlockState()
+                .setValue(WATERLOGGED, Boolean.FALSE)
+                .setValue(NORTH, Boolean.FALSE)
+                .setValue(EAST, Boolean.FALSE)
+                .setValue(SOUTH, Boolean.FALSE)
+                .setValue(WEST, Boolean.FALSE));
     }
 
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        BlockPos blockpos = context.getClickedPos();
-        FluidState fluidstate = context.getLevel().getFluidState(blockpos);
-        return defaultBlockState().setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
+        BlockPos pos = context.getClickedPos();
+        Level level = context.getLevel();
+        FluidState fluidState = level.getFluidState(pos);
+
+        return this.defaultBlockState()
+                .setValue(WATERLOGGED, fluidState.getType() == Fluids.WATER)
+                .setValue(NORTH, level.getBlockState(pos.north()).is(this))
+                .setValue(EAST, level.getBlockState(pos.east()).is(this))
+                .setValue(SOUTH, level.getBlockState(pos.south()).is(this))
+                .setValue(WEST, level.getBlockState(pos.west()).is(this));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState>  builder) {
-        builder.add(WATERLOGGED);
+        builder.add(WATERLOGGED, NORTH, EAST, SOUTH, WEST);
     }
 
     @Override
     public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos pos, CollisionContext collisionContext) {
-        return SHAPE;
+        return Stream.of(
+                !blockState.getValue(NORTH) && !blockState.getValue(EAST) ? Block.box(13, 0, 1, 15, 14, 3) : Block.box(0, 0, 0, 0, 0, 0),
+                !blockState.getValue(EAST) && !blockState.getValue(SOUTH) ? Block.box(13, 0, 13, 15, 14, 15) : Block.box(0, 0, 0, 0, 0, 0),
+                !blockState.getValue(SOUTH) && !blockState.getValue(WEST) ? Block.box(1, 0, 13, 3, 14, 15) : Block.box(0, 0, 0, 0, 0, 0),
+                !blockState.getValue(WEST) && !blockState.getValue(NORTH) ? Block.box(1, 0, 1, 3, 14, 3) : Block.box(0, 0, 0, 0, 0, 0),
+                Block.box(0, 14, 0, 16, 16, 16)
+        ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
     }
 
     @Override
@@ -90,13 +105,20 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock {
             levelAccessor.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
         }
 
-        return super.updateShape(blockState, direction, facingBlockState, levelAccessor, currentPos, neighborPos);
+        return switch (direction) {
+            case NORTH -> blockState.setValue(NORTH, facingBlockState.is(this));
+            case EAST -> blockState.setValue(EAST, facingBlockState.is(this));
+            case SOUTH -> blockState.setValue(SOUTH, facingBlockState.is(this));
+            case WEST -> blockState.setValue(WEST, facingBlockState.is(this));
+            default -> blockState;
+        };
     }
 
     public boolean isPathfindable(BlockState blockState, BlockGetter blockGetter, BlockPos pos, PathComputationType pathComputationType) {
         if (pathComputationType == PathComputationType.WATER) {
             return blockGetter.getFluidState(pos).is(FluidTags.WATER);
         }
+
         return false;
     }
 }

@@ -21,8 +21,8 @@ import java.util.function.Consumer;
 
 public class Advancements extends AdvancementProvider {
 
-    public Advancements(DataGenerator generatorIn) {
-        super(generatorIn);
+    public Advancements(DataGenerator generator) {
+        super(generator);
     }
 
     @Override
