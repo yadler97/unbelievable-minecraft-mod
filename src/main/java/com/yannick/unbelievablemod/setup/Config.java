@@ -9,6 +9,7 @@ public class Config {
     public static ForgeConfigSpec SERVER_CONFIG;
 
     public static ForgeConfigSpec.IntValue MAX_SAPPHIRE_DISTANCE;
+    public static ForgeConfigSpec.BooleanValue CONNECTING_TABLES;
 
     public static ForgeConfigSpec.BooleanValue RENDER_SHELF_BLOCK_ITEMS_AS_BLOCKS;
     public static ForgeConfigSpec.BooleanValue RENDER_SHELF_ITEMS_LYING;
@@ -28,6 +29,9 @@ public class Config {
         MAX_SAPPHIRE_DISTANCE = builder
                 .comment("How many additional blocks in a row sapphire tools can mine at max")
                 .defineInRange("sapphireToolsMaxMiningBlocks", 3, 0, 20);
+        CONNECTING_TABLES = builder
+                .comment("Determines if tables should connect with neighbouring tables of the same type")
+                .define("connectingTables", true);
         builder.pop();
 
         SERVER_CONFIG = builder.build();

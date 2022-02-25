@@ -198,6 +198,7 @@ Before building the jar, runData must be executed first. To then build the jar, 
 
 ### Server Config
 - **sapphireToolsMaxMiningBlocks**: How many additional blocks in a row sapphire tools can mine at max
+- **connectingTables**: Determines if tables should connect with neighbouring tables of the same type
 
 ### Client Config
 - **renderBlockItemsAsBlocks**: Determines if BlockItems should be rendered as blocks instead of items in shelves

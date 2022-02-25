@@ -1,5 +1,6 @@
 package com.yannick.unbelievablemod.blocks;
 
+import com.yannick.unbelievablemod.setup.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
@@ -54,12 +55,17 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock {
         Level level = context.getLevel();
         FluidState fluidState = level.getFluidState(pos);
 
-        return this.defaultBlockState()
-                .setValue(WATERLOGGED, fluidState.getType() == Fluids.WATER)
-                .setValue(NORTH, level.getBlockState(pos.north()).is(this))
-                .setValue(EAST, level.getBlockState(pos.east()).is(this))
-                .setValue(SOUTH, level.getBlockState(pos.south()).is(this))
-                .setValue(WEST, level.getBlockState(pos.west()).is(this));
+        if (Config.CONNECTING_TABLES.get()) {
+            return this.defaultBlockState()
+                    .setValue(WATERLOGGED, fluidState.getType() == Fluids.WATER)
+                    .setValue(NORTH, level.getBlockState(pos.north()).is(this))
+                    .setValue(EAST, level.getBlockState(pos.east()).is(this))
+                    .setValue(SOUTH, level.getBlockState(pos.south()).is(this))
+                    .setValue(WEST, level.getBlockState(pos.west()).is(this));
+        } else {
+            return this.defaultBlockState()
+                    .setValue(WATERLOGGED, fluidState.getType() == Fluids.WATER);
+        }
     }
 
     @Override
@@ -105,13 +111,23 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock {
             levelAccessor.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
         }
 
-        return switch (direction) {
-            case NORTH -> blockState.setValue(NORTH, facingBlockState.is(this));
-            case EAST -> blockState.setValue(EAST, facingBlockState.is(this));
-            case SOUTH -> blockState.setValue(SOUTH, facingBlockState.is(this));
-            case WEST -> blockState.setValue(WEST, facingBlockState.is(this));
-            default -> blockState;
-        };
+        if (Config.CONNECTING_TABLES.get()) {
+            return switch (direction) {
+                case NORTH -> blockState.setValue(NORTH, facingBlockState.is(this));
+                case EAST -> blockState.setValue(EAST, facingBlockState.is(this));
+                case SOUTH -> blockState.setValue(SOUTH, facingBlockState.is(this));
+                case WEST -> blockState.setValue(WEST, facingBlockState.is(this));
+                default -> blockState;
+            };
+        } else {
+            return switch (direction) {
+                case NORTH -> blockState.setValue(NORTH, false);
+                case EAST -> blockState.setValue(EAST, false);
+                case SOUTH -> blockState.setValue(SOUTH, false);
+                case WEST -> blockState.setValue(WEST, false);
+                default -> blockState;
+            };
+        }
     }
 
     public boolean isPathfindable(BlockState blockState, BlockGetter blockGetter, BlockPos pos, PathComputationType pathComputationType) {
