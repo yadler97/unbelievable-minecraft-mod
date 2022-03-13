@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[39,)"
+loaderVersion="[40,)"
 license="MIT"
 issueTrackerURL="https://github.com/yadler97/unbelievable-minecraft-mod/issues"
 [[mods]]
@@ -19,13 +19,13 @@ A truly unbelievable Mod adding new blocks, items, ores, structures and more!
 [[dependencies.unbelievablemod]]
     modId="forge"
     mandatory=true
-    versionRange="[39,)"
+    versionRange="[40,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.unbelievablemod]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.1,1.19)"
+    versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="BOTH"

@@ -9,7 +9,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Items;
@@ -938,10 +938,10 @@ public class Recipes extends RecipeProvider {
         addWoodsawingRecipe(ItemTags.LOGS, Items.BOWL, 6, consumer);
     }
 
-    private void addWoodsawingRecipe(Tag.Named<Item> tag, Block result, int count, Consumer<FinishedRecipe> consumer) {
+    private void addWoodsawingRecipe(TagKey<Item> tag, Block result, int count, Consumer<FinishedRecipe> consumer) {
         WoodsawingRecipeBuilder.woodsawing(Ingredient.of(tag), result, count)
-                .unlockedBy("has_" + tag.getName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(tag).build()))
-                .save(consumer, new ResourceLocation(UnbelievableMod.MODID, "woodsawing/" + result.asItem() + "_from_" + tag.getName().getPath() + "_woodsawing"));
+                .unlockedBy("has_" + tag.location().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(tag).build()))
+                .save(consumer, new ResourceLocation(UnbelievableMod.MODID, "woodsawing/" + result.asItem() + "_from_" + tag.location().getPath() + "_woodsawing"));
     }
 
     private void addWoodsawingRecipe(Block input, Block result, int count, Consumer<FinishedRecipe> consumer) {
@@ -950,10 +950,10 @@ public class Recipes extends RecipeProvider {
                 .save(consumer, new ResourceLocation(UnbelievableMod.MODID, "woodsawing/" + result.asItem() + "_from_" + input.asItem() + "_woodsawing"));
     }
 
-    private void addWoodsawingRecipe(Tag.Named<Item> tag, Item result, int count, Consumer<FinishedRecipe> consumer) {
+    private void addWoodsawingRecipe(TagKey<Item> tag, Item result, int count, Consumer<FinishedRecipe> consumer) {
         WoodsawingRecipeBuilder.woodsawing(Ingredient.of(tag), result, count)
-                .unlockedBy("has_" + tag.getName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(tag).build()))
-                .save(consumer, new ResourceLocation(UnbelievableMod.MODID, "woodsawing/" + result + "_from_" + tag.getName().getPath() + "_woodsawing"));
+                .unlockedBy("has_" + tag.location().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(tag).build()))
+                .save(consumer, new ResourceLocation(UnbelievableMod.MODID, "woodsawing/" + result + "_from_" + tag.location().getPath() + "_woodsawing"));
     }
 
     private void addWoodsawingRecipe(Block input, Item result, int count, Consumer<FinishedRecipe> consumer) {

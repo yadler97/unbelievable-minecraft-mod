@@ -9,12 +9,15 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.*;
+import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.advancements.AdvancementProvider;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.function.Consumer;
@@ -249,7 +252,7 @@ public class Advancements extends AdvancementProvider {
                         true,
                         false,
                         false)
-                .addCriterion("find_castle_ruins", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(Structures.CASTLE_RUINS.get())))
+                .addCriterion("find_castle_ruins", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(createKey("castle_ruins"))))
                 .parent(rootAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/long_ago")));
 
@@ -263,7 +266,7 @@ public class Advancements extends AdvancementProvider {
                         true,
                         false,
                         false)
-                .addCriterion("find_lumberjack_house", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(Structures.ABANDONED_LUMBERJACK_HOUSE.get())))
+                .addCriterion("find_lumberjack_house", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(createKey("abandoned_lumberjack_house"))))
                 .parent(longAgoAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/hello_anybody_here")));
 
@@ -277,7 +280,7 @@ public class Advancements extends AdvancementProvider {
                         true,
                         false,
                         false)
-                .addCriterion("find_underground_cabin", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(Structures.UNDERGROUND_CABIN.get())))
+                .addCriterion("find_underground_cabin", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(createKey("underground_cabin"))))
                 .parent(lumberjackHouseAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/anybody_living_down_here")));
 
@@ -305,8 +308,12 @@ public class Advancements extends AdvancementProvider {
                         true,
                         false,
                         false)
-                .addCriterion("find_mountain_fortress", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(Structures.MOUNTAIN_FORTRESS.get())))
+                .addCriterion("find_mountain_fortress", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(createKey("mountain_fortress"))))
                 .parent(undergroundCabinAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/mountaineer")));
+    }
+
+    private static ResourceKey<ConfiguredStructureFeature<?, ?>> createKey(String name) {
+        return ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(UnbelievableMod.MODID, name));
     }
 }

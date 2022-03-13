@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "unbelievablemod:castle_ruins",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 876543219,
+    "spacing": 100,
+    "separation": 50,
+    "type": "minecraft:random_spread"
+  }
+}

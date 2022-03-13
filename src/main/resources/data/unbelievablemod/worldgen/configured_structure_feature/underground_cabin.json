@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:village",
+
+  "config": {
+    "start_pool": "unbelievablemod:underground_cabin/start_pool",
+    "size": 6
+  },
+  "biomes": "#unbelievablemod:has_structure/underground_cabin_biomes",
+  "adapt_noise": true,
+  "spawn_overrides": {}
+}
