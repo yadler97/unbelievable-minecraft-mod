@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:village",
+
+  "config": {
+    "start_pool": "unbelievablemod:abandoned_lumberjack_house/start_pool",
+    "size": 6
+  },
+  "biomes": "#unbelievablemod:has_structure/abandoned_lumberjack_house_biomes",
+  "adapt_noise": true,
+  "spawn_overrides": {
+    "monster": {
+      "bounding_box": "piece",
+      "spawns": [
+        {
+          "type": "minecraft:stray",
+          "weight": 100,
+          "minCount": 4,
+          "maxCount": 9
+        }
+      ]
+    }
+  }
+}

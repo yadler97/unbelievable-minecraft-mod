@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "unbelievablemod:abandoned_lumberjack_house",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 987654321,
+    "spacing": 100,
+    "separation": 50,
+    "type": "minecraft:random_spread"
+  }
+}

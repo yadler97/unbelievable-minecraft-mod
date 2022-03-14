@@ -1,0 +1,11 @@
+{
+  "type": "unbelievablemod:mountain_fortress",
+
+  "config": {
+    "start_pool": "unbelievablemod:mountain_fortress/start_pool",
+    "size": 6
+  },
+  "biomes": "#unbelievablemod:has_structure/mountain_fortress_biomes",
+  "adapt_noise": true,
+  "spawn_overrides": {}
+}

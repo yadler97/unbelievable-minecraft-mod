@@ -59,8 +59,8 @@ public class Wrench extends TieredItem implements Vanishable {
 
     private boolean checkIfActionIsEligible(BlockState blockState) {
         Block block = blockState.getBlock();
-        if (block.getTags().contains(BlockTags.BEDS.getName()) || block.getTags().contains(BlockTags.BUTTONS.getName()) ||
-                block.getTags().contains(BlockTags.FENCE_GATES.getName()) || block.getTags().contains(BlockTags.WALL_SIGNS.getName()) ||
+
+        if (blockState.is(BlockTags.BEDS) || blockState.is(BlockTags.BUTTONS) || blockState.is(BlockTags.FENCE_GATES) || blockState.is(BlockTags.WALL_SIGNS) ||
                 block == Blocks.LEVER || block == Blocks.TRIPWIRE_HOOK || block == Blocks.LADDER || block == Blocks.BELL || block == Blocks.WALL_TORCH ||
                 block == Blocks.SOUL_WALL_TORCH || block == Blocks.REDSTONE_WALL_TORCH || block == Blocks.PISTON_HEAD || block == Blocks.MOVING_PISTON) {
             return false;

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:village",
+
+  "config": {
+    "start_pool": "unbelievablemod:castle_ruins/start_pool",
+    "size": 6
+  },
+  "biomes": "#unbelievablemod:has_structure/castle_ruins_biomes",
+  "adapt_noise": true,
+  "spawn_overrides": {}
+}
