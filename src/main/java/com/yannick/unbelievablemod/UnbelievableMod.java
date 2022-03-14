@@ -1,10 +1,7 @@
 package com.yannick.unbelievablemod;
 
 import com.yannick.unbelievablemod.advancements.ModCriteriaTriggers;
-import com.yannick.unbelievablemod.setup.ClientSetup;
-import com.yannick.unbelievablemod.setup.Config;
-import com.yannick.unbelievablemod.setup.ModStats;
-import com.yannick.unbelievablemod.setup.Registration;
+import com.yannick.unbelievablemod.setup.*;
 import com.yannick.unbelievablemod.world.OreGeneration;
 import com.yannick.unbelievablemod.world.Structures;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -35,6 +32,7 @@ public class UnbelievableMod {
         event.enqueueWork(() -> {
             OreGeneration.registerOres();
             ModStats.init();
+            RecipeTypes.init();
         });
     }
 }

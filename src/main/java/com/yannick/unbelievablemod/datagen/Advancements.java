@@ -4,7 +4,6 @@ import com.yannick.unbelievablemod.UnbelievableMod;
 import com.yannick.unbelievablemod.advancements.criteron.*;
 import com.yannick.unbelievablemod.setup.ModTags;
 import com.yannick.unbelievablemod.setup.Registration;
-import com.yannick.unbelievablemod.world.Structures;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.RequirementsStrategy;
