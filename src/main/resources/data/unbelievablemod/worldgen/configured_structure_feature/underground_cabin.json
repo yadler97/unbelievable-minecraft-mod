@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:village",
+  "type": "unbelievablemod:underground_cabin",
 
   "config": {
     "start_pool": "unbelievablemod:underground_cabin/start_pool",
