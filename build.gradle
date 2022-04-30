@@ -15,7 +15,7 @@ apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.1.0-dev'
+version = '1.1.0'
 group = 'com.yannick.unbelievablemod'
 archivesBaseName = 'unbelievablemod'
 
@@ -83,7 +83,7 @@ repositories {
 
 dependencies {
     implementation 'org.jetbrains:annotations:23.0.0'
-    minecraft 'net.minecraftforge:forge:1.18.2-40.0.17'
+    minecraft 'net.minecraftforge:forge:1.18.2-40.1.0'
 }
 
 jar {
