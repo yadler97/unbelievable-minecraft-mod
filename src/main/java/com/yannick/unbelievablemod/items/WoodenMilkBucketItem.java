@@ -52,7 +52,7 @@ public class WoodenMilkBucketItem extends TieredItem {
         return ItemUtils.startUsingInstantly(level, player, interactionHand);
     }
 
-    public ItemStack getContainerItem(ItemStack itemStack) {
+    /*public ItemStack getContainerItem(ItemStack itemStack) {
         if (!hasContainerItem(itemStack)) {
             return ItemStack.EMPTY;
         }
@@ -60,7 +60,7 @@ public class WoodenMilkBucketItem extends TieredItem {
         ItemStack returnStack = new ItemStack(Registration.WOODEN_BUCKET.get());
         returnStack.setDamageValue(remainDurability);
         return returnStack;
-    }
+    }*/
 
     @Override
     public net.minecraftforge.common.capabilities.ICapabilityProvider initCapabilities(ItemStack stack, @javax.annotation.Nullable net.minecraft.nbt.CompoundTag nbt) {

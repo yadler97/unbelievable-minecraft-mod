@@ -5,8 +5,6 @@ import com.yannick.unbelievablemod.setup.ModStats;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -26,10 +24,9 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.network.NetworkHooks;
 
 public class SawmillBlock extends Block {
-    private static final Component CONTAINER_TITLE = new TranslatableComponent("container.unbelievablemod.sawmill");
+    private static final Component CONTAINER_TITLE = Component.translatable("container.unbelievablemod.sawmill");
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 9.0D, 16.0D);
 
@@ -57,7 +54,8 @@ public class SawmillBlock extends Block {
                     return new SawmillMenu(windowId, playerInventory, ContainerLevelAccess.create(level, pos));
                 }
             };
-            NetworkHooks.openGui((ServerPlayer) player, containerProvider, pos);
+            //NetworkHooks.openGui((ServerPlayer) player, containerProvider, pos);
+            player.openMenu(containerProvider);
             player.awardStat(ModStats.INTERACT_WITH_SAWMILL);
             return InteractionResult.CONSUME;
         }

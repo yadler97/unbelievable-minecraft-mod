@@ -4,6 +4,7 @@ import com.yannick.unbelievablemod.advancements.ModCriteriaTriggers;
 import com.yannick.unbelievablemod.setup.*;
 import com.yannick.unbelievablemod.world.OreGeneration;
 import com.yannick.unbelievablemod.world.Structures;
+import com.yannick.unbelievablemod.world.biome.BiomeModifiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -26,6 +27,8 @@ public class UnbelievableMod {
         Structures.DEFERRED_REGISTRY_STRUCTURE.register(bus);
         bus.addListener(this::setup);
         bus.addListener(ClientSetup::setup);
+
+        BiomeModifiers.register(bus);
     }
 
     private void setup(final FMLCommonSetupEvent event) {

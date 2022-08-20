@@ -100,16 +100,16 @@ public class ShelfRenderer implements BlockEntityRenderer<ShelfBlockEntity> {
                                 itemstack.getItem() == Items.REDSTONE_TORCH || itemstack.getItem() == Items.COBWEB || itemstack.getItem() == Items.HANGING_ROOTS) {
                             poseStack.scale(0.375F, 0.375F, 0.375F);
                             poseStack.translate(-0.5D, -0.5D, -0.5D);
-                            Minecraft.getInstance().getBlockRenderer().renderSingleBlock(blockItem.getBlock().defaultBlockState(), poseStack, multiBufferSource, packedLight, packedOverlay, net.minecraftforge.client.model.data.EmptyModelData.INSTANCE);
+                            Minecraft.getInstance().getBlockRenderer().renderSingleBlock(blockItem.getBlock().defaultBlockState(), poseStack, multiBufferSource, packedLight, packedOverlay);
                         } else if (itemstack.getItem() == Items.REPEATER || itemstack.getItem() == Items.COMPARATOR || itemstack.getItem() == Items.BREWING_STAND || itemstack.getItem() == Items.CAULDRON || itemstack.getItem() == Items.HOPPER ||
                                 itemstack.getItem() == Items.CAMPFIRE || itemstack.getItem() == Items.SOUL_CAMPFIRE) {
                             poseStack.scale(0.25F, 0.25F, 0.25F);
                             poseStack.translate(-0.5D, -0.75D, -0.5D);
-                            Minecraft.getInstance().getBlockRenderer().renderSingleBlock(blockItem.getBlock().defaultBlockState(), poseStack, multiBufferSource, packedLight, packedOverlay, net.minecraftforge.client.model.data.EmptyModelData.INSTANCE);
+                            Minecraft.getInstance().getBlockRenderer().renderSingleBlock(blockItem.getBlock().defaultBlockState(), poseStack, multiBufferSource, packedLight, packedOverlay);
                         } else if (itemstack.getItem() == Items.LEVER || itemstack.is(ItemTags.BUTTONS)) {
                             poseStack.scale(0.375F, 0.375F, 0.375F);
                             poseStack.translate(-0.5D, -0.5D, -0.5D);
-                            Minecraft.getInstance().getBlockRenderer().renderSingleBlock(blockItem.getBlock().defaultBlockState().setValue(BlockStateProperties.ATTACH_FACE, AttachFace.FLOOR), poseStack, multiBufferSource, packedLight, packedOverlay, net.minecraftforge.client.model.data.EmptyModelData.INSTANCE);
+                            Minecraft.getInstance().getBlockRenderer().renderSingleBlock(blockItem.getBlock().defaultBlockState().setValue(BlockStateProperties.ATTACH_FACE, AttachFace.FLOOR), poseStack, multiBufferSource, packedLight, packedOverlay);
                         } else {
                             poseStack.scale(0.5F, 0.5F, 0.5F);
                             poseStack.translate(0.0D, -0.125D, 0.0D);

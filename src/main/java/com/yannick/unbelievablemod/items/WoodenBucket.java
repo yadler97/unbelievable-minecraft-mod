@@ -36,7 +36,7 @@ public class WoodenBucket extends TieredItem implements Vanishable, DispensibleC
     public WoodenBucket(Fluid content, net.minecraft.world.item.Tiers tier, Item.Properties properties) {
         super(tier, properties);
         this.content = content;
-        this.fluidSupplier = content.delegate;
+        this.fluidSupplier = net.minecraftforge.registries.ForgeRegistries.FLUIDS.getDelegateOrThrow(content);
     }
 
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {

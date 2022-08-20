@@ -1,70 +1,99 @@
 package com.yannick.unbelievablemod.world.structures;
 
-import com.yannick.unbelievablemod.UnbelievableMod;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.yannick.unbelievablemod.world.Structures;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.NoiseColumn;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
-import net.minecraft.world.level.levelgen.structure.PostPlacementProcessor;
-import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
-import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import net.minecraft.world.level.levelgen.WorldGenerationContext;
+import net.minecraft.world.level.levelgen.heightproviders.HeightProvider;
+import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pools.JigsawPlacement;
-import org.apache.logging.log4j.Level;
+import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 import java.util.Optional;
 
-public class MountainFortressStructure extends StructureFeature<JigsawConfiguration> {
+public class MountainFortressStructure extends Structure {
 
-    public MountainFortressStructure() {
-        super(JigsawConfiguration.CODEC, MountainFortressStructure::createPiecesGenerator, PostPlacementProcessor.NONE);
+    public static final Codec<MountainFortressStructure> CODEC = RecordCodecBuilder.<MountainFortressStructure>mapCodec(instance ->
+            instance.group(MountainFortressStructure.settingsCodec(instance),
+                    StructureTemplatePool.CODEC.fieldOf("start_pool").forGetter(structure -> structure.startPool),
+                    ResourceLocation.CODEC.optionalFieldOf("start_jigsaw_name").forGetter(structure -> structure.startJigsawName),
+                    Codec.intRange(0, 30).fieldOf("size").forGetter(structure -> structure.size),
+                    HeightProvider.CODEC.fieldOf("start_height").forGetter(structure -> structure.startHeight),
+                    Heightmap.Types.CODEC.optionalFieldOf("project_start_to_heightmap").forGetter(structure -> structure.projectStartToHeightmap),
+                    Codec.intRange(1, 128).fieldOf("max_distance_from_center").forGetter(structure -> structure.maxDistanceFromCenter)
+            ).apply(instance, MountainFortressStructure::new)).codec();
+
+    private final Holder<StructureTemplatePool> startPool;
+    private final Optional<ResourceLocation> startJigsawName;
+    private final int size;
+    private final HeightProvider startHeight;
+    private final Optional<Heightmap.Types> projectStartToHeightmap;
+    private final int maxDistanceFromCenter;
+
+    public MountainFortressStructure(Structure.StructureSettings config,
+                         Holder<StructureTemplatePool> startPool,
+                         Optional<ResourceLocation> startJigsawName,
+                         int size,
+                         HeightProvider startHeight,
+                         Optional<Heightmap.Types> projectStartToHeightmap,
+                         int maxDistanceFromCenter)
+    {
+        super(config);
+        this.startPool = startPool;
+        this.startJigsawName = startJigsawName;
+        this.size = size;
+        this.startHeight = startHeight;
+        this.projectStartToHeightmap = projectStartToHeightmap;
+        this.maxDistanceFromCenter = maxDistanceFromCenter;
+    }
+
+    private static boolean extraSpawningChecks(Structure.GenerationContext context) {
+        ChunkPos chunkpos = context.chunkPos();
+
+        int landHeight = context.chunkGenerator().getFirstOccupiedHeight(
+                chunkpos.getMinBlockX(),
+                chunkpos.getMinBlockZ(),
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                context.heightAccessor(),
+                context.randomState());
+
+        return landHeight >= 150 && landHeight <= 200;
     }
 
     @Override
-    public GenerationStep.Decoration step() {
-        return GenerationStep.Decoration.SURFACE_STRUCTURES;
-    }
+    public Optional<Structure.GenerationStub> findGenerationPoint(Structure.GenerationContext context) {
 
-    private static boolean isFeatureChunk(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
-        BlockPos blockPos = context.chunkPos().getWorldPosition();
-        int landHeight = context.chunkGenerator().getFirstOccupiedHeight(blockPos.getX(), blockPos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
-        if (landHeight < 150 || landHeight > 200) {
-            return false;
-        }
-
-        NoiseColumn columnOfBlocks = context.chunkGenerator().getBaseColumn(blockPos.getX(), blockPos.getZ(), context.heightAccessor());
-        BlockState topBlock = columnOfBlocks.getBlock(landHeight);
-
-        return topBlock.getFluidState().isEmpty();
-    }
-
-    public static Optional<PieceGenerator<JigsawConfiguration>> createPiecesGenerator(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
-        if (!MountainFortressStructure.isFeatureChunk(context)) {
+        if (!MountainFortressStructure.extraSpawningChecks(context)) {
             return Optional.empty();
         }
 
-        BlockPos pos = context.chunkPos().getMiddleBlockPosition(0);
+        int startY = this.startHeight.sample(context.random(), new WorldGenerationContext(context.chunkGenerator(), context.heightAccessor()));
 
-        Optional<PieceGenerator<JigsawConfiguration>> structurePiecesGenerator =
+        ChunkPos chunkPos = context.chunkPos();
+        BlockPos blockPos = new BlockPos(chunkPos.getMinBlockX(), startY, chunkPos.getMinBlockZ());
+
+        Optional<Structure.GenerationStub> structurePiecesGenerator =
                 JigsawPlacement.addPieces(
                         context,
-                        PoolElementStructurePiece::new,
-                        pos,
+                        this.startPool,
+                        this.startJigsawName,
+                        this.size,
+                        blockPos,
                         false,
-                        true
-                );
-
-        if (structurePiecesGenerator.isPresent()) {
-            UnbelievableMod.LOGGER.log(Level.DEBUG, "Mountain Fortress at " + pos);
-        }
+                        this.projectStartToHeightmap,
+                        this.maxDistanceFromCenter);
 
         return structurePiecesGenerator;
     }
 
-    public String getFeatureName() {
-        return this.getRegistryName().toString();
+    @Override
+    public StructureType<?> type() {
+        return Structures.MOUNTAIN_FORTRESS.get();
     }
 }

@@ -11,12 +11,12 @@ import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.advancements.AdvancementProvider;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.function.Consumer;
@@ -33,8 +33,8 @@ public class Advancements extends AdvancementProvider {
         Advancement rootAdvancement = Advancement.Builder.advancement()
                 .display(
                         Registration.ROSEGOLD_SWORD.get(),
-                        new TranslatableComponent("advancements.mod.root.title"),
-                        new TranslatableComponent("advancements.mod.root.description"),
+                        Component.translatable("advancements.mod.root.title"),
+                        Component.translatable("advancements.mod.root.description"),
                         new ResourceLocation(UnbelievableMod.MODID, "textures/block/diorite_bricks.png"),
                         FrameType.TASK,
                         false,
@@ -46,8 +46,8 @@ public class Advancements extends AdvancementProvider {
         Advancement interiorDesignerAdvancement = Advancement.Builder.advancement()
                 .display(
                     Registration.OAK_CHAIR.get(),
-                    new TranslatableComponent("advancements.mod.professional_interior_designer.title"),
-                    new TranslatableComponent("advancements.mod.professional_interior_designer.description"),
+                    Component.translatable("advancements.mod.professional_interior_designer.title"),
+                    Component.translatable("advancements.mod.professional_interior_designer.description"),
                     null,
                     FrameType.TASK,
                     true,
@@ -63,8 +63,8 @@ public class Advancements extends AdvancementProvider {
         Advancement.Builder.advancement()
                 .display(
                         Items.MAGENTA_DYE,
-                        new TranslatableComponent("advancements.mod.colorful.title"),
-                        new TranslatableComponent("advancements.mod.colorful.description"),
+                        Component.translatable("advancements.mod.colorful.title"),
+                        Component.translatable("advancements.mod.colorful.description"),
                         null,
                         FrameType.TASK,
                         true,
@@ -93,8 +93,8 @@ public class Advancements extends AdvancementProvider {
         Advancement.Builder.advancement()
                 .display(
                         Registration.OAK_SHELF.get(),
-                        new TranslatableComponent("advancements.mod.all_my_treasure.title"),
-                        new TranslatableComponent("advancements.mod.all_my_treasure.description"),
+                        Component.translatable("advancements.mod.all_my_treasure.title"),
+                        Component.translatable("advancements.mod.all_my_treasure.description"),
                         null,
                         FrameType.GOAL,
                         true,
@@ -111,8 +111,8 @@ public class Advancements extends AdvancementProvider {
         Advancement.Builder.advancement()
                 .display(
                         Registration.COPPER_WRENCH.get(),
-                        new TranslatableComponent("advancements.mod.let_me_fix_this.title"),
-                        new TranslatableComponent("advancements.mod.let_me_fix_this.description"),
+                        Component.translatable("advancements.mod.let_me_fix_this.title"),
+                        Component.translatable("advancements.mod.let_me_fix_this.description"),
                         null,
                         FrameType.TASK,
                         true,
@@ -125,8 +125,8 @@ public class Advancements extends AdvancementProvider {
         Advancement rubyAdvancement = Advancement.Builder.advancement()
                 .display(
                         Registration.RUBY.get(),
-                        new TranslatableComponent("advancements.mod.is_that_redstone.title"),
-                        new TranslatableComponent("advancements.mod.is_that_redstone.description"),
+                        Component.translatable("advancements.mod.is_that_redstone.title"),
+                        Component.translatable("advancements.mod.is_that_redstone.description"),
                         null,
                         FrameType.TASK,
                         true,
@@ -139,8 +139,8 @@ public class Advancements extends AdvancementProvider {
         Advancement.Builder.advancement()
                 .display(
                         Registration.DEPTH_METER.get(),
-                        new TranslatableComponent("advancements.mod.is_this_deep_enough.title"),
-                        new TranslatableComponent("advancements.mod.is_this_deep_enough.description"),
+                        Component.translatable("advancements.mod.is_this_deep_enough.title"),
+                        Component.translatable("advancements.mod.is_this_deep_enough.description"),
                         null,
                         FrameType.TASK,
                         true,
@@ -153,8 +153,8 @@ public class Advancements extends AdvancementProvider {
         Advancement sapphireAdvancement = Advancement.Builder.advancement()
                 .display(
                         Registration.SAPPHIRE.get(),
-                        new TranslatableComponent("advancements.mod.diamonds_wait.title"),
-                        new TranslatableComponent("advancements.mod.diamonds_wait.description"),
+                        Component.translatable("advancements.mod.diamonds_wait.title"),
+                        Component.translatable("advancements.mod.diamonds_wait.description"),
                         null,
                         FrameType.TASK,
                         true,
@@ -167,8 +167,8 @@ public class Advancements extends AdvancementProvider {
         Advancement.Builder.advancement()
                 .display(
                         Registration.SAPPHIRE_SHOVEL.get(),
-                        new TranslatableComponent("advancements.mod.terraforming_specialist.title"),
-                        new TranslatableComponent("advancements.mod.terraforming_specialist.description"),
+                        Component.translatable("advancements.mod.terraforming_specialist.title"),
+                        Component.translatable("advancements.mod.terraforming_specialist.description"),
                         null,
                         FrameType.TASK,
                         true,
@@ -181,8 +181,8 @@ public class Advancements extends AdvancementProvider {
         Advancement.Builder.advancement()
                 .display(
                         Registration.WOODEN_BUCKET.get(),
-                        new TranslatableComponent("advancements.mod.it_fulfilled_its_purpose.title"),
-                        new TranslatableComponent("advancements.mod.it_fulfilled_its_purpose.description"),
+                        Component.translatable("advancements.mod.it_fulfilled_its_purpose.title"),
+                        Component.translatable("advancements.mod.it_fulfilled_its_purpose.description"),
                         null,
                         FrameType.TASK,
                         true,
@@ -198,8 +198,8 @@ public class Advancements extends AdvancementProvider {
         Advancement rosegoldBaseAdvancement = Advancement.Builder.advancement()
                 .display(
                         Registration.ROSEGOLD_PICKAXE.get(),
-                        new TranslatableComponent("advancements.mod.small_upgrade.title"),
-                        new TranslatableComponent("advancements.mod.small_upgrade.description"),
+                        Component.translatable("advancements.mod.small_upgrade.title"),
+                        Component.translatable("advancements.mod.small_upgrade.description"),
                         null,
                         FrameType.TASK,
                         true,
@@ -221,8 +221,8 @@ public class Advancements extends AdvancementProvider {
         Advancement.Builder.advancement()
                 .display(
                         Registration.ROSEGOLD_CHESTPLATE.get(),
-                        new TranslatableComponent("advancements.mod.bigger_upgrade.title"),
-                        new TranslatableComponent("advancements.mod.bigger_upgrade.description"),
+                        Component.translatable("advancements.mod.bigger_upgrade.title"),
+                        Component.translatable("advancements.mod.bigger_upgrade.description"),
                         null,
                         FrameType.GOAL,
                         true,
@@ -244,50 +244,50 @@ public class Advancements extends AdvancementProvider {
         Advancement longAgoAdvancement = Advancement.Builder.advancement()
                 .display(
                         Blocks.CRACKED_STONE_BRICKS,
-                        new TranslatableComponent("advancements.mod.long_ago.title"),
-                        new TranslatableComponent("advancements.mod.long_ago.description"),
+                        Component.translatable("advancements.mod.long_ago.title"),
+                        Component.translatable("advancements.mod.long_ago.description"),
                         null,
                         FrameType.TASK,
                         true,
                         false,
                         false)
-                .addCriterion("find_castle_ruins", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(createKey("castle_ruins"))))
+                .addCriterion("find_castle_ruins", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(createKey("castle_ruins"))))
                 .parent(rootAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/long_ago")));
 
         Advancement lumberjackHouseAdvancement = Advancement.Builder.advancement()
                 .display(
                         Blocks.SPRUCE_LOG,
-                        new TranslatableComponent("advancements.mod.hello_anybody_here.title"),
-                        new TranslatableComponent("advancements.mod.hello_anybody_here.description"),
+                        Component.translatable("advancements.mod.hello_anybody_here.title"),
+                        Component.translatable("advancements.mod.hello_anybody_here.description"),
                         null,
                         FrameType.TASK,
                         true,
                         false,
                         false)
-                .addCriterion("find_lumberjack_house", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(createKey("abandoned_lumberjack_house"))))
+                .addCriterion("find_lumberjack_house", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(createKey("abandoned_lumberjack_house"))))
                 .parent(longAgoAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/hello_anybody_here")));
 
         Advancement undergroundCabinAdvancement = Advancement.Builder.advancement()
                 .display(
                         Items.BLACK_CANDLE,
-                        new TranslatableComponent("advancements.mod.anybody_living_down_here.title"),
-                        new TranslatableComponent("advancements.mod.anybody_living_down_here.description"),
+                        Component.translatable("advancements.mod.anybody_living_down_here.title"),
+                        Component.translatable("advancements.mod.anybody_living_down_here.description"),
                         null,
                         FrameType.TASK,
                         true,
                         false,
                         false)
-                .addCriterion("find_underground_cabin", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(createKey("underground_cabin"))))
+                .addCriterion("find_underground_cabin", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(createKey("underground_cabin"))))
                 .parent(lumberjackHouseAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/anybody_living_down_here")));
 
         Advancement.Builder.advancement()
                 .display(
                         Items.COPPER_INGOT,
-                        new TranslatableComponent("advancements.mod.high_tech_mining.title"),
-                        new TranslatableComponent("advancements.mod.high_tech_mining.description"),
+                        Component.translatable("advancements.mod.high_tech_mining.title"),
+                        Component.translatable("advancements.mod.high_tech_mining.description"),
                         null,
                         FrameType.GOAL,
                         true,
@@ -300,19 +300,19 @@ public class Advancements extends AdvancementProvider {
         Advancement.Builder.advancement()
                 .display(
                         Registration.ANDESITE_PILLAR.get(),
-                        new TranslatableComponent("advancements.mod.mountaineer.title"),
-                        new TranslatableComponent("advancements.mod.mountaineer.description"),
+                        Component.translatable("advancements.mod.mountaineer.title"),
+                        Component.translatable("advancements.mod.mountaineer.description"),
                         null,
                         FrameType.TASK,
                         true,
                         false,
                         false)
-                .addCriterion("find_mountain_fortress", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(createKey("mountain_fortress"))))
+                .addCriterion("find_mountain_fortress", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(createKey("mountain_fortress"))))
                 .parent(undergroundCabinAdvancement)
                 .save(consumer, String.valueOf(new ResourceLocation(UnbelievableMod.MODID, "mod/mountaineer")));
     }
 
-    private static ResourceKey<ConfiguredStructureFeature<?, ?>> createKey(String name) {
-        return ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(UnbelievableMod.MODID, name));
+    private static ResourceKey<Structure> createKey(String name) {
+        return ResourceKey.create(Registry.STRUCTURE_REGISTRY, new ResourceLocation(UnbelievableMod.MODID, name));
     }
 }

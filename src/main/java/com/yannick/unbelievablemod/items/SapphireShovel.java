@@ -3,11 +3,9 @@ package com.yannick.unbelievablemod.items;
 import com.yannick.unbelievablemod.advancements.ModCriteriaTriggers;
 import com.yannick.unbelievablemod.setup.Config;
 import net.minecraft.ChatFormatting;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -35,7 +33,7 @@ public class SapphireShovel extends ShovelItem {
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flags) {
         super.appendHoverText(stack, level, list, flags);
         int distance = stack.hasTag() ? stack.getTag().getInt("distance") : 0;
-        list.add(new TranslatableComponent("message.sapphire_distance.tooltip", Integer.toString(distance)).withStyle(ChatFormatting.BLUE));
+        list.add(Component.translatable("message.sapphire_distance.tooltip", Integer.toString(distance)).withStyle(ChatFormatting.BLUE));
     }
 
     @Override
@@ -48,7 +46,7 @@ public class SapphireShovel extends ShovelItem {
         }
         stack.getTag().putInt("distance", distance);
         if (level.isClientSide()) {
-            player.sendMessage(new TranslatableComponent("message.sapphire_distance.change", Integer.toString(distance)), Util.NIL_UUID);
+            player.sendSystemMessage(Component.translatable("message.sapphire_distance.change", Integer.toString(distance)));
         }
         return InteractionResultHolder.success(stack);
     }

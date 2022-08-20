@@ -1,0 +1,5 @@
+{
+  "type": "unbelievablemod:ores",
+  "biomes": "#minecraft:is_overworld",
+  "feature": "unbelievablemod:ore_ruby_large_placed_jungle"
+}

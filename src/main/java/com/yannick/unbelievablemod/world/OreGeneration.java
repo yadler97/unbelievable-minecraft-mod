@@ -1,21 +1,15 @@
 package com.yannick.unbelievablemod.world;
 
 import com.yannick.unbelievablemod.setup.Registration;
-import com.yannick.unbelievablemod.UnbelievableMod;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.placement.*;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,22 +66,6 @@ public class OreGeneration {
         JUNGLE_ORES.add(ORE_RUBY_SMALL_PLACED_JUNGLE);
         JUNGLE_ORES.add(ORE_RUBY_LARGE_PLACED_JUNGLE);
         JUNGLE_ORES.add(ORE_RUBY_BURIED_PLACED_JUNGLE);
-    }
-
-    @Mod.EventBusSubscriber(modid = UnbelievableMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-    public static class ForgeBusSubscriber {
-
-        @SubscribeEvent(priority = EventPriority.HIGHEST)
-        public static void biomeLoading(BiomeLoadingEvent event) {
-            List<Holder<PlacedFeature>> features = event.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES);
-            switch (event.getCategory()) {
-                case NETHER -> features.addAll(OreGeneration.NETHER_ORES);
-                case THEEND -> features.addAll(OreGeneration.END_ORES);
-                case SAVANNA, DESERT -> features.addAll(OreGeneration.SAVANNA_DESERT_ORES);
-                case JUNGLE -> features.addAll(OreGeneration.JUNGLE_ORES);
-                default -> features.addAll(OreGeneration.OVERWORLD_ORES);
-            }
-        }
     }
 
     private static List<PlacementModifier> orePlacement(PlacementModifier amountModifier, PlacementModifier heightModifier) {

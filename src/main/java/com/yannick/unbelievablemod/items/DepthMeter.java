@@ -3,7 +3,6 @@ package com.yannick.unbelievablemod.items;
 import com.yannick.unbelievablemod.advancements.ModCriteriaTriggers;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -25,7 +24,7 @@ public class DepthMeter extends Item {
     public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> list, TooltipFlag flags) {
         super.appendHoverText(itemStack, level, list, flags);
         int depth = getCurrentDepth(itemStack);
-        list.add(new TranslatableComponent("message.depth.tooltip", Integer.toString(depth)).withStyle(ChatFormatting.BLUE));
+        list.add(Component.translatable("message.depth.tooltip", Integer.toString(depth)).withStyle(ChatFormatting.BLUE));
     }
 
     public void inventoryTick(ItemStack itemStack, Level level, Entity entity, int itemSlot, boolean isSelected) {

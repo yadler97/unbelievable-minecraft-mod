@@ -20,7 +20,7 @@ public class MilkCowWithWoodenBucketEvent {
     @SubscribeEvent
     public static void onMilkCowWithWoodenBucket(PlayerInteractEvent.EntityInteract event) {
         Entity target = event.getTarget();
-        Player player = event.getPlayer();
+        Player player = event.getEntity();
         ItemStack itemStack = player.getMainHandItem();
 
         if (target instanceof Cow && !((Cow) target).isBaby() && itemStack.is(Registration.WOODEN_BUCKET.get())) {

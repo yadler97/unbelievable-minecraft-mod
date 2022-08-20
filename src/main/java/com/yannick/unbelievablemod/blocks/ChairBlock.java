@@ -95,7 +95,7 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
     public InteractionResult use(BlockState blockState, Level level, BlockPos pos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
         if (!level.isClientSide) {
             ItemStack stack = player.getItemInHand(interactionHand);
-            if (stack.is(ItemTags.CARPETS)) {
+            if (stack.is(ItemTags.WOOL_CARPETS)) {
                 if (blockState.getValue(CUSHION)) {
                     level.setBlock(pos, blockState.setValue(CUSHION, Boolean.FALSE), UPDATE_ALL);
                     level.playSound(null, pos, SoundEvents.WOOL_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
